@@ -1,0 +1,59 @@
+{
+  "script": "code/p1_curate_supplementary.py",
+  "seed": 0,
+  "started_at": 1778898922.7037842,
+  "finished_at": 1778899144.7381232,
+  "elapsed_s": 222.03433895111084,
+  "args": {
+    "out_dir": "data/supplementary_corpus",
+    "n_per_source": 67,
+    "sources": "arxiv,sec,doclaynet",
+    "min_text_chars": 5000,
+    "max_text_chars": 30000,
+    "width_px": 1024,
+    "max_height_px": 4096,
+    "font_size": 14,
+    "seed": 0
+  },
+  "git_commit": "unknown",
+  "sources_requested": [
+    "arxiv",
+    "sec",
+    "doclaynet"
+  ],
+  "sources_used": [
+    "arxiv",
+    "sec",
+    "doclaynet"
+  ],
+  "per_source_summary": {
+    "arxiv": {
+      "needed": 67,
+      "fetched": 201,
+      "rendered": 67,
+      "total_chars": 1424666,
+      "total_expected_tokens": 395094,
+      "existing_at_start": 0
+    },
+    "sec": {
+      "needed": 67,
+      "fetched": 134,
+      "rendered": 67,
+      "total_chars": 1339009,
+      "total_expected_tokens": 288923,
+      "existing_at_start": 0
+    },
+    "doclaynet": {
+      "needed": 67,
+      "fetched": 134,
+      "rendered": 67,
+      "total_chars": 0,
+      "total_expected_tokens": 0,
+      "existing_at_start": 0
+    }
+  },
+  "n_docs_total": 201,
+  "n_docs_new_this_run": 201,
+  "n_docs_skipped_idempotent": 0,
+  "notes": "Supplementary corpus expansion -- ~200 fresh docs across arXiv (table-filtered), SEC-EDGAR-style filings, and DocLayNet pages. Manifest schema matches data/public_corpus/manifest.json so code/p1_cuda_resweep.py can consume it via --manifest. Native images are passed through; text-only sources are rendered via Pillow ImageDraw at width=1024, adaptive height up to 4096."
+}

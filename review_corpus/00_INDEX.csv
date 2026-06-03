@@ -1,0 +1,61 @@
+doc_id,class,source_corpus,tokens_emitted,max_new_tokens,label,production_patterns,empty_rows_count,image_present,txt_present,hint
+arxiv_table_000015,04_latex_structure_loop,ccdv/arxiv-summarization,9622,9622,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_000266,02_filled_cell_repeat,ccdv/arxiv-summarization,6984,6984,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'e\\nu| \\quad \\delta\\rangle\\lang'
+arxiv_table_000277,02_filled_cell_repeat,ccdv/arxiv-summarization,10578,10578,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '\\} \\} \\} \\} \\} \\} \\} \\} \\} \\} '
+arxiv_table_000295,02_filled_cell_repeat,ccdv/arxiv-summarization,13971,13971,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Sub/superscript expression repeating: ' ^-1 _2 ^1+i _du_1 _2 _1 ^-1 _'
+arxiv_table_000371,03_latex_math_cmd_loop,ccdv/arxiv-summarization,14533,14533,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,"Single LaTeX command (\qquad / \quad / \,) repeated"
+arxiv_table_000381,04_latex_structure_loop,ccdv/arxiv-summarization,11539,11539,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_000392,02_filled_cell_repeat,ccdv/arxiv-summarization,10211,10211,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Sub/superscript expression repeating: '0(t)}u_{u_0(t)}u_{u_0(t)}u_{u_'
+arxiv_table_000401,02_filled_cell_repeat,ccdv/arxiv-summarization,8019,8019,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 't(\\tau\\right)\\left(\\tau\\right)'
+arxiv_table_000404,02_filled_cell_repeat,ccdv/arxiv-summarization,14693,14693,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,"LaTeX expression repeating: ' \\ , \\vec{v} \\ , \\vec{r} \\ , \\'"
+arxiv_table_000461,02_filled_cell_repeat,ccdv/arxiv-summarization,14083,14083,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Sub/superscript expression repeating: ' _ 2 _ 2 _ 2 _ 2 _ 2 _ 2 _ 2 _'
+arxiv_table_000473,06_latex_backslash_loop,ccdv/arxiv-summarization,10125,10125,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Pure \ \ \ backslash-space run
+arxiv_table_000609,05_latex_ampersand_loop,ccdv/arxiv-summarization,10420,10420,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,TeX column-separator & runaway
+arxiv_table_000655,02_filled_cell_repeat,ccdv/arxiv-summarization,10281,10281,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '\\ }\\ }\\ }\\ }\\ }\\ }\\ }\\ }\\ }\\ }'
+arxiv_table_000668,02_filled_cell_repeat,ccdv/arxiv-summarization,11894,11894,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'ght] \\right] \\right] \\right] \\'
+arxiv_table_000690,02_filled_cell_repeat,ccdv/arxiv-summarization,11703,11703,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '( \\left( \\left( \\left( \\left( '
+arxiv_table_000766,02_filled_cell_repeat,ccdv/arxiv-summarization,9064,9064,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '}\\}\\cdot\\vec{q}\\}\\cdot\\vec{q}\\'
+arxiv_table_000775,04_latex_structure_loop,ccdv/arxiv-summarization,13356,13356,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_000818,13_punct_run,ccdv/arxiv-summarization,12861,12861,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Char '}' dominates (100% of last 2000)
+arxiv_table_000855,02_filled_cell_repeat,ccdv/arxiv-summarization,14322,14322,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '{d}^{r}\\mathrm{p}\\ i\\ \\mathrm{'
+arxiv_table_000889,02_filled_cell_repeat,ccdv/arxiv-summarization,18000,18000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'tbackslash~\\textbackslash~\\tex'
+arxiv_table_000948,02_filled_cell_repeat,ccdv/arxiv-summarization,11455,11455,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'c}\\})\\cap(\\{\\mathscr{c}\\})\\cap'
+arxiv_table_000999,05_latex_ampersand_loop,ccdv/arxiv-summarization,10575,10575,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,TeX column-separator & runaway
+arxiv_table_001032,03_latex_math_cmd_loop,ccdv/arxiv-summarization,6598,6598,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,"Single LaTeX command (\qquad / \quad / \,) repeated"
+arxiv_table_001037,04_latex_structure_loop,ccdv/arxiv-summarization,11773,11773,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_001070,05_latex_ampersand_loop,ccdv/arxiv-summarization,12196,12196,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,TeX column-separator & runaway
+arxiv_table_001072,06_latex_backslash_loop,ccdv/arxiv-summarization,11026,11026,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Pure \ \ \ backslash-space run
+arxiv_table_001158,04_latex_structure_loop,ccdv/arxiv-summarization,7099,7099,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_001212,06_latex_backslash_loop,ccdv/arxiv-summarization,13152,13152,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Pure \ \ \ backslash-space run
+arxiv_table_001256,02_filled_cell_repeat,ccdv/arxiv-summarization,14974,14974,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'left( \\frac{d}{dt}e(\\delta t) '
+arxiv_table_001281,02_filled_cell_repeat,ccdv/arxiv-summarization,13363,13363,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '\\limits\\limits\\limits\\limits\\l'
+arxiv_table_001302,02_filled_cell_repeat,ccdv/arxiv-summarization,6000,6000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'c{|\\mathbf{k}|}{2}\\bigr] \\exp\\'
+arxiv_table_001319,04_latex_structure_loop,ccdv/arxiv-summarization,8008,8008,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_001321,06_latex_backslash_loop,ccdv/arxiv-summarization,10000,10000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Pure \ \ \ backslash-space run
+arxiv_table_001342,04_latex_structure_loop,ccdv/arxiv-summarization,9770,9770,budget_truncated,,0,True,True,Spot-check rescued: LaTeX outer structure with cycling inner content
+arxiv_table_001358,02_filled_cell_repeat,ccdv/arxiv-summarization,6000,6000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '\\ f\\}f\\right\\rangle\\nonumber\\ '
+arxiv_table_001429,02_filled_cell_repeat,ccdv/arxiv-summarization,15499,15499,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'lambda}\\}\\{\\frac{\\partial}{\\pa'
+arxiv_table_001556,02_filled_cell_repeat,ccdv/arxiv-summarization,13419,13419,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: 'ight| \\right| \\right| \\right| '
+arxiv_table_001579,02_filled_cell_repeat,ccdv/arxiv-summarization,13037,13037,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,LaTeX expression repeating: '\\rangle \\leftlbrack \\rhoho \\{2'
+doclaynet_DocLayNet-v1.1_000059,13_punct_run,ds4sd/DocLayNet-v1.1,6000,6000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Char '.' dominates (100% of last 2000)
+docvqa_fglc0003_p1,BOUNDARY,lmms-lab/DocVQA,12000,0,positive_runaway,,0,True,True,Emitted <|im_end|> at the cap boundary (ambiguous: cap-hit or natural EOS)
+docvqa_gjhp0000_p1,01_html_phantom_row,lmms-lab/DocVQA,12000,12000,positive_runaway,,0,True,True,Hundreds of empty <tr><td></td></tr> rows
+docvqa_jqbg0227_p1,08_count_up_bullet,,12000,12000,,ngram_repeat,0,True,True,Sequential numbered-list items
+docvqa_kshm0227_p6,01_html_phantom_row,lmms-lab/DocVQA,12000,0,positive_pattern_ngram_repeat+empty_rows,"ngram_repeat,empty_rows",566,True,True,Hundreds of empty <tr><td></td></tr> rows
+docvqa_kshm0227_p7,01_html_phantom_row,lmms-lab/DocVQA,12000,0,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Hundreds of empty <tr><td></td></tr> rows
+docvqa_nlcf0227_p3,09_tag_spam_structural,lmms-lab/DocVQA,12000,0,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Fake <page_number>/<watermark>/<signature> tags repeated
+docvqa_pgjw0227_p5,BOUNDARY,,4000,4000,,,0,True,True,Emitted <|im_end|> at the cap boundary (ambiguous: cap-hit or natural EOS)
+docvqa_srgb0228_p2,01_html_phantom_row,lmms-lab/DocVQA,12000,12000,positive_pattern_empty_rows,empty_rows,159,True,True,Hundreds of empty <tr><td></td></tr> rows
+funsd_003_003,01_html_phantom_row,nielsr/funsd,12000,0,positive_pattern_empty_rows,empty_rows,203,True,True,Hundreds of empty <tr><td></td></tr> rows
+funsd_019_019,01_html_phantom_row,nielsr/funsd,12000,0,positive_pattern_ngram_repeat+empty_rows,"ngram_repeat,empty_rows",444,True,True,Hundreds of empty <tr><td></td></tr> rows
+funsd_105_105,01_html_phantom_row,,12000,12000,,"ngram_repeat,empty_rows",262,True,True,Hundreds of empty <tr><td></td></tr> rows
+invoice_0158,11_bare_word_repeat,mychen76/invoices-and-receipts_ocr_v2,12000,0,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Word 'PEPP' repeated 500+ times
+sec_edgar_000013239_000151,12_dash_run,eloukas/edgar-corpus,6000,6000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Separator dashes filling output
+sec_edgar_000040874_000108,12_dash_run,eloukas/edgar-corpus,6000,6000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Separator dashes filling output
+sec_edgar_000064803_000230,12_dash_run,eloukas/edgar-corpus,10389,10389,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Separator dashes filling output
+sec_edgar_000079732_000180,13_punct_run,eloukas/edgar-corpus,10450,10450,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Char '=' dominates (100% of last 2000)
+sec_edgar_000099193_000167,13_punct_run,eloukas/edgar-corpus,13338,13338,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Char '-' dominates (50% of last 2000)
+sec_edgar_000205402_000154,FALSE_POSITIVE,eloukas/edgar-corpus,6000,6000,budget_truncated,,0,True,True,"Legitimate long content, no loop, truncated by max_new_tokens budget"
+sec_edgar_000801124_000148,12_dash_run,eloukas/edgar-corpus,7470,7470,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,Separator dashes filling output
+sec_edgar_000814153_000115,14_constant_value_repeat,eloukas/edgar-corpus,6000,6000,positive_pattern_ngram_repeat,ngram_repeat,0,True,True,"Same value '10,551' repeated 357+ times"
+table_N005_C04_s05000,99_UNCLASSIFIED,,12000,0,control,,0,False,True,No clear loop pattern detected automatically

@@ -145,6 +145,41 @@ cached trajectory artifacts so it runs end-to-end without a GPU.
   layer and writes it in the same schema as `fix/halt_direction_L24.pt` (used to produce off-L24
   direction variants).
 
+## Corpus build + activation extraction
+
+These scripts build the evaluation corpora and the per-document activation cache that the
+probing/patching scripts above read. They are the upstream data-prep stage of the pipeline.
+
+- **`p1_build_public_corpus.py`** — assembles `data/public_corpus/` (images + `manifest.json` +
+  `provenance.json`) by sampling public HF datasets — `lmms-lab/DocVQA` (validation), `nielsr/funsd`
+  (train), `mychen76/invoices-and-receipts_ocr_v2` (valid) — plus the LoopyLeaderboard adversarial
+  fixtures, normalizing each to PNG and recording `source` / `source_idx` / truncated `sha256`.
+  - Run: `python code/p1_build_public_corpus.py --n-docvqa 60 --n-funsd 30 --n-invoices 30 --seed 0`.
+- **`p1_curate_supplementary.py`** — builds `data/supplementary_corpus/` (201 renders that the P16
+  and `paper_n` cohorts depend on) from three public sources: `ccdv/arxiv-summarization`
+  (table-filtered), `eloukas/edgar-corpus` (SEC-EDGAR-style, with `JanosAudran/financial-reports-sec`
+  / `nlpaueb/finer-139` / synthetic fallbacks), and `ds4sd/DocLayNet` (native pages). Text sources are
+  rendered to wide PNG pages via Pillow; native pages are re-encoded. Idempotent; seed-pinned.
+  - Run: `python code/p1_curate_supplementary.py --sources arxiv,sec,doclaynet --n-per-source 67 --seed 0`.
+  - See `data/README.md` for the per-category source/rendering table and the regeneration recipe.
+- **`p1_make_synthetic_tables.py`** — parametric markdown-table render generator at row counts
+  N ∈ {5, 10, 20, 50, 100}, 4–6 columns, randomized cell content. Ground-truth row count is exact, so
+  phantom-row count for any generation is unambiguous (`generated_rows − N`). Writes
+  `data/synthetic/`.
+- **`p1_make_synthetic_tables_dense.py`** — tier-2 escalation of the above: more rows (200, 400),
+  8 columns, longer cells, smaller fonts, tighter spacing, to push the model past clean-halt behavior.
+  Writes `data/synthetic_dense/`.
+- **`p1_cache_harness.py`** — the **activation-extraction** stage. Given a trigger record
+  (image, prompt, generated tokens, decision-moment position), runs a single teacher-forced forward
+  pass over `[prompt + generated]` and caches a coarse band of layers (`--every-k-layers`, default 4 →
+  9 of 36 layers) to `results/activations/<doc_id>/`. This is what writes the **`hidden_states.pt`**
+  `(num_kept_layers, T, hidden)` and **`layer_indices.pt`** `(num_kept_layers,)` tensors (plus
+  `residual_norms.pt`, optional windowed `attn_weights.pt`, and `meta.json`) that
+  `q1_combined_probe.py`, `p3_logit_lens.py`, `p3_he_patch.py`, and the other probing/patching scripts
+  consume. Applies the mandatory `lm_head` tie fix; bf16; `attn_implementation="eager"` when saving
+  attention, `"sdpa"` otherwise.
+  - Run (smoke-test): `python code/p1_cache_harness.py --doc table_N005_C04_s05000`.
+
 ## Shared helpers
 
 - **`_constants.py`** — canonical model id / revision, layer sets (`KEPT_LAYERS`, `TEST_LAYERS`),
