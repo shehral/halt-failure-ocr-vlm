@@ -1,0 +1,17 @@
+{
+  "seed": 0,
+  "model_revision": "main",
+  "dtype": "bfloat16",
+  "attn_impl": "sdpa",
+  "git_commit": "unknown",
+  "started_at": "1779162613",
+  "finished_at": "2026-05-19T04:01:49.168571Z",
+  "script": "scripts/hpc/job_cross_family_p2.sbatch (Stage 1 \u2014 SmolDocling-256M)",
+  "args": {
+    "max_new_tokens": 12000,
+    "do_sample": false,
+    "candidates": "_stage1_candidates.json"
+  },
+  "slurm_id": "<placeholder>",
+  "preregistration": "docs/cross_family_p2_preregistration.md"
+}

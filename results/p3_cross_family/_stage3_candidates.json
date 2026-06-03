@@ -1,0 +1,15 @@
+[
+  {
+    "name": "InternVL3-8B",
+    "model_id": "OpenGVLab/InternVL3-8B",
+    "revision": "main",
+    "loader": "AutoModel",
+    "trust_remote_code": true,
+    "expected_eos_token_id": null,
+    "apply_lm_head_fix": false,
+    "yaml_prompt": false,
+    "expected_load_gb": 16,
+    "expected_per_doc_minutes": 9,
+    "rationale": "Cross-vendor cross-family generality test (InternViT + InternLM3 / Qwen2.5 hybrid backbone). The closest open-weight non-Qwen-VL VLM at comparable scale. Different .chat() inference path \u2014 uses the InternVL3 adapter in p3_cross_model_replicate.py."
+  }
+]

@@ -1,0 +1,306 @@
+{
+  "experiment": "P19_system_prompt_counterfactual",
+  "prompts_tested": [
+    "P0_baseline",
+    "P1_stop_after_last_row",
+    "P2_stop_at_blank",
+    "P3_end_with_stop_marker",
+    "P4_max_1000_tokens",
+    "P5_concise_no_repeat",
+    "P6_exact_once"
+  ],
+  "n_docs": 5,
+  "raw_results": [
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P0_baseline",
+      "prompt_text": "Extract the text from this document.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P1_stop_after_last_row",
+      "prompt_text": "Extract the text from this document. Stop after the last row of content.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P2_stop_at_blank",
+      "prompt_text": "Extract the text. If you see a blank row, stop immediately.",
+      "tokens": 11377,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P3_end_with_stop_marker",
+      "prompt_text": "Extract the text. End with <STOP> after the last data row.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P4_max_1000_tokens",
+      "prompt_text": "Extract the text. Maximum output is 1000 tokens.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P5_concise_no_repeat",
+      "prompt_text": "Extract the text concisely. Do not repeat blank rows.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "prompt_key": "P6_exact_once",
+      "prompt_text": "Extract the text. Each row of the table should appear exactly once.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P0_baseline",
+      "prompt_text": "Extract the text from this document.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P1_stop_after_last_row",
+      "prompt_text": "Extract the text from this document. Stop after the last row of content.",
+      "tokens": 609,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P2_stop_at_blank",
+      "prompt_text": "Extract the text. If you see a blank row, stop immediately.",
+      "tokens": 609,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P3_end_with_stop_marker",
+      "prompt_text": "Extract the text. End with <STOP> after the last data row.",
+      "tokens": 599,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P4_max_1000_tokens",
+      "prompt_text": "Extract the text. Maximum output is 1000 tokens.",
+      "tokens": 673,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P5_concise_no_repeat",
+      "prompt_text": "Extract the text concisely. Do not repeat blank rows.",
+      "tokens": 594,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p7",
+      "prompt_key": "P6_exact_once",
+      "prompt_text": "Extract the text. Each row of the table should appear exactly once.",
+      "tokens": 726,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P0_baseline",
+      "prompt_text": "Extract the text from this document.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P1_stop_after_last_row",
+      "prompt_text": "Extract the text from this document. Stop after the last row of content.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P2_stop_at_blank",
+      "prompt_text": "Extract the text. If you see a blank row, stop immediately.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P3_end_with_stop_marker",
+      "prompt_text": "Extract the text. End with <STOP> after the last data row.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P4_max_1000_tokens",
+      "prompt_text": "Extract the text. Maximum output is 1000 tokens.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P5_concise_no_repeat",
+      "prompt_text": "Extract the text concisely. Do not repeat blank rows.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "prompt_key": "P6_exact_once",
+      "prompt_text": "Extract the text. Each row of the table should appear exactly once.",
+      "tokens": 12000,
+      "stop": "max_new_tokens"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P0_baseline",
+      "prompt_text": "Extract the text from this document.",
+      "tokens": 1038,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P1_stop_after_last_row",
+      "prompt_text": "Extract the text from this document. Stop after the last row of content.",
+      "tokens": 1038,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P2_stop_at_blank",
+      "prompt_text": "Extract the text. If you see a blank row, stop immediately.",
+      "tokens": 1038,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P3_end_with_stop_marker",
+      "prompt_text": "Extract the text. End with <STOP> after the last data row.",
+      "tokens": 1048,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P4_max_1000_tokens",
+      "prompt_text": "Extract the text. Maximum output is 1000 tokens.",
+      "tokens": 1044,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P5_concise_no_repeat",
+      "prompt_text": "Extract the text concisely. Do not repeat blank rows.",
+      "tokens": 1041,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "funsd_105_105",
+      "prompt_key": "P6_exact_once",
+      "prompt_text": "Extract the text. Each row of the table should appear exactly once.",
+      "tokens": 38,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P0_baseline",
+      "prompt_text": "Extract the text from this document.",
+      "tokens": 805,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P1_stop_after_last_row",
+      "prompt_text": "Extract the text from this document. Stop after the last row of content.",
+      "tokens": 809,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P2_stop_at_blank",
+      "prompt_text": "Extract the text. If you see a blank row, stop immediately.",
+      "tokens": 833,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P3_end_with_stop_marker",
+      "prompt_text": "Extract the text. End with <STOP> after the last data row.",
+      "tokens": 840,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P4_max_1000_tokens",
+      "prompt_text": "Extract the text. Maximum output is 1000 tokens.",
+      "tokens": 809,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P5_concise_no_repeat",
+      "prompt_text": "Extract the text concisely. Do not repeat blank rows.",
+      "tokens": 804,
+      "stop": "eos"
+    },
+    {
+      "doc_id": "docvqa_kshm0227_p6",
+      "prompt_key": "P6_exact_once",
+      "prompt_text": "Extract the text. Each row of the table should appear exactly once.",
+      "tokens": 1643,
+      "stop": "eos"
+    }
+  ],
+  "aggregate": [
+    {
+      "prompt_key": "P1_stop_after_last_row",
+      "median_reduction_pct": 0.0,
+      "n_red_ge_50pct": 1,
+      "n_caphit_avoided": 1,
+      "n": 5
+    },
+    {
+      "prompt_key": "P2_stop_at_blank",
+      "median_reduction_pct": 0.0,
+      "n_red_ge_50pct": 1,
+      "n_caphit_avoided": 2,
+      "n": 5
+    },
+    {
+      "prompt_key": "P3_end_with_stop_marker",
+      "median_reduction_pct": 0.0,
+      "n_red_ge_50pct": 1,
+      "n_caphit_avoided": 1,
+      "n": 5
+    },
+    {
+      "prompt_key": "P4_max_1000_tokens",
+      "median_reduction_pct": 0.0,
+      "n_red_ge_50pct": 1,
+      "n_caphit_avoided": 1,
+      "n": 5
+    },
+    {
+      "prompt_key": "P5_concise_no_repeat",
+      "median_reduction_pct": 0.0,
+      "n_red_ge_50pct": 1,
+      "n_caphit_avoided": 1,
+      "n": 5
+    },
+    {
+      "prompt_key": "P6_exact_once",
+      "median_reduction_pct": 0.0,
+      "n_red_ge_50pct": 2,
+      "n_caphit_avoided": 1,
+      "n": 5
+    }
+  ],
+  "passing_prompts": [],
+  "PRE_REG_VERDICT": "FAIL"
+}

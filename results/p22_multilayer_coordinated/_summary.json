@@ -1,0 +1,120 @@
+{
+  "experiment": "P22_multilayer_coordinated_patching",
+  "target_layers": [
+    16,
+    20,
+    24
+  ],
+  "off_target_layers": [
+    0,
+    4,
+    8
+  ],
+  "patch_window": [
+    580,
+    620
+  ],
+  "shifted_window": [
+    50,
+    100
+  ],
+  "n_docs": 2,
+  "raw_results": [
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "intervention": "real_coord_zero_target_window",
+      "tokens": 12000,
+      "stop": "max_new_tokens",
+      "reduction_pct": 0.0,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "intervention": "ctl_off_target_zero_window",
+      "tokens": 1,
+      "stop": "eos",
+      "reduction_pct": 99.99166666666667,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "intervention": "ctl_norm_match_rand_target_window",
+      "tokens": 12000,
+      "stop": "max_new_tokens",
+      "reduction_pct": 0.0,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "intervention": "ctl_shifted_window",
+      "tokens": 12000,
+      "stop": "max_new_tokens",
+      "reduction_pct": 0.0,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "intervention": "real_coord_zero_target_window",
+      "tokens": 12000,
+      "stop": "max_new_tokens",
+      "reduction_pct": 0.0,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "intervention": "ctl_off_target_zero_window",
+      "tokens": 1,
+      "stop": "eos",
+      "reduction_pct": 99.99166666666667,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "intervention": "ctl_norm_match_rand_target_window",
+      "tokens": 12000,
+      "stop": "max_new_tokens",
+      "reduction_pct": 0.0,
+      "baseline": 12000
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "intervention": "ctl_shifted_window",
+      "tokens": 12000,
+      "stop": "max_new_tokens",
+      "reduction_pct": 0.0,
+      "baseline": 12000
+    }
+  ],
+  "aggregate": [
+    {
+      "intervention": "ctl_norm_match_rand_target_window",
+      "n": 2,
+      "mean": 0.0,
+      "median": 0.0,
+      "n_pass_30pct": 0
+    },
+    {
+      "intervention": "ctl_off_target_zero_window",
+      "n": 2,
+      "mean": 99.99166666666667,
+      "median": 99.99166666666667,
+      "n_pass_30pct": 2
+    },
+    {
+      "intervention": "ctl_shifted_window",
+      "n": 2,
+      "mean": 0.0,
+      "median": 0.0,
+      "n_pass_30pct": 0
+    },
+    {
+      "intervention": "real_coord_zero_target_window",
+      "n": 2,
+      "mean": 0.0,
+      "median": 0.0,
+      "n_pass_30pct": 0
+    }
+  ],
+  "PRE_REG_VERDICT": "FAIL",
+  "interpretation": "PASS -> distributed-mechanism hypothesis supported; coordinated intervention is the right class. FAIL -> mechanism is even-more-distributed, in training data, or in autoregressive decoding objective. Phase-23 training-prior probe becomes next candidate."
+}

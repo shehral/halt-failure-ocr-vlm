@@ -1,0 +1,262 @@
+{
+  "status": "CANNOT_RECOMPUTE_AT_HIGHER_N_AS_THEIR_NULL",
+  "what_was_requested": "Recompute the block-shuffle null for the cross-doc LODO probe at higher N_perm (>=5000) and at B=5/10/20, to push the resolution floor 1/(N_perm+1) well below the Bonferroni threshold 0.005.",
+  "what_is_actually_cached": {
+    "round2_block_shuffle_null.json": {
+      "block_size": 10,
+      "N_perm": 300,
+      "fields_per_layer": [
+        "observed",
+        "null_mean",
+        "null_max",
+        "null_p95",
+        "p_value_block_shuffle",
+        "n_valid_perm"
+      ],
+      "contains_raw_per_position_scores": false,
+      "L24": {
+        "observed": 0.8941483333333333,
+        "null_mean": 0.4993830018935237,
+        "null_max": 0.7886778880582287,
+        "null_p95": 0.6761581124382281,
+        "p_value_block_shuffle": 0.0033222591362126247,
+        "n_valid_perm": 300
+      },
+      "sig_layers": [
+        20,
+        24,
+        28,
+        35
+      ],
+      "bonferroni_threshold": 0.005
+    },
+    "round2_block_shuffle_null_B20.json": {
+      "block_size": 20,
+      "N_perm": 300,
+      "fields_per_layer": [
+        "observed",
+        "null_mean",
+        "null_max",
+        "null_p95",
+        "p_value_block_shuffle",
+        "n_valid_perm"
+      ],
+      "contains_raw_per_position_scores": false,
+      "L24": {
+        "observed": 0.8941483333333333,
+        "null_mean": 0.5112787333884385,
+        "null_max": 0.8786468461065683,
+        "null_p95": 0.7346769122279058,
+        "p_value_block_shuffle": 0.0033222591362126247,
+        "n_valid_perm": 300
+      },
+      "sig_layers": [
+        20,
+        24
+      ],
+      "bonferroni_threshold": 0.005
+    }
+  },
+  "resolution_floor_finding": {
+    "N_perm_used_both_files": 300,
+    "resolution_floor_1_over_Nperm_plus_1": 0.0033222591362126247,
+    "reported_L24_p_value": 0.0033222591362126247,
+    "identity": "reported p (0.0033222591362126247) == 1/(300+1) EXACTLY",
+    "verified_identity": true,
+    "implication": "The published L24 p=0.0033 is the 1/(N_perm+1) RESOLUTION FLOOR at N_perm=300, i.e. ZERO of 300 block-permuted nulls equalled-or-exceeded the observed AUC=0.89415 (exceedance count = 0; p = (0+1)/(300+1)). It is a CEILING on detectable significance, not a measured exceedance rate. It sits BELOW the Bonferroni threshold 0.005 only because 1/301=0.00332 < 0.005; with one more decade of permutations the true p could be anywhere in [0, 0.00332]. The claim 'p=0.0033' should be reported as 'p < 0.0033 (0/300 exceedances at N_perm=300), resolution-floor-limited' \u2014 it is NOT a higher-resolution measured value."
+  },
+  "why_higher_N_recompute_is_not_possible_from_cache": [
+    "Neither block-shuffle JSON stores the raw per-position probe scores, labels, doc indices, or block indices that the permutation actually shuffled. Only summary stats are cached: observed, null_mean, null_max, null_p95, p_value_block_shuffle, n_valid_perm. A block-shuffle null at higher N_perm requires the ORDERED per-position score vector + its block structure; these are absent.",
+    "results/p2_pilot/probing_dataset.npz DOES cache the raw residual-stream activations (X: 4400x10x2048, y, doc, gen_pos, region, layer_indices, token_id, rep_density) for the same 8-doc LODO design (3 pos + 5 docvqa ctl, 600 in-loop / 4400 positions). HOWEVER, re-deriving the probe SCORES from these activations requires the EXACT p3 LODO probe protocol, which could NOT be reproduced: every reconstruction attempted (logistic regression and difference-of-means; per-doc / global / train-only z-scoring; pooled and per-fold scoring) produced the WRONG per-fold AUC PATTERN. Observed target per-fold AUCs are {kshm_p6:0.803 (lowest), srgb_p2:0.976 (highest), pgjw_p5:0.904}; every reconstruction instead ranked kshm_p6 HIGHEST (~0.93-0.99) and pgjw_p5 lowest. Mean ranged 0.69-0.95 vs target 0.8941. The exact in-loop label window (the LODO summary lists per-doc loop_start = 512/1065/367), position subsampling at position_step=50, and/or feature construction used by p3_full_probe are not recoverable to the precision needed to legitimately reproduce THEIR null distribution.",
+    "Per heuristic #51 / the no-fabrication rule: recomputing a null from a probe whose AUC does not match the published 0.8941 would produce a p-value for a DIFFERENT probe and mislabel it as a higher-resolution version of the published result. NOT DONE."
+  ],
+  "honest_p_value_for_L24": {
+    "value_as_published": 0.0033222591362126247,
+    "correct_interpretation": "p < 0.0033 (resolution-floor-limited, 0/300 exceedances at N_perm=300, B=10 and B=20)",
+    "exceedance_count_implied": 0,
+    "observed_auc": 0.8941483333333333,
+    "null_max_B10": 0.7886778880582287,
+    "null_max_B20": 0.8786468461065683,
+    "note_B20": "At B=20 the null_max rises to 0.8786 (vs 0.7887 at B=10), approaching observed 0.8941 \u2014 longer blocks preserve more autocorrelation, so the null is more conservative and L24's margin shrinks. L24 still has 0/300 exceedances at B=20, but with N_perm=300 the floor cannot resolve below 0.0033."
+  },
+  "bonferroni_survivors": {
+    "threshold": 0.005,
+    "n_layers_tested": 10,
+    "B10_sig_layers": [
+      20,
+      24,
+      28,
+      35
+    ],
+    "B20_sig_layers": [
+      20,
+      24
+    ],
+    "note": "All 'significant' layers are at the SAME floor p=0.0033 (0/300 exceedances); the floor 0.0033 < 0.005, so any layer with 0/300 exceedances 'survives' Bonferroni trivially. At B=20 only L20 and L24 survive (L28, L35 drop out as longer blocks make their nulls more conservative). The survivor SET is informative; the survivor P-VALUES are all floor-limited and identical."
+  },
+  "per_layer_B10": {
+    "0": {
+      "observed": 0.7474383333333332,
+      "null_mean": 0.5040738112427054,
+      "null_max": 0.8023472616068946,
+      "null_p95": 0.6661122586478037,
+      "p_value_block_shuffle": 0.016611295681063124,
+      "n_valid_perm": 300
+    },
+    "4": {
+      "observed": 0.7801833333333331,
+      "null_mean": 0.5075198698187029,
+      "null_max": 0.793145301453968,
+      "null_p95": 0.655710466045926,
+      "p_value_block_shuffle": 0.006644518272425249,
+      "n_valid_perm": 300
+    },
+    "8": {
+      "observed": 0.6597933333333333,
+      "null_mean": 0.5030489236493789,
+      "null_max": 0.7511591348924682,
+      "null_p95": 0.663096357537137,
+      "p_value_block_shuffle": 0.05647840531561462,
+      "n_valid_perm": 300
+    },
+    "12": {
+      "observed": 0.555445,
+      "null_mean": 0.49889617940933384,
+      "null_max": 0.7936000924929122,
+      "null_p95": 0.6516607651430971,
+      "p_value_block_shuffle": 0.30564784053156147,
+      "n_valid_perm": 300
+    },
+    "16": {
+      "observed": 0.6192966666666666,
+      "null_mean": 0.49571909394893066,
+      "null_max": 0.7673405153833288,
+      "null_p95": 0.6695158653302964,
+      "p_value_block_shuffle": 0.12624584717607973,
+      "n_valid_perm": 300
+    },
+    "20": {
+      "observed": 0.8583599999999999,
+      "null_mean": 0.5012688175648395,
+      "null_max": 0.7860626411040589,
+      "null_p95": 0.6672971340945474,
+      "p_value_block_shuffle": 0.0033222591362126247,
+      "n_valid_perm": 300
+    },
+    "24": {
+      "observed": 0.8941483333333333,
+      "null_mean": 0.4993830018935237,
+      "null_max": 0.7886778880582287,
+      "null_p95": 0.6761581124382281,
+      "p_value_block_shuffle": 0.0033222591362126247,
+      "n_valid_perm": 300
+    },
+    "28": {
+      "observed": 0.82242,
+      "null_mean": 0.48498901872765515,
+      "null_max": 0.7770545942105574,
+      "null_p95": 0.657297206109636,
+      "p_value_block_shuffle": 0.0033222591362126247,
+      "n_valid_perm": 300
+    },
+    "32": {
+      "observed": 0.6711333333333332,
+      "null_mean": 0.5006044993595571,
+      "null_max": 0.7269429711056622,
+      "null_p95": 0.6505776115018983,
+      "p_value_block_shuffle": 0.026578073089700997,
+      "n_valid_perm": 300
+    },
+    "35": {
+      "observed": 0.7251216666666668,
+      "null_mean": 0.5015312626596559,
+      "null_max": 0.7190169603947382,
+      "null_p95": 0.6472665756809561,
+      "p_value_block_shuffle": 0.0033222591362126247,
+      "n_valid_perm": 300
+    }
+  },
+  "per_layer_B20": {
+    "0": {
+      "observed": 0.7474383333333332,
+      "null_mean": 0.5061073402350856,
+      "null_max": 0.8035125327347549,
+      "null_p95": 0.6702113412815324,
+      "p_value_block_shuffle": 0.019933554817275746,
+      "n_valid_perm": 300
+    },
+    "4": {
+      "observed": 0.7801833333333331,
+      "null_mean": 0.4980059671475738,
+      "null_max": 0.8178497942386832,
+      "null_p95": 0.7051231439393939,
+      "p_value_block_shuffle": 0.013289036544850499,
+      "n_valid_perm": 300
+    },
+    "8": {
+      "observed": 0.6597933333333333,
+      "null_mean": 0.5041953470421234,
+      "null_max": 0.7742496349955076,
+      "null_p95": 0.6843045201018118,
+      "p_value_block_shuffle": 0.07641196013289037,
+      "n_valid_perm": 300
+    },
+    "12": {
+      "observed": 0.555445,
+      "null_mean": 0.490847387916747,
+      "null_max": 0.7884933737646002,
+      "null_p95": 0.6821851548470821,
+      "p_value_block_shuffle": 0.26578073089701,
+      "n_valid_perm": 300
+    },
+    "16": {
+      "observed": 0.6192966666666666,
+      "null_mean": 0.49053265048593725,
+      "null_max": 0.7654013541562676,
+      "null_p95": 0.6759764880284327,
+      "p_value_block_shuffle": 0.1461794019933555,
+      "n_valid_perm": 300
+    },
+    "20": {
+      "observed": 0.8583599999999999,
+      "null_mean": 0.5044664551028815,
+      "null_max": 0.8119393449317979,
+      "null_p95": 0.7141657838358819,
+      "p_value_block_shuffle": 0.0033222591362126247,
+      "n_valid_perm": 300
+    },
+    "24": {
+      "observed": 0.8941483333333333,
+      "null_mean": 0.5112787333884385,
+      "null_max": 0.8786468461065683,
+      "null_p95": 0.7346769122279058,
+      "p_value_block_shuffle": 0.0033222591362126247,
+      "n_valid_perm": 300
+    },
+    "28": {
+      "observed": 0.82242,
+      "null_mean": 0.4944305824893981,
+      "null_max": 0.8599496714959569,
+      "null_p95": 0.7085193111776268,
+      "p_value_block_shuffle": 0.009966777408637873,
+      "n_valid_perm": 300
+    },
+    "32": {
+      "observed": 0.6711333333333332,
+      "null_mean": 0.49945775804168346,
+      "null_max": 0.748751663961039,
+      "null_p95": 0.6766733427304167,
+      "p_value_block_shuffle": 0.05647840531561462,
+      "n_valid_perm": 300
+    },
+    "35": {
+      "observed": 0.7251216666666668,
+      "null_mean": 0.4986844408265726,
+      "null_max": 0.7830247001150675,
+      "null_p95": 0.652483907840589,
+      "p_value_block_shuffle": 0.006644518272425249,
+      "n_valid_perm": 300
+    }
+  },
+  "recommendation": "To obtain a TRUE higher-resolution p-value, re-run the p3 LODO probe from results/p2_pilot/probing_dataset.npz with the original p3 protocol script (currently 'unknown' in provenance.json) and cache the ordered per-position score vector + block indices, THEN run N_perm>=5000. Until then, report L24 as 'p < 0.0033 (resolution-floor-limited at N_perm=300), survives Bonferroni at B=10 and B=20'. Do NOT report p=0.0033 as a measured value."
+}

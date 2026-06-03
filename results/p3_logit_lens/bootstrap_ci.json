@@ -1,0 +1,106 @@
+{
+  "n_positives": 4,
+  "n_controls": 9,
+  "positive_docs": [
+    "docvqa_jqbg0227_p1",
+    "docvqa_kshm0227_p7",
+    "docvqa_srgb0228_p2",
+    "funsd_105_105"
+  ],
+  "control_docs": [
+    "docvqa_fglc0003_p1",
+    "docvqa_gyjf0226_p1",
+    "docvqa_jrcy0227_p98",
+    "docvqa_kshm0227_p6",
+    "docvqa_kzbn0226_p31",
+    "docvqa_nlcf0227_p3",
+    "docvqa_pgjw0227_p5",
+    "docvqa_txpp0227_p9",
+    "docvqa_yghg0065_p1"
+  ],
+  "B": 10000,
+  "seed": 20260602,
+  "per_layer": {
+    "L00": {
+      "mean": -0.8157343996895685,
+      "ci_low": -3.319438700874646,
+      "ci_high": 1.2161212795310545,
+      "excludes_zero": false,
+      "boot_mean": -0.8204261323187085,
+      "boot_se": 1.170360833353093
+    },
+    "L04": {
+      "mean": 0.7354871564441261,
+      "ci_low": -0.9154077228572632,
+      "ci_high": 2.410732498764991,
+      "excludes_zero": false,
+      "boot_mean": 0.7590804223444727,
+      "boot_se": 0.8611113814786983
+    },
+    "L08": {
+      "mean": 1.3495919704437256,
+      "ci_low": -0.0936864184008705,
+      "ci_high": 2.814533066418435,
+      "excludes_zero": false,
+      "boot_mean": 1.3495611416154436,
+      "boot_se": 0.7573117744939916
+    },
+    "L12": {
+      "mean": 0.5213309261533947,
+      "ci_low": -0.7468400627374651,
+      "ci_high": 1.7897042726476962,
+      "excludes_zero": false,
+      "boot_mean": 0.5134530640807418,
+      "boot_se": 0.6612391718553645
+    },
+    "L16": {
+      "mean": 0.06202274560928345,
+      "ci_low": -0.5884041281623974,
+      "ci_high": 0.7504321208016739,
+      "excludes_zero": false,
+      "boot_mean": 0.057750228011111425,
+      "boot_se": 0.3439078865879398
+    },
+    "L20": {
+      "mean": -0.09899459241165065,
+      "ci_low": -1.1373852624661394,
+      "ci_high": 0.7248286094930433,
+      "excludes_zero": false,
+      "boot_mean": -0.10697988390053313,
+      "boot_se": 0.4890394670709505
+    },
+    "L24": {
+      "mean": -0.41931556165218353,
+      "ci_low": -1.2437971773660845,
+      "ci_high": 0.3375046007335185,
+      "excludes_zero": false,
+      "boot_mean": -0.42079443011565343,
+      "boot_se": 0.4013205818763667
+    },
+    "L28": {
+      "mean": 0.0001468658447265625,
+      "ci_low": -0.5909266203641893,
+      "ci_high": 0.6840632059507892,
+      "excludes_zero": false,
+      "boot_mean": 0.002398301609357199,
+      "boot_se": 0.3268328339111489
+    },
+    "L32": {
+      "mean": 0.480733162826962,
+      "ci_low": -0.5692292357484497,
+      "ci_high": 1.6886700224545266,
+      "excludes_zero": false,
+      "boot_mean": 0.4779457552274068,
+      "boot_se": 0.5720294441469028
+    },
+    "L35": {
+      "mean": 0.33569426006740954,
+      "ci_low": -2.9048876653114952,
+      "ci_high": 3.338561009367306,
+      "excludes_zero": false,
+      "boot_mean": 0.33331169968446095,
+      "boot_se": 1.5788699433177187
+    }
+  },
+  "note": "Bootstrap 95% CIs for logit-lens EOS gap (gap_pos_minus_ctl = mean EOS logit on positives minus controls, read out at each layer). N_pos=4, N_ctl=9 docs; docs resampled with replacement separately for positives and controls, B=10000, seed=20260602. VERDICT: At every sampled layer the 95% bootstrap CI INCLUDES 0, so no layer's gap is significantly different from 0 at N=4/9. L24 gap=-0.4193, CI includes 0 (does NOT exclude 0). L00 gap=-0.8157 is MORE negative than L24 (audit confirmed), but its CI also includes 0. L24 is NOT statistically distinguishable from L20, L28, L00, or L16 (all gap-difference CIs include 0). The 'most negative at L24' claim is an unreliable point estimate at this sample size; with N=4 positives the logit-lens EOS-gap trajectory cannot support a single-layer localization claim. Data source: results/p3_logit_lens/_summary.json per_doc_trajectories."
+}

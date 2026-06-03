@@ -1,0 +1,88 @@
+{
+  "experiment": "P12_sae_redo_v2",
+  "saelens_version": "6.0.0",
+  "n_positives": 22,
+  "n_controls": 56,
+  "k_folds": 5,
+  "pre_reg_thresholds": {
+    "auc": 0.85,
+    "separation_z": 3.0,
+    "stability_cos": 0.7,
+    "min_folds_passing": 3
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "held_out": "arxiv_table_000295",
+      "top_feature_idx": 985,
+      "top_feature_auc": 0.5624127476416266,
+      "smoking_gun_z": 0.224169849503663,
+      "pos_mean": 0.657623827457428,
+      "ctl_mean": 0.41089490056037903,
+      "ctl_std": 1.1006338606343995,
+      "cos_to_first_fold_top_dec": null,
+      "passes_auc": false,
+      "passes_separation": false,
+      "passes_stability": true
+    },
+    {
+      "fold": 1,
+      "held_out": "arxiv_table_000371",
+      "top_feature_idx": 3740,
+      "top_feature_auc": 0.5662938995417449,
+      "smoking_gun_z": 0.2515509518796748,
+      "pos_mean": 1.7670235633850098,
+      "ctl_mean": 1.3829878568649292,
+      "ctl_std": 1.5266716490255128,
+      "cos_to_first_fold_top_dec": 0.38997796177864075,
+      "passes_auc": false,
+      "passes_separation": false,
+      "passes_stability": false
+    },
+    {
+      "fold": 2,
+      "held_out": "arxiv_table_000404",
+      "top_feature_idx": 1611,
+      "top_feature_auc": 0.5431773178659828,
+      "smoking_gun_z": 0.25072622990958615,
+      "pos_mean": 1.7591251134872437,
+      "ctl_mean": 1.3211301565170288,
+      "ctl_std": 1.7469052086339723,
+      "cos_to_first_fold_top_dec": 0.42156344652175903,
+      "passes_auc": false,
+      "passes_separation": false,
+      "passes_stability": false
+    },
+    {
+      "fold": 3,
+      "held_out": "arxiv_table_000461",
+      "top_feature_idx": 7567,
+      "top_feature_auc": 0.5852336504339009,
+      "smoking_gun_z": 0.5757413426326694,
+      "pos_mean": 0.7382913827896118,
+      "ctl_mean": 0.2301417887210846,
+      "ctl_std": 0.8826005468831787,
+      "cos_to_first_fold_top_dec": 0.17696522176265717,
+      "passes_auc": false,
+      "passes_separation": false,
+      "passes_stability": false
+    },
+    {
+      "fold": 4,
+      "held_out": "arxiv_table_000818",
+      "top_feature_idx": 5220,
+      "top_feature_auc": 0.6287149971669698,
+      "smoking_gun_z": 0.4548029834193732,
+      "pos_mean": 0.45182353258132935,
+      "ctl_mean": 0.17491933703422546,
+      "ctl_std": 0.6088442812429199,
+      "cos_to_first_fold_top_dec": 0.13158264756202698,
+      "passes_auc": false,
+      "passes_separation": false,
+      "passes_stability": false
+    }
+  ],
+  "folds_passing_all_criteria": 0,
+  "PRE_REG_VERDICT": "FAIL",
+  "interpretation": "PASS -> CL-18 returns from walked-back (halt-pure feature confirmed). FAIL -> mechanism stays distributed; CL-18 stays walked-back."
+}

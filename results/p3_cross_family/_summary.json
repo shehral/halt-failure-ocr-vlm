@@ -1,0 +1,65 @@
+{
+  "n_models": 1,
+  "n_docs": 4,
+  "docs": [
+    "docvqa_jqbg0227_p1",
+    "docvqa_kshm0227_p7",
+    "funsd_105_105",
+    "docvqa_srgb0228_p2"
+  ],
+  "started_at": "2026-05-19T05:54:36Z",
+  "finished_at": "2026-05-19T06:26:42Z",
+  "elapsed_s": 1926.0,
+  "cuda_dev": "NVIDIA H200",
+  "torch_version": "2.8.0+cu128",
+  "torch_cuda_version": "12.8",
+  "transformers_version": "4.57.6",
+  "per_model": [
+    {
+      "name": "Qwen3-VL-30B-A3B-Instruct",
+      "model_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "revision": "main",
+      "status": "ok",
+      "load_info": {
+        "model_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "revision": "main",
+        "loader": "AutoModelForImageTextToText",
+        "trust_remote_code": false,
+        "apply_lm_head_fix_requested": false,
+        "lm_head_tie_succeeded": null
+      },
+      "n_reproduce": 3,
+      "n_eos": 1,
+      "per_doc": {
+        "docvqa_jqbg0227_p1": {
+          "tokens": 8211,
+          "stop_reason": "eos",
+          "patterns": []
+        },
+        "docvqa_kshm0227_p7": {
+          "tokens": 12000,
+          "stop_reason": "max_new_tokens",
+          "patterns": [
+            "ngram_repeat",
+            "empty_rows"
+          ]
+        },
+        "funsd_105_105": {
+          "tokens": 12000,
+          "stop_reason": "max_new_tokens",
+          "patterns": [
+            "ngram_repeat",
+            "empty_rows"
+          ]
+        },
+        "docvqa_srgb0228_p2": {
+          "tokens": 12000,
+          "stop_reason": "max_new_tokens",
+          "patterns": []
+        }
+      }
+    }
+  ],
+  "verdict": "INSUFFICIENT_DATA",
+  "verdict_detail": "only 1 of 1 models loaded successfully \u2014 verdict abstained."
+}

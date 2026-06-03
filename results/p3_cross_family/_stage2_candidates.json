@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Qwen3-VL-8B-Instruct",
+    "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": "main",
+    "loader": "AutoModelForImageTextToText",
+    "trust_remote_code": false,
+    "expected_eos_token_id": null,
+    "apply_lm_head_fix": false,
+    "yaml_prompt": false,
+    "expected_load_gb": 16,
+    "expected_per_doc_minutes": 8,
+    "rationale": "Same-family scale check vs the Qwen3-VL-4B already tested in Job 8b. Together with Qwen3-VL-4B, isolates the Qwen3-VL generation's behavior at multiple scales \u2014 informs whether failure is generation-recurring within Qwen-VL family."
+  }
+]

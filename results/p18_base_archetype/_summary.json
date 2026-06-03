@@ -1,0 +1,937 @@
+{
+  "experiment": "P18_base_archetype",
+  "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "max_new_tokens": 12000,
+  "base_cap_hit_doc_ids": [
+    "arxiv_table_000404",
+    "arxiv_table_000461",
+    "arxiv_table_000775",
+    "arxiv_table_000889",
+    "arxiv_table_001212",
+    "arxiv_table_001281",
+    "arxiv_table_001556"
+  ],
+  "base_clean_halt_doc_ids": [
+    "arxiv_table_000295",
+    "arxiv_table_000371",
+    "arxiv_table_000818",
+    "arxiv_table_000855",
+    "arxiv_table_001070",
+    "arxiv_table_001256",
+    "arxiv_table_001429",
+    "arxiv_table_001579",
+    "docvqa_fglc0003_p1",
+    "docvqa_gjhp0000_p1",
+    "docvqa_jqbg0227_p1",
+    "docvqa_kshm0227_p6",
+    "docvqa_kshm0227_p7",
+    "docvqa_nlcf0227_p3",
+    "docvqa_srgb0228_p2"
+  ],
+  "n_total_base_cap_hits": 7,
+  "n_total_base_clean_halts": 15,
+  "results": {
+    "L16": {
+      "n_base_cap_hits": 10,
+      "n_base_clean_pos": 7,
+      "n_controls": 15,
+      "base_cap_hit_abs_d_median": 0.5187574468535188,
+      "base_clean_pos_abs_d_median": 0.45279648286756474,
+      "control_abs_d_median": 0.4642750265350154,
+      "ratio_base_cap_over_control": 1.1173494528127377,
+      "ratio_base_cap_over_base_clean_pos": 1.1456746385665864
+    },
+    "L20": {
+      "n_base_cap_hits": 10,
+      "n_base_clean_pos": 7,
+      "n_controls": 15,
+      "base_cap_hit_abs_d_median": 0.9497404428403178,
+      "base_clean_pos_abs_d_median": 0.636605792066886,
+      "control_abs_d_median": 1.222932869063791,
+      "ratio_base_cap_over_control": 0.7766088121970145,
+      "ratio_base_cap_over_base_clean_pos": 1.4918815610470157
+    },
+    "L24": {
+      "n_base_cap_hits": 10,
+      "n_base_clean_pos": 7,
+      "n_controls": 15,
+      "base_cap_hit_abs_d_median": 0.9160030337716754,
+      "base_clean_pos_abs_d_median": 0.7039488669071411,
+      "control_abs_d_median": 0.9955362194999735,
+      "ratio_base_cap_over_control": 0.9201102037570816,
+      "ratio_base_cap_over_base_clean_pos": 1.3012351845897732
+    }
+  },
+  "per_doc": [
+    {
+      "doc_id": "arxiv_table_000295",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.6090924334470085,
+      "explained_variance": 0.08453842997550964,
+      "tokens_emitted": 812,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000295",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": -0.7486766750351994,
+      "explained_variance": 0.08000319451093674,
+      "tokens_emitted": 812,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000295",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.7721534615483785,
+      "explained_variance": 0.08041787147521973,
+      "tokens_emitted": 812,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000404",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": -0.6757820390246452,
+      "explained_variance": 0.0710463896393776,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000404",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 1.0930393553956679,
+      "explained_variance": 0.07450969517230988,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000404",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 1.0347978166305094,
+      "explained_variance": 0.07439786195755005,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000461",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 0.3745217313029541,
+      "explained_variance": 0.0741448849439621,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000461",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 0.5526624992632824,
+      "explained_variance": 0.07573572546243668,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000461",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 0.5138494346182226,
+      "explained_variance": 0.08096440881490707,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000775",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 1.2147685980817449,
+      "explained_variance": 0.08526888489723206,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000775",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 1.5941796677481188,
+      "explained_variance": 0.1093544140458107,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000775",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": -1.521084705800085,
+      "explained_variance": 0.10563436895608902,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000818",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.45279648286756474,
+      "explained_variance": 0.0948411375284195,
+      "tokens_emitted": 4184,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000818",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 0.636605792066886,
+      "explained_variance": 0.09566492587327957,
+      "tokens_emitted": 4184,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000818",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.8251420748476994,
+      "explained_variance": 0.10786043107509613,
+      "tokens_emitted": 4184,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000855",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.066567166431349,
+      "explained_variance": 0.05256430432200432,
+      "tokens_emitted": 4088,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000855",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": -0.06532183123921491,
+      "explained_variance": 0.04830828309059143,
+      "tokens_emitted": 4088,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000855",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.22222559718996446,
+      "explained_variance": 0.053067754954099655,
+      "tokens_emitted": 4088,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000889",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 0.24982600713453773,
+      "explained_variance": 0.07787124067544937,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000889",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 0.5680492255985088,
+      "explained_variance": 0.08335747569799423,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000889",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 0.49298401827307997,
+      "explained_variance": 0.08537440747022629,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001212",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 1.2080621338874182,
+      "explained_variance": 0.4115966558456421,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001212",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 1.288094007995081,
+      "explained_variance": 0.37648653984069824,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001212",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 1.3031791663117551,
+      "explained_variance": 0.3622748553752899,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001256",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.3522592440524325,
+      "explained_variance": 0.07478278130292892,
+      "tokens_emitted": 4156,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001256",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": -0.428763357395893,
+      "explained_variance": 0.07748383283615112,
+      "tokens_emitted": 4156,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001256",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.4245750226834018,
+      "explained_variance": 0.08080508559942245,
+      "tokens_emitted": 4156,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001281",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 1.2775866652116739,
+      "explained_variance": 0.3609389066696167,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001281",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 1.3151376097374654,
+      "explained_variance": 0.3384873569011688,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001281",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 1.3027607423770364,
+      "explained_variance": 0.3377282917499542,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001429",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.5082534329469651,
+      "explained_variance": 0.0851336270570755,
+      "tokens_emitted": 4348,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001429",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 0.73994808300352,
+      "explained_variance": 0.08838799595832825,
+      "tokens_emitted": 4348,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001429",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 0.7039488669071411,
+      "explained_variance": 0.09233672171831131,
+      "tokens_emitted": 4348,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001556",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 0.5291135221581397,
+      "explained_variance": 0.09346720576286316,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001556",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 0.7914761163967862,
+      "explained_variance": 0.09739119559526443,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001556",
+      "nanonets_category": "positive",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 0.7972082509128414,
+      "explained_variance": 0.09688615053892136,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001579",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.6423059397698891,
+      "explained_variance": 0.07021795958280563,
+      "tokens_emitted": 3875,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001579",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.0644715865816794,
+      "explained_variance": 0.0730496421456337,
+      "tokens_emitted": 3875,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001579",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 0.9564396715085763,
+      "explained_variance": 0.07436687499284744,
+      "tokens_emitted": 3875,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.06785755589789624,
+      "explained_variance": 0.0629667267203331,
+      "tokens_emitted": 806,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": -0.37168356980189327,
+      "explained_variance": 0.061963703483343124,
+      "tokens_emitted": 806,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "nanonets_category": "positive",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.08272675611638619,
+      "explained_variance": 0.06995093077421188,
+      "tokens_emitted": 806,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000024",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -1.8466974365184443,
+      "explained_variance": 0.15942037105560303,
+      "tokens_emitted": 3378,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000024",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.9361999767653855,
+      "explained_variance": 0.19555462896823883,
+      "tokens_emitted": 3378,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000024",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -1.921994685163314,
+      "explained_variance": 0.21539029479026794,
+      "tokens_emitted": 3378,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000190",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.9730754411607214,
+      "explained_variance": 0.08216502517461777,
+      "tokens_emitted": 4411,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000190",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.316183390807611,
+      "explained_variance": 0.09480994194746017,
+      "tokens_emitted": 4411,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000190",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 1.1754251517468643,
+      "explained_variance": 0.09774995595216751,
+      "tokens_emitted": 4411,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000321",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.9494356072340994,
+      "explained_variance": 0.08101557195186615,
+      "tokens_emitted": 4017,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000321",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.2412653304098844,
+      "explained_variance": 0.09309545904397964,
+      "tokens_emitted": 4017,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000321",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 1.2086813281559732,
+      "explained_variance": 0.09700172394514084,
+      "tokens_emitted": 4017,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000369",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.11460835598194866,
+      "explained_variance": 0.06617526710033417,
+      "tokens_emitted": 3338,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000369",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": -0.0810339891146929,
+      "explained_variance": 0.06683521717786789,
+      "tokens_emitted": 3338,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000369",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.00252200395066227,
+      "explained_variance": 0.07000958174467087,
+      "tokens_emitted": 3338,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000376",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.42442851188937347,
+      "explained_variance": 0.06719480454921722,
+      "tokens_emitted": 4056,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000376",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.222932869063791,
+      "explained_variance": 0.06456994265317917,
+      "tokens_emitted": 4056,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000376",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.9955362194999735,
+      "explained_variance": 0.06939936429262161,
+      "tokens_emitted": 4056,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000410",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.2024099991069658,
+      "explained_variance": 0.06060555949807167,
+      "tokens_emitted": 3902,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000410",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 0.22744563433256454,
+      "explained_variance": 0.060222215950489044,
+      "tokens_emitted": 3902,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000410",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 0.25168570098479065,
+      "explained_variance": 0.06425103545188904,
+      "tokens_emitted": 3902,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000620",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.4578605196560924,
+      "explained_variance": 0.08483615517616272,
+      "tokens_emitted": 4652,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000620",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 0.6613892976610125,
+      "explained_variance": 0.08310310542583466,
+      "tokens_emitted": 4652,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000620",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 0.5696569750309495,
+      "explained_variance": 0.08681874722242355,
+      "tokens_emitted": 4652,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000734",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 0.2998766977153233,
+      "explained_variance": 0.06418474018573761,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000734",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 1.3353880158829528,
+      "explained_variance": 0.07194628566503525,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000734",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 1.1311460822802304,
+      "explained_variance": 0.0729951336979866,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000772",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.11284461892192107,
+      "explained_variance": 0.06147079914808273,
+      "tokens_emitted": 4149,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000772",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": -0.14052203552216205,
+      "explained_variance": 0.05535179004073143,
+      "tokens_emitted": 4149,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000772",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": -0.10528304128842159,
+      "explained_variance": 0.057630885392427444,
+      "tokens_emitted": 4149,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000810",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 0.37847848700432596,
+      "explained_variance": 0.09199776500463486,
+      "tokens_emitted": 2069,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000810",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 0.5948229534762215,
+      "explained_variance": 0.09471525996923447,
+      "tokens_emitted": 2069,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000810",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 0.6303520583460535,
+      "explained_variance": 0.10210490226745605,
+      "tokens_emitted": 2069,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000852",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -1.1811482406796727,
+      "explained_variance": 0.08181750774383545,
+      "tokens_emitted": 2160,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000852",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.453693677261333,
+      "explained_variance": 0.09975443035364151,
+      "tokens_emitted": 2160,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000852",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 1.3320586159428505,
+      "explained_variance": 0.10139375925064087,
+      "tokens_emitted": 2160,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000891",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": -0.9747519671088851,
+      "explained_variance": 0.07604751735925674,
+      "tokens_emitted": 4482,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000891",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.346022692373016,
+      "explained_variance": 0.08468666672706604,
+      "tokens_emitted": 4482,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000891",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 1.2797875271371342,
+      "explained_variance": 0.09043528884649277,
+      "tokens_emitted": 4482,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_000894",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": 0.5084013715488978,
+      "explained_variance": 0.07793596386909485,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000894",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 0.8064415302849676,
+      "explained_variance": 0.07722350209951401,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_000894",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 0.6477156977725937,
+      "explained_variance": 0.0804218128323555,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001157",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 16,
+      "cohen_d": -0.4642750265350154,
+      "explained_variance": 0.0817858949303627,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001157",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 20,
+      "cohen_d": 0.69402520362948,
+      "explained_variance": 0.08070683479309082,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001157",
+      "nanonets_category": "control",
+      "base_status": "base_cap_hit",
+      "layer": 24,
+      "cohen_d": 0.643296192100188,
+      "explained_variance": 0.08372808992862701,
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens"
+    },
+    {
+      "doc_id": "arxiv_table_001401",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 16,
+      "cohen_d": 1.0336025391317882,
+      "explained_variance": 0.09263485670089722,
+      "tokens_emitted": 4254,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001401",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 20,
+      "cohen_d": 1.3336269496005164,
+      "explained_variance": 0.10009918361902237,
+      "tokens_emitted": 4254,
+      "stop_reason": "eos"
+    },
+    {
+      "doc_id": "arxiv_table_001401",
+      "nanonets_category": "control",
+      "base_status": "base_clean_halt",
+      "layer": 24,
+      "cohen_d": 1.2995684625220834,
+      "explained_variance": 0.1037185937166214,
+      "tokens_emitted": 4254,
+      "stop_reason": "eos"
+    }
+  ]
+}

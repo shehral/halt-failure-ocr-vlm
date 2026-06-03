@@ -1,0 +1,35 @@
+{
+  "script": "code/p3_cross_model_replicate.py",
+  "seed": 0,
+  "max_new_tokens": 12000,
+  "candidates_path": "results/p3_cross_family_p2/_stage4_candidates.json",
+  "docs": [
+    "docvqa_jqbg0227_p1",
+    "docvqa_kshm0227_p7",
+    "funsd_105_105",
+    "docvqa_srgb0228_p2"
+  ],
+  "out_dir": "results/p3_cross_family_p2",
+  "skip_existing": true,
+  "started_at": "2026-05-19T05:54:36Z",
+  "finished_at": "2026-05-19T06:26:42Z",
+  "elapsed_s": 1926.0,
+  "device": "cuda",
+  "cuda_dev": "NVIDIA H200",
+  "torch_version": "2.8.0+cu128",
+  "torch_cuda_version": "12.8",
+  "transformers_version": "4.57.6",
+  "git_commit": "no-git",
+  "per_model_revisions": [
+    {
+      "name": "Qwen3-VL-30B-A3B-Instruct",
+      "model_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "revision": "main",
+      "loader": "AutoModelForImageTextToText",
+      "trust_remote_code": false,
+      "apply_lm_head_fix": false,
+      "yaml_prompt": false
+    }
+  ],
+  "notes": "Cross-model OCR-VLM replication test. Per-candidate adapter chooses the chat-template / prompt-shape path. classify() is reused from p1_trigger_pass_v2 but was trained on Nanonets output format \u2014 for non-Nanonets models the rich 'label' may be misleading; treat production_patterns_fired + stop_reason + tokens_emitted as the primary evidence. InternVL3 inference path is speculative \u2014 first run may need adjustment."
+}
