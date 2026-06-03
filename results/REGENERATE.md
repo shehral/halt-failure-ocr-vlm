@@ -17,7 +17,7 @@ fully regenerable from the pinned model + manifests:
 | Excluded artifact | Where it lived | Regenerate via |
 |---|---|---|
 | Activation `.pt` caches (`results/activations/**/hidden_states.pt`, ~hundreds of MB) | per-doc hidden-state caches | re-run the Job-2 activation-extraction script over `data/*/manifest.json` (layers `0,4,8,12,16,20,24,28,32,35`). |
-| Full per-doc generations (`results/p1_*/`, `results/p1_trigger_v2/`, full `.txt`/`.tokens.pt`) | runaway-generation dumps | re-run `code/p1_cuda_resweep.py` / the trigger pass over the public corpus (`max_new_tokens=12000`, greedy, seed 0). |
+| Full per-doc generations (`results/p1_*/`, full `.txt`/`.tokens.pt`) | runaway-generation dumps | re-run a greedy `model.generate` pass (`max_new_tokens=12000`, `do_sample=False`, seed 0) over the public corpus built by `code/p1_build_public_corpus.py`. The trigger-sweep driver itself is not bundled, but the pass is a single `generate` call per `data/public_corpus/manifest.json` row with the mandatory `lm_head` tie fix applied. |
 | EOS-trajectory tensors (`demo_eos_failure/03_eos_trajectories/*.pt`) | per-step logit tensors | re-run `code/demo_eos_failure/05_scripts/regen_with_eos_logits.py` (the `.json` sidecars **are** checked in). |
 | P16 per-cell patch tensors (`results/p16_component_resolved_short/<doc>/`) | component-resolved patch grid | re-run `code/p3_he_patch.py` over `data/p16_manifest_labeled.json` (L16/L20/L24 × {mlp,attn,block}); the aggregated `_summary.json` + `provenance.json` are checked in. |
 | Model weights | HF cache | `nanonets/Nanonets-OCR2-3B` @ revision `c3886ff00bb037ce7da24988c9eafaf1fe2bed72`. |

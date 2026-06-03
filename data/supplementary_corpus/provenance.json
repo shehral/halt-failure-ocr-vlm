@@ -55,5 +55,5 @@
   "n_docs_total": 201,
   "n_docs_new_this_run": 201,
   "n_docs_skipped_idempotent": 0,
-  "notes": "Supplementary corpus expansion -- ~200 fresh docs across arXiv (table-filtered), SEC-EDGAR-style filings, and DocLayNet pages. Manifest schema matches data/public_corpus/manifest.json so code/p1_cuda_resweep.py can consume it via --manifest. Native images are passed through; text-only sources are rendered via Pillow ImageDraw at width=1024, adaptive height up to 4096."
+  "notes": "Supplementary corpus expansion -- ~200 fresh docs across arXiv (table-filtered), SEC-EDGAR-style filings, and DocLayNet pages. Manifest schema matches data/public_corpus/manifest.json so the generation/trigger pass can consume it via --manifest. Native images are passed through; text-only sources are rendered via Pillow ImageDraw at width=1024, adaptive height up to 4096."
 }

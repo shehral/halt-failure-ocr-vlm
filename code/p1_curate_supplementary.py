@@ -3,8 +3,10 @@
 Goal: pull ~200 fresh document images from 3 public sources targeting diverse
 failure-class likelihoods (arXiv tables, SEC-EDGAR-style financial docs,
 DocLayNet academic pages). This expands the corpus past the N >= 15 paper
-target by adding ~67 docs per source, all of which feed into Job 1c's CUDA
-trigger pass via reuse of code/p1_cuda_resweep.py.
+target by adding ~67 docs per source, all of which feed into the greedy
+generation / trigger pass (a single `model.generate` call per manifest row,
+`max_new_tokens=12000`, `do_sample=False`; the trigger-sweep driver is not
+bundled in this public repo).
 
 Sources and rationale:
   1. arXiv tables (`ccdv/arxiv-summarization` filtered for table markers) --
@@ -33,8 +35,8 @@ Filter constraint: text length in [5000, 30000] characters (or for image
 sources, image height in [600, 4096] px) -- the production "trigger-rate
 sweet spot" based on prior sweep evidence.
 
-Manifest schema matches `data/public_corpus/manifest.json` (used by
-`code/p1_cuda_resweep.py --manifest`):
+Manifest schema matches `data/public_corpus/manifest.json` (consumable by the
+generation/trigger pass via its `--manifest` interface):
     {doc_id, path, source_dataset, source_url, source_idx, category,
      width, height, expected_token_count, produced_by, text_char_count?}
 
@@ -768,8 +770,8 @@ def main() -> int:
         "notes": (
             "Supplementary corpus expansion -- ~200 fresh docs across arXiv "
             "(table-filtered), SEC-EDGAR-style filings, and DocLayNet pages. "
-            "Manifest schema matches data/public_corpus/manifest.json so "
-            "code/p1_cuda_resweep.py can consume it via --manifest. Native "
+            "Manifest schema matches data/public_corpus/manifest.json so the "
+            "generation/trigger pass can consume it via --manifest. Native "
             "images are passed through; text-only sources are rendered via "
             "Pillow ImageDraw at width=1024, adaptive height up to 4096."
         ),

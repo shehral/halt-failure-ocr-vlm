@@ -73,8 +73,10 @@ cached trajectory artifacts so it runs end-to-end without a GPU.
 
 ### Fine-tune PCA signature (control comparison) — CL-25
 - **`p7b_control_comparison.py`** — re-runs the PCA pre-vs-post-crossover |Cohen's d| analysis on the
-  clean-EOS control docs (the missing control for CL-25), plus a random-LR LOPO baseline for CL-23.
-  - Produces: `results/p7b_mirror/PCA_control/_summary.json`, `.../random_lr_lopo/_summary.json`.
+  clean-EOS control docs (the missing control for CL-25). The script also contains an optional
+  random-LR LOPO baseline routine (`run_random_lr_baseline`), but that pass was not run for this
+  release and no `random_lr_lopo` artifact is checked in; only the CL-25 PCA control is.
+  - Produces (checked in): `results/p7b_mirror/PCA_control/_summary.json`.
   - Verified claim **CL-25**: Nanonets pos/ctl |d| ratio L16=3.79, L20=2.74, L24=2.78 (N=22 pos /
     52 ctl) — the fine-tune-introduced signature is halt-specific, not a generic long-generation
     shift.
