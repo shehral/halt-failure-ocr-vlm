@@ -262,10 +262,12 @@ characterization claims first (they build the corpus everything else indexes).
 - **Run:** corpus build → `review_corpus/00_INDEX.csv` (excludes `BOUNDARY`,
   `FALSE_POSITIVE`, `99_UNCLASSIFIED`).
 - **Output:** `review_corpus/00_INDEX.csv` (+ `review_corpus/viewer.html`)
-- **Check:** **56 confirmed positives** across **12 populated** surface classes
-  from **1,139 runs / 424 pages / 60 cap-hits**. Note: an earlier "14 classes"
+- **Check:** **60 cap-hit document IDs** in the index → **56 confirmed positives**
+  across **12 populated** surface classes (after excluding 2 `BOUNDARY`, 1
+  `FALSE_POSITIVE`, 1 `99_UNCLASSIFIED`). Note: an earlier "14 classes"
   figure is a hardcoded title string — the on-disk truth is 12 populated; do **not**
-  cite 14. The "45 strict / 49 outline" counts are unverifiable — do not cite.
+  cite 14. The "45 strict / 49 outline" and "1,139 runs / 424 pages" counts have no
+  on-disk source — do not cite.
 
 #### EOS-relative-margin — EOS suppression is relative, not absolute
 - **Shows:** the cap-hit document's EOS logit is *higher* than a clean control's;

@@ -57,10 +57,10 @@ directory is absent the image pane simply shows a placeholder and everything els
 | -- | boundary (EOS at cap) | 2 |
 | -- | false positive (legit long content) | 1 |
 
-**Total: 60 unique cap-hit documents across 15 surface classes** (57 clear
-infinite-generation positives, 2 boundary cases that emitted EOS exactly at the cap,
-and 1 confirmed false positive where the cap-hit was legitimate long content rather than
-a loop).
+**Total: 60 unique cap-hit documents** (56 confirmed infinite-generation positives
+spanning the 12 populated numbered classes 01–14, plus 4 non-positive rows: 2 boundary
+cases that emitted EOS exactly at the cap, 1 confirmed false positive where the cap-hit
+was legitimate long content rather than a loop, and 1 unclassified row).
 
 ## 00_INDEX.csv
 

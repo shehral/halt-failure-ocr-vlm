@@ -143,13 +143,13 @@ class} rather than assume one shared representation.
 
 \subsection{Corpus construction and a non-determinism disclosure}
 
-Real public documents trigger runaway decoding. Our review corpus is drawn from 1{,}139
-inference runs over 424 unique pages, yielding a set of cap-hit document IDs that
-resolve to a confirmed positive set. After excluding boundary cases, false positives,
-and unclassified rows, the corpus comprises 56 confirmed infinite-generation positives
-spanning 12 populated surface classes. We report the on-disk figure deliberately,
-rather than a higher headline count that does not reproduce from the underlying corpus
-index.
+Real public documents trigger runaway decoding. Our review corpus is the on-disk
+index of cap-hit generations, \texttt{review\_corpus/00\_INDEX.csv}, which holds 60
+unique cap-hit document IDs. After excluding the 2 boundary cases (EOS emitted exactly
+at the cap), 1 false positive (legitimate long content), and 1 unclassified row, the
+corpus comprises 56 confirmed infinite-generation positives spanning 12 populated
+surface classes. We report the counts the shipped index reproduces, rather than a
+higher headline count that the underlying corpus index does not support.
 
 We also disclose a device-induced shrink in the stable positive set. When we
 re-screened a 123-document set on a CUDA GPU rather than on an Apple-silicon (MPS)
