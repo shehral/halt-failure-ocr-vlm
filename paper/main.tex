@@ -401,6 +401,47 @@ narrowly under-promoted. We note a framing
 caveat: programmatic n-gram loop-onset detection biases late, since records sit
 thousands of tokens deep, so ``at loop onset'' is a late-onset operationalization.
 
+\subsection{Coherent, not corrupted: the loop runs on a normal-norm residual}
+\label{sec:normnull}
+
+A leading competing account of degenerate generation is that the loop rides a
+\emph{corrupted} residual state: an attention-sink / extreme-token regime in which a few
+tokens accumulate anomalously large activations and the residual norm blows up
+\citep{xiao2024streaming,repeatedtoken2025}. That mechanism makes a sharp, falsifiable
+prediction about the residual L2 norm: once the loop is entered, the in-loop residual
+norm should be \emph{much larger} than the pre-loop norm, with extreme-token reports
+placing the inflation at $\gtrsim 3\times$ the surrounding-token norm. We measure the
+residual L2 norm at the target layer (L24) inside versus outside the loop for the three
+cap-hit documents and find the opposite: the loop runs on a residual that looks
+\emph{normal}, not corrupted. The in-loop/pre-loop mean residual-norm ratio is
+$0.96\times$ (\texttt{kshm0227\_p6}: mean norm $86.6$ in-loop vs.\ $90.0$ pre-loop),
+$0.90\times$ (\texttt{srgb0228\_p2}: $84.0$ vs.\ $93.7$), and $0.97\times$
+(\texttt{pgjw0227\_p5}: $84.3$ vs.\ $87.3$) --- in every case the norm \emph{shrinks
+slightly} on entering the loop, and all three sit far below the $\geq 3.0\times$
+inflation the attention-sink / extreme-token corruption mechanism requires. The
+residual norm does not merely fail to grow with the halt score; it \emph{anti-correlates}
+with it: the full-trace correlation between residual norm and the halt-direction
+projection is negative for all three documents ($-0.24$, $-0.54$, $-0.30$). A larger
+norm is associated with a \emph{more}-halt reading, not the runaway, never-halt
+inflation a sink-corruption account would predict.
+
+We read this as an affirmative null that rules out the attention-sink / extreme-token
+corruption mechanism for our setting, rather than merely declining to find it. The loop
+is not running on a blown-up, sink-dominated residual that has lost the information needed
+to halt; it is running on a normal-looking residual whose halt-relevant projection is
+miscomputed. The failure is a \emph{miscomputed decision on a coherent state}, not a
+\emph{corrupted state}. This complements the relative-suppression and burial findings
+above (the EOS logit stays positive, just out-scored) and converts the attention-sink
+account from an untested competing hypothesis --- mentioned only in passing in the related
+work --- into one we can affirmatively set aside here on the residual-norm evidence.
+CAVEAT: this is an $N=3$ measurement, and the halt direction is itself
+repetition-density-correlated (the modal per-document verdict is
+``repetition-driven'': the full-trace correlation between repetition density and the
+halt projection is $+0.84$, $+0.90$, $+0.74$), so the anti-correlation with norm is
+consistent with --- and does not escape --- the repetition-density confound disclosed
+elsewhere in this paper. The norm result discriminates against \emph{corruption}; it does
+not by itself identify what the halt projection \emph{is} tracking.
+
 % ===========================================================================
 \section{Causal tests: a converging series of nulls}
 \label{sec:causal}
@@ -808,7 +849,15 @@ trace a cap-hit document's mean
 EOS logit of $+10.76$ exceeds a clean control's $+10.07$), and that at loop
 onset EOS is genuinely buried (per-document median rank near 12{,}000 over 22 documents,
 only 1 of which ever puts EOS in the top 5), rather than narrowly
-under-promoted by a single mis-set sink. A sink-anchoring intervention is therefore a
+under-promoted by a single mis-set sink. More directly, we test the residual-norm
+prediction this account makes --- a $\gtrsim 3\times$ in-loop norm inflation --- and find
+the opposite (Section~\ref{sec:normnull}): the in-loop/pre-loop residual norm is
+$0.96\times$/$0.90\times$/$0.97\times$ across the three cap-hit documents, far below the
+$\geq 3.0\times$ corruption regime, and the norm anti-correlates with the halt score. The
+loop runs on a normal-norm, coherent residual, so we read the failure as a miscomputed
+decision rather than a sink-corrupted state, and we affirmatively set the
+attention-sink / extreme-token corruption mechanism aside for our setting (at $N=3$, with
+the repetition-density confound noted). A sink-anchoring intervention is therefore a
 complement to, not a substitute for, the distributed-attractor reading.
 
 \paragraph{Cross-modal grounding collapse.}
