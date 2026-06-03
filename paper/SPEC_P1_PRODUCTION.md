@@ -1,10 +1,10 @@
 # P1 — Production / Systems Paper: RE-SCOPE SPEC
 
 **Status:** Spec for re-scoping the existing `paper/main.tex` in place.
-**Repo:** `/Users/shehral/halt-failure-ocr-vlm`
-**Working file:** `/Users/shehral/halt-failure-ocr-vlm/paper/main.tex` (re-scoped in place; do NOT create a new dir)
-**Companion:** P3 (deep representational paper) receives the migrated-out content. P3 scaffold lives at `/Users/shehral/nn-infinite-gen/paper/p3_iclr_outline.md`.
-**Evidence map:** `/Users/shehral/nn-infinite-gen/docs/EVIDENCE_MAP_2026-06-03.md`
+**Repo:** `<repo-root>`
+**Working file:** `<repo-root>/paper/main.tex` (re-scoped in place; do NOT create a new dir)
+**Companion:** P3 (deep representational paper) receives the migrated-out content. P3 scaffold lives in the companion repo `<companion-repo>`.
+**Evidence map:** `<companion-repo>/docs/EVIDENCE_MAP.md`
 **Date:** 2026-06-03
 
 ---
@@ -123,7 +123,7 @@ results (P3 scaffold already anticipates most). Each line: P1 location → P3 ho
 | R6 | **DFC crosscoder feature-timing** (2 FT-introduced features peak-fire @crossover; first DFC on a VLM) | §RelatedWork (crosscoder vocab) | P3 §7 / §4 (CL-26, novelty) | `results/p4_mirror/DFC_features/_summary.json` |
 | R7 | **Count-manifold geometry** (running count as 1-D residual manifold; LOO R2 0.45@L16, 0.79@L4; walked back from in-sample 0.90) | §RelatedWork (counting-manifold para) | P3 §7 (CL-06, dominant-family geometry) | `results/p2_pilot/hb_pca_results.json` + `hb_pca_nonzero_results.json` |
 | R8 | **2-family subspace sub-structure** (bare-word orthogonal everywhere; latex+filled share L12–L28) | not yet in P1 (omitted) — keep omitted, route to P3 | P3 §6 (refines CL-42) | `results/q1_combined/per_class_pairwise_cosines.csv` |
-| R9 | **Distributed-detection cross-layer sweep** (AUC≥0.84 every layer; L16=0.929) | implicit in P1's null framing | P3 §6 (CL-21, the explicit geometry) — RE-VERIFY before citing | `/scratch/.../H7_cross_layer` (scratch-purged) |
+| R9 | **Distributed-detection cross-layer sweep** (AUC≥0.84 every layer; L16=0.929) | implicit in P1's null framing | P3 §6 (CL-21, the explicit geometry) — RE-VERIFY before citing | `<scratch>/H7_cross_layer` (scratch-purged) |
 | R10 | **Temporal precursor** (internal halt-shift precedes surface loop by ~130 tok; depth-ordered) | not in P1 — route to P3 | P3 §7 (CL-24/CL-29) — RE-VERIFY | `results/p5b_mirror/_summary.json` (precursor only) |
 
 **Note on the attractor metaphor itself:** the *title-level* "class-structured residual-stream
