@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Model weights / checkpoints (large; not code-needed)
+# Ignore .pt by default, but keep small code-needed artifacts under results/ or data/.
+*.pt
+!results/**/*.pt
+!data/**/*.pt
+*.bin
+*.safetensors
+*.ckpt
+
+# Large data (raw documents, activation caches, image tensors)
+data/raw/
+data/cache/
+activations/
+*.npz
+*.npy
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

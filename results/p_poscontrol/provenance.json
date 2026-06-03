@@ -1,0 +1,62 @@
+{
+  "_provenance_version": 1,
+  "model_id": "nanonets/Nanonets-OCR2-3B",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72",
+  "dtype": "bfloat16",
+  "attn_impl": "eager",
+  "seed": 42,
+  "git_commit": "no-git",
+  "started_at": "2026-05-18T03:01:03",
+  "script": "p_poscontrol_random_l24.py",
+  "args": [
+    "--out",
+    "results/p_poscontrol",
+    "--max-new-tokens",
+    "12000",
+    "--layer",
+    "24",
+    "--seed",
+    "42",
+    "--device",
+    "cuda"
+  ],
+  "python_version": "3.12.13",
+  "results_dir": "/projects/<group>/<user>/nn-infinite-gen/results/p_poscontrol",
+  "experiment": "positive_control_random_l24",
+  "layer": 24,
+  "conditions": [
+    "vanilla",
+    "C1_random_10x",
+    "C2_random_100x",
+    "C3_random_0.1x"
+  ],
+  "scales": {
+    "vanilla": 0.0,
+    "C1_random_10x": 10.0,
+    "C2_random_100x": 100.0,
+    "C3_random_0.1x": 0.1
+  },
+  "manifest_docs": [
+    {
+      "doc_id": "docvqa_gjhp0000_p1",
+      "label": "positive"
+    },
+    {
+      "doc_id": "docvqa_jqbg0227_p1",
+      "label": "positive"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "label": "positive"
+    },
+    {
+      "doc_id": "table_N005_C04_s05000",
+      "label": "control"
+    }
+  ],
+  "max_new_tokens": 12000,
+  "device": "cuda",
+  "smoke_mode": false,
+  "rationale_doc": "docs/positive_control_he_patch_plan.md",
+  "target_claim": "CL-35"
+}

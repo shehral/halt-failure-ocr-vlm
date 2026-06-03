@@ -1,0 +1,89 @@
+# Halt-Failure as a Class-Structured Residual-Stream Attractor in Fine-Tuned OCR Vision-Language Models
+
+Reproducibility repository for the paper.
+
+## Summary
+
+Fine-tuned OCR vision-language models (OCR-VLMs) sometimes fail to stop: instead of
+emitting the end-of-sequence (EOS) token, decoding runs to the `max_new_tokens` cap and
+surfaces as phantom blank table rows, runaway token or phrase loops, and hallucinated
+structural markers. We study this *halt-failure* phenomenon in `nanonets/Nanonets-OCR2-3B`
+(a `Qwen2.5-VL-3B-Instruct` fine-tune) and argue it is best understood not as a single
+broken layer but as a **stable, class-structured attractor in the residual stream**.
+Four lines of evidence support the thesis: (1) per-class halt directions are linearly
+decodable across the decoder (per-class AUC 0.876-0.983) and are content-decoupled on a
+pre-registered distinctness-plus-decoupling test; (2) the network computes a downstream
+"should-halt" signal that arrives too late to override an upstream continuation state
+(logit-lens EOS gap most negative at L24, flipping positive by L32), and EOS suppression is
+*relative* not absolute (continuation tokens out-score EOS by ~20 logits); (3) the halt
+token is genuinely absent at loop onset (median EOS rank ~10,500); and (4) a converging
+series of single-direction and single-layer causal-perturbation tests fail to move the token
+count, localizing the failure to a distributed fine-tune-introduced attractor rather than any
+single causal layer. We close with an honest production trade-off (a runtime monitor) and
+causal evidence that vision is load-bearing.
+
+## What's verified
+
+| Component | Status |
+|---|---|
+| Per-class halt-direction AUC (CL-42) | verified on disk |
+| Logit-lens EOS gap (CL-16) | verified on disk |
+| EOS-rank at loop onset (CL-22) | verified on disk |
+| L0 sufficiency null (CL-49) | verified on disk |
+| Norm-scaled positive control (CL-36) | verified on disk |
+| B3 reverse-direction necessity null (CL-12) | verified on disk |
+| Component-resolved FCCT patch (CL-19/20) | verified on disk |
+| Runtime monitor trade-off (CL-39 / CL-48) | verified on disk |
+| Vision sufficiency / inpaint (CL-11) | verified on disk |
+| Converging-null count (canonical = 6) | corrected; see VERIFICATION.md |
+| Cross-family counts (CL-47 / CL-13) | pending re-run; see VERIFICATION.md |
+
+See [VERIFICATION.md](VERIFICATION.md) for the full claim-to-number-to-result-file ledger,
+including the honest walk-backs (stale / pending entries) that are part of the result.
+
+## Repository layout
+
+```
+README.md                 # this file
+LICENSE                   # MIT
+VERIFICATION.md           # verification ledger: claim (CL-xx) -> number -> results/ file
+REPRODUCE.md              # step-by-step reproduction instructions (added with paper/)
+UNDERSTANDING_GUIDE.md    # narrator / educational companion (added with paper/)
+environment/
+  requirements.txt        # pinned dependencies + model revision + lm_head tie-fix note
+paper/                    # compiled PDF + LaTeX source (added once reference verification completes)
+code/                     # extraction, probing, patching, and monitor scripts
+results/                  # numerical result files referenced by VERIFICATION.md
+data/                     # public dataset manifests (DocVQA and others)
+```
+
+> Note: `paper/` (the compiled PDF and LaTeX source) will be added once reference
+> verification completes. The `results/` paths in VERIFICATION.md are the source of truth
+> for every load-bearing number in the paper.
+
+## Model
+
+- Model id: `nanonets/Nanonets-OCR2-3B` (a `Qwen2.5-VL-3B-Instruct` fine-tune; 36 decoder
+  layers, hidden 2048, 16 attention heads, 2 KV heads).
+- Pinned public revision: `c3886ff00bb037ce7da24988c9eafaf1fe2bed72`.
+- See `environment/requirements.txt` for the **mandatory `lm_head` tie-fix** that every
+  loader must apply (the public checkpoint omits `lm_head.weight` and relies on
+  `tie_word_embeddings`).
+
+## Data
+
+The review corpus is drawn from public documents, including the public **DocVQA** dataset
+(UCSF industry documents). Dataset manifests live under `data/`.
+
+## Autonomous reproduction on HPC
+
+The experiments were run on a SLURM + GPU cluster. For a turnkey way to connect to a
+cluster, set up the pinned environment, and submit smoke-tested jobs autonomously, see the
+Claude Code Explorer skill:
+<https://github.com/shehral/northeastern-explorer-autonomy-skill>.
+Cluster-specific values (username, account, paths, environment name) are kept as
+`<placeholder>` tokens consistent with that skill.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

@@ -1,0 +1,75 @@
+{
+  "docs_compared": [
+    "docvqa_pgjw0227_p5",
+    "docvqa_jrcy0227_p98"
+  ],
+  "n_image_positions_per_doc": {
+    "docvqa_pgjw0227_p5": 2565,
+    "docvqa_jrcy0227_p98": 2565
+  },
+  "by_layer": [
+    {
+      "layer": 0,
+      "pos_img": 0.024576295167207718,
+      "ctl_img": 0.032270967960357666,
+      "ratio_pos_ctl": 0.7615605208185188
+    },
+    {
+      "layer": 4,
+      "pos_img": 0.02277672290802002,
+      "ctl_img": 0.03442433476448059,
+      "ratio_pos_ctl": 0.6616459857205809
+    },
+    {
+      "layer": 8,
+      "pos_img": 0.10538005828857422,
+      "ctl_img": 0.0955352932214737,
+      "ratio_pos_ctl": 1.103048462354933
+    },
+    {
+      "layer": 12,
+      "pos_img": 0.11460147798061371,
+      "ctl_img": 0.12103557586669922,
+      "ratio_pos_ctl": 0.9468412667927353
+    },
+    {
+      "layer": 16,
+      "pos_img": 0.016141299158334732,
+      "ctl_img": 0.0232232678681612,
+      "ratio_pos_ctl": 0.6950485715433806
+    },
+    {
+      "layer": 20,
+      "pos_img": 0.01860576868057251,
+      "ctl_img": 0.2642239034175873,
+      "ratio_pos_ctl": 0.07041667479708451
+    },
+    {
+      "layer": 24,
+      "pos_img": 0.018906984478235245,
+      "ctl_img": 0.08741749823093414,
+      "ratio_pos_ctl": 0.21628375166134292
+    },
+    {
+      "layer": 28,
+      "pos_img": 0.05484461784362793,
+      "ctl_img": 0.11740776151418686,
+      "ratio_pos_ctl": 0.4671294055546816
+    },
+    {
+      "layer": 32,
+      "pos_img": 0.1010701060295105,
+      "ctl_img": 0.20569980144500732,
+      "ratio_pos_ctl": 0.4913476110307818
+    },
+    {
+      "layer": 35,
+      "pos_img": 0.07907970249652863,
+      "ctl_img": 0.05757896974682808,
+      "ratio_pos_ctl": 1.3734129465017908
+    }
+  ],
+  "n_layers_pos_lower_than_ctl": 8,
+  "verdict": "PASS \u2014 POSITIVE has lower image attention than CONTROL on most layers, supporting H-C (vision-grounding collapse). Note: still N=1 vs N=1; needs N=40 to be statistically meaningful.",
+  "figure": "docs/figures/hc_attention_with_baseline.png"
+}

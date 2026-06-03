@@ -1,0 +1,14 @@
+{
+  "doc_id": "docvqa_jqbg0227_p1",
+  "mode": "subtract",
+  "max_new_tokens": 12000,
+  "tokens_emitted": 12000,
+  "stop_reason": "max_new_tokens",
+  "elapsed_s": 184.0755705833435,
+  "last_token_id": 376,
+  "tail": "td>\n    <td>Art Hist. & Arch., 329 Jesse</td>\n    <td>D-5</td>\n  </tr>\n  <tr>\n    <td>H-2</td>\n    <td>Art Hist. & Arch., 329 Jesse</td>\n    <td>D-5</td>\n  </tr>\n  <tr",
+  "device": "cuda",
+  "cuda_dev": "NVIDIA H200",
+  "torch_version": "2.8.0+cu128",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72"
+}

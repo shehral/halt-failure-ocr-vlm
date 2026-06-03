@@ -1,0 +1,121 @@
+[
+  {
+    "doc": "arxiv_table_000277",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000277.png",
+    "trigger": "positive",
+    "src_tokens": 10578
+  },
+  {
+    "doc": "arxiv_table_000295",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000295.png",
+    "trigger": "positive",
+    "src_tokens": 13971
+  },
+  {
+    "doc": "arxiv_table_000766",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000766.png",
+    "trigger": "positive",
+    "src_tokens": 9064
+  },
+  {
+    "doc": "arxiv_table_000401",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000401.png",
+    "trigger": "positive",
+    "src_tokens": 8019
+  },
+  {
+    "doc": "docvqa_jqbg0227_p1",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/public_corpus/images/docvqa_jqbg0227_p1.png",
+    "trigger": "positive",
+    "src_tokens": 12000
+  },
+  {
+    "doc": "arxiv_table_000266",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000266.png",
+    "trigger": "positive",
+    "src_tokens": 6984
+  },
+  {
+    "doc": "arxiv_table_000461",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000461.png",
+    "trigger": "positive",
+    "src_tokens": 14083
+  },
+  {
+    "doc": "arxiv_table_000855",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000855.png",
+    "trigger": "positive",
+    "src_tokens": 14322
+  },
+  {
+    "doc": "arxiv_table_000999",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000999.png",
+    "trigger": "positive",
+    "src_tokens": 10575
+  },
+  {
+    "doc": "arxiv_table_000889",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000889.png",
+    "trigger": "positive",
+    "src_tokens": 18000
+  },
+  {
+    "doc": "arxiv_table_000371",
+    "label": "positive_pattern_ngram_repeat",
+    "path": "data/supplementary_corpus/images/arxiv_table_000371.png",
+    "trigger": "positive",
+    "src_tokens": 14533
+  },
+  {
+    "doc": "docvqa_srgb0228_p2",
+    "label": "positive_pattern_empty_rows",
+    "path": "data/public_corpus/images/docvqa_srgb0228_p2.png",
+    "trigger": "positive",
+    "src_tokens": 12000
+  },
+  {
+    "doc": "docvqa_fglc0003_p1",
+    "label": "control",
+    "path": "data/public_corpus/images/docvqa_fglc0003_p1.png",
+    "trigger": "control",
+    "src_tokens": null
+  },
+  {
+    "doc": "docvqa_gyjf0226_p1",
+    "label": "control",
+    "path": "data/public_corpus/images/docvqa_gyjf0226_p1.png",
+    "trigger": "control",
+    "src_tokens": null
+  },
+  {
+    "doc": "docvqa_jrcy0227_p98",
+    "label": "control",
+    "path": "data/public_corpus/images/docvqa_jrcy0227_p98.png",
+    "trigger": "control",
+    "src_tokens": null
+  },
+  {
+    "doc": "docvqa_kshm0227_p6",
+    "label": "control",
+    "path": "data/public_corpus/images/docvqa_kshm0227_p6.png",
+    "trigger": "control",
+    "src_tokens": null
+  },
+  {
+    "doc": "docvqa_kzbn0226_p31",
+    "label": "control",
+    "path": "data/public_corpus/images/docvqa_kzbn0226_p31.png",
+    "trigger": "control",
+    "src_tokens": null
+  }
+]

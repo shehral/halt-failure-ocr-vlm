@@ -1,0 +1,42 @@
+{
+  "results": {
+    "arxiv_table_000266": {
+      "baseline_tokens": 12000,
+      "baseline_stop": "max_new_tokens",
+      "noise_tokens": 18,
+      "noise_stop": "eos",
+      "verdict": "VISION_LOAD_BEARING"
+    },
+    "docvqa_jqbg0227_p1": {
+      "baseline_tokens": 12000,
+      "baseline_stop": "max_new_tokens",
+      "noise_tokens": 13,
+      "noise_stop": "eos",
+      "verdict": "VISION_LOAD_BEARING"
+    },
+    "docvqa_kshm0227_p7": {
+      "baseline_tokens": 12000,
+      "baseline_stop": "max_new_tokens",
+      "noise_tokens": 13,
+      "noise_stop": "eos",
+      "verdict": "VISION_LOAD_BEARING"
+    },
+    "docvqa_srgb0228_p2": {
+      "baseline_tokens": 12000,
+      "baseline_stop": "max_new_tokens",
+      "noise_tokens": 13,
+      "noise_stop": "eos",
+      "verdict": "VISION_LOAD_BEARING"
+    },
+    "funsd_105_105": {
+      "baseline_tokens": 12000,
+      "baseline_stop": "max_new_tokens",
+      "noise_tokens": 13,
+      "noise_stop": "eos",
+      "verdict": "VISION_LOAD_BEARING"
+    }
+  },
+  "n_text_only": 0,
+  "n_vision_load_bearing": 5,
+  "n_ambiguous": 0
+}

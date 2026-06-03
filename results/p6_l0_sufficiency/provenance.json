@@ -1,0 +1,25 @@
+{
+  "script": "code/p6_l0_sufficiency.py",
+  "started_at": "2026-05-19T04:04:46-0400",
+  "args": {
+    "smoke": false,
+    "conditions": "C0,C1,C2,C3",
+    "alpha_grid": "2.0,5.0,10.0",
+    "max_new_tokens": 12000,
+    "min_cohort_n": 8,
+    "attn_impl": "sdpa",
+    "out": "results/p6_l0_sufficiency"
+  },
+  "model_id": "nanonets/Nanonets-OCR2-3B",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72",
+  "seed": 0,
+  "dtype": "bfloat16",
+  "attn_impl": "sdpa",
+  "intervention": "ADD (sufficiency)",
+  "hook_layer": 0,
+  "direction_file": "fix/directions_q1/class_bare_word_repeat_direction_L0.pt",
+  "c2_direction_file": "fix/directions_q1/class_latex_math_cmd_loop_direction_L8.pt",
+  "pre_registration": "docs/L0_sufficiency_preregistration.md",
+  "cohort_source": "code/p6_l0_sufficiency.py::PRESELECTED_CLEAN_HALT",
+  "git_commit": null
+}

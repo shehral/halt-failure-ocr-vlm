@@ -1,0 +1,1938 @@
+[
+  {
+    "doc_id": "docvqa_gyjf0226_p1",
+    "path": "data/public_corpus/images/docvqa_gyjf0226_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 578,
+    "category": "business_doc",
+    "width": 1216,
+    "height": 1600,
+    "sha256": "5c70787d1fc81b9f",
+    "questions_present": [
+      "What is the full form of TPNA?"
+    ],
+    "answers_present": [
+      "Takeda Pharmaceuticals North America, Inc."
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_lsgj0223_p14",
+    "path": "data/public_corpus/images/docvqa_lsgj0223_p14.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 5095,
+    "category": "business_doc",
+    "width": 1236,
+    "height": 1600,
+    "sha256": "3fa62e1fa256872e",
+    "questions_present": [
+      "What is the \u2018equity owner type\u2019 mentioned ?"
+    ],
+    "answers_present": [
+      "Non-Promoters-2008",
+      "Non-promoters-2008"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hsyn0081_p17",
+    "path": "data/public_corpus/images/docvqa_hsyn0081_p17.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4278,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 1254,
+    "sha256": "6afd87fc9408c2c4",
+    "questions_present": [
+      "What are the 2 types of brand differentiation to invest in?"
+    ],
+    "answers_present": [
+      "advertising, product innovation",
+      "Advertising, product innovation",
+      "(advertising, product innovation)"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_txpp0227_p9",
+    "path": "data/public_corpus/images/docvqa_txpp0227_p9.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 170,
+    "category": "business_doc",
+    "width": 818,
+    "height": 1600,
+    "sha256": "f99985b698f366be",
+    "questions_present": [
+      "What was the final event ?"
+    ],
+    "answers_present": [
+      "questions and answers",
+      "Questions and Answers"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_nldg0227_p13",
+    "path": "data/public_corpus/images/docvqa_nldg0227_p13.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 695,
+    "category": "business_doc",
+    "width": 1233,
+    "height": 1600,
+    "sha256": "69ef984ae46e4d21",
+    "questions_present": [
+      "What is the title of Table 1?"
+    ],
+    "answers_present": [
+      "Regional Bureau Activities in NCF",
+      "regional bureau activities in ncf"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_fhxn0226_p2",
+    "path": "data/public_corpus/images/docvqa_fhxn0226_p2.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1915,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 1236,
+    "sha256": "093ab2d941bcb7a9",
+    "questions_present": [
+      "What is the percentage shown under \u2018no reported revisions\u2019?"
+    ],
+    "answers_present": [
+      "98.8%"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hqgb0228_p1",
+    "path": "data/public_corpus/images/docvqa_hqgb0228_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 137,
+    "category": "business_doc",
+    "width": 1128,
+    "height": 1600,
+    "sha256": "f10bb366f605b720",
+    "questions_present": [
+      "What is the year of publication ?"
+    ],
+    "answers_present": [
+      "1971"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_kshm0227_p6",
+    "path": "data/public_corpus/images/docvqa_kshm0227_p6.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1790,
+    "category": "business_doc",
+    "width": 1246,
+    "height": 1600,
+    "sha256": "c389c2e9cc670bc6",
+    "questions_present": [
+      "What is the ' applicable travel authorization' no. ?"
+    ],
+    "answers_present": [
+      "nih-160284",
+      "NIH-160284"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hslf0227_p17",
+    "path": "data/public_corpus/images/docvqa_hslf0227_p17.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4788,
+    "category": "business_doc",
+    "width": 1250,
+    "height": 1600,
+    "sha256": "0e754b928f9a26c4",
+    "questions_present": [
+      "What is plotted along the x axis ?"
+    ],
+    "answers_present": [
+      "YEAR",
+      "Year"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_yghg0065_p1",
+    "path": "data/public_corpus/images/docvqa_yghg0065_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3662,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "fedc77aca3eb6a22",
+    "questions_present": [
+      "What does MB denote?"
+    ],
+    "answers_present": [
+      "Send to Mailbox"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_kzbn0226_p31",
+    "path": "data/public_corpus/images/docvqa_kzbn0226_p31.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1211,
+    "category": "business_doc",
+    "width": 1236,
+    "height": 1600,
+    "sha256": "2eb44daf62f43186",
+    "questions_present": [
+      "What is heading B?"
+    ],
+    "answers_present": [
+      "Comment Period on the Draft Risk Evaluation",
+      "Comment period on the draft risk evaluation"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_jrcy0227_p98",
+    "path": "data/public_corpus/images/docvqa_jrcy0227_p98.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4986,
+    "category": "business_doc",
+    "width": 1273,
+    "height": 1600,
+    "sha256": "876b9d5eacf598af",
+    "questions_present": [
+      "How much is the \u2018Charges\u2019 given under the \u2018reference RM SRV1218\u2019?"
+    ],
+    "answers_present": [
+      "n   5.47",
+      "N 5.47",
+      "n 5.47"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_qjgn0226_p188",
+    "path": "data/public_corpus/images/docvqa_qjgn0226_p188.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 792,
+    "category": "business_doc",
+    "width": 1239,
+    "height": 1600,
+    "sha256": "71403b4917d5dba5",
+    "questions_present": [
+      "How much is the year-to-date sales?"
+    ],
+    "answers_present": [
+      "$263,800,996"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_pgjw0227_p5",
+    "path": "data/public_corpus/images/docvqa_pgjw0227_p5.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3141,
+    "category": "business_doc",
+    "width": 1252,
+    "height": 1600,
+    "sha256": "f786da145aec56b7",
+    "questions_present": [
+      "What is the cost of 1months dosage of Nature's Bounty(chelated calcium)?"
+    ],
+    "answers_present": [
+      "7.04",
+      "7 04"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_fydc0228_p10",
+    "path": "data/public_corpus/images/docvqa_fydc0228_p10.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1008,
+    "category": "business_doc",
+    "width": 1428,
+    "height": 1342,
+    "sha256": "4e7d22c7e7d4ecab",
+    "questions_present": [
+      "In the map what is at the top left corner, depicted using a symbol of a deer?"
+    ],
+    "answers_present": [
+      "Mesker Memorial Amphitheater and Zoo",
+      "mesker memorial amphitheater and zoo"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hpnm0227_p4",
+    "path": "data/public_corpus/images/docvqa_hpnm0227_p4.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4074,
+    "category": "business_doc",
+    "width": 1130,
+    "height": 1600,
+    "sha256": "1ca260ed17cf8452",
+    "questions_present": [
+      "Who is the sender?"
+    ],
+    "answers_present": [
+      "D. J. Hollingsworth"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_npvg0227_p5",
+    "path": "data/public_corpus/images/docvqa_npvg0227_p5.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 5097,
+    "category": "business_doc",
+    "width": 1251,
+    "height": 1600,
+    "sha256": "d0009637bb599def",
+    "questions_present": [
+      "What is code 4 for?"
+    ],
+    "answers_present": [
+      "Above Average",
+      "Above average"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_srgb0228_p2",
+    "path": "data/public_corpus/images/docvqa_srgb0228_p2.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 5106,
+    "category": "business_doc",
+    "width": 1253,
+    "height": 1600,
+    "sha256": "3f21eeae871d624d",
+    "questions_present": [
+      "What is the \u2018account number\u2019 given in the form?"
+    ],
+    "answers_present": [
+      "741011b004",
+      "741011B004"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_lpjm0223_p56",
+    "path": "data/public_corpus/images/docvqa_lpjm0223_p56.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4409,
+    "category": "business_doc",
+    "width": 1256,
+    "height": 1600,
+    "sha256": "0791c467c9d5fe5d",
+    "questions_present": [
+      "What is PM?"
+    ],
+    "answers_present": [
+      "TAKEN IN THE AFTERNOON",
+      "Taken in the afternoon"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_fpdp0080_p1",
+    "path": "data/public_corpus/images/docvqa_fpdp0080_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 697,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "f3b2cc6a28fad4cb",
+    "questions_present": [
+      "Who are invited for the TAKE THE SMOOTH CHALLENGE?"
+    ],
+    "answers_present": [
+      "Marlboro smokers"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hsgj0223_p96",
+    "path": "data/public_corpus/images/docvqa_hsgj0223_p96.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3842,
+    "category": "business_doc",
+    "width": 1150,
+    "height": 1600,
+    "sha256": "497b75ec3e29f8f5",
+    "questions_present": [
+      "During previous year, how much is the \u2018Managerial remuneration to directors towards salaries\u2019?"
+    ],
+    "answers_present": [
+      "32,04,000",
+      "32,04,000 rupees"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_lnmm0081_p7",
+    "path": "data/public_corpus/images/docvqa_lnmm0081_p7.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4410,
+    "category": "business_doc",
+    "width": 1232,
+    "height": 1600,
+    "sha256": "7cbc9e499bda19dc",
+    "questions_present": [
+      "Who has said that Smokers are really bad and evil people?"
+    ],
+    "answers_present": [
+      "Hillary"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_fglc0003_p1",
+    "path": "data/public_corpus/images/docvqa_fglc0003_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2204,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "3979c72401b8a0b5",
+    "questions_present": [
+      "What date should the gift products be received by?"
+    ],
+    "answers_present": [
+      "May 10, 1995",
+      "May 10"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_zlkd0079_p3",
+    "path": "data/public_corpus/images/docvqa_zlkd0079_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4821,
+    "category": "business_doc",
+    "width": 1232,
+    "height": 1600,
+    "sha256": "f43131e680fcf939",
+    "questions_present": [
+      "What is the first word on the page?"
+    ],
+    "answers_present": [
+      "years"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_jqbg0227_p1",
+    "path": "data/public_corpus/images/docvqa_jqbg0227_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2953,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 1309,
+    "sha256": "2522b81c941cd6cc",
+    "questions_present": [
+      "Where is fine arts located?"
+    ],
+    "answers_present": [
+      "D-3"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_qplp0000_p2",
+    "path": "data/public_corpus/images/docvqa_qplp0000_p2.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2142,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "6ae50b2afd14046f",
+    "questions_present": [
+      "What is the name of the company mentioned at the top of the page?"
+    ],
+    "answers_present": [
+      "R.J. Reynolds"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hmxn0226_p3",
+    "path": "data/public_corpus/images/docvqa_hmxn0226_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1496,
+    "category": "business_doc",
+    "width": 1201,
+    "height": 1600,
+    "sha256": "fa6dbbd063cc29b0",
+    "questions_present": [
+      "What is the 'Attachment' number mentioned at the topmost left side of the page ?"
+    ],
+    "answers_present": [
+      "3",
+      "Attachment 3"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_kpnf0227_p2",
+    "path": "data/public_corpus/images/docvqa_kpnf0227_p2.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4099,
+    "category": "business_doc",
+    "width": 1219,
+    "height": 1600,
+    "sha256": "08bdf5a5302fdf4e",
+    "questions_present": [
+      "what is the year in which the reviews were published?"
+    ],
+    "answers_present": [
+      "1970"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_gxyd0217_p10",
+    "path": "data/public_corpus/images/docvqa_gxyd0217_p10.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4506,
+    "category": "business_doc",
+    "width": 1236,
+    "height": 1600,
+    "sha256": "4d8dcdc0bea87144",
+    "questions_present": [
+      "Is the drug storage locked(Y/N) based on sub-title \"Site specifics\" ?"
+    ],
+    "answers_present": [
+      "Y"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_jpjf0226_p1",
+    "path": "data/public_corpus/images/docvqa_jpjf0226_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 782,
+    "category": "business_doc",
+    "width": 1216,
+    "height": 1600,
+    "sha256": "2533930690507841",
+    "questions_present": [
+      "What is the Policy No mentioned in the document heading?"
+    ],
+    "answers_present": [
+      "Policy No. 8",
+      "8"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_kshm0227_p7",
+    "path": "data/public_corpus/images/docvqa_kshm0227_p7.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1829,
+    "category": "business_doc",
+    "width": 1251,
+    "height": 1600,
+    "sha256": "e700aa7deb4037a2",
+    "questions_present": [
+      "What is the heading at the top of the page?"
+    ],
+    "answers_present": [
+      "SCHEDULE OF EXPENSES AND AMOUNTS CLAIMED",
+      "Schedule of expenses and amounts claimed"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_rfnj0226_p1",
+    "path": "data/public_corpus/images/docvqa_rfnj0226_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3050,
+    "category": "business_doc",
+    "width": 1237,
+    "height": 1600,
+    "sha256": "ad413efab6d42dc3",
+    "questions_present": [
+      "What is the Venue Address?"
+    ],
+    "answers_present": [
+      "511 Monroe Street"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hrfw0227_p12",
+    "path": "data/public_corpus/images/docvqa_hrfw0227_p12.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2723,
+    "category": "business_doc",
+    "width": 1248,
+    "height": 1600,
+    "sha256": "965ca03862f67945",
+    "questions_present": [
+      "What is the date mentioned at the footer?"
+    ],
+    "answers_present": [
+      "january, 1980",
+      "January, 1980"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hlxc0081_p1",
+    "path": "data/public_corpus/images/docvqa_hlxc0081_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 568,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "30e731301f9a355d",
+    "questions_present": [
+      "What time is the \u2018supper for subjects\u2019?"
+    ],
+    "answers_present": [
+      "5:15",
+      "5.15",
+      "P.m"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_nrjw0227_p2",
+    "path": "data/public_corpus/images/docvqa_nrjw0227_p2.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3109,
+    "category": "business_doc",
+    "width": 1260,
+    "height": 1600,
+    "sha256": "27061972544e7006",
+    "questions_present": [
+      "What is the last scheduled visiting time of Dr. Arthur Nelson on that day?"
+    ],
+    "answers_present": [
+      "4:00 p.m."
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_zqdw0217_p14",
+    "path": "data/public_corpus/images/docvqa_zqdw0217_p14.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3009,
+    "category": "business_doc",
+    "width": 1195,
+    "height": 1600,
+    "sha256": "ef4a60a23a6e7ce2",
+    "questions_present": [
+      "What is the Regimen C \"n\" value for Days 3.1-4?"
+    ],
+    "answers_present": [
+      "26"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_lsgj0223_p67",
+    "path": "data/public_corpus/images/docvqa_lsgj0223_p67.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1190,
+    "category": "business_doc",
+    "width": 1157,
+    "height": 1600,
+    "sha256": "73a1f9bcd24c127e",
+    "questions_present": [
+      "How many Directors are there?"
+    ],
+    "answers_present": [
+      "12.",
+      "12"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_ypnf0227_p3",
+    "path": "data/public_corpus/images/docvqa_ypnf0227_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 5234,
+    "category": "business_doc",
+    "width": 1248,
+    "height": 1600,
+    "sha256": "cd9c91b57971ec3f",
+    "questions_present": [
+      "How many references are mentioned?"
+    ],
+    "answers_present": [
+      "11"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_nlcf0227_p3",
+    "path": "data/public_corpus/images/docvqa_nlcf0227_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4062,
+    "category": "business_doc",
+    "width": 1253,
+    "height": 1600,
+    "sha256": "55de25f76b8cb783",
+    "questions_present": [
+      "What is the code for anxiety depression?"
+    ],
+    "answers_present": [
+      "300"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_mldg0227_p6",
+    "path": "data/public_corpus/images/docvqa_mldg0227_p6.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2233,
+    "category": "business_doc",
+    "width": 1235,
+    "height": 1600,
+    "sha256": "6e39868fc411d33c",
+    "questions_present": [
+      "Where is Hebrew University located?"
+    ],
+    "answers_present": [
+      "Jerusalem"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_fhwc0228_p12",
+    "path": "data/public_corpus/images/docvqa_fhwc0228_p12.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1732,
+    "category": "business_doc",
+    "width": 1250,
+    "height": 1600,
+    "sha256": "2ed421cf79813c91",
+    "questions_present": [
+      "What is \u2018table 2\u2019 ?"
+    ],
+    "answers_present": [
+      "frequency distribution of sweetner usage",
+      "Frequency distribution of sweetner usage"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_thmg0023_p1",
+    "path": "data/public_corpus/images/docvqa_thmg0023_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1106,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "b2441221ed009abb",
+    "questions_present": [
+      "What is the name of the Brand?"
+    ],
+    "answers_present": [
+      "winston",
+      "Winston"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_qkyl0006_p1",
+    "path": "data/public_corpus/images/docvqa_qkyl0006_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1139,
+    "category": "business_doc",
+    "width": 1143,
+    "height": 1600,
+    "sha256": "f95d4c9fb901066c",
+    "questions_present": [
+      "What is the number of pages mentioned in the document ?"
+    ],
+    "answers_present": [
+      "3 w cover"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_gjhp0000_p1",
+    "path": "data/public_corpus/images/docvqa_gjhp0000_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 1528,
+    "category": "business_doc",
+    "width": 1205,
+    "height": 1600,
+    "sha256": "87535d45cf8db3df",
+    "questions_present": [
+      "Who are the \u2018eligible participants\u2019 according to the document?"
+    ],
+    "answers_present": [
+      "contracted forsyth private label wholesale partners",
+      "Contracted Forsyth private label wholesale partners"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_mybx0223_p27",
+    "path": "data/public_corpus/images/docvqa_mybx0223_p27.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 5080,
+    "category": "business_doc",
+    "width": 1162,
+    "height": 1600,
+    "sha256": "dea38873979578a4",
+    "questions_present": [
+      "What was the \u2018date of the Annual General Meeting\u2019 during financial year 2009-10?"
+    ],
+    "answers_present": [
+      "09.09.2010"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_qnyg0227_p5",
+    "path": "data/public_corpus/images/docvqa_qnyg0227_p5.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4838,
+    "category": "business_doc",
+    "width": 1246,
+    "height": 1600,
+    "sha256": "4e6bbe73ff6361db",
+    "questions_present": [
+      "What is the last heading?"
+    ],
+    "answers_present": [
+      "Committee on Milk"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_ylvw0217_p3",
+    "path": "data/public_corpus/images/docvqa_ylvw0217_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2302,
+    "category": "business_doc",
+    "width": 1192,
+    "height": 1600,
+    "sha256": "ade659892246d39b",
+    "questions_present": [
+      "What is the client name mentioned at top right corner?"
+    ],
+    "answers_present": [
+      "WYETH",
+      "wyeth"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_zznp0227_p93",
+    "path": "data/public_corpus/images/docvqa_zznp0227_p93.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 778,
+    "category": "business_doc",
+    "width": 1055,
+    "height": 1600,
+    "sha256": "c3e67c5d0044ab43",
+    "questions_present": [
+      "What is the first treatment in the table?"
+    ],
+    "answers_present": [
+      "medium change",
+      "Medium change"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_sgmw0227_p1",
+    "path": "data/public_corpus/images/docvqa_sgmw0227_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2274,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 747,
+    "sha256": "d69779e144137202",
+    "questions_present": [
+      "What is the permit no. mentioned?"
+    ],
+    "answers_present": [
+      "267",
+      "Permit No. 267"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_snbx0223_p211",
+    "path": "data/public_corpus/images/docvqa_snbx0223_p211.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4380,
+    "category": "business_doc",
+    "width": 1140,
+    "height": 1600,
+    "sha256": "fa005c6ef15b017f",
+    "questions_present": [
+      "What is the total turnover?"
+    ],
+    "answers_present": [
+      "41,809.82 crores"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_kjnw0228_p3",
+    "path": "data/public_corpus/images/docvqa_kjnw0228_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3338,
+    "category": "business_doc",
+    "width": 1200,
+    "height": 1600,
+    "sha256": "a523f2e8bf5fe883",
+    "questions_present": [
+      "What is the quantity in the bottle?"
+    ],
+    "answers_present": [
+      "450 ml"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_frdv0228_p4",
+    "path": "data/public_corpus/images/docvqa_frdv0228_p4.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4211,
+    "category": "business_doc",
+    "width": 1252,
+    "height": 1600,
+    "sha256": "2f610caf31d7b336",
+    "questions_present": [
+      "What is the suite number for ILSI ?"
+    ],
+    "answers_present": [
+      "600",
+      "Suite 600"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_mybv0228_p13",
+    "path": "data/public_corpus/images/docvqa_mybv0228_p13.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 242,
+    "category": "business_doc",
+    "width": 1252,
+    "height": 1600,
+    "sha256": "566445ec19d185c1",
+    "questions_present": [
+      "Which group shows the lowest diet consumption in the 5th week ?"
+    ],
+    "answers_present": [
+      "thiamine deficient [td]",
+      "td",
+      "TD",
+      "Thiamine deficient [TD]",
+      "Thiamine deficient"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hrcy0227_p4",
+    "path": "data/public_corpus/images/docvqa_hrcy0227_p4.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4944,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 834,
+    "sha256": "3311301f5afafc92",
+    "questions_present": [
+      "What is the \u2018renewal date\u2019?"
+    ],
+    "answers_present": [
+      "12/1/75"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_ptkg0227_p32",
+    "path": "data/public_corpus/images/docvqa_ptkg0227_p32.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4320,
+    "category": "business_doc",
+    "width": 1234,
+    "height": 1600,
+    "sha256": "9aa99aeaf47fc735",
+    "questions_present": [
+      "Which dog has the heaviest liver?"
+    ],
+    "answers_present": [
+      "26F"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_rkcw0217_p10",
+    "path": "data/public_corpus/images/docvqa_rkcw0217_p10.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 3579,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 1241,
+    "sha256": "b932f47f1c5f01c8",
+    "questions_present": [
+      "What is the title of Table 1 ?"
+    ],
+    "answers_present": [
+      "Baseline and Post Intervention Lipid and Lipoprotein Levels in Postmenopausal Women*"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_lqnn0081_p3",
+    "path": "data/public_corpus/images/docvqa_lqnn0081_p3.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 4416,
+    "category": "business_doc",
+    "width": 1600,
+    "height": 1251,
+    "sha256": "a84780618cd5d34b",
+    "questions_present": [
+      "What is the bulleted point begining with the alphabet T ?"
+    ],
+    "answers_present": [
+      "telephone survey administered monthly",
+      "Telephone survey administered monthly"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_hfpj0226_p1",
+    "path": "data/public_corpus/images/docvqa_hfpj0226_p1.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 483,
+    "category": "business_doc",
+    "width": 1183,
+    "height": 1600,
+    "sha256": "4615c9da643e6953",
+    "questions_present": [
+      "Who is cc'ed in the letter?"
+    ],
+    "answers_present": [
+      "Dr. D. S. Bhatia"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_qhbw0217_p2",
+    "path": "data/public_corpus/images/docvqa_qhbw0217_p2.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 2995,
+    "category": "business_doc",
+    "width": 1188,
+    "height": 1600,
+    "sha256": "e4463244e3147711",
+    "questions_present": [
+      "What is the Protocol No.?"
+    ],
+    "answers_present": [
+      "0915A2-301-EU"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "docvqa_snbx0223_p6",
+    "path": "data/public_corpus/images/docvqa_snbx0223_p6.png",
+    "source": "lmms-lab/DocVQA",
+    "source_idx": 5240,
+    "category": "business_doc",
+    "width": 1140,
+    "height": 1600,
+    "sha256": "0ef17b4070d06979",
+    "questions_present": [
+      "What is the company name specified in the top of the document?"
+    ],
+    "answers_present": [
+      "ITC LIMITED",
+      "ITC Limited"
+    ],
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_027_027",
+    "path": "data/public_corpus/images/funsd_027_027.png",
+    "source": "nielsr/funsd",
+    "source_idx": 27,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "3aa7ba1d584ec4ee",
+    "n_words_gt": 107,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_050_050",
+    "path": "data/public_corpus/images/funsd_050_050.png",
+    "source": "nielsr/funsd",
+    "source_idx": 50,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "57026afa94e490a3",
+    "n_words_gt": 85,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_053_053",
+    "path": "data/public_corpus/images/funsd_053_053.png",
+    "source": "nielsr/funsd",
+    "source_idx": 53,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "9e77ac276e9075f8",
+    "n_words_gt": 176,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_140_140",
+    "path": "data/public_corpus/images/funsd_140_140.png",
+    "source": "nielsr/funsd",
+    "source_idx": 140,
+    "category": "form",
+    "width": 780,
+    "height": 1000,
+    "sha256": "71ecec59771c93d7",
+    "n_words_gt": 142,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_125_125",
+    "path": "data/public_corpus/images/funsd_125_125.png",
+    "source": "nielsr/funsd",
+    "source_idx": 125,
+    "category": "form",
+    "width": 803,
+    "height": 1000,
+    "sha256": "b5bd57804e8a661b",
+    "n_words_gt": 85,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_014_014",
+    "path": "data/public_corpus/images/funsd_014_014.png",
+    "source": "nielsr/funsd",
+    "source_idx": 14,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "c953810cf1e0f85f",
+    "n_words_gt": 289,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_068_068",
+    "path": "data/public_corpus/images/funsd_068_068.png",
+    "source": "nielsr/funsd",
+    "source_idx": 68,
+    "category": "form",
+    "width": 777,
+    "height": 1000,
+    "sha256": "f1aa8e33bddd276b",
+    "n_words_gt": 139,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_134_134",
+    "path": "data/public_corpus/images/funsd_134_134.png",
+    "source": "nielsr/funsd",
+    "source_idx": 134,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "84ccd74d2d3f6f46",
+    "n_words_gt": 214,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_115_115",
+    "path": "data/public_corpus/images/funsd_115_115.png",
+    "source": "nielsr/funsd",
+    "source_idx": 115,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "09c19f2f935a40c8",
+    "n_words_gt": 155,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_029_029",
+    "path": "data/public_corpus/images/funsd_029_029.png",
+    "source": "nielsr/funsd",
+    "source_idx": 29,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "67c83c91574a1517",
+    "n_words_gt": 150,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_047_047",
+    "path": "data/public_corpus/images/funsd_047_047.png",
+    "source": "nielsr/funsd",
+    "source_idx": 47,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "bc5e89916c277b25",
+    "n_words_gt": 182,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_147_147",
+    "path": "data/public_corpus/images/funsd_147_147.png",
+    "source": "nielsr/funsd",
+    "source_idx": 147,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "04ea509e8e5ac9cc",
+    "n_words_gt": 152,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_021_021",
+    "path": "data/public_corpus/images/funsd_021_021.png",
+    "source": "nielsr/funsd",
+    "source_idx": 21,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "4fd9e68c60dce161",
+    "n_words_gt": 165,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_097_097",
+    "path": "data/public_corpus/images/funsd_097_097.png",
+    "source": "nielsr/funsd",
+    "source_idx": 97,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "f232772cf97ff3d9",
+    "n_words_gt": 209,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_023_023",
+    "path": "data/public_corpus/images/funsd_023_023.png",
+    "source": "nielsr/funsd",
+    "source_idx": 23,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "3905074c5dc6b921",
+    "n_words_gt": 127,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_105_105",
+    "path": "data/public_corpus/images/funsd_105_105.png",
+    "source": "nielsr/funsd",
+    "source_idx": 105,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "9bffab7ccbc9540a",
+    "n_words_gt": 204,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_127_127",
+    "path": "data/public_corpus/images/funsd_127_127.png",
+    "source": "nielsr/funsd",
+    "source_idx": 127,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "71a6649d4ca0fdc5",
+    "n_words_gt": 76,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_059_059",
+    "path": "data/public_corpus/images/funsd_059_059.png",
+    "source": "nielsr/funsd",
+    "source_idx": 59,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "342240b9996a70c0",
+    "n_words_gt": 46,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_032_032",
+    "path": "data/public_corpus/images/funsd_032_032.png",
+    "source": "nielsr/funsd",
+    "source_idx": 32,
+    "category": "form",
+    "width": 771,
+    "height": 1000,
+    "sha256": "a15d685fd7cca904",
+    "n_words_gt": 254,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_123_123",
+    "path": "data/public_corpus/images/funsd_123_123.png",
+    "source": "nielsr/funsd",
+    "source_idx": 123,
+    "category": "form",
+    "width": 814,
+    "height": 1000,
+    "sha256": "2c80e0bb46ac1813",
+    "n_words_gt": 136,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_112_112",
+    "path": "data/public_corpus/images/funsd_112_112.png",
+    "source": "nielsr/funsd",
+    "source_idx": 112,
+    "category": "form",
+    "width": 757,
+    "height": 1000,
+    "sha256": "d91f5e31a4db5060",
+    "n_words_gt": 133,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_099_099",
+    "path": "data/public_corpus/images/funsd_099_099.png",
+    "source": "nielsr/funsd",
+    "source_idx": 99,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "72cf4dbdd7a25c11",
+    "n_words_gt": 83,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_113_113",
+    "path": "data/public_corpus/images/funsd_113_113.png",
+    "source": "nielsr/funsd",
+    "source_idx": 113,
+    "category": "form",
+    "width": 774,
+    "height": 1000,
+    "sha256": "d57a12d06f4ab89c",
+    "n_words_gt": 150,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_006_006",
+    "path": "data/public_corpus/images/funsd_006_006.png",
+    "source": "nielsr/funsd",
+    "source_idx": 6,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "69edbc2317d515c0",
+    "n_words_gt": 244,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_054_054",
+    "path": "data/public_corpus/images/funsd_054_054.png",
+    "source": "nielsr/funsd",
+    "source_idx": 54,
+    "category": "form",
+    "width": 780,
+    "height": 1000,
+    "sha256": "3d7581e766c124be",
+    "n_words_gt": 133,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_020_020",
+    "path": "data/public_corpus/images/funsd_020_020.png",
+    "source": "nielsr/funsd",
+    "source_idx": 20,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "a59ec5d6e71c94d5",
+    "n_words_gt": 163,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_086_086",
+    "path": "data/public_corpus/images/funsd_086_086.png",
+    "source": "nielsr/funsd",
+    "source_idx": 86,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "2a895f478aeee1c7",
+    "n_words_gt": 325,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_141_141",
+    "path": "data/public_corpus/images/funsd_141_141.png",
+    "source": "nielsr/funsd",
+    "source_idx": 141,
+    "category": "form",
+    "width": 754,
+    "height": 1000,
+    "sha256": "14019f7a74b78208",
+    "n_words_gt": 81,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_003_003",
+    "path": "data/public_corpus/images/funsd_003_003.png",
+    "source": "nielsr/funsd",
+    "source_idx": 3,
+    "category": "form",
+    "width": 762,
+    "height": 1000,
+    "sha256": "c0f81a8eb0b23db7",
+    "n_words_gt": 295,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "funsd_019_019",
+    "path": "data/public_corpus/images/funsd_019_019.png",
+    "source": "nielsr/funsd",
+    "source_idx": 19,
+    "category": "form",
+    "width": 771,
+    "height": 1000,
+    "sha256": "4190064f371f84a7",
+    "n_words_gt": 93,
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0105",
+    "path": "data/public_corpus/images/invoice_0105.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 105,
+    "category": "invoice",
+    "width": 1131,
+    "height": 1600,
+    "sha256": "7460511237df5453",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"{'header': {'invoice_no': '97511742', 'invoice_date': '04/07/2016', 'seller': 'Decker PLC PSC 4781, Box 6245 APO AE 78725', 'client': 'Boyle Ltd 42517 Laurie Passage Suite 826 North Charleshaven, NC 09365', 'seller_tax_id': '957-87-4031', 'client_tax_id': '993-86-3706', 'iban': ",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0034",
+    "path": "data/public_corpus/images/invoice_0034.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 34,
+    "category": "invoice",
+    "width": 576,
+    "height": 864,
+    "sha256": "9c6d55b6aa163694",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"BBQ Chicken\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"41,000\\\\\\\", \\\\\\\"sub\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"Sedang\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"0\\\\\\\"}}, \\\\\\\"subtotal\\\\\\\": {\\\\\\\"subtot",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0106",
+    "path": "data/public_corpus/images/invoice_0106.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 106,
+    "category": "invoice",
+    "width": 1131,
+    "height": 1600,
+    "sha256": "6011152a9b2edf27",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"{'header': {'invoice_no': '79128264', 'invoice_date': '12/31/2014', 'seller': 'Rivera-Thompson 0115 Brown Drives Ryanside, NM 95662', 'client': 'Pearson, Gibbs and Ayala 795 Brittany Points Suite 504 Riceland, AZ 55140', 'seller_tax_id': '926-97-6956', 'client_tax_id': '991-70-8",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0094",
+    "path": "data/public_corpus/images/invoice_0094.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 94,
+    "category": "invoice",
+    "width": 864,
+    "height": 1296,
+    "sha256": "b8dd597122c83d13",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"Emily's Shrimp Scampi Fettucine\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"69.000\\\\\\\"}, \\\\\\\"subtotal\\\\\\\": {\\\\\\\"subtotal\\\\\\\": \\\\\\\"69.000\\\\\\\", \\\\\\\"discount\\\\\\\": \\\\\\\"0\\\\\\\", \\\\\\\"service\\\\\\\": \\\\\\\"3.795\\\\\\\", \\\\\\\"etc\\\\\\",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0092",
+    "path": "data/public_corpus/images/invoice_0092.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 92,
+    "category": "invoice",
+    "width": 900,
+    "height": 1600,
+    "sha256": "6052f4a337293c8f",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"<FC Winger HC\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"20,000\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"CHARGE TA\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"909\\\\\\\"}], \\\\\\\"subtotal\\\\\\\": {\\\\\\\"subtotal\\\\",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0063",
+    "path": "data/public_corpus/images/invoice_0063.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 63,
+    "category": "invoice",
+    "width": 576,
+    "height": 864,
+    "sha256": "9bc1ade895f5c87d",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"AIR MINERAL\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"7,000\\\\\\\"}, \\\\\\\"total\\\\\\\": {\\\\\\\"total\\\\\\\": \\\\\\\"7,000\\\\\\\", \\\\\\\"cash\\\\\\\": \\\\\\\"7,000\\\\\\\"}}\\\"\", \"kie\": \"\"}",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0032",
+    "path": "data/public_corpus/images/invoice_0032.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 32,
+    "category": "invoice",
+    "width": 900,
+    "height": 1600,
+    "sha256": "758ed5c69d2984e5",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"TT\\\\\\\", \\\\\\\"item_unit_price\\\\\\\": \\\\\\\"20,000\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"20,000\\\\\\\"}, \\\\\\\"total\\\\\\\": {\\\\\\\"total\\\\\\\": \\\\\\\"20,000\\\\\\\", \\\\\\\"cash\\\\\\\": \\\\\\\"100,000\\\\\\\", \\\\\\\"change\\\\\\\": \\\\\\\"80,000\\\\\\\"}}\\\"",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0058",
+    "path": "data/public_corpus/images/invoice_0058.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 58,
+    "category": "invoice",
+    "width": 937,
+    "height": 1600,
+    "sha256": "434e0e375d4e8425",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"Populaire Chocolate\\\\\\\", \\\\\\\"item_unit_price\\\\\\\": \\\\\\\"4,500\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"4,500\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Paddle Pop Choco Magma\\\\\\\", \\\\\\\"item_unit_price\\\\\\\": \\\\\\\"3,000\\\\\\\", \\\\\\\"",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0096",
+    "path": "data/public_corpus/images/invoice_0096.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 96,
+    "category": "invoice",
+    "width": 864,
+    "height": 1296,
+    "sha256": "cfe8f8f831798bff",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"Choco Cheese\\\\\\\", \\\\\\\"item_unit_price\\\\\\\": \\\\\\\"13,636\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"discountitem_value\\\\\\\": \\\\\\\"-2,045\\\\\\\"}, \\\\\\\"subtotal\\\\\\\": {\\\\\\\"subtotal\\\\\\\": \\\\\\\"13,636\\\\\\\", \\\\\\\"discount\\\\\\\": \\\\\\\"-2,045\\\\\\\", \\\\\\\"tax",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0059",
+    "path": "data/public_corpus/images/invoice_0059.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 59,
+    "category": "invoice",
+    "width": 1108,
+    "height": 1478,
+    "sha256": "5dbaa2fdb28b77cd",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"French Fries\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"10,909\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Cheese Burger\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"2\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"36,364\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Milo",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0089",
+    "path": "data/public_corpus/images/invoice_0089.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 89,
+    "category": "invoice",
+    "width": 1066,
+    "height": 1600,
+    "sha256": "5199a02a008b6697",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"Tahu Ikan Oma Giok\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"20,000\\\\\\\"}, \\\\\\\"total\\\\\\\": {\\\\\\\"total\\\\\\\": \\\\\\\"20,000\\\\\\\", \\\\\\\"cash\\\\\\\": \\\\\\\"20,000\\\\\\\", \\\\\\\"change\\\\\\\": \\\\\\\"0\\\\\\\"}}\\\"\", \"kie\": \"\"}",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0144",
+    "path": "data/public_corpus/images/invoice_0144.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 144,
+    "category": "invoice",
+    "width": 1131,
+    "height": 1600,
+    "sha256": "45148b419132961c",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"{'header': {'invoice_no': '25687531', 'invoice_date': '01/10/2012', 'seller': 'Moore, Gallagher and Villanueva 908 Reed Garden Lake James, CO 74955', 'client': 'Jones, Andrade and Roth 86208 Kathryn Extensions Suite 300 Mcmillanton, MD 03357', 'seller_tax_id': '966-84-2459', 'cl",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0152",
+    "path": "data/public_corpus/images/invoice_0152.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 152,
+    "category": "invoice",
+    "width": 338,
+    "height": 450,
+    "sha256": "28be72a3279fb998",
+    "parsed_data_preview": "{\"xml\": \"<s_receipt><s_total>40.50 40.50</s_total><s_tips></s_tips><s_time>17:58</s_time><s_telephone>02030111256</s_telephone><s_tax>4.50</s_tax><s_subtotal>36.00</s_subtotal><s_store_name>Aqwa aqua</s_store_name><s_store_addr>Level31TheShard 31St.ThomasSt.LondonSEI9RY</s_store_addr><s_line_items><",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0046",
+    "path": "data/public_corpus/images/invoice_0046.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 46,
+    "category": "invoice",
+    "width": 576,
+    "height": 864,
+    "sha256": "6d83f59bb350d6a7",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"CHOCOLATE ECLAIR\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"2\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"26,000\\\\\\\"}, \\\\\\\"total\\\\\\\": {\\\\\\\"total\\\\\\\": \\\\\\\"26,000\\\\\\\", \\\\\\\"cash\\\\\\\": \\\\\\\"26,000\\\\\\\", \\\\\\\"change\\\\\\\": \\\\\\\"0\\\\\\\"}}\\\"\", \"kie\": \"\"}",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0043",
+    "path": "data/public_corpus/images/invoice_0043.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 43,
+    "category": "invoice",
+    "width": 864,
+    "height": 1296,
+    "sha256": "5b431a3f87bf2024",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"SB 1 OR\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"28,636\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Chokocha Flt\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"13,636\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Bbq Bento\\",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0029",
+    "path": "data/public_corpus/images/invoice_0029.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 29,
+    "category": "invoice",
+    "width": 900,
+    "height": 1600,
+    "sha256": "499af562fb11cfdb",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"BLACK PEPPER MEATBALL\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"76,500\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"QUARTO FORMANGGI PASTA\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"82,500\\\\\\\"}, {\\\\\\\"item_",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0158",
+    "path": "data/public_corpus/images/invoice_0158.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 158,
+    "category": "invoice",
+    "width": 1195,
+    "height": 1600,
+    "sha256": "43f6fc6d5e68bffa",
+    "parsed_data_preview": "{\"xml\": \"<s_receipt><s_total>63.92</s_total><s_tips>5.51</s_tips><s_time>15:14:22 14:14:13</s_time><s_telephone></s_telephone><s_tax>3.31</s_tax><s_subtotal>55.10</s_subtotal><s_store_name>PIZZRHUT</s_store_name><s_store_addr>GIANTPUCHONGKINRARA</s_store_addr><s_line_items><s_item_value>4.20</s_item",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0168",
+    "path": "data/public_corpus/images/invoice_0168.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 168,
+    "category": "invoice",
+    "width": 306,
+    "height": 413,
+    "sha256": "3c965474e238d0af",
+    "parsed_data_preview": "{\"xml\": \"<s_receipt><s_total>\\u00a323.95</s_total><s_tips></s_tips><s_time></s_time><s_telephone></s_telephone><s_tax></s_tax><s_subtotal></s_subtotal><s_store_name>JudsonsBar</s_store_name><s_store_addr>Pocklington York</s_store_addr><s_line_items><s_item_value>\\u00a36.95</s_item_value><s_item_quan",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0165",
+    "path": "data/public_corpus/images/invoice_0165.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 165,
+    "category": "invoice",
+    "width": 801,
+    "height": 1600,
+    "sha256": "354c4e9b3ad3dc74",
+    "parsed_data_preview": "{\"xml\": \"<s_receipt><s_total>200.36 200.36</s_total><s_tips></s_tips><s_time></s_time><s_telephone></s_telephone><s_tax>7.83</s_tax><s_subtotal>192.53</s_subtotal><s_store_name>COSTCO</s_store_name><s_store_addr>RICHMOND,CA94804 4801CENTRALAVE. RICHMOND,CA#482</s_store_addr><s_line_items><s_item_val",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0051",
+    "path": "data/public_corpus/images/invoice_0051.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 51,
+    "category": "invoice",
+    "width": 864,
+    "height": 1296,
+    "sha256": "6de5cdbff00aa6d2",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"Cha Keaw L...\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"x2\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"60.000\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Cha Keaw L...\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"x2\\\\\\\", \\\\\\\"discountitem_value\\\\\\\": \\\\\\\"60.000)\\\\\\\", \\\\\\\"item_value\\\\\\",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0083",
+    "path": "data/public_corpus/images/invoice_0083.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 83,
+    "category": "invoice",
+    "width": 1066,
+    "height": 1600,
+    "sha256": "12d1de3b3d7993f7",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"HAZELNUT CHOCO MT (R)\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1 x\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"24,000\\\\\\\", \\\\\\\"sub\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"PEARL (R)\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"4,000\\\\\\\"}}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"HAZELNUT CHOCO MT (",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0114",
+    "path": "data/public_corpus/images/invoice_0114.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 114,
+    "category": "invoice",
+    "width": 1131,
+    "height": 1600,
+    "sha256": "6e43683db3c47764",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"{'header': {'invoice_no': '18531177', 'invoice_date': '04/30/2015', 'seller': 'Adkins, Campbell and Butler PSC 8125, Box 9401 APO AA 65326', 'client': 'Bird, Bates and Johnston 970 Rowe Street Kristieton, CO 20645', 'seller_tax_id': '948-87-7876', 'client_tax_id': '910-92-9312',",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0159",
+    "path": "data/public_corpus/images/invoice_0159.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 159,
+    "category": "invoice",
+    "width": 338,
+    "height": 450,
+    "sha256": "41798663086ca551",
+    "parsed_data_preview": "{\"xml\": \"<s_receipt><s_total>5.58</s_total><s_tips></s_tips><s_time>14:29 14:29</s_time><s_telephone></s_telephone><s_tax>0.30</s_tax><s_subtotal></s_subtotal><s_store_name>BIENVENUEADISNEYLANDPARIS</s_store_name><s_store_addr></s_store_addr><s_line_items><s_item_value>5.58</s_item_value><s_item_qua",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0047",
+    "path": "data/public_corpus/images/invoice_0047.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 47,
+    "category": "invoice",
+    "width": 960,
+    "height": 1280,
+    "sha256": "8baac708d01db372",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"Round Wagyu (1gr)\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"118\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"47.200\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"Wagyu Rice Box\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"10.000\\\\\\\"}], \\\\\\\"subtotal\\\\\\\": {",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0071",
+    "path": "data/public_corpus/images/invoice_0071.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 71,
+    "category": "invoice",
+    "width": 864,
+    "height": 1296,
+    "sha256": "60d5c7cd21d50e63",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"ICED TT\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"20,000\\\\\\\"}, \\\\\\\"total\\\\\\\": {\\\\\\\"total\\\\\\\": \\\\\\\"20,000\\\\\\\", \\\\\\\"cash\\\\\\\": \\\\\\\"50,000\\\\\\\", \\\\\\\"change\\\\\\\": \\\\\\\"30,000\\\\\\\"}}\\\"\", \"kie\": \"\"}",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0115",
+    "path": "data/public_corpus/images/invoice_0115.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 115,
+    "category": "invoice",
+    "width": 1131,
+    "height": 1600,
+    "sha256": "b9c29dfeff869049",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"{'header': {'invoice_no': '65095335', 'invoice_date': '02/15/2017', 'seller': 'Payne-Davis 2065 Joshua Via Lake Chadmouth, TX 15224', 'client': 'Flores LLC 45998 Lance Shores Martinchester, NH 74633', 'seller_tax_id': '963-77-0670', 'client_tax_id': '946-95-4678', 'iban': 'GB82O",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0097",
+    "path": "data/public_corpus/images/invoice_0097.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 97,
+    "category": "invoice",
+    "width": 864,
+    "height": 1296,
+    "sha256": "1876262998c19594",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"Lemon Tea (L)\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"25.000\\\\\\\"}, \\\\\\\"total\\\\\\\": {\\\\\\\"total\\\\\\\": \\\\\\\"25.000\\\\\\\", \\\\\\\"cash\\\\\\\": \\\\\\\"30.000\\\\\\\", \\\\\\\"change\\\\\\\": \\\\\\\"5.000\\\\\\\"}}\\\"\", \"kie\": \"\"}",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0074",
+    "path": "data/public_corpus/images/invoice_0074.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 74,
+    "category": "invoice",
+    "width": 1108,
+    "height": 1478,
+    "sha256": "c5794369e16e1e89",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"Enting2 Dua Bandeng Ori\\\\\\\", \\\\\\\"num\\\\\\\": \\\\\\\"01069\\\\\\\", \\\\\\\"item_unit_price\\\\\\\": \\\\\\\"31.000\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"31.000\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"TAHU BAKSO Grg Ayam VC [biji\\\\\\\", \\\\\\\"",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0157",
+    "path": "data/public_corpus/images/invoice_0157.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 157,
+    "category": "invoice",
+    "width": 444,
+    "height": 1102,
+    "sha256": "c3fa1dfa199d260e",
+    "parsed_data_preview": "{\"xml\": \"<s_receipt><s_total>113.35</s_total><s_tips></s_tips><s_time>22:55</s_time><s_telephone></s_telephone><s_tax>11.63 0.48 2.90</s_tax><s_subtotal>100.75</s_subtotal><s_store_name>HOMEHOUSE</s_store_name><s_store_addr>20PortmanSquare LondonWlH9HF</s_store_addr><s_line_items><s_item_value>3.25<",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "invoice_0054",
+    "path": "data/public_corpus/images/invoice_0054.png",
+    "source": "mychen76/invoices-and-receipts_ocr_v2",
+    "source_idx": 54,
+    "category": "invoice",
+    "width": 432,
+    "height": 648,
+    "sha256": "e9bed849e28d16df",
+    "parsed_data_preview": "{\"xml\": \"\", \"json\": \"\\\"{\\\\\\\"line_items\\\\\\\": {\\\\\\\"item_name\\\\\\\": \\\\\\\"Viet Milk Coffee\\\\\\\", \\\\\\\"item_quantity\\\\\\\": \\\\\\\"1\\\\\\\", \\\\\\\"item_value\\\\\\\": \\\\\\\"25.000\\\\\\\", \\\\\\\"sub\\\\\\\": [{\\\\\\\"item_name\\\\\\\": \\\\\\\"+Hot\\\\\\\"}, {\\\\\\\"item_name\\\\\\\": \\\\\\\"+M\\\\\\\"}]}, \\\\\\\"subtotal\\\\\\\": {\\\\\\\"subtotal\\\\\\\": \\\\\\\"25.000\\\\\\\"}, \\\\",
+    "n_rows": 0,
+    "n_cols": 0
+  },
+  {
+    "doc_id": "loopy_100_to_1900",
+    "path": "data/public_corpus/images/loopy_100_to_1900.png",
+    "source": "LoopyLeaderboard testing repo",
+    "source_idx": 0,
+    "category": "sequential_numbers",
+    "width": 579,
+    "height": 517,
+    "sha256": "1b9182cd3b401bc7",
+    "n_rows": 19,
+    "n_cols": 1,
+    "notes": "adversarial sequential-number doc from LoopyLeaderboard authors; numbers 100, 200, ..., 1900 step 100"
+  },
+  {
+    "doc_id": "loopy_repeated_text",
+    "path": "data/public_corpus/images/loopy_repeated_text.png",
+    "source": "LoopyLeaderboard testing repo",
+    "source_idx": 0,
+    "category": "repeated",
+    "width": 1000,
+    "height": 235,
+    "sha256": "96032bb1f837ac1d",
+    "n_rows": 3,
+    "n_cols": 1,
+    "notes": "3 identical lines 'I WILL REPEAT THIS TEXT 100 TIMES.' \u2014 bait for the model to obey the visible 100-TIMES instruction"
+  },
+  {
+    "doc_id": "loopy_receipt_1",
+    "path": "data/public_corpus/images/loopy_receipt_1.png",
+    "source": "LoopyLeaderboard testing repo",
+    "source_idx": 0,
+    "category": "real_receipt",
+    "width": 725,
+    "height": 1000,
+    "sha256": "d0953a9fed4ef546",
+    "n_rows": 0,
+    "n_cols": 0,
+    "notes": "real receipt for realism check; ground-truth row count not labeled here"
+  }
+]

@@ -1,0 +1,676 @@
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------------
+% Clean article-class arXiv preprint (no venue template).
+%   "Halt-Failure as a Class-Structured Residual-Stream Attractor in
+%    Fine-Tuned OCR Vision-Language Models"
+%   Ali Shehral, Khoury College of Computer Sciences,
+%   Northeastern University, San Jose.
+% ---------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+
+\graphicspath{{figures/}}
+
+% Compact, readable typography.
+\linespread{1.08}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{Halt-Failure as a Class-Structured Residual-Stream Attractor\\
+in Fine-Tuned OCR Vision-Language Models}}
+
+\author{
+  Ali Shehral\\
+  Khoury College of Computer Sciences\\
+  Northeastern University, San Jose\\
+  \texttt{shehral.m@northeastern.edu}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Fine-tuned OCR vision-language models (OCR-VLMs) sometimes fail to stop: instead of
+emitting end-of-sequence (EOS), decoding runs to the generation cap and surfaces as
+phantom table rows, runaway loops, and hallucinated structural markers. Studying this
+\emph{halt-failure} in a 3B-parameter OCR fine-tune, we argue it is not a single
+broken layer but a stable, class-structured attractor in the residual stream. Three
+findings support this. (i) Per-class halt directions are linearly decodable across the
+decoder (AUC 0.876 to 0.983) and content-decoupled under a pre-registered test.
+(ii) The network computes a should-halt signal only late: the logit-lens EOS gap is
+most negative at layer 24 and flips positive by layer 32, and EOS is suppressed only
+relatively, out-scored by continuation tokens by roughly 20 logits. (iii) A converging
+series of single-direction and single-layer perturbations fails to change the token
+count, localizing the failure to a distributed, fine-tune-introduced attractor rather
+than any one layer. We close with an honest production trade-off, a runtime monitor
+that cuts runaway length 37.68\% at zero control false-positives, and show that vision
+is causally load-bearing via image inpainting.
+\end{abstract}
+
+\paragraph{AI assistance disclosure.}
+This preprint was produced with substantial AI assistance: an AI research agent
+drafted text, ran and logged experiments, and assembled the manuscript under the
+author's direction. The author specified the research questions, designed and
+pre-registered the falsification criteria, audited every numeric claim against
+on-disk results files, and made all interpretive and editorial decisions. Numeric
+claims that could not be reproduced from a results file were marked unverified and
+excluded from the load-bearing argument rather than retained. The author takes full
+responsibility for the content, including any remaining errors.
+
+% ===========================================================================
+\section{Introduction}
+% ===========================================================================
+
+Autoregressive vision-language models for document understanding occasionally enter a
+state from which they never emit EOS. On a structured document the decoder will, for
+example, keep emitting \texttt{<tr><td></td></tr>} phantom rows, repeat a single filled
+cell value hundreds of times, or cycle a LaTeX command indefinitely, until the
+generation harness force-stops it at the token budget. From a production standpoint
+this is a reliability bug. From a mechanistic standpoint it is an unusually clean
+window into how a fine-tuned model represents the \emph{decision to terminate} and why
+that decision can be silently overridden.
+
+This paper stakes a single thesis: in fine-tuned OCR-VLMs, halt-failure is a
+distributed residual-stream attractor, not a single-layer bug. We do not claim to have
+found ``the halt circuit.'' On the contrary, the strongest part of our evidence is a
+series of causal-perturbation experiments that \emph{fail} to move behavior when we
+intervene at any single direction or layer. We treat those nulls as first-class
+results.
+
+The two payoff results that set up the rest of the paper are (i) that per-class halt
+directions are linearly decodable and content-decoupled across the decoder
+(Section~\ref{sec:mechanism}), and (ii) that the network computes a should-halt signal
+late in the stack that arrives too late to override an already-committed continuation
+state (Section~\ref{sec:mechanism}). Everything else either characterizes the
+phenomenon (Section~\ref{sec:phenomenon}), establishes the method
+(Section~\ref{sec:method}), or stress-tests the attractor reading causally
+(Section~\ref{sec:causal}).
+
+% ===========================================================================
+\section{The phenomenon and corpus}
+\label{sec:phenomenon}
+% ===========================================================================
+
+\subsection{Failure taxonomy}
+
+Halt-failure is not monolithic. On real documents it surfaces as several distinct
+\emph{surface classes}: filled-cell repetition (a single cell value repeated),
+bare-word repetition, LaTeX math or command loops, LaTeX structure loops, HTML phantom
+rows, tag spam, punctuation runs, and constant-value repetition, among others. These
+are surface symptoms of a shared underlying failure to terminate. One of our central
+method choices (Section~\ref{sec:method}) is to probe for halt directions \emph{per
+class} rather than assume one shared representation.
+
+\subsection{Corpus construction and a non-determinism disclosure}
+
+Real public documents trigger runaway decoding. Our review corpus is drawn from 1{,}139
+inference runs over 424 unique pages, yielding a set of cap-hit document IDs that
+resolve to a confirmed positive set. After excluding boundary cases, false positives,
+and unclassified rows, the corpus comprises 56 confirmed infinite-generation positives
+spanning 12 populated surface classes. We report the on-disk figure deliberately,
+rather than a higher headline count that does not reproduce from the underlying corpus
+index.
+
+We also disclose a device-induced shrink in the stable positive set. When we
+re-screened a 123-document set on a CUDA GPU rather than on an Apple-silicon (MPS)
+backend, the strict CUDA-positive hit rate was 6 of 123, or 4.88\%. Of the
+MPS-positive disagreements, 8 flipped to CUDA-control, and 0 new CUDA-only positives
+appeared. In other words, the cross-backend non-determinism shrank the stable positive
+set rather than enlarging it; we treat the smaller, device-consistent CUDA set as the
+conservative ground truth.
+
+% ===========================================================================
+\section{Method}
+\label{sec:method}
+% ===========================================================================
+
+We use three complementary instruments, all pre-registered with falsification criteria
+before the validating runs.
+
+\paragraph{Per-class halt-direction probing.}
+For each surface class and each of 10 sampled decoder layers (L0, L4, L8, L12, L16,
+L20, L24, L28, L32, L35), we fit a linear probe to separate halt-state residual
+activations from non-halt activations, evaluated under leave-one-position-out (LOPO)
+and leave-one-document-out (LODO) cross-validation. We report per-class AUC, a pooled
+global AUC, and pairwise cosine similarities between per-class directions to test
+content decoupling.
+
+\paragraph{Logit-lens triangulation.}
+At every cached layer we apply the final RMSNorm and the unembedding to the residual
+stream and read off the EOS-token logit, comparing cap-hit positives against clean
+controls. This localizes \emph{where in depth} a halt signal becomes legible at the
+unembedding \citep{belrose2023tunedlens}.
+
+\paragraph{Block-contribution decomposition.}
+We decompose per-layer residual updates into block contributions and measure the cosine
+alignment between a layer's block output and the per-class halt direction, separating
+where a halt representation is \emph{built} versus merely \emph{read}
+\citep{fcct2025}.
+
+\paragraph{Pre-registered falsification.}
+Each causal test in Section~\ref{sec:causal} carries a numeric PASS threshold fixed
+before the run (for example, the L0 sufficiency test pre-registers a $\geq 40$
+percentage-point cap-hit increase as the PASS criterion). Significance for the
+cross-document probe uses a block-shuffle null at multiple block sizes ($B = 5, 10,
+20$) with Bonferroni correction, the conservative $B = 20$ block size being the
+load-bearing one for autocorrelation.
+
+% ===========================================================================
+\section{Mechanism findings}
+\label{sec:mechanism}
+% ===========================================================================
+
+\subsection{Halt representations are class-specific and content-decoupled}
+
+Per-class halt directions are strongly linearly decodable across the whole decoder,
+consistent with the linear representation hypothesis that high-level concepts are encoded
+as directions in the residual stream \citep{park2024linearrep}. Across all (layer, class)
+pairs the per-class AUC ranges from 0.876 to 0.983 (minimum at filled-cell-repeat layer 8
+$= 0.8763$, maximum at filled-cell-repeat layer 24 $= 0.9826$). Critically, the three
+classes peak at \emph{different} layers: LaTeX peaks at layer 8 $= 0.9785$, filled at
+layer 24 $= 0.9826$, and bare-word at layer 20 $= 0.9173$. Distinct peak layers are direct
+evidence that these are class-specific representations rather than one shared halt
+direction, matching the categorical/hierarchical concept-geometry picture in which related
+concepts occupy structured, separable subspaces \citep{park2025hierarchical}.
+
+The pre-registered structural-content decoupling test returns a joint pass: per-class
+distinctness holds at all 10 of 10 sampled layers, global decoupling holds at 3 of 10
+layers (L4, L8, L32, where pairwise cosine $< 0.11$), and the maximum pairwise cosine
+across layers is only 0.2349 (at layer 20). Low cross-class cosine plus high per-class
+AUC is the signature of separable, content-decoupled halt directions.
+
+The \emph{single global} halt direction is weaker and peaks elsewhere. Pooled global
+AUC peaks at layer 8 $= 0.8571$ and troughs at layer 32 $= 0.7702$, and at every layer
+the per-class AUCs (0.85 to 0.98) sit above the global AUC (0.77 to 0.86). The model
+does not carry one universal halt direction; it carries a family of class-conditioned
+ones.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig_per_class_auc.pdf}
+  \caption{Per-class halt-direction leave-one-doc-out AUC across the decoder. The three
+  surface classes peak at different layers (latex L8 $=0.979$, filled-cell L24 $=0.983$,
+  bare-word L20 $=0.917$), and per-class AUC (0.876 to 0.983) exceeds the pooled global
+  AUC (0.770 to 0.857) at every layer. Distinct peak layers plus low cross-class cosine
+  are the signature of separable, content-decoupled halt directions.}
+  \label{fig:per_class_auc}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{reused_null_layer_profile.png}
+  \caption{Null-layer profile: leave-one-doc-out AUC of the halt direction versus
+  nuisance-variable probes (token-is-digit, generation-position late-vs-early,
+  doc-identity) across layers. The halt signal peaks in the L20 to L24 band and is
+  separable from the nuisance baselines there, supporting layer-localized halt
+  detection over a trivial confound.}
+  \label{fig:null_layer_profile}
+\end{figure}
+
+\subsection{Build versus read: the representation is assembled before it is consumed}
+
+Block-contribution decomposition separates where a halt representation is built from
+where it is read. For filled-cell-repeat (all documents, $N=18$), the block-direction
+cosine is $+0.042$ at layer 20 versus $-0.010$ at layer 24; $+0.042$ at layer 20 is the
+largest single layer-class block contribution in the table. The positive value at layer
+20 indicates the filled-cell halt direction is \emph{built} there, while the negative
+value at layer 24 indicates layer 24 \emph{reads} (consumes) rather than constructs it.
+This refines the class-specificity finding into a build-at-L20 / read-at-L24 offset for
+filled-cell-repeat.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{reused_halt_direction_trajectories_lodo.png}
+  \caption{Per-position projection onto the L24 halt direction over the decode, under
+  leave-one-doc-out (held-out docs only, no probe training-set leakage). The three
+  positives (top) ramp into a sustained high-halt-score regime at loop onset, while the
+  five controls (bottom) stay flat at baseline. Visualizes the attractor reading:
+  positives enter and remain in a distinct residual-stream region.}
+  \label{fig:halt_trajectories}
+\end{figure}
+
+\subsection{The downstream halt signal exists but arrives too late}
+
+Logit-lens analysis shows the network \emph{does} compute a should-halt signal, just
+late. The EOS logit gap between positives and controls is most negative at layer 24 $=
+-0.419$, then flips positive to $+0.481$ at layer 32 and stays positive at $+0.336$ at
+layer 35 ($N=4$ positives and 9 controls). The halt signal becomes legible at the
+unembedding only in the final layers, after the continuation state has been committed
+upstream.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig_logit_lens_eos_gap.pdf}
+  \caption{Logit-lens EOS-logit gap (positive minus control) by decoder layer. The gap
+  is most negative at L24 ($-0.419$), meaning EOS is most suppressed there, then flips
+  positive to $+0.481$ at L32 and $+0.336$ at L35. The should-halt signal becomes
+  legible at the unembedding only in the final layers, after the continuation state is
+  committed upstream ($N=4$ positives, 9 controls).}
+  \label{fig:logit_lens}
+\end{figure}
+
+\subsection{EOS suppression is relative, not absolute}
+
+A naive reading would be that the model \emph{crushes} EOS to a near-zero logit. The
+data say otherwise. Per-step analysis of a representative cap-hit document shows the
+chosen-token-minus-EOS raw logit margin has mean roughly 20.61 and median roughly 20.63
+over the logged steps, with $P(\text{EOS})$ spanning roughly $10^{-8}$ to $10^{-10}$.
+Strikingly, the cap-hit document's mean EOS logit ($+10.76$) is actually \emph{higher}
+than a clean control's ($+10.07$). EOS is not absolutely suppressed; it is
+out-competed. Continuation tokens simply out-score it by about 20 logits, which is
+enough to crush the EOS probability into the $10^{-8}$ to $10^{-10}$ range while the EOS
+logit itself stays comfortably positive.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig_eos_relative_margin.pdf}
+  \caption{EOS suppression is relative, not absolute (cap-hit document). The EOS logit
+  stays positive throughout (mean $+10.76$, which actually exceeds a clean control's
+  $+10.07$), while continuation tokens out-score it by a mean margin of roughly 20.6
+  logits, crushing $\mathrm{softmax}(\text{EOS})$ into the $10^{-8}$ to $10^{-10}$
+  range.}
+  \label{fig:eos_margin}
+\end{figure}
+
+\subsection{Calibration is refuted: EOS is genuinely missing at loop onset}
+
+If the failure were a near-miss in calibration, EOS would sit just below the argmax at
+loop onset. It does not. At loop-onset positions ($N=110$ records over 22 documents),
+the EOS token sits at median rank roughly 10{,}502, and only 0.9\% of records have EOS
+in the top 5. EOS is genuinely buried, not narrowly under-promoted. We note a framing
+caveat: programmatic n-gram loop-onset detection biases late, since records sit
+thousands of tokens deep, so ``at loop onset'' is a late-onset operationalization.
+
+% ===========================================================================
+\section{Causal tests: a converging series of nulls}
+\label{sec:causal}
+% ===========================================================================
+
+The mechanism findings in Section~\ref{sec:mechanism} are correlationally rich. The
+natural follow-up is causal: can we \emph{induce} or \emph{abolish} halt-failure by
+perturbing a single direction or layer? Across a converging series of perturbation
+experiments, the answer is no, and we read this as evidence for a distributed attractor
+rather than a localized cause.
+
+\subsection{Sufficiency null at L0}
+
+Injecting the class-matched bare-word-repeat halt direction at layer 0 does not induce
+halt-failure. At the pre-registered target scale ($\alpha = 10$), the change in cap-hit
+rate versus the vanilla run is 0.0 percentage points, against a pre-registered PASS
+threshold of $\geq 40$ pp, a clear failure of the sufficiency hypothesis. Layer 0 is a
+readout, not a generator.
+
+\subsection{Norm-scaled positive control rebuts ``protocol under-powered''}
+
+A reviewer might object that the perturbation protocol is simply too weak to move
+anything. The norm-scaled positive control addresses this directly. Scaling a
+single-direction layer-24 patch to $0.1\times$, $10\times$, and $100\times$ the
+residual norm, 0 of 4 documents escape the cap at any scale. The perturbations
+nonetheless \emph{do} land visibly in the output (one document gets a foreign-language
+token prepended, another gets stray Markdown emphasis inserted), so the protocol is
+demonstrably delivering content-altering perturbations; it just cannot dislodge the
+halt-failure state. Content moves while token count does not.
+
+\subsection{The on-record null count, stated honestly}
+
+Our strongest necessity test is a reverse-direction project-out experiment: it asks
+whether \emph{removing} the halt direction, by projecting it out of the residual stream
+at every position, lengthens generation. It does not. Across three clean-halting
+controls the projected-out run is unchanged (within 10\%: $+9.1\%$, $0\%$, $0\%$), and
+the positive document stays pinned at the cap, yielding a readout verdict. Importantly,
+the project-out hook is confirmed to fire: two of the four documents produce materially
+different output under it (one positive flips its table from Markdown to HTML), so this
+is a genuine null and not a silently inert intervention.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig_b3_reverse_direction.pdf}
+  \caption{Reverse-direction necessity null (READOUT verdict). Projecting out the L24
+  halt direction at every position does not lengthen generation: the positive document
+  stays pinned at the 12000-token cap (12000 to 12000, $+0\%$) and the three
+  clean-halting controls are unchanged ($+9.1\%$, $0\%$, $0\%$). The project-out hook is
+  confirmed to fire (output content changes without length change), so this is a genuine
+  null.}
+  \label{fig:b3_reverse}
+\end{figure}
+
+A component-resolved patch grid points the same way. It decomposes the patch into MLP,
+attention, and block contributions at layers 16, 20, and 24, across 5 documents and 4
+intervention types: 0 of 45 real-patch cells produce any length reduction (a clean
+real-null), while 9 of 134 control cells do. The honest, pre-registered caveat is that
+the nonzero controls are dominated by off-layer norm-shock rather than circuit-finding,
+so they bound protocol sensitivity rather than localize a mechanism. The verified
+positive control above is our best evidence that the protocol has real sensitivity.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig_p16_component_grid.pdf}
+  \caption{Component-resolved patch grid by intervention type. The real patch never
+  moves length (0/45 cells, a clean real-null), while 9/134 control cells show a nonzero
+  reduction, dominated by off-layer norm-shock (4) over random-matched-norm (2) and
+  shuffled-values (3). Verdict FAIL. The nonzero controls bound protocol sensitivity
+  rather than localize a mechanism.}
+  \label{fig:p16_component}
+\end{figure}
+
+Accordingly we state the on-record count as six converging nulls. We carry the
+norm-shock caveat openly (Section~\ref{sec:limitations}): some off-target controls
+reduce length by large amounts under norm-shock, which makes ``the controls themselves
+are suspect'' a live alternative to ``the protocol is under-powered.''
+
+% ===========================================================================
+\section{Cross-family generality}
+\label{sec:crossfamily}
+% ===========================================================================
+
+The phenomenon reproduces beyond the single fine-tune, which we present qualitatively
+rather than with a headline tally. Across a 4-family, document-by-model matrix spanning
+a wide parameter range and multiple vendors, halt-failure reproduces broadly and is
+jointly document-and-model-conditional, with positive controls present. We do not
+report a precise cap-hit count here: the strict stop-reason tally and a more permissive
+near-cap relabel disagree, and the corresponding directory verdict abstains for
+insufficient data. We therefore make only the qualitative claim that halt-failure
+reproduces across families, and we leave a strict-criterion cross-family count to
+future work.
+
+Within the same vision-language family across checkpoints the picture is consistent:
+halt-failure reproduces across multiple checkpoints. As above, we present this
+cross-checkpoint reproduction qualitatively rather than with a precise cell count,
+which we defer to future work under a fixed strict stop-reason criterion.
+
+% ===========================================================================
+\section{Production fix: an honest precision-recall trade-off}
+\label{sec:production}
+% ===========================================================================
+
+A runtime monitor reading the layer-24 halt direction and boosting EOS can suppress
+runaway generation, but it sits on a genuine precision-recall trade-off rather than a
+free lunch.
+
+At a $+6.91$ EOS boost, the reactive monitor achieves a 37.68\% mean length reduction
+with 0 of 10 control false-positives and 5 of 13 positive cap-hits remaining. This is
+the clean-specificity operating point. At a $+30$ EOS boost, the same monitor achieves a
+99.58\% mean length reduction with 0 remaining cap-hits, but at a catastrophic 10 of 10
+control false-positives. The two operating points bracket the trade-off: you can buy
+near-total loop suppression only by destroying clean-document specificity, so the
+deployable point is the conservative $+6.91$ boost.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig_monitor_tradeoff.pdf}
+  \caption{The production monitor sits on a real precision-recall trade-off. At a
+  $+6.91$ EOS boost it gives 37.7\% mean length reduction with 0/10 control
+  false-positives (deployable clean-specificity point); at a $+30$ boost it gives 99.6\%
+  reduction with 0 remaining cap-hits but 10/10 control false-positives. Near-total loop
+  suppression costs clean-document specificity. $N=13$ positives, 10 controls.}
+  \label{fig:monitor_tradeoff}
+\end{figure}
+
+\paragraph{Vision is causally load-bearing.}
+Replacing the input image with grey noise collapses every tested cap-hit positive from a
+full-cap runaway to a short clean-EOS halt: across the tested positives, baseline
+cap-length stops become 13- to 18-token, EOS-terminated halts under grey-noise inpaint
+(named subset reported at 4 of 4; Wilson 95\% CI $[51\%, 100\%]$). This motivates a
+vision-aware guardrail rather than a purely text-side penalty: the halt-failure state is
+conditioned on the visual input.
+
+A correlational vision signal points the same way. In a single-positive-versus-single-control
+comparison, the positive document's text-to-image attention mass collapses in the L20 to
+L24 halt band: the positive-to-control ratio is 0.070 at layer 20 ($14.2\times$ lower),
+0.216 at layer 24 ($4.6\times$ lower), and only a modest 0.695 at layer 16. We flag this
+as $N=1$-vs-$N=1$ and reserve it for future larger-sample work.
+
+% ===========================================================================
+\section{Related work}
+\label{sec:related}
+% ===========================================================================
+
+Our work sits at the intersection of seven threads: language-model degeneration,
+hallucination in vision-language models (VLMs), the mechanistic-interpretability
+toolkit, single-direction steering, the geometry of count-and-halt decisions,
+attention-sink accounts of termination, and cross-modal grounding collapse. We review
+each and locate our contribution against it.
+
+\paragraph{Degeneration, repetition, and non-termination.}
+Failure to terminate is a long-standing pathology of likelihood-trained autoregressive
+decoders: likelihood decoding produces bland, repetitive, degenerate text
+\citep{holtzman2020degeneration}, and greedy, beam, top-$k$, and nucleus decoding are all
+provably inconsistent, able to emit infinite-length, zero-probability sequences unless
+the model is made self-terminating \citep{welleck2020consistency}. The training objective
+has itself been implicated, motivating unlikelihood training to suppress repetition at the
+source \citep{welleck2019unlikelihood}. In production OCR pipelines the symptom is acute
+enough to be engineered around directly: retry mechanisms and post-hoc filters are now
+standard \citep{poznanski2025olmocr,olmocrv2}, and repetition is documented as a
+first-class production concern in both general LLM serving
+\citep{repetitionproduction2025} and recent VLM releases \citep{internvl35}. These works treat non-termination as a symptom
+to be suppressed at the decoding or serving layer rather than as a representational
+phenomenon to be localized. A complementary, mechanistically-flavored line asks
+\emph{why} the decoder loops. The repeated-token phenomenon has been interpreted at the
+level of early-layer attention and sink structure \citep{repeatedtoken2025}, and
+single-neuron and single-head accounts of repetitive generation exist for text-only
+models: ``repetition neurons'' identify neuron-level circuits that drive repeats
+\citep{repetitionneurons2025}, while induction-head accounts trace pattern completion to
+match-and-copy heads \citep{olsson2022induction} and quantify when those heads over-fire
+on repeated context \citep{wang2025inductiontoxicity}. These are the closest causal
+hypotheses to ours, and we situate against them deliberately. They are perpendicular on
+three axes: they study text-only LLMs rather than fine-tuned OCR-VLMs, they target
+repetition as such rather than the broader \emph{halt-failure} phenomenon (of which
+token loops are one surface class among several, including phantom table rows and
+structural-marker hallucination), and they report single-direction or single-neuron
+interventions that move behavior. Our central finding is the opposite: a converging
+series of single-direction and single-layer perturbations \emph{fails} to move the token
+count, which is why we read the failure as distributed rather than localized.
+
+\paragraph{Hallucination in (V)LMs, including structural and OCR hallucination.}
+Most VLM hallucination research concerns object hallucination in captioning and VQA, as
+captured by benchmarks such as POPE \citep{li2023pope} and surveyed broadly in
+\citet{bai2024mllmhallusurvey}. Document OCR introduces a distinct, \emph{structural}
+failure mode: phantom blank table rows, fabricated page numbers and watermarks, and
+runaway markup loops; the closest mitigation-side work studies OCR hallucination under
+degraded input on the same model family with a dedicated benchmark and an
+uncertainty-aware fix \citep{he2025seeingbelieving}. We study this on a fine-tune of the
+Qwen2-VL family \citep{qwen2vl}; the same surface symptoms recur across OCR-VLM releases
+\citep{poznanski2025olmocr,olmocrv2,internvl35,granitedocling2025}. The mechanistic
+substrate for OCR-specific behavior has begun to be mapped: text-inpaint causal
+protocols localize where OCR information enters the residual stream
+\citep{steinberggal2026}, and path-patching studies isolate vision-to-text ``OCR heads''
+that route visual evidence into the language stream \citep{baek2025}. We borrow the
+text-inpaint logic for our vision-causality test, where replacing the input image with
+grey noise collapses tested cap-hit positives from 12{,}000-token runaways into short
+\texttt{stop\_reason=eos} halts of 13 to 18 tokens, establishing that vision is causally
+load-bearing for the halt-failure state. Where these works localize \emph{where OCR
+content arrives}, we localize \emph{where the decision to terminate is represented} and
+show it forms a class-structured attractor rather than residing at a single routing
+site.
+
+\paragraph{Mechanistic-interpretability methods.}
+Our diagnostics are the standard mechinterp toolkit. We fit linear probes
+\citep{alain2016probes} for per-class halt directions across the decoder; the broader case
+that halt-relevant and quality-relevant signals are linearly decodable from VLM
+activations is consistent with prior probing work on the OCR setting. For causality we use
+activation and path patching in the lineage of causal-mediation and circuit-level analysis
+\citep{meng2022rome,wang2023ioi}, decomposed into MHSA, FFN, and hidden contributions via
+component-resolved causal tracing \citep{fcct2025} so that we can separate where a halt
+representation is \emph{built} from where it is \emph{read}. We triangulate the depth at
+which a ``should-halt'' signal becomes legible at the unembedding using the logit lens
+\citep{nostalgebraist2020logitlens} and its better-calibrated tuned-lens variant
+\citep{belrose2023tunedlens}; this is what surfaces our finding that the EOS logit gap is
+most negative at L24 and only flips positive by L32, i.e., the halt signal arrives too
+late to override an already-committed continuation state. Where a single probe direction
+is implicated we use sparse-autoencoder decomposition
+\citep{bricken2023monosemanticity,saelens2024,park2025save} to ask whether it factors
+into interpretable sub-features, and intervention tooling \citep{pyvene2024,nnsight2024}
+to run the perturbations. To ask whether the signature is introduced by fine-tuning we
+draw on the differential base-versus-fine-tune comparison vocabulary of feature
+crosscoders \citep{dfc2025}; the verified PCA crossover signature (pos/ctl Cohen's-d
+ratio 3.79 / 2.74 / 2.78 at L16 / L20 / L24, all exceeding a pre-registered $2.0\times$
+threshold) is our evidence that the attractor is fine-tune-introduced. The
+``readout-versus-locus'' distinction we draw at L24 shares its mechanism vocabulary with
+detection-probe work on repetition \citep{redeep2024}.
+
+\paragraph{Single-direction and steering methods.}
+The hypothesis that a behavior lives along a single residual-stream direction, testable
+by adding or projecting out that direction, is most cleanly stated for refusal, which is
+mediated by a single direction recoverable and steerable across many chat models
+\citep{arditi2024refusal}, and has a direct method-class ancestor in inference-time
+intervention, which steers along an attention-head truthfulness direction
+\citep{li2023iti}; the underlying add-a-difference-vector mechanism is the activation-engineering
+recipe our injections instantiate \citep{turner2023activationengineering}. That
+single-direction picture is itself contested: refusal has been shown to factor into
+geometrically distinct, class-specific directions rather than one universal steerable axis
+\citep{joad2026morethanrefusal}, mirroring our class-specific halt directions. Our
+production monitor is the OCR-halt analogue: it reads an L24 halt direction and boosts the
+EOS logit rather than shifting an activation. The closest VLM-side comparable performs
+decoder-time steering pre-decoding rather than via a mid-decoder forward hook
+\citep{steervlm2025}, and class-conditional steering offers a finer-grained alternative
+when one global direction is too coarse \citep{yin2026dmas}, relevant because our halt
+directions are class-specific, not universal. Crucially, our single-direction tests come
+back null. Injecting a class-matched halt direction at L0
+changes the cap-hit rate by 0.0 percentage points against a pre-registered 40-point PASS
+threshold, and a norm-scaled positive control fails to dislodge the halt state at
+$0.1\times$, $10\times$, or $100\times$ the residual norm (0 of 4 documents escape the
+cap at any scale) even though the perturbations visibly alter output content. This is the
+inverse of the steering-success narrative in the single-direction literature: the
+direction is \emph{decodable} (per-class AUC 0.876 to 0.983) without being
+\emph{steerable}, which is the signature we attribute to a distributed attractor.
+
+\paragraph{The counting-manifold account of halt decisions.}
+The decision to stop is, in part, a decision about \emph{how much} has been emitted,
+which connects halt-failure to the geometry of counting. The counting-manifold analysis
+reverse-engineers how a model tracks a running count along a low-dimensional curved
+manifold and uses it to make a stop-or-continue decision, with the count compared
+between two manifolds by rotation \citep{gurnee2026countmfd}. We take two things from it:
+the diagnostic prior to look for a manifold rather than a scalar register, and the
+warning that a single scalar threshold on a count-derived signal can be unstable. Our
+build-at-L20 / read-at-L24 offset for the filled-cell class (block-direction cosine
+$+0.042$ at L20 versus $-0.010$ at L24) is consistent with a representation that is
+assembled before it is consumed, in the spirit of that comparison-of-quantities picture,
+though we do not claim to have recovered a counting manifold specifically.
+
+\paragraph{Attention sinks, EOS-halting, and SinkTrack.}
+A prominent family of accounts ties termination and long-context stability to attention
+sinks. The attention-sink phenomenon was first identified on the initial tokens of a
+sequence and exploited for stable infinite-length streaming generation
+\citep{xiao2024streaming}. Building on it, SinkTrack treats an anchor token as an
+information sink and injects context into it to counteract attention drift, reporting
+multimodal gains \citep{sinktrack2026}, and the repeated-token failure has itself been
+traced to attention-sink structure \citep{repeatedtoken2025}. This is the most actionable
+competing mechanism for our setting
+and a natural baseline. Our evidence is only partly aligned with it: we find that EOS
+suppression is \emph{relative, not absolute}, with continuation tokens out-scoring EOS by
+roughly 20 logits while the EOS logit itself stays positive (a cap-hit document's mean
+EOS logit of $+10.76$ actually exceeds a clean control's $+10.07$), and that at loop
+onset EOS is genuinely buried (median rank near 10{,}500), rather than narrowly
+under-promoted by a single mis-set sink. A sink-anchoring intervention is therefore a
+complement to, not a substitute for, the distributed-attractor reading.
+
+\paragraph{Cross-modal grounding collapse.}
+Finally, several works frame VLM hallucination as a drift of attention away from visual
+evidence toward linguistic priors. Visual contrastive decoding contrasts outputs from
+original versus distorted images to suppress over-reliance on language priors
+\citep{leng2024vcd}, and a complementary line reorients attention toward image tokens at
+the moment grounding is needed: confidence-aware attention calibration rescales attention
+to counter late-generation modality drift \citep{fazli2025caac}, and attention-lens
+analyses diagnose text-vs-vision routing as the locus of modality bias and rebalance the
+two streams \citep{zheng2025modalitybias}. This ``detect the decision moment, then
+intervene'' structure matches our production setting, and the modality-bias account is
+corroborated on our side by a (single-positive-versus-single-control, hence preliminary)
+collapse of text-to-image attention mass in the L20 to L24 band.
+
+\paragraph{Positioning.}
+Against all of these, our contribution is to read OCR-VLM halt-failure not as a single
+broken layer, sink, head, or steerable direction, but as a stable, class-structured
+attractor in the residual stream: decodable per class and content-decoupled, computed
+downstream too late to override an upstream continuation commitment, robust to
+single-site perturbation in both the necessity and sufficiency directions,
+fine-tune-introduced in its geometry, and conditioned on the visual input. We treat the
+converging nulls as first-class evidence and report an honest production trade-off rather
+than a clean single-direction fix.
+
+% ===========================================================================
+\section{Limitations and walk-back}
+\label{sec:limitations}
+% ===========================================================================
+
+We state the walk-backs plainly because they are part of the contribution.
+
+\begin{enumerate}
+  \item \textbf{Necessity evidence is verified but bounded by sensitivity.} Both the
+  reverse-direction project-out null (readout verdict, controls unchanged, positive
+  pinned at the cap, project-out hook confirmed to fire) and the component-resolved patch
+  grid (0 of 45 real-patch reductions) reproduce from data files. The residual caveat is
+  sensitivity, not verification: the nonzero control patches are mostly off-layer
+  norm-shock, so the converging nulls establish ``single-site perturbation does not move
+  halting at this protocol's power,'' not a fully exhaustive causal search.
+
+  \item \textbf{Norm-shock makes some off-target controls suspect.} Off-target controls
+  that reduce length by large amounts under norm-shock mean ``the controls are suspect''
+  is a real alternative to ``the protocol is under-powered.'' Our verified positive
+  control (Section~\ref{sec:causal}) is the load-bearing sensitivity evidence.
+
+  \item \textbf{Cross-family and cross-checkpoint reproduction is qualitative.} We
+  present cross-family and cross-checkpoint reproduction only qualitatively. A precise
+  strict-criterion cap-hit count across families and checkpoints is left to future work,
+  since permissive near-cap relabelling and strict stop-reason counting disagree and the
+  directory verdict abstains.
+
+  \item \textbf{Fine-tune origin: the fine-tune signature is verified; the base
+  comparison is not.} In the fine-tuned model the positive-versus-control absolute
+  Cohen's-d crossover ratio at layers 16, 20, and 24 is 3.79, 2.74, and 2.78 ($N=22$
+  positives versus $N=52$ controls), all exceeding the pre-registered $2.0\times$
+  threshold, a verified fine-tune-introduced signature. A matching base-model comparison
+  is left as future work: a clean, persisted base-model run is not yet available, so we
+  do not report a base-versus-fine-tune ratio triple as a result.
+
+  \item \textbf{The vision-attention-collapse signal is $N=1$-vs-$N=1$.} The
+  attention-collapse comparison is a single-positive-versus-single-control measurement,
+  not yet statistically meaningful, and is reserved for future larger-sample work.
+
+  \item \textbf{Loop-onset framing biases late.} The calibration result is computed at
+  programmatically detected onset positions that sit thousands of tokens deep; this
+  overstates ``onset'' and is a framing concern, though it does not change the numeric
+  finding that EOS is genuinely missing.
+\end{enumerate}
+
+% ===========================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ===========================================================================
+
+Halt-failure in a fine-tuned OCR-VLM behaves like a stable, class-structured attractor in
+the residual stream rather than a single broken layer. The evidence is pre-registered and
+converging: per-class halt directions are linearly decodable (AUC 0.876 to 0.983) and
+content-decoupled (max pairwise cosine 0.2349); the network computes a downstream
+should-halt signal that arrives too late to override an upstream continuation state
+(logit-lens EOS gap $-0.419$ at layer 24 flipping to $+0.481$ by layer 32), and that
+suppression is relative not absolute (chosen-vs-EOS margin about 20 logits; cap-hit EOS
+logit $+10.76$ exceeding a control's $+10.07$); EOS is genuinely missing at loop onset
+(median rank roughly 10{,}502); and a converging series of single-direction and
+single-layer perturbations fail to move token count, with the verified norm-scaled
+positive control (0 of 4 escape at any scale, content visibly changing) rebutting the
+under-powered-protocol objection. We report the on-record null count as six and present a
+deployable production monitor with an explicit precision-recall trade-off (37.68\%
+reduction at zero control false-positives, or 99.58\% at 10 of 10 false-positives) plus
+causal evidence that vision is load-bearing. The walk-backs are part of the result:
+showing where the single-cause story fails is exactly what localizes the failure to a
+distributed, fine-tune-introduced attractor.
+
+% ===========================================================================
+\bibliographystyle{plainnat}
+\bibliography{references}
+% ===========================================================================
+
+\end{document}

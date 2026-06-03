@@ -1,0 +1,28 @@
+{
+  "script": "code/p1_build_public_corpus.py",
+  "started_at": 1778804406.872832,
+  "finished_at": 1778804418.4999418,
+  "seed": 0,
+  "args": {
+    "n_docvqa": 60,
+    "n_funsd": 30,
+    "n_invoices": 30
+  },
+  "n_docs": 123,
+  "by_category": {
+    "business_doc": 60,
+    "form": 30,
+    "invoice": 30,
+    "sequential_numbers": 1,
+    "repeated": 1,
+    "real_receipt": 1
+  },
+  "git_commit": "d2790047a60e4888b6d9d5c1040c1f83ce7dacca",
+  "sources": [
+    "lmms-lab/DocVQA (validation, DocVQA config)",
+    "nielsr/funsd (train)",
+    "mychen76/invoices-and-receipts_ocr_v2 (valid)",
+    "LoopyLeaderboard testing repo (github.com/99991/testing)"
+  ],
+  "notes": "Skipped: darentang/sroie (broken in datasets \u2265 4.x), Teklia/IAM-line (single-line handwriting; will halt instantly and serve only as control)."
+}

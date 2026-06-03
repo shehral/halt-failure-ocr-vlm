@@ -1,0 +1,17 @@
+{
+  "n_variants": 1,
+  "rows": [
+    {
+      "variant": "v1_reactive_K8",
+      "n_positives": 13,
+      "n_controls": 10,
+      "mean_length_reduction_pct": 37.68205128205128,
+      "ge60pct_reduction_count": 5,
+      "cap_hits_count": 5,
+      "fp_fires_on_controls": 0,
+      "median_first_fire_gen_pos": 0.0
+    }
+  ],
+  "winner_by_reduction": "v1_reactive_K8",
+  "best_specificity": "v1_reactive_K8"
+}

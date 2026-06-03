@@ -1,0 +1,108 @@
+{
+  "n_total_labeled": 123,
+  "by_trigger": {
+    "control": 117,
+    "positive": 6
+  },
+  "by_label": {
+    "control": 117,
+    "positive_pattern_empty_rows": 3,
+    "positive_pattern_ngram_repeat": 2,
+    "positive_runaway": 1
+  },
+  "by_pattern": {
+    "empty_rows": 3,
+    "ngram_repeat": 2
+  },
+  "hit_rate_positive_over_total": 0.0488,
+  "cuda_vs_mps": {
+    "n_agree": 96,
+    "n_disagree": 8,
+    "n_no_mps_reference": 19,
+    "pivot_mps_x_cuda": {
+      "control": {
+        "control": 91
+      },
+      "positive": {
+        "control": 8,
+        "positive": 5
+      }
+    },
+    "disagree_docs": [
+      {
+        "doc_id": "docvqa_kshm0227_p6",
+        "mps_trigger": "positive",
+        "mps_label": "positive_pattern_ngram_repeat+empty_rows",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 1145,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "docvqa_pgjw0227_p5",
+        "mps_trigger": "positive",
+        "mps_label": "positive_pattern_ngram_repeat",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 1384,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "docvqa_fglc0003_p1",
+        "mps_trigger": "positive",
+        "mps_label": "positive_runaway",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 711,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "docvqa_nlcf0227_p3",
+        "mps_trigger": "positive",
+        "mps_label": "positive_pattern_ngram_repeat",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 1390,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "funsd_003_003",
+        "mps_trigger": "positive",
+        "mps_label": "positive_pattern_empty_rows",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 2161,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "funsd_019_019",
+        "mps_trigger": "positive",
+        "mps_label": "positive_pattern_ngram_repeat+empty_rows",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 472,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "invoice_0158",
+        "mps_trigger": "positive",
+        "mps_label": "positive_pattern_ngram_repeat",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 503,
+        "stop_reason": "eos"
+      },
+      {
+        "doc_id": "loopy_receipt_1",
+        "mps_trigger": "positive",
+        "mps_label": "positive_overshoot_eos",
+        "cuda_trigger": "control",
+        "cuda_label": "control",
+        "tokens_emitted": 399,
+        "stop_reason": "eos"
+      }
+    ]
+  },
+  "started_at": 1778891592.7707682,
+  "finished_at": 1778894516.6134303
+}

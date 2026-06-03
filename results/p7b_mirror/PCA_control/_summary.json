@@ -1,0 +1,1379 @@
+{
+  "experiment": "PCA_control_vs_positive",
+  "results_by_layer": {
+    "L16": {
+      "n_controls": 52,
+      "n_positives": 22,
+      "control_abs_cohen_d_median": 0.3421549980494782,
+      "control_abs_cohen_d_mean": 0.40784958162626805,
+      "control_abs_cohen_d_max": 1.8623164390334679,
+      "positive_abs_cohen_d_median": 1.29821664717219,
+      "positive_abs_cohen_d_mean": 1.128149181943919,
+      "ratio_pos_over_ctl_median": 3.794235520664404,
+      "per_doc_control": [
+        {
+          "doc_id": "arxiv_table_000118",
+          "category": "control",
+          "cohen_d": -0.2167936343335587,
+          "explained_variance": 0.07580186426639557
+        },
+        {
+          "doc_id": "arxiv_table_000190",
+          "category": "control",
+          "cohen_d": 0.6536296785525454,
+          "explained_variance": 0.08492755144834518
+        },
+        {
+          "doc_id": "arxiv_table_000306",
+          "category": "control",
+          "cohen_d": 0.592894386274532,
+          "explained_variance": 0.08451028168201447
+        },
+        {
+          "doc_id": "arxiv_table_000321",
+          "category": "control",
+          "cohen_d": 0.5494296528920111,
+          "explained_variance": 0.07909028232097626
+        },
+        {
+          "doc_id": "arxiv_table_000376",
+          "category": "control",
+          "cohen_d": -0.6016644065791453,
+          "explained_variance": 0.07231287658214569
+        },
+        {
+          "doc_id": "arxiv_table_000410",
+          "category": "control",
+          "cohen_d": -0.2137434085027312,
+          "explained_variance": 0.06485764682292938
+        },
+        {
+          "doc_id": "arxiv_table_000479",
+          "category": "control",
+          "cohen_d": 0.5219733546118076,
+          "explained_variance": 0.08888419717550278
+        },
+        {
+          "doc_id": "arxiv_table_000620",
+          "category": "control",
+          "cohen_d": 0.514729096562792,
+          "explained_variance": 0.1052323430776596
+        },
+        {
+          "doc_id": "arxiv_table_000649",
+          "category": "control",
+          "cohen_d": 0.5001019633585845,
+          "explained_variance": 0.08231636881828308
+        },
+        {
+          "doc_id": "arxiv_table_000734",
+          "category": "control",
+          "cohen_d": 0.4921628079623864,
+          "explained_variance": 0.07335874438285828
+        },
+        {
+          "doc_id": "arxiv_table_000772",
+          "category": "control",
+          "cohen_d": -0.36983013837860695,
+          "explained_variance": 0.0693957656621933
+        },
+        {
+          "doc_id": "arxiv_table_000891",
+          "category": "control",
+          "cohen_d": -0.8354326163857403,
+          "explained_variance": 0.07867620885372162
+        },
+        {
+          "doc_id": "arxiv_table_000894",
+          "category": "control",
+          "cohen_d": 0.6621221630818089,
+          "explained_variance": 0.09496241807937622
+        },
+        {
+          "doc_id": "arxiv_table_001058",
+          "category": "control",
+          "cohen_d": -0.3053240663323575,
+          "explained_variance": 0.06398309767246246
+        },
+        {
+          "doc_id": "arxiv_table_001157",
+          "category": "control",
+          "cohen_d": -0.8805670274444657,
+          "explained_variance": 0.07709575444459915
+        },
+        {
+          "doc_id": "arxiv_table_001401",
+          "category": "control",
+          "cohen_d": 0.6781212460934469,
+          "explained_variance": 0.0932769626379013
+        },
+        {
+          "doc_id": "arxiv_table_001423",
+          "category": "control",
+          "cohen_d": 0.2530975626036396,
+          "explained_variance": 0.08264924585819244
+        },
+        {
+          "doc_id": "arxiv_table_001442",
+          "category": "control",
+          "cohen_d": 0.2857931525966374,
+          "explained_variance": 0.08435843139886856
+        },
+        {
+          "doc_id": "arxiv_table_001502",
+          "category": "control",
+          "cohen_d": -0.4807251207198198,
+          "explained_variance": 0.0688791275024414
+        },
+        {
+          "doc_id": "arxiv_table_001595",
+          "category": "control",
+          "cohen_d": 0.3312739281137365,
+          "explained_variance": 0.07898690551519394
+        },
+        {
+          "doc_id": "docvqa_jrcy0227_p98",
+          "category": "control",
+          "cohen_d": -0.025378317450835904,
+          "explained_variance": 0.12546275556087494
+        },
+        {
+          "doc_id": "docvqa_pgjw0227_p5",
+          "category": "control",
+          "cohen_d": 0.6086604468805762,
+          "explained_variance": 0.15059460699558258
+        },
+        {
+          "doc_id": "sec_edgar_000018230_000251",
+          "category": "control",
+          "cohen_d": -0.5151440148059623,
+          "explained_variance": 0.0709618404507637
+        },
+        {
+          "doc_id": "sec_edgar_000030547_000133",
+          "category": "control",
+          "cohen_d": -0.6479812480629696,
+          "explained_variance": 0.06460533291101456
+        },
+        {
+          "doc_id": "sec_edgar_000036995_000192",
+          "category": "control",
+          "cohen_d": 0.4752000724992887,
+          "explained_variance": 0.04761608690023422
+        },
+        {
+          "doc_id": "sec_edgar_000040533_000068",
+          "category": "control",
+          "cohen_d": -0.019492411048480207,
+          "explained_variance": 0.04523833096027374
+        },
+        {
+          "doc_id": "sec_edgar_000049423_000114",
+          "category": "control",
+          "cohen_d": -0.350154420273519,
+          "explained_variance": 0.04714281111955643
+        },
+        {
+          "doc_id": "sec_edgar_000059198_000212",
+          "category": "control",
+          "cohen_d": 0.4596826840871381,
+          "explained_variance": 0.05017215758562088
+        },
+        {
+          "doc_id": "sec_edgar_000066479_000012",
+          "category": "control",
+          "cohen_d": -0.13385822516156012,
+          "explained_variance": 0.05661455914378166
+        },
+        {
+          "doc_id": "sec_edgar_000067686_000141",
+          "category": "control",
+          "cohen_d": 0.417755623564444,
+          "explained_variance": 0.043199408799409866
+        },
+        {
+          "doc_id": "sec_edgar_000072971_000185",
+          "category": "control",
+          "cohen_d": 0.048779723786407665,
+          "explained_variance": 0.0478455051779747
+        },
+        {
+          "doc_id": "sec_edgar_000074928_000184",
+          "category": "control",
+          "cohen_d": -0.23285080877434952,
+          "explained_variance": 0.05665178596973419
+        },
+        {
+          "doc_id": "sec_edgar_000075252_000053",
+          "category": "control",
+          "cohen_d": -0.06272702358505812,
+          "explained_variance": 0.05275946483016014
+        },
+        {
+          "doc_id": "sec_edgar_000081061_000110",
+          "category": "control",
+          "cohen_d": -0.22920157566815505,
+          "explained_variance": 0.055621907114982605
+        },
+        {
+          "doc_id": "sec_edgar_000092116_000000",
+          "category": "control",
+          "cohen_d": 0.2981534773957767,
+          "explained_variance": 0.0515831895172596
+        },
+        {
+          "doc_id": "sec_edgar_000093469_000030",
+          "category": "control",
+          "cohen_d": -0.33415557582543737,
+          "explained_variance": 0.06758712977170944
+        },
+        {
+          "doc_id": "sec_edgar_000103392_000186",
+          "category": "control",
+          "cohen_d": -0.2206132791177297,
+          "explained_variance": 0.04871064051985741
+        },
+        {
+          "doc_id": "sec_edgar_000277509_000236",
+          "category": "control",
+          "cohen_d": -0.13470208100122893,
+          "explained_variance": 0.05203314498066902
+        },
+        {
+          "doc_id": "sec_edgar_000310158_000219",
+          "category": "control",
+          "cohen_d": 1.8623164390334679,
+          "explained_variance": 0.05177602544426918
+        },
+        {
+          "doc_id": "sec_edgar_000310431_000059",
+          "category": "control",
+          "cohen_d": 0.7640236275585514,
+          "explained_variance": 0.08832785487174988
+        },
+        {
+          "doc_id": "sec_edgar_000352510_000254",
+          "category": "control",
+          "cohen_d": 0.2452309327194108,
+          "explained_variance": 0.04687027633190155
+        },
+        {
+          "doc_id": "sec_edgar_000740694_000193",
+          "category": "control",
+          "cohen_d": 0.26864802062608806,
+          "explained_variance": 0.04818970337510109
+        },
+        {
+          "doc_id": "sec_edgar_000745287_000029",
+          "category": "control",
+          "cohen_d": -0.2564441513077791,
+          "explained_variance": 0.048601385205984116
+        },
+        {
+          "doc_id": "sec_edgar_000764764_000036",
+          "category": "control",
+          "cohen_d": -0.7127869807881276,
+          "explained_variance": 0.07469379901885986
+        },
+        {
+          "doc_id": "sec_edgar_000793421_000121",
+          "category": "control",
+          "cohen_d": 0.2879404897975424,
+          "explained_variance": 0.054834939539432526
+        },
+        {
+          "doc_id": "sec_edgar_000821026_000118",
+          "category": "control",
+          "cohen_d": -0.8093093151151778,
+          "explained_variance": 0.09408024698495865
+        },
+        {
+          "doc_id": "sec_edgar_000828530_000112",
+          "category": "control",
+          "cohen_d": -0.11524235035750126,
+          "explained_variance": 0.04973364621400833
+        },
+        {
+          "doc_id": "sec_edgar_000846902_000035",
+          "category": "control",
+          "cohen_d": 0.0700655075877483,
+          "explained_variance": 0.06269332021474838
+        },
+        {
+          "doc_id": "sec_edgar_000854094_000014",
+          "category": "control",
+          "cohen_d": -0.542568943054741,
+          "explained_variance": 0.07510912418365479
+        },
+        {
+          "doc_id": "stress_seqnum_N040_start1260_s631300",
+          "category": "control",
+          "cohen_d": 0.038247252760604526,
+          "explained_variance": 0.1504083126783371
+        },
+        {
+          "doc_id": "stress_seqnum_N040_start9870_s639910",
+          "category": "control",
+          "cohen_d": 0.06062926069292848,
+          "explained_variance": 0.15390263497829437
+        },
+        {
+          "doc_id": "stress_seqnum_N080_start1260_s631340",
+          "category": "control",
+          "cohen_d": 0.020824552797006363,
+          "explained_variance": 0.150208979845047
+        }
+      ],
+      "per_doc_positive": [
+        {
+          "doc_id": "arxiv_table_000295",
+          "category": "positive",
+          "cohen_d": -1.9554580902645617,
+          "explained_variance": 0.1777946650981903
+        },
+        {
+          "doc_id": "arxiv_table_000371",
+          "category": "positive",
+          "cohen_d": 1.8492932859722429,
+          "explained_variance": 0.38227513432502747
+        },
+        {
+          "doc_id": "arxiv_table_000404",
+          "category": "positive",
+          "cohen_d": -0.7002166053205293,
+          "explained_variance": 0.18968166410923004
+        },
+        {
+          "doc_id": "arxiv_table_000461",
+          "category": "positive",
+          "cohen_d": 1.411889228516479,
+          "explained_variance": 0.3265349566936493
+        },
+        {
+          "doc_id": "arxiv_table_000818",
+          "category": "positive",
+          "cohen_d": 2.5360561107869852,
+          "explained_variance": 0.57710200548172
+        },
+        {
+          "doc_id": "arxiv_table_000855",
+          "category": "positive",
+          "cohen_d": 1.9392184074316237,
+          "explained_variance": 0.16014480590820312
+        },
+        {
+          "doc_id": "arxiv_table_000889",
+          "category": "positive",
+          "cohen_d": 1.357517514068242,
+          "explained_variance": 0.31231778860092163
+        },
+        {
+          "doc_id": "arxiv_table_001070",
+          "category": "positive",
+          "cohen_d": 1.238915780276138,
+          "explained_variance": 0.49169430136680603
+        },
+        {
+          "doc_id": "arxiv_table_001212",
+          "category": "positive",
+          "cohen_d": 1.170379217344916,
+          "explained_variance": 0.45519647002220154
+        },
+        {
+          "doc_id": "arxiv_table_001256",
+          "category": "positive",
+          "cohen_d": 0.8999851913645368,
+          "explained_variance": 0.1319015771150589
+        },
+        {
+          "doc_id": "arxiv_table_001281",
+          "category": "positive",
+          "cohen_d": 1.832453859141646,
+          "explained_variance": 0.40113717317581177
+        },
+        {
+          "doc_id": "arxiv_table_001429",
+          "category": "positive",
+          "cohen_d": 0.47091721830155875,
+          "explained_variance": 0.19606228172779083
+        },
+        {
+          "doc_id": "arxiv_table_001556",
+          "category": "positive",
+          "cohen_d": -0.038000251772419606,
+          "explained_variance": 0.2721706032752991
+        },
+        {
+          "doc_id": "arxiv_table_001579",
+          "category": "positive",
+          "cohen_d": 1.930551984295591,
+          "explained_variance": 0.19307482242584229
+        },
+        {
+          "doc_id": "docvqa_fglc0003_p1",
+          "category": "positive",
+          "cohen_d": 0.1632771886409008,
+          "explained_variance": 0.2511875629425049
+        },
+        {
+          "doc_id": "docvqa_jqbg0227_p1",
+          "category": "positive",
+          "cohen_d": 0.06844552648446128,
+          "explained_variance": 0.20104695856571198
+        },
+        {
+          "doc_id": "docvqa_kshm0227_p6",
+          "category": "positive",
+          "cohen_d": -1.3958570337960134,
+          "explained_variance": 0.13929563760757446
+        },
+        {
+          "doc_id": "docvqa_kshm0227_p7",
+          "category": "positive",
+          "cohen_d": -0.03609929402671381,
+          "explained_variance": 0.16154125332832336
+        },
+        {
+          "doc_id": "docvqa_nlcf0227_p3",
+          "category": "positive",
+          "cohen_d": 0.16284667776514783,
+          "explained_variance": 0.23907923698425293
+        },
+        {
+          "doc_id": "docvqa_srgb0228_p2",
+          "category": "positive",
+          "cohen_d": -1.7490052300472934,
+          "explained_variance": 0.17730511724948883
+        },
+        {
+          "doc_id": "funsd_105_105",
+          "category": "positive",
+          "cohen_d": 0.10591301096617686,
+          "explained_variance": 0.7987289428710938
+        },
+        {
+          "doc_id": "sec_edgar_000099193_000167",
+          "category": "positive",
+          "cohen_d": 1.8069852961820505,
+          "explained_variance": 0.4222285747528076
+        }
+      ]
+    },
+    "L20": {
+      "n_controls": 52,
+      "n_positives": 22,
+      "control_abs_cohen_d_median": 0.5341282444804879,
+      "control_abs_cohen_d_mean": 0.5702348839030579,
+      "control_abs_cohen_d_max": 2.050577771304668,
+      "positive_abs_cohen_d_median": 1.4642920331868154,
+      "positive_abs_cohen_d_mean": 1.2963113258564354,
+      "ratio_pos_over_ctl_median": 2.7414615278602947,
+      "per_doc_control": [
+        {
+          "doc_id": "arxiv_table_000118",
+          "category": "control",
+          "cohen_d": -0.16977905798663076,
+          "explained_variance": 0.07502578943967819
+        },
+        {
+          "doc_id": "arxiv_table_000190",
+          "category": "control",
+          "cohen_d": 0.8478007943684545,
+          "explained_variance": 0.08849556744098663
+        },
+        {
+          "doc_id": "arxiv_table_000306",
+          "category": "control",
+          "cohen_d": 0.87764419543015,
+          "explained_variance": 0.08685702085494995
+        },
+        {
+          "doc_id": "arxiv_table_000321",
+          "category": "control",
+          "cohen_d": 0.7665719383919187,
+          "explained_variance": 0.08065669238567352
+        },
+        {
+          "doc_id": "arxiv_table_000376",
+          "category": "control",
+          "cohen_d": 0.8809227851001895,
+          "explained_variance": 0.07031155377626419
+        },
+        {
+          "doc_id": "arxiv_table_000410",
+          "category": "control",
+          "cohen_d": -0.5042227344335625,
+          "explained_variance": 0.06551535427570343
+        },
+        {
+          "doc_id": "arxiv_table_000479",
+          "category": "control",
+          "cohen_d": 0.6594339869676827,
+          "explained_variance": 0.08992205560207367
+        },
+        {
+          "doc_id": "arxiv_table_000620",
+          "category": "control",
+          "cohen_d": 0.7025372815113455,
+          "explained_variance": 0.101283498108387
+        },
+        {
+          "doc_id": "arxiv_table_000649",
+          "category": "control",
+          "cohen_d": 0.7226836590231382,
+          "explained_variance": 0.08284202963113785
+        },
+        {
+          "doc_id": "arxiv_table_000734",
+          "category": "control",
+          "cohen_d": 0.6830945552496682,
+          "explained_variance": 0.07407646626234055
+        },
+        {
+          "doc_id": "arxiv_table_000772",
+          "category": "control",
+          "cohen_d": 0.5946047930867303,
+          "explained_variance": 0.0681651383638382
+        },
+        {
+          "doc_id": "arxiv_table_000891",
+          "category": "control",
+          "cohen_d": 1.1485628794836718,
+          "explained_variance": 0.08096162974834442
+        },
+        {
+          "doc_id": "arxiv_table_000894",
+          "category": "control",
+          "cohen_d": 0.8707173051454413,
+          "explained_variance": 0.09400981664657593
+        },
+        {
+          "doc_id": "arxiv_table_001058",
+          "category": "control",
+          "cohen_d": 0.47088696524192,
+          "explained_variance": 0.06251426041126251
+        },
+        {
+          "doc_id": "arxiv_table_001157",
+          "category": "control",
+          "cohen_d": 1.0229092147111585,
+          "explained_variance": 0.07974318414926529
+        },
+        {
+          "doc_id": "arxiv_table_001401",
+          "category": "control",
+          "cohen_d": 0.8694588884021431,
+          "explained_variance": 0.0938585102558136
+        },
+        {
+          "doc_id": "arxiv_table_001423",
+          "category": "control",
+          "cohen_d": 0.28995112586394417,
+          "explained_variance": 0.08368763327598572
+        },
+        {
+          "doc_id": "arxiv_table_001442",
+          "category": "control",
+          "cohen_d": 0.3344816146333768,
+          "explained_variance": 0.08488729596138
+        },
+        {
+          "doc_id": "arxiv_table_001502",
+          "category": "control",
+          "cohen_d": 0.9738739806471339,
+          "explained_variance": 0.06996218115091324
+        },
+        {
+          "doc_id": "arxiv_table_001595",
+          "category": "control",
+          "cohen_d": 0.5195911344825497,
+          "explained_variance": 0.07812593132257462
+        },
+        {
+          "doc_id": "docvqa_jrcy0227_p98",
+          "category": "control",
+          "cohen_d": 0.027822136128218627,
+          "explained_variance": 0.11967615783214569
+        },
+        {
+          "doc_id": "docvqa_pgjw0227_p5",
+          "category": "control",
+          "cohen_d": 0.7718424928520539,
+          "explained_variance": 0.14074796438217163
+        },
+        {
+          "doc_id": "sec_edgar_000018230_000251",
+          "category": "control",
+          "cohen_d": 0.7523549421610313,
+          "explained_variance": 0.07443904131650925
+        },
+        {
+          "doc_id": "sec_edgar_000030547_000133",
+          "category": "control",
+          "cohen_d": -0.9854337311303125,
+          "explained_variance": 0.0660247802734375
+        },
+        {
+          "doc_id": "sec_edgar_000036995_000192",
+          "category": "control",
+          "cohen_d": -1.461686960913201,
+          "explained_variance": 0.046712733805179596
+        },
+        {
+          "doc_id": "sec_edgar_000040533_000068",
+          "category": "control",
+          "cohen_d": -0.1530721794300011,
+          "explained_variance": 0.04256288707256317
+        },
+        {
+          "doc_id": "sec_edgar_000049423_000114",
+          "category": "control",
+          "cohen_d": -0.366671308975803,
+          "explained_variance": 0.04497646167874336
+        },
+        {
+          "doc_id": "sec_edgar_000059198_000212",
+          "category": "control",
+          "cohen_d": -0.5486653544784261,
+          "explained_variance": 0.0486375167965889
+        },
+        {
+          "doc_id": "sec_edgar_000066479_000012",
+          "category": "control",
+          "cohen_d": -0.30245029781830235,
+          "explained_variance": 0.0550701878964901
+        },
+        {
+          "doc_id": "sec_edgar_000067686_000141",
+          "category": "control",
+          "cohen_d": 0.8327727836968706,
+          "explained_variance": 0.040386345237493515
+        },
+        {
+          "doc_id": "sec_edgar_000072971_000185",
+          "category": "control",
+          "cohen_d": -0.08132026086177924,
+          "explained_variance": 0.04119625687599182
+        },
+        {
+          "doc_id": "sec_edgar_000074928_000184",
+          "category": "control",
+          "cohen_d": -0.3516216570162661,
+          "explained_variance": 0.05409828573465347
+        },
+        {
+          "doc_id": "sec_edgar_000075252_000053",
+          "category": "control",
+          "cohen_d": -0.160601535924384,
+          "explained_variance": 0.049699317663908005
+        },
+        {
+          "doc_id": "sec_edgar_000081061_000110",
+          "category": "control",
+          "cohen_d": -0.4072075814709242,
+          "explained_variance": 0.053268399089574814
+        },
+        {
+          "doc_id": "sec_edgar_000092116_000000",
+          "category": "control",
+          "cohen_d": 0.32169057135312495,
+          "explained_variance": 0.050042517483234406
+        },
+        {
+          "doc_id": "sec_edgar_000093469_000030",
+          "category": "control",
+          "cohen_d": 0.37248835467857705,
+          "explained_variance": 0.06589794158935547
+        },
+        {
+          "doc_id": "sec_edgar_000103392_000186",
+          "category": "control",
+          "cohen_d": -0.2746815024814649,
+          "explained_variance": 0.045778967440128326
+        },
+        {
+          "doc_id": "sec_edgar_000277509_000236",
+          "category": "control",
+          "cohen_d": -0.07806873831147879,
+          "explained_variance": 0.050543103367090225
+        },
+        {
+          "doc_id": "sec_edgar_000310158_000219",
+          "category": "control",
+          "cohen_d": 2.050577771304668,
+          "explained_variance": 0.05500279739499092
+        },
+        {
+          "doc_id": "sec_edgar_000310431_000059",
+          "category": "control",
+          "cohen_d": -0.8132890733756906,
+          "explained_variance": 0.08534501492977142
+        },
+        {
+          "doc_id": "sec_edgar_000352510_000254",
+          "category": "control",
+          "cohen_d": -1.2186152329117415,
+          "explained_variance": 0.04282703995704651
+        },
+        {
+          "doc_id": "sec_edgar_000740694_000193",
+          "category": "control",
+          "cohen_d": -0.08538243300903521,
+          "explained_variance": 0.047470372170209885
+        },
+        {
+          "doc_id": "sec_edgar_000745287_000029",
+          "category": "control",
+          "cohen_d": -0.4163621539968658,
+          "explained_variance": 0.04704046994447708
+        },
+        {
+          "doc_id": "sec_edgar_000764764_000036",
+          "category": "control",
+          "cohen_d": -0.6333970574136468,
+          "explained_variance": 0.07363922894001007
+        },
+        {
+          "doc_id": "sec_edgar_000793421_000121",
+          "category": "control",
+          "cohen_d": 0.3266404622118587,
+          "explained_variance": 0.051948774605989456
+        },
+        {
+          "doc_id": "sec_edgar_000821026_000118",
+          "category": "control",
+          "cohen_d": -0.9079258151245803,
+          "explained_variance": 0.09054173529148102
+        },
+        {
+          "doc_id": "sec_edgar_000828530_000112",
+          "category": "control",
+          "cohen_d": -0.19669776855013907,
+          "explained_variance": 0.045393552631139755
+        },
+        {
+          "doc_id": "sec_edgar_000846902_000035",
+          "category": "control",
+          "cohen_d": -0.1261740803064737,
+          "explained_variance": 0.05841262638568878
+        },
+        {
+          "doc_id": "sec_edgar_000854094_000014",
+          "category": "control",
+          "cohen_d": 0.5923338439152485,
+          "explained_variance": 0.07727239280939102
+        },
+        {
+          "doc_id": "stress_seqnum_N040_start1260_s631300",
+          "category": "control",
+          "cohen_d": 0.05427796105234909,
+          "explained_variance": 0.12684309482574463
+        },
+        {
+          "doc_id": "stress_seqnum_N040_start9870_s639910",
+          "category": "control",
+          "cohen_d": 0.06947888025210772,
+          "explained_variance": 0.1290050595998764
+        },
+        {
+          "doc_id": "stress_seqnum_N080_start1260_s631340",
+          "category": "control",
+          "cohen_d": 0.0008801496915757244,
+          "explained_variance": 0.12229031324386597
+        }
+      ],
+      "per_doc_positive": [
+        {
+          "doc_id": "arxiv_table_000295",
+          "category": "positive",
+          "cohen_d": 2.055757566441232,
+          "explained_variance": 0.1964387595653534
+        },
+        {
+          "doc_id": "arxiv_table_000371",
+          "category": "positive",
+          "cohen_d": 1.9152035417168962,
+          "explained_variance": 0.3513036370277405
+        },
+        {
+          "doc_id": "arxiv_table_000404",
+          "category": "positive",
+          "cohen_d": -0.6809436934393366,
+          "explained_variance": 0.1607905626296997
+        },
+        {
+          "doc_id": "arxiv_table_000461",
+          "category": "positive",
+          "cohen_d": 1.6427182274212346,
+          "explained_variance": 0.3006095588207245
+        },
+        {
+          "doc_id": "arxiv_table_000818",
+          "category": "positive",
+          "cohen_d": 2.5608525811454537,
+          "explained_variance": 0.538370668888092
+        },
+        {
+          "doc_id": "arxiv_table_000855",
+          "category": "positive",
+          "cohen_d": -2.3566122421619844,
+          "explained_variance": 0.17592795193195343
+        },
+        {
+          "doc_id": "arxiv_table_000889",
+          "category": "positive",
+          "cohen_d": 1.304110163341729,
+          "explained_variance": 0.2674699127674103
+        },
+        {
+          "doc_id": "arxiv_table_001070",
+          "category": "positive",
+          "cohen_d": 1.2069888910543003,
+          "explained_variance": 0.4566759765148163
+        },
+        {
+          "doc_id": "arxiv_table_001212",
+          "category": "positive",
+          "cohen_d": 1.2133704973717392,
+          "explained_variance": 0.36492863297462463
+        },
+        {
+          "doc_id": "arxiv_table_001256",
+          "category": "positive",
+          "cohen_d": -1.7642729543081332,
+          "explained_variance": 0.1332978755235672
+        },
+        {
+          "doc_id": "arxiv_table_001281",
+          "category": "positive",
+          "cohen_d": 2.2247708348322015,
+          "explained_variance": 0.34391242265701294
+        },
+        {
+          "doc_id": "arxiv_table_001429",
+          "category": "positive",
+          "cohen_d": -1.0815882166145496,
+          "explained_variance": 0.1833459436893463
+        },
+        {
+          "doc_id": "arxiv_table_001556",
+          "category": "positive",
+          "cohen_d": 0.921921497901353,
+          "explained_variance": 0.3158057630062103
+        },
+        {
+          "doc_id": "arxiv_table_001579",
+          "category": "positive",
+          "cohen_d": 1.9235969934488248,
+          "explained_variance": 0.2230052947998047
+        },
+        {
+          "doc_id": "docvqa_fglc0003_p1",
+          "category": "positive",
+          "cohen_d": 0.11745733877152895,
+          "explained_variance": 0.21544404327869415
+        },
+        {
+          "doc_id": "docvqa_jqbg0227_p1",
+          "category": "positive",
+          "cohen_d": 0.008987155754947995,
+          "explained_variance": 0.17246617376804352
+        },
+        {
+          "doc_id": "docvqa_kshm0227_p6",
+          "category": "positive",
+          "cohen_d": 1.6244739030319022,
+          "explained_variance": 0.1683429777622223
+        },
+        {
+          "doc_id": "docvqa_kshm0227_p7",
+          "category": "positive",
+          "cohen_d": -0.06722969417308851,
+          "explained_variance": 0.1563270390033722
+        },
+        {
+          "doc_id": "docvqa_nlcf0227_p3",
+          "category": "positive",
+          "cohen_d": 0.1846359671246048,
+          "explained_variance": 0.22220775485038757
+        },
+        {
+          "doc_id": "docvqa_srgb0228_p2",
+          "category": "positive",
+          "cohen_d": -1.7486669856560402,
+          "explained_variance": 0.18510273098945618
+        },
+        {
+          "doc_id": "funsd_105_105",
+          "category": "positive",
+          "cohen_d": 0.18051322226304503,
+          "explained_variance": 0.7564356327056885
+        },
+        {
+          "doc_id": "sec_edgar_000099193_000167",
+          "category": "positive",
+          "cohen_d": 1.7341770008674482,
+          "explained_variance": 0.39326009154319763
+        }
+      ]
+    },
+    "L24": {
+      "n_controls": 52,
+      "n_positives": 22,
+      "control_abs_cohen_d_median": 0.5476857741714218,
+      "control_abs_cohen_d_mean": 0.5463790363208119,
+      "control_abs_cohen_d_max": 1.9546645259865396,
+      "positive_abs_cohen_d_median": 1.521788749968513,
+      "positive_abs_cohen_d_mean": 1.3232402099778708,
+      "ratio_pos_over_ctl_median": 2.778580021127596,
+      "per_doc_control": [
+        {
+          "doc_id": "arxiv_table_000118",
+          "category": "control",
+          "cohen_d": -0.11756271537414623,
+          "explained_variance": 0.07985035330057144
+        },
+        {
+          "doc_id": "arxiv_table_000190",
+          "category": "control",
+          "cohen_d": 0.7834963511809488,
+          "explained_variance": 0.09089118242263794
+        },
+        {
+          "doc_id": "arxiv_table_000306",
+          "category": "control",
+          "cohen_d": 0.8251938151429953,
+          "explained_variance": 0.08990680426359177
+        },
+        {
+          "doc_id": "arxiv_table_000321",
+          "category": "control",
+          "cohen_d": 0.6775080375065526,
+          "explained_variance": 0.08394711464643478
+        },
+        {
+          "doc_id": "arxiv_table_000376",
+          "category": "control",
+          "cohen_d": 0.670047523546525,
+          "explained_variance": 0.07346417009830475
+        },
+        {
+          "doc_id": "arxiv_table_000410",
+          "category": "control",
+          "cohen_d": 0.31767709797849913,
+          "explained_variance": 0.07085322588682175
+        },
+        {
+          "doc_id": "arxiv_table_000479",
+          "category": "control",
+          "cohen_d": 0.6401176458255238,
+          "explained_variance": 0.09084134548902512
+        },
+        {
+          "doc_id": "arxiv_table_000620",
+          "category": "control",
+          "cohen_d": 0.6668377071119114,
+          "explained_variance": 0.10344770550727844
+        },
+        {
+          "doc_id": "arxiv_table_000649",
+          "category": "control",
+          "cohen_d": 0.6608542727258196,
+          "explained_variance": 0.08716882020235062
+        },
+        {
+          "doc_id": "arxiv_table_000734",
+          "category": "control",
+          "cohen_d": 0.575893265956456,
+          "explained_variance": 0.0782218873500824
+        },
+        {
+          "doc_id": "arxiv_table_000772",
+          "category": "control",
+          "cohen_d": -0.5194782823863877,
+          "explained_variance": 0.07368740439414978
+        },
+        {
+          "doc_id": "arxiv_table_000891",
+          "category": "control",
+          "cohen_d": 1.0718966932106877,
+          "explained_variance": 0.08711064606904984
+        },
+        {
+          "doc_id": "arxiv_table_000894",
+          "category": "control",
+          "cohen_d": 0.8276042106420861,
+          "explained_variance": 0.09785456210374832
+        },
+        {
+          "doc_id": "arxiv_table_001058",
+          "category": "control",
+          "cohen_d": 0.38859665064996496,
+          "explained_variance": 0.06694349646568298
+        },
+        {
+          "doc_id": "arxiv_table_001157",
+          "category": "control",
+          "cohen_d": 0.9489501227229399,
+          "explained_variance": 0.08773504942655563
+        },
+        {
+          "doc_id": "arxiv_table_001401",
+          "category": "control",
+          "cohen_d": 0.8380549238556515,
+          "explained_variance": 0.09789484739303589
+        },
+        {
+          "doc_id": "arxiv_table_001423",
+          "category": "control",
+          "cohen_d": 0.31509428052477984,
+          "explained_variance": 0.09019310027360916
+        },
+        {
+          "doc_id": "arxiv_table_001442",
+          "category": "control",
+          "cohen_d": 0.35040562247666246,
+          "explained_variance": 0.0913086086511612
+        },
+        {
+          "doc_id": "arxiv_table_001502",
+          "category": "control",
+          "cohen_d": 0.7950442381851556,
+          "explained_variance": 0.07097849994897842
+        },
+        {
+          "doc_id": "arxiv_table_001595",
+          "category": "control",
+          "cohen_d": 0.4309460371747321,
+          "explained_variance": 0.08169452846050262
+        },
+        {
+          "doc_id": "docvqa_jrcy0227_p98",
+          "category": "control",
+          "cohen_d": 0.086715597469268,
+          "explained_variance": 0.11186302453279495
+        },
+        {
+          "doc_id": "docvqa_pgjw0227_p5",
+          "category": "control",
+          "cohen_d": 0.6573679606448378,
+          "explained_variance": 0.17037439346313477
+        },
+        {
+          "doc_id": "sec_edgar_000018230_000251",
+          "category": "control",
+          "cohen_d": 0.6560675078265412,
+          "explained_variance": 0.07986018806695938
+        },
+        {
+          "doc_id": "sec_edgar_000030547_000133",
+          "category": "control",
+          "cohen_d": -0.820395402457826,
+          "explained_variance": 0.07014480233192444
+        },
+        {
+          "doc_id": "sec_edgar_000036995_000192",
+          "category": "control",
+          "cohen_d": -1.4741410409540578,
+          "explained_variance": 0.050011660903692245
+        },
+        {
+          "doc_id": "sec_edgar_000040533_000068",
+          "category": "control",
+          "cohen_d": 0.34242060320784595,
+          "explained_variance": 0.0438823401927948
+        },
+        {
+          "doc_id": "sec_edgar_000049423_000114",
+          "category": "control",
+          "cohen_d": -0.2071158830521005,
+          "explained_variance": 0.04753915220499039
+        },
+        {
+          "doc_id": "sec_edgar_000059198_000212",
+          "category": "control",
+          "cohen_d": -0.5808059453591581,
+          "explained_variance": 0.052473362535238266
+        },
+        {
+          "doc_id": "sec_edgar_000066479_000012",
+          "category": "control",
+          "cohen_d": -0.17563029269134206,
+          "explained_variance": 0.05551408976316452
+        },
+        {
+          "doc_id": "sec_edgar_000067686_000141",
+          "category": "control",
+          "cohen_d": -1.1114335810678362,
+          "explained_variance": 0.041193947196006775
+        },
+        {
+          "doc_id": "sec_edgar_000072971_000185",
+          "category": "control",
+          "cohen_d": -0.85838111468841,
+          "explained_variance": 0.04138725996017456
+        },
+        {
+          "doc_id": "sec_edgar_000074928_000184",
+          "category": "control",
+          "cohen_d": -0.3505871027306085,
+          "explained_variance": 0.059902116656303406
+        },
+        {
+          "doc_id": "sec_edgar_000075252_000053",
+          "category": "control",
+          "cohen_d": -0.04790314808752254,
+          "explained_variance": 0.051020532846450806
+        },
+        {
+          "doc_id": "sec_edgar_000081061_000110",
+          "category": "control",
+          "cohen_d": -0.3754328669232471,
+          "explained_variance": 0.058092132210731506
+        },
+        {
+          "doc_id": "sec_edgar_000092116_000000",
+          "category": "control",
+          "cohen_d": 0.38147197303920616,
+          "explained_variance": 0.05502741411328316
+        },
+        {
+          "doc_id": "sec_edgar_000093469_000030",
+          "category": "control",
+          "cohen_d": 0.33985602637408446,
+          "explained_variance": 0.07188163697719574
+        },
+        {
+          "doc_id": "sec_edgar_000103392_000186",
+          "category": "control",
+          "cohen_d": -0.18834109022364032,
+          "explained_variance": 0.05068208649754524
+        },
+        {
+          "doc_id": "sec_edgar_000277509_000236",
+          "category": "control",
+          "cohen_d": -0.08584089979696848,
+          "explained_variance": 0.05071140080690384
+        },
+        {
+          "doc_id": "sec_edgar_000310158_000219",
+          "category": "control",
+          "cohen_d": -1.9546645259865396,
+          "explained_variance": 0.05714544653892517
+        },
+        {
+          "doc_id": "sec_edgar_000310431_000059",
+          "category": "control",
+          "cohen_d": -0.7248313499982225,
+          "explained_variance": 0.09214232861995697
+        },
+        {
+          "doc_id": "sec_edgar_000352510_000254",
+          "category": "control",
+          "cohen_d": -1.2506349732254372,
+          "explained_variance": 0.04597523435950279
+        },
+        {
+          "doc_id": "sec_edgar_000740694_000193",
+          "category": "control",
+          "cohen_d": -0.13185345904072956,
+          "explained_variance": 0.047711893916130066
+        },
+        {
+          "doc_id": "sec_edgar_000745287_000029",
+          "category": "control",
+          "cohen_d": -0.18765716948527272,
+          "explained_variance": 0.048991307616233826
+        },
+        {
+          "doc_id": "sec_edgar_000764764_000036",
+          "category": "control",
+          "cohen_d": 0.6728361673797368,
+          "explained_variance": 0.07864301651716232
+        },
+        {
+          "doc_id": "sec_edgar_000793421_000121",
+          "category": "control",
+          "cohen_d": 0.4914110506540626,
+          "explained_variance": 0.05584200844168663
+        },
+        {
+          "doc_id": "sec_edgar_000821026_000118",
+          "category": "control",
+          "cohen_d": -0.8762474336434195,
+          "explained_variance": 0.09697948396205902
+        },
+        {
+          "doc_id": "sec_edgar_000828530_000112",
+          "category": "control",
+          "cohen_d": 0.0032093780143027393,
+          "explained_variance": 0.0487314872443676
+        },
+        {
+          "doc_id": "sec_edgar_000846902_000035",
+          "category": "control",
+          "cohen_d": -0.10022837865561537,
+          "explained_variance": 0.06314238160848618
+        },
+        {
+          "doc_id": "sec_edgar_000854094_000014",
+          "category": "control",
+          "cohen_d": 0.6382940862409741,
+          "explained_variance": 0.0862787663936615
+        },
+        {
+          "doc_id": "stress_seqnum_N040_start1260_s631300",
+          "category": "control",
+          "cohen_d": 0.06432549339640482,
+          "explained_variance": 0.11651615798473358
+        },
+        {
+          "doc_id": "stress_seqnum_N040_start9870_s639910",
+          "category": "control",
+          "cohen_d": 0.09711008469964814,
+          "explained_variance": 0.11844535917043686
+        },
+        {
+          "doc_id": "stress_seqnum_N080_start1260_s631340",
+          "category": "control",
+          "cohen_d": 0.057238807488921434,
+          "explained_variance": 0.11464189738035202
+        }
+      ],
+      "per_doc_positive": [
+        {
+          "doc_id": "arxiv_table_000295",
+          "category": "positive",
+          "cohen_d": -2.029013402565849,
+          "explained_variance": 0.21826037764549255
+        },
+        {
+          "doc_id": "arxiv_table_000371",
+          "category": "positive",
+          "cohen_d": 1.9426816086631826,
+          "explained_variance": 0.3395768105983734
+        },
+        {
+          "doc_id": "arxiv_table_000404",
+          "category": "positive",
+          "cohen_d": 1.2350483497102858,
+          "explained_variance": 0.1595098376274109
+        },
+        {
+          "doc_id": "arxiv_table_000461",
+          "category": "positive",
+          "cohen_d": -1.7925341739825549,
+          "explained_variance": 0.2906295657157898
+        },
+        {
+          "doc_id": "arxiv_table_000818",
+          "category": "positive",
+          "cohen_d": 2.544232794210779,
+          "explained_variance": 0.5036509037017822
+        },
+        {
+          "doc_id": "arxiv_table_000855",
+          "category": "positive",
+          "cohen_d": -2.567871247264025,
+          "explained_variance": 0.18825222551822662
+        },
+        {
+          "doc_id": "arxiv_table_000889",
+          "category": "positive",
+          "cohen_d": 0.8003680027709981,
+          "explained_variance": 0.24233560264110565
+        },
+        {
+          "doc_id": "arxiv_table_001070",
+          "category": "positive",
+          "cohen_d": 1.1907261293926112,
+          "explained_variance": 0.4228787124156952
+        },
+        {
+          "doc_id": "arxiv_table_001212",
+          "category": "positive",
+          "cohen_d": 0.6736191556561981,
+          "explained_variance": 0.32840272784233093
+        },
+        {
+          "doc_id": "arxiv_table_001256",
+          "category": "positive",
+          "cohen_d": -1.8607939783132417,
+          "explained_variance": 0.13865263760089874
+        },
+        {
+          "doc_id": "arxiv_table_001281",
+          "category": "positive",
+          "cohen_d": 2.8121965399698676,
+          "explained_variance": 0.33620238304138184
+        },
+        {
+          "doc_id": "arxiv_table_001429",
+          "category": "positive",
+          "cohen_d": -1.4067369103403422,
+          "explained_variance": 0.19259880483150482
+        },
+        {
+          "doc_id": "arxiv_table_001556",
+          "category": "positive",
+          "cohen_d": 0.7167844569086693,
+          "explained_variance": 0.32730552554130554
+        },
+        {
+          "doc_id": "arxiv_table_001579",
+          "category": "positive",
+          "cohen_d": -1.9383544936464867,
+          "explained_variance": 0.23522140085697174
+        },
+        {
+          "doc_id": "docvqa_fglc0003_p1",
+          "category": "positive",
+          "cohen_d": 0.0889683223238235,
+          "explained_variance": 0.22635748982429504
+        },
+        {
+          "doc_id": "docvqa_jqbg0227_p1",
+          "category": "positive",
+          "cohen_d": 0.0053749963603613345,
+          "explained_variance": 0.19992311298847198
+        },
+        {
+          "doc_id": "docvqa_kshm0227_p6",
+          "category": "positive",
+          "cohen_d": 1.636840589596684,
+          "explained_variance": 0.17119914293289185
+        },
+        {
+          "doc_id": "docvqa_kshm0227_p7",
+          "category": "positive",
+          "cohen_d": 0.06043349899549429,
+          "explained_variance": 0.1790929138660431
+        },
+        {
+          "doc_id": "docvqa_nlcf0227_p3",
+          "category": "positive",
+          "cohen_d": 0.12787861012132598,
+          "explained_variance": 0.21983037889003754
+        },
+        {
+          "doc_id": "docvqa_srgb0228_p2",
+          "category": "positive",
+          "cohen_d": -1.8361916406686472,
+          "explained_variance": 0.18837179243564606
+        },
+        {
+          "doc_id": "funsd_105_105",
+          "category": "positive",
+          "cohen_d": 0.14771780726555298,
+          "explained_variance": 0.7602915167808533
+        },
+        {
+          "doc_id": "sec_edgar_000099193_000167",
+          "category": "positive",
+          "cohen_d": 1.6969179107861754,
+          "explained_variance": 0.3727899491786957
+        }
+      ]
+    }
+  }
+}

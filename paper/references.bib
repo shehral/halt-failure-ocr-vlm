@@ -1,0 +1,394 @@
+% references.bib for the arXiv preprint
+%   "Halt-Failure as a Class-Structured Residual-Stream Attractor in
+%    Fine-Tuned OCR Vision-Language Models"
+%
+% All entries below were verified against arXiv / venue / source pages.
+% Corrected entries carry real titles and full author lists; no placeholder
+% ("Anonymous", "{X Authors}") authors remain. Fabricated / not-found entries
+% were removed and their citations repointed to verified alternatives.
+
+% -----------------------------------------------------------------------------
+% LM degeneration / repetition / non-termination
+% -----------------------------------------------------------------------------
+
+@inproceedings{holtzman2020degeneration,
+  author    = {Holtzman, Ari and Buys, Jan and Du, Li and Forbes, Maxwell and Choi, Yejin},
+  title     = {The Curious Case of Neural Text Degeneration},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2020},
+  note      = {arXiv:1904.09751. Introduces nucleus (top-p) sampling and documents that maximum-likelihood decoding produces bland, repetitive, degenerate text.}
+}
+
+@inproceedings{welleck2020consistency,
+  author    = {Welleck, Sean and Kulikov, Ilia and Kim, Jaedeok and Pang, Richard Yuanzhe and Cho, Kyunghyun},
+  title     = {Consistency of a Recurrent Language Model With Respect to Incomplete Decoding},
+  booktitle = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {5553--5568},
+  year      = {2020},
+  note      = {arXiv:2002.02492. Proves greedy, beam, top-k, and nucleus decoding are all inconsistent (can yield infinite-length, zero-probability sequences) and proposes a self-terminating LM that monotonically raises the EOS probability.}
+}
+
+@article{welleck2019unlikelihood,
+  author    = {Welleck, Sean and Kulikov, Ilia and Roller, Stephen and Dinan, Emily and Cho, Kyunghyun and Weston, Jason},
+  title     = {Neural Text Generation with Unlikelihood Training},
+  journal   = {arXiv preprint arXiv:1908.04319},
+  year      = {2019},
+  note      = {Also presented at ICLR 2020. Proposes token- and sequence-level unlikelihood training to suppress repetition, attributing degeneration to the likelihood objective itself rather than only to decoding.}
+}
+
+@article{repetitionproduction2025,
+  author    = {Wang, Weiwei and Zou, Weijie and Min, Jiyong},
+  title     = {Solving {LLM} Repetition Problem in Production: A Comprehensive Study of Multiple Solutions},
+  journal   = {arXiv preprint arXiv:2512.04419},
+  year      = {2025}
+}
+
+@article{internvl35,
+  author    = {Weiyun Wang and Zhangwei Gao and Lixin Gu and Hengjun Pu and Long Cui and Xingguang Wei and Zhaoyang Liu and Linglin Jing and Shenglong Ye and Jie Shao and Zhaokai Wang and Zhe Chen and Hongjie Zhang and Ganlin Yang and Haomin Wang and Qi Wei and Jinhui Yin and Wenhao Li and Erfei Cui and Guanzhou Chen and Zichen Ding and Changyao Tian and Zhenyu Wu and Jingjing Xie and Zehao Li and Bowen Yang and Yuchen Duan and Xuehui Wang and Zhi Hou and Haoran Hao and Tianyi Zhang and Songze Li and Xiangyu Zhao and Haodong Duan and Nianchen Deng and Bin Fu and Yinan He and Yi Wang and Conghui He and Botian Shi and Junjun He and Yingtong Xiong and Han Lv and Lijun Wu and Wenqi Shao and Kaipeng Zhang and Huipeng Deng and Biqing Qi and Jiaye Ge and Qipeng Guo and Wenwei Zhang and Songyang Zhang and Maosong Cao and Junyao Lin and Kexian Tang and Jianfei Gao and Haian Huang and Yuzhe Gu and Chengqi Lyu and Huanze Tang and Rui Wang and Haijun Lv and Wanli Ouyang and Limin Wang and Min Dou and Xizhou Zhu and Tong Lu and Dahua Lin and Jifeng Dai and Weijie Su and Bowen Zhou and Kai Chen and Yu Qiao and Wenhai Wang and Gen Luo},
+  title     = {{InternVL3.5}: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency},
+  journal   = {arXiv preprint arXiv:2508.18265},
+  year      = {2025}
+}
+
+@article{repeatedtoken2025,
+  author    = {Yona, Itay and Shumailov, Ilia and Hayes, Jamie and Barbero, Federico and Gandelsman, Yossi},
+  title     = {Interpreting the Repeated Token Phenomenon in Large Language Models},
+  journal   = {arXiv preprint arXiv:2503.08908},
+  year      = {2025}
+}
+
+@inproceedings{repetitionneurons2025,
+  author    = {Hiraoka, Tatsuya and Inui, Kentaro},
+  title     = {Repetition Neurons: How Do Language Models Produce Repetitions?},
+  booktitle = {Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 2: Short Papers)},
+  pages     = {483--495},
+  year      = {2025},
+  publisher = {Association for Computational Linguistics},
+  note      = {arXiv:2410.13497. Identifies neuron-level circuits underpinning repetitive generation in text-only LLMs; foundational evidence that single-neuron interventions on repetition have prior art at the textual LLM level.}
+}
+
+@article{wang2025inductiontoxicity,
+  author    = {Wang, Shuxun and Yin, Qingyu and Leong, Chak Tou and Zhang, Qiang and Yang, Linyi},
+  title     = {Induction Head Toxicity Mechanistically Explains Repetition Curse in Large Language Models},
+  journal   = {arXiv preprint arXiv:2505.13514},
+  year      = {2025},
+  note      = {Closest work on the induction-head causal hypothesis for repetition. Text-only LLMs (Qwen2.5-7B / LLaMA3-8B / Gemma2-9B) on synthetic count-controlled tasks; attention head regularization as fix. Perpendicular to ours: different model class, failure class, diagnostic, and intervention. Note: arXiv version withdrawn 2025-12-02.}
+}
+
+@article{olsson2022induction,
+  author    = {Olsson, Catherine and Elhage, Nelson and Nanda, Neel and Joseph, Nicholas and DasSarma, Nova and Henighan, Tom and Mann, Ben and Askell, Amanda and Bai, Yuntao and Chen, Anna and Conerly, Tom and Drain, Dawn and Ganguli, Deep and Hatfield-Dodds, Zac and Hernandez, Danny and Johnston, Scott and Jones, Andy and Kernion, Jackson and Lovitt, Liane and Ndousse, Kamal and Amodei, Dario and Brown, Tom and Clark, Jack and Kaplan, Jared and McCandlish, Sam and Olah, Chris},
+  title     = {In-Context Learning and Induction Heads},
+  journal   = {Transformer Circuits Thread},
+  year      = {2022},
+  note      = {Establishes induction heads as the mechanism implementing in-context pattern completion via match-and-copy. Foundation cited for the induction-head causal hypothesis we situate against.}
+}
+
+% -----------------------------------------------------------------------------
+% Hallucination in (V)LMs incl. structural / OCR hallucination
+% -----------------------------------------------------------------------------
+
+@inproceedings{li2023pope,
+  author    = {Li, Yifan and Du, Yifan and Zhou, Kun and Wang, Jinpeng and Zhao, Wayne Xin and Wen, Ji-Rong},
+  title     = {Evaluating Object Hallucination in Large Vision-Language Models},
+  booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {292--305},
+  year      = {2023}
+}
+
+@article{bai2024mllmhallusurvey,
+  author    = {Bai, Zechen and Wang, Pichao and Xiao, Tianjun and He, Tong and Han, Zongbo and Zhang, Zheng and Shou, Mike Zheng},
+  title     = {Hallucination of Multimodal Large Language Models: A Survey},
+  journal   = {arXiv preprint arXiv:2404.18930},
+  year      = {2024}
+}
+
+@article{he2025seeingbelieving,
+  author    = {He, Zhentao and Zhang, Can and Wu, Ziheng and Chen, Zhenghao and Zhan, Yufei and Li, Yifan and Zhang, Zhao and Wang, Xian and Qiu, Minghui},
+  title     = {Seeing is Believing? Mitigating {OCR} Hallucinations in Multimodal Large Language Models},
+  journal   = {arXiv preprint arXiv:2506.20168},
+  year      = {2025}
+}
+
+@article{poznanski2025olmocr,
+  author    = {Poznanski, Jake and Rangapur, Aman and Borchardt, Jon and Dunkelberger, Jason and Huff, Regan and Lin, Daniel and Wilhelm, Christopher and Lo, Kyle and Soldaini, Luca},
+  title     = {{olmOCR}: Unlocking Trillions of Tokens in PDFs with Vision Language Models},
+  journal   = {arXiv preprint arXiv:2502.18443},
+  year      = {2025}
+}
+
+@article{olmocrv2,
+  author    = {Poznanski, Jake and Soldaini, Luca and Lo, Kyle},
+  title     = {{olmOCR} 2: Unit Test Rewards for Document {OCR}},
+  journal   = {arXiv preprint arXiv:2510.19817},
+  year      = {2025}
+}
+
+@misc{granitedocling2025,
+  author       = {{IBM Research}},
+  title        = {{Granite-Docling-258M}: A Vision-Language Model for End-to-End Document Conversion},
+  howpublished = {Hugging Face model card and IBM announcement},
+  year         = {2025},
+  month        = sep,
+  note         = {Released 2025-09-17},
+  url          = {https://huggingface.co/ibm-granite/granite-docling-258M}
+}
+
+@article{qwen2vl,
+  author    = {Wang, Peng and Bai, Shuai and Tan, Sinan and Wang, Shijie and Fan, Zhihao and Bai, Jinze and Chen, Keqin and others},
+  title     = {{Qwen2-VL}: Enhancing Vision-Language Model's Perception of the World at Any Resolution},
+  journal   = {arXiv preprint arXiv:2409.12191},
+  year      = {2024}
+}
+
+@article{steinberggal2026,
+  author    = {Steinberg, Jonathan and Gal, Oren},
+  title     = {Where Vision Becomes Text: Locating the OCR Routing Bottleneck in Vision-Language Models},
+  journal   = {arXiv preprint arXiv:2602.22918},
+  year      = {2026},
+  note      = {Cited for text-inpaint causal protocol.}
+}
+
+@article{baek2025,
+  author    = {Baek, Ingeol and Chang, Hwan and Ryu, Sunghyun and Lee, Hwanhee},
+  title     = {How Do Large Vision-Language Models See Text in Image? Unveiling the Distinctive Role of OCR Heads},
+  journal   = {arXiv preprint arXiv:2505.15865},
+  year      = {2025},
+  note      = {Cited as candidate upstream-circuit source for the halt continuation state.}
+}
+
+% -----------------------------------------------------------------------------
+% Cross-modal grounding collapse / modality bias / text-vs-vision routing
+% -----------------------------------------------------------------------------
+
+@article{fazli2025caac,
+  author    = {Fazli, Mehrdad and Wei, Bowen and Sari, Ahmet and Zhu, Ziwei},
+  title     = {Mitigating Hallucination in Large Vision-Language Models via Adaptive Attention Calibration},
+  journal   = {arXiv preprint arXiv:2505.21472},
+  year      = {2025},
+  note      = {The CAAC (Confidence-Aware Attention Calibration) framework. Uses Visual-Token Calibration and confidence-guided Adaptive Attention Re-Scaling to counter spatial-perception and modality bias by reinforcing visual grounding during late-generation drift.}
+}
+
+@article{zheng2025modalitybias,
+  author    = {Zheng, Haohan and Zhang, Zhenguo},
+  title     = {Modality Bias in {LVLMs}: Analyzing and Mitigating Object Hallucination via Attention Lens},
+  journal   = {arXiv preprint arXiv:2508.02419},
+  year      = {2025},
+  note      = {Training-free intervention that adjusts the attention weights of textual versus visual tokens to balance cross-modal compatibility; directly diagnoses text-vs-vision routing as the locus of modality bias.}
+}
+
+@inproceedings{leng2024vcd,
+  author    = {Leng, Sicong and Zhang, Hang and Chen, Guanzheng and Li, Xin and Lu, Shijian and Miao, Chunyan and Bing, Lidong},
+  title     = {Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2024},
+  note      = {CVPR 2024 Highlight. Contrasts output distributions from original versus distorted visual inputs to suppress over-reliance on statistical bias and unimodal language priors, establishing language-prior dominance as a root cause of VLM hallucination.}
+}
+
+% -----------------------------------------------------------------------------
+% Mechanistic interpretability methods used here
+%   (linear probes, activation/path patching, logit/tuned lens, tooling)
+% -----------------------------------------------------------------------------
+
+@misc{nostalgebraist2020logitlens,
+  author       = {nostalgebraist},
+  title        = {Interpreting {GPT}: The Logit Lens},
+  year         = {2020},
+  howpublished = {AI Alignment Forum / LessWrong},
+  note         = {Original introduction of the logit lens: decoding intermediate residual-stream states through the model's unembedding matrix},
+  url          = {https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens}
+}
+
+@article{alain2016probes,
+  author  = {Alain, Guillaume and Bengio, Yoshua},
+  title   = {Understanding Intermediate Layers Using Linear Classifier Probes},
+  journal = {arXiv preprint arXiv:1610.01644},
+  year    = {2016}
+}
+
+@inproceedings{wang2023ioi,
+  author    = {Wang, Kevin and Variengien, Alexandre and Conmy, Arthur and Shlegeris, Buck and Steinhardt, Jacob},
+  title     = {Interpretability in the Wild: A Circuit for Indirect Object Identification in {GPT}-2 Small},
+  booktitle = {International Conference on Learning Representations ({ICLR})},
+  year      = {2023}
+}
+
+@inproceedings{meng2022rome,
+  author    = {Meng, Kevin and Bau, David and Andonian, Alex and Belinkov, Yonatan},
+  title     = {Locating and Editing Factual Associations in {GPT}},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2022}
+}
+
+@article{fcct2025,
+  author    = {Li, Qiming and Ye, Zekai and Feng, Xiaocheng and Zhong, Weihong and Ma, Weitao and Feng, Xiachong},
+  title     = {Causal Tracing of Object Representations in Large Vision Language Models: Mechanistic Interpretability and Hallucination Mitigation},
+  journal   = {arXiv preprint arXiv:2511.05923},
+  year      = {2025}
+}
+
+@article{belrose2023tunedlens,
+  author    = {Belrose, Nora and Ostrovsky, Igor and McKinney, Lev and Furman, Zach and Smith, Logan and Halawi, Danny and Biderman, Stella and Steinhardt, Jacob},
+  title     = {Eliciting Latent Predictions from Transformers with the Tuned Lens},
+  journal   = {arXiv preprint arXiv:2303.08112},
+  year      = {2023},
+  note      = {Cited for logit-lens / tuned-lens triangulation.}
+}
+
+@misc{bricken2023monosemanticity,
+  author    = {Bricken, Trenton and Templeton, Adly and Batson, Joshua and Chen, Brian and Jermyn, Adam and Conerly, Tom and Turner, Nick and Anil, Cem and Denison, Carson and Askell, Amanda and Lasenby, Robert and Wu, Yifan and Kravec, Shauna and Schiefer, Nicholas and Maxwell, Tim and Nguyen, Nicholas Joseph and Tamkin, Alex and Nguyen, Karina and McLean, Brayden and Burke, Josiah E. and Hume, Tristan and Carter, Shan and Henighan, Tom and Olah, Chris},
+  title     = {Towards Monosemanticity: Decomposing Language Models With Dictionary Learning},
+  howpublished = {Transformer Circuits Thread, Anthropic},
+  year      = {2023},
+  url       = {https://transformer-circuits.pub/2023/monosemantic-features/index.html}
+}
+
+@article{nnsight2024,
+  author    = {Fiotto-Kaufman, Jaden and Loftus, Alexander R. and Todd, Eric and Brinkmann, Jannik and Pal, Koyena and Troitskii, Dmitrii and Ripa, Michael and Belfki, Adam and Rager, Can and Juang, Caden and Mueller, Aaron and Marks, Samuel and Sen Sharma, Arnab and Lucchetti, Francesca and Prakash, Nikhil and Brodley, Carla and Guha, Arjun and Bell, Jonathan and Wallace, Byron C. and Bau, David},
+  title     = {{NNsight} and {NDIF}: Democratizing Access to Open-Weight Foundation Model Internals},
+  journal   = {arXiv preprint arXiv:2407.14561},
+  year      = {2024}
+}
+
+@misc{pyvene2024,
+  author    = {Wu, Zhengxuan and Geiger, Atticus and Arora, Aryaman and Huang, Jing and Wang, Zheng and Goodman, Noah D. and Manning, Christopher D. and Potts, Christopher},
+  title     = {pyvene: A Library for Understanding and Improving PyTorch Models via Interventions},
+  howpublished = {\url{https://github.com/stanfordnlp/pyvene}},
+  note      = {NAACL 2024 System Demonstrations; arXiv:2403.07809},
+  year      = {2024}
+}
+
+@misc{saelens2024,
+  author       = {Bloom, Joseph and Tigges, Curt and Duong, Anthony and Chanin, David},
+  title        = {{SAELens}: Training Sparse Autoencoders on Language Models},
+  howpublished = {\url{https://github.com/jbloomAus/SAELens}},
+  year         = {2024}
+}
+
+@article{park2025save,
+  author    = {Park, Sangha and Yoo, Seungryong and Mok, Jisoo and Yoon, Sungroh},
+  title     = {{SAVE}: Sparse Autoencoder-Driven Visual Information Enhancement for Mitigating Object Hallucination},
+  journal   = {arXiv preprint arXiv:2512.07730},
+  year      = {2025}
+}
+
+% -----------------------------------------------------------------------------
+% Representation geometry: linear features, manifolds, concept directions
+% -----------------------------------------------------------------------------
+
+@inproceedings{park2024linearrep,
+  author    = {Park, Kiho and Choe, Yo Joong and Veitch, Victor},
+  title     = {The Linear Representation Hypothesis and the Geometry of Large Language Models},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning (ICML)},
+  year      = {2024},
+  note      = {arXiv:2311.03658. Foundational formalization of the linear representation hypothesis: high-level concepts are encoded as directions in the residual stream, with a causal inner product linking linear probing to model steering.}
+}
+
+@inproceedings{park2025hierarchical,
+  author    = {Park, Kiho and Choe, Yo Joong and Jiang, Yibo and Veitch, Victor},
+  title     = {The Geometry of Categorical and Hierarchical Concepts in Large Language Models},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2025},
+  note      = {arXiv:2406.01506, oral. Shows categorical concepts form polytopes and hierarchically related concepts have orthogonal/structured direction geometry in representation space.}
+}
+
+% -----------------------------------------------------------------------------
+% Steering / single-direction methods (Arditi-style refusal direction lineage)
+% -----------------------------------------------------------------------------
+
+@inproceedings{arditi2024refusal,
+  author    = {Arditi, Andy and Obeso, Oscar and Syed, Aaquib and Paleka, Daniel and Panickssery, Nina and Gurnee, Wes and Nanda, Neel},
+  title     = {Refusal in Language Models Is Mediated by a Single Direction},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2024},
+  note      = {arXiv:2406.11717. The canonical single-direction / refusal-direction methodology: erasing one residual-stream direction prevents refusal, adding it induces refusal across 13 open chat models. Direct method-class ancestor of our class-specific single-direction halt test.}
+}
+
+@article{joad2026morethanrefusal,
+  author    = {Joad, Faaiz and Hawasly, Majd and Boughorbel, Sabri and Durrani, Nadir and Sencar, Husrev Taha},
+  title     = {There Is More to Refusal in Large Language Models than a Single Direction},
+  journal   = {arXiv preprint arXiv:2602.02132},
+  year      = {2026},
+  note      = {Refutes the strict single-direction hypothesis: refusal corresponds to geometrically distinct, class-specific directions, yet linear steering along any one yields nearly identical trade-offs. Supports our decodable-per-class-but-not-cleanly-steerable, class-structured reading of halt-failure.}
+}
+
+@article{turner2023activationengineering,
+  author    = {Turner, Alexander Matt and Thiergart, Lisa and Leech, Gavin and Udell, David and Vazquez, Juan J. and Mini, Ulisse and MacDiarmid, Monte},
+  title     = {Steering Language Models With Activation Engineering},
+  journal   = {arXiv preprint arXiv:2308.10248},
+  year      = {2023},
+  note      = {ActAdd: contrast-pair activation-difference steering vectors added to the forward pass. The foundational activation-editing method our L0 class-matched-direction injection and norm-scaled positive controls instantiate; we report the inverse outcome (decodable but not steerable).}
+}
+
+@article{li2023iti,
+  author    = {Li, K. and Patel, O. and Vi{\'e}gas, F. and Pfister, H. and Wattenberg, M.},
+  title     = {Inference-Time Intervention: Eliciting Truthful Answers from a Language Model},
+  journal   = {arXiv preprint arXiv:2306.03341},
+  year      = {2023},
+  note      = {ITI --- the method-class ancestor of our L24 forward-hook monitor. We extend from truthfulness-direction in text-only LLMs to halt-direction in OCR-VLMs, with EOS-logit boost rather than activation shift.}
+}
+
+@article{yin2026dmas,
+  author    = {Yin, Jianghao and Chen, Qin and Chen, Kedi and Zhou, Jie and Wu, Xingjiao and He, Liang},
+  title     = {Dynamic Multimodal Activation Steering for Hallucination Mitigation in Large Vision-Language Models},
+  journal   = {arXiv preprint arXiv:2602.21704},
+  year      = {2026},
+  note      = {Cited for class-conditional steering alternative.}
+}
+
+@article{steervlm2025,
+  author    = {Sivakumar, Anushka and Zhang, Andrew and Hakim, Zaber and Thomas, Chris},
+  title     = {{SteerVLM}: Robust Model Control through Lightweight Activation Steering for Vision Language Models},
+  journal   = {arXiv preprint arXiv:2510.26769},
+  year      = {2025},
+  note      = {EMNLP 2025 Findings. Closest comparable fix; activation steering integrated into the language decoder.}
+}
+
+% -----------------------------------------------------------------------------
+% Anthropic counting-manifold paper
+% -----------------------------------------------------------------------------
+
+@article{gurnee2026countmfd,
+  author    = {Gurnee, Wes and Ameisen, Emmanuel and Kauvar, Isaac and Tarng, Julius and Pearce, Adam and Olah, Chris and Batson, Joshua},
+  title     = {When Models Manipulate Manifolds: The Geometry of a Counting Task},
+  journal   = {arXiv preprint arXiv:2601.04480},
+  year      = {2026},
+  note      = {Cited for count-mfd-signature failure class.}
+}
+
+% -----------------------------------------------------------------------------
+% Attention sinks / EOS-halting / SinkTrack
+% -----------------------------------------------------------------------------
+
+@inproceedings{xiao2024streaming,
+  author    = {Xiao, Guangxuan and Tian, Yuandong and Chen, Beidi and Han, Song and Lewis, Mike},
+  title     = {Efficient Streaming Language Models with Attention Sinks},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {arXiv:2309.17453. Identifies the attention-sink phenomenon on initial tokens and exploits it for stable infinite-length streaming generation.}
+}
+
+@article{sinktrack2026,
+  author    = {Liu, Xu and Chen, Guikun and Wang, Wenguan},
+  title     = {{SinkTrack}: Attention Sink based Context Anchoring for Large Language Models},
+  journal   = {arXiv preprint arXiv:2604.10027},
+  year      = {2026}
+}
+
+% -----------------------------------------------------------------------------
+% Adjacent fine-tune-comparison / mechanism-vocabulary references actually cited
+% -----------------------------------------------------------------------------
+
+@misc{dfc2025,
+  author       = {Mishra-Sharma, Siddharth and Bricken, Trenton and Lindsey, Jack and Jermyn, Adam and Marcus, Jonathan and Rivoire, Kelley and Olah, Christopher and Henighan, Thomas},
+  title        = {Insights on Crosscoder Model Diffing},
+  howpublished = {Transformer Circuits Thread},
+  year         = {2025},
+  url          = {https://transformer-circuits.pub/2025/crosscoder-diffing-update/index.html}
+}
+
+@article{redeep2024,
+  author    = {Zhongxiang Sun and Xiaoxue Zang and Kai Zheng and Yang Song and Jun Xu and Xiao Zhang and Weijie Yu and Yang Song and Han Li},
+  title     = {{ReDeEP}: Detecting Hallucination in Retrieval-Augmented Generation via Mechanistic Interpretability},
+  journal   = {arXiv preprint arXiv:2410.11414},
+  year      = {2024}
+}

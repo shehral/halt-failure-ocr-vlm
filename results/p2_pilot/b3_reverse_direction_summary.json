@@ -1,0 +1,52 @@
+{
+  "tested_at": "2026-05-16",
+  "experiment": "B3 reverse-direction patch \u2014 project-out L24 halt direction at every position",
+  "results": {
+    "docvqa_kshm0227_p6": {
+      "kind": "control",
+      "baseline_tokens": 1145,
+      "baseline_stop": "eos",
+      "subtract_tokens": 1249,
+      "subtract_stop": "eos",
+      "delta_pct": 9.1,
+      "baseline_tail_30": "sf.edu/docs/kshm0227<|im_end|>",
+      "subtract_tail_30": "sf.edu/docs/kshm0227<|im_end|>"
+    },
+    "docvqa_pgjw0227_p5": {
+      "kind": "control",
+      "baseline_tokens": 1384,
+      "baseline_stop": "eos",
+      "subtract_tokens": 1384,
+      "subtract_stop": "eos",
+      "delta_pct": 0.0,
+      "baseline_tail_30": "sf.edu/docs/pgjw0227<|im_end|>",
+      "subtract_tail_30": "sf.edu/docs/pgjw0227<|im_end|>"
+    },
+    "docvqa_fglc0003_p1": {
+      "kind": "control",
+      "baseline_tokens": 711,
+      "baseline_stop": "eos",
+      "subtract_tokens": 711,
+      "subtract_stop": "eos",
+      "delta_pct": 0.0,
+      "baseline_tail_30": "sf.edu/docs/fglc0003<|im_end|>",
+      "subtract_tail_30": "sf.edu/docs/fglc0003<|im_end|>"
+    },
+    "docvqa_jqbg0227_p1": {
+      "kind": "positive",
+      "baseline_tokens": 12000,
+      "baseline_stop": "max_new_tokens",
+      "subtract_tokens": 12000,
+      "subtract_stop": "max_new_tokens",
+      "delta_pct": 0.0,
+      "baseline_tail_30": "-5 |\n| 51 | Biology, 100 | D-5",
+      "subtract_tail_30": "    <td>D-5</td>\n  </tr>\n  <tr"
+    }
+  },
+  "summary": {
+    "n_extended_controls": 0,
+    "n_unchanged_controls": 3,
+    "n_shortened_controls": 0,
+    "verdict": "READOUT"
+  }
+}

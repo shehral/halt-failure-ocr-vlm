@@ -1,0 +1,14 @@
+{
+  "doc_id": "docvqa_pgjw0227_p5",
+  "mode": "baseline",
+  "max_new_tokens": 12000,
+  "tokens_emitted": 1384,
+  "stop_reason": "eos",
+  "elapsed_s": 22.980908155441284,
+  "last_token_id": 151645,
+  "tail": "ody>\n</table>\n\n* Cost to the pharmacist for 30 grams of calcium, based on manufacturers' listings in Drug Topics Red Book, 1982.\n\nSource: https://www.industrydocuments.ucsf.edu/docs/pgjw0227<|im_end|>",
+  "device": "cuda",
+  "cuda_dev": "NVIDIA H200",
+  "torch_version": "2.8.0+cu128",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72"
+}

@@ -1,0 +1,15 @@
+{
+  "_backfilled": true,
+  "_backfilled_at": "2026-05-18T00:48:50.666733",
+  "_note": "Reconstructed from filesystem mtime + project defaults. Git_commit is CURRENT HEAD, not the commit at result-creation time. attn_impl + script + args are unrecoverable.",
+  "model_id": "nanonets/Nanonets-OCR2-3B",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72",
+  "dtype": "bfloat16",
+  "attn_impl": "unknown",
+  "git_commit": "no-git",
+  "started_at": "2026-05-16T05:04:49.113760",
+  "finished_at": "2026-05-16T05:04:49.113760",
+  "script": "unknown",
+  "args": {},
+  "results_dir": "/projects/<group>/<user>/nn-infinite-gen/results/p3_full_probe"
+}

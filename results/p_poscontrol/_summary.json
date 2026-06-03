@@ -1,0 +1,164 @@
+{
+  "n_docs_run": 4,
+  "n_records": 16,
+  "layer": 24,
+  "conditions": [
+    "vanilla",
+    "C1_random_10x",
+    "C2_random_100x",
+    "C3_random_0.1x"
+  ],
+  "started_at": "2026-05-18T03:01:03",
+  "finished_at": "2026-05-18T03:53:52",
+  "elapsed_total_s": 3169.6191880702972,
+  "by_doc_condition": {
+    "docvqa_gjhp0000_p1::vanilla": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 0.0,
+      "residual_norm_at_patch": 88.25399017333984,
+      "first_100_chars": "FSC-115-B\n7/1/98\n\nSUBJECT: Forsyth Labor Day 1998 Wholesale Promotion\n\nResponse Required? \u2611 Yes\nDate"
+    },
+    "docvqa_gjhp0000_p1::C1_random_10x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 882.55859375,
+      "residual_norm_at_patch": 88.25399017333984,
+      "first_100_chars": " **)FSC-115-B****\n**(7/1/98)**\n\n**SUBJECT:** Forsyth Labor Day 1998 Wholesale Promotion\n\nResponse Re"
+    },
+    "docvqa_gjhp0000_p1::C2_random_100x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 8825.14453125,
+      "residual_norm_at_patch": 88.25399017333984,
+      "first_100_chars": "\u9ad8\u5cf0\nFSC-115-B\n7/1/98\n\nSUBJECT: Forsyth Labor Day 1998 Wholesale Promotion\n\nResponse Required? \u2611 Yes\nD"
+    },
+    "docvqa_gjhp0000_p1::C3_random_0.1x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 8.828295707702637,
+      "residual_norm_at_patch": 88.25399017333984,
+      "first_100_chars": " Copy\nFSC-115-B\n7/1/98\n\nSUBJECT:\nForsyth Labor Day 1998 Wholesale Promotion\n\nResponse Required? \u2611 Ye"
+    },
+    "docvqa_jqbg0227_p1::vanilla": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 0.0,
+      "residual_norm_at_patch": 87.07717895507812,
+      "first_100_chars": "<img>University of Missouri Columbia Campus Map</img>\n\n**INDEX OF OFFICES.**\n\n| Blk | Office Address"
+    },
+    "docvqa_jqbg0227_p1::C1_random_10x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 870.777099609375,
+      "residual_norm_at_patch": 87.07717895507812,
+      "first_100_chars": " **)** UNIVERSITY OF MISSOURI **COLLUMBIA CAMPUS**\n\n<img>University of Missouri Columbia Campus Map<"
+    },
+    "docvqa_jqbg0227_p1::C2_random_100x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 8706.5419921875,
+      "residual_norm_at_patch": 87.07717895507812,
+      "first_100_chars": "\u53f9\u4e86\u53e3\u6c14\u3002\u7ed3\u679c\n\u4e00\u6708\u4efd\u3002\n\u4f46\u662f\n\u6240\u4ee5\n\u56e0\u4e3a\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n"
+    },
+    "docvqa_jqbg0227_p1::C3_random_0.1x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 8.709634780883789,
+      "residual_norm_at_patch": 87.07717895507812,
+      "first_100_chars": " 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16\n\nA\nB\nC\nD\nE\nF\nG\nH\n\nINDEX OF OFFICES.\nBlk. Office Address Loca"
+    },
+    "docvqa_srgb0228_p2::vanilla": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 0.0,
+      "residual_norm_at_patch": 88.05718231201172,
+      "first_100_chars": "U.S. ENVIRONMENTAL PROTECTION AGENCY\n\nTRAVEL AUTHORIZATION\n\nORIGINAL \u2611 AMENDMENT \u2610 CANCELLATION\n\n1. "
+    },
+    "docvqa_srgb0228_p2::C1_random_10x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 880.6082153320312,
+      "residual_norm_at_patch": 88.05718231201172,
+      "first_100_chars": " **) ACTUAL SUBSISTENCE AUTHORIZED IN LIEU OF PER DIEM BECAUSE OF THE HIGH LODGING COSTS WITHIN THE "
+    },
+    "docvqa_srgb0228_p2::C2_random_100x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 8807.0166015625,
+      "residual_norm_at_patch": 88.05718231201172,
+      "first_100_chars": "\u9ad8\u5cf0\nU.S. ENVIRONMENTAL PROTECTION AGENCY\n\nTRAVEL AUTHORIZATION\n\nORIGINAL \u2611 AMENDMENT \u2610 CANCELLATION\n\n"
+    },
+    "docvqa_srgb0228_p2::C3_random_0.1x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 8.804998397827148,
+      "residual_norm_at_patch": 88.05718231201172,
+      "first_100_chars": " Oringal\n\u2610 AMENDMENT\n\u2610 CANCELLATION\n\nU.S. ENVIRONMENTAL PROTECTION AGENCY\nTRAVEL AUTHORIZATION\n\n1. N"
+    },
+    "table_N005_C04_s05000::vanilla": {
+      "tokens_emitted": 477,
+      "stop_reason": "eos",
+      "intervention_norm": 0.0,
+      "residual_norm_at_patch": 77.10647583007812,
+      "first_100_chars": "<table>\n   <thead>\n    <tr>\n     <td>\n      <b>\n       Field 1\n      </b>\n     </td>\n     <td>\n     "
+    },
+    "table_N005_C04_s05000::C1_random_10x": {
+      "tokens_emitted": 3,
+      "stop_reason": "eos",
+      "intervention_norm": 770.9595336914062,
+      "residual_norm_at_patch": 77.10647583007812,
+      "first_100_chars": " **)**<|im_end|>"
+    },
+    "table_N005_C04_s05000::C2_random_100x": {
+      "tokens_emitted": 12000,
+      "stop_reason": "max_new_tokens",
+      "intervention_norm": 7710.5361328125,
+      "residual_norm_at_patch": 77.10647583007812,
+      "first_100_chars": "\u53f9\u4e86\u53e3\u6c14\u3002\u7ed3\u679c\n\u5982\u679c\n\u4f46\u662f\n\u6240\u4ee5\n\u800c\u4e14\n\u7136\u540e\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5\n\u6240\u4ee5"
+    },
+    "table_N005_C04_s05000::C3_random_0.1x": {
+      "tokens_emitted": 1,
+      "stop_reason": "eos",
+      "intervention_norm": 7.7106499671936035,
+      "residual_norm_at_patch": 77.10647583007812,
+      "first_100_chars": "<|im_end|>"
+    }
+  },
+  "per_doc_summary": {
+    "docvqa_gjhp0000_p1": {
+      "vanilla_tokens": 12000,
+      "C1_10x_tokens": 12000,
+      "C2_100x_tokens": 12000,
+      "C3_0.1x_tokens": 12000,
+      "C2_reduction_pct": 0.0
+    },
+    "docvqa_jqbg0227_p1": {
+      "vanilla_tokens": 12000,
+      "C1_10x_tokens": 12000,
+      "C2_100x_tokens": 12000,
+      "C3_0.1x_tokens": 12000,
+      "C2_reduction_pct": 0.0
+    },
+    "docvqa_srgb0228_p2": {
+      "vanilla_tokens": 12000,
+      "C1_10x_tokens": 12000,
+      "C2_100x_tokens": 12000,
+      "C3_0.1x_tokens": 12000,
+      "C2_reduction_pct": 0.0
+    },
+    "table_N005_C04_s05000": {
+      "vanilla_tokens": 477,
+      "C1_10x_tokens": 3,
+      "C2_100x_tokens": 12000,
+      "C3_0.1x_tokens": 1,
+      "C2_reduction_pct": -2415.723270440252
+    }
+  },
+  "pre_registered": {
+    "C2_n_docs_with_data": 4,
+    "C2_n_reduced_50pct": 0,
+    "C2_delivers_perturbation": false,
+    "note": "PASS if >= 3/4 docs show >= 50% reduction at C2_random_100x. See docs/positive_control_he_patch_plan.md \u00a72 for full table."
+  }
+}

@@ -1,0 +1,602 @@
+[
+  {
+    "doc_id": "arxiv_table_000277",
+    "path": "data/supplementary_corpus/images/arxiv_table_000277.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 10578,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "other-unclassified",
+    "loop_unit": "} \\",
+    "max_new_tokens": 10578,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000277"
+  },
+  {
+    "doc_id": "docvqa_gjhp0000_p1",
+    "path": "data/public_corpus/images/docvqa_gjhp0000_p1.png",
+    "trigger": "positive",
+    "label": "positive_runaway",
+    "tokens_emitted": 12000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "no-clear-loop",
+    "loop_unit": null,
+    "max_new_tokens": 12000,
+    "source_dir": "p1_cuda_n40",
+    "doc": "docvqa_gjhp0000_p1"
+  },
+  {
+    "doc_id": "arxiv_table_000295",
+    "path": "data/supplementary_corpus/images/arxiv_table_000295.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 13971,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "math-token-or-operator",
+    "loop_unit": " _2 ^1+i _du_1 _2 _1 ^-1",
+    "max_new_tokens": 13971,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000295"
+  },
+  {
+    "doc_id": "arxiv_table_000766",
+    "path": "data/supplementary_corpus/images/arxiv_table_000766.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 9064,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-brace",
+    "loop_unit": "\\vec{q}\\}\\cdot",
+    "max_new_tokens": 9064,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000766"
+  },
+  {
+    "doc_id": "arxiv_table_000401",
+    "path": "data/supplementary_corpus/images/arxiv_table_000401.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 8019,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-paren-bracket",
+    "loop_unit": "(\\tau\\right)\\left",
+    "max_new_tokens": 8019,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000401"
+  },
+  {
+    "doc_id": "docvqa_jqbg0227_p1",
+    "path": "data/public_corpus/images/docvqa_jqbg0227_p1.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 12000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "empty-row-loop",
+    "loop_unit": " |\n| 51 | Biology, 100 | D-5",
+    "max_new_tokens": 12000,
+    "source_dir": "p1_cuda_n40",
+    "doc": "docvqa_jqbg0227_p1"
+  },
+  {
+    "doc_id": "arxiv_table_000266",
+    "path": "data/supplementary_corpus/images/arxiv_table_000266.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 6984,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-greek/bracket",
+    "loop_unit": "angle\\langle\\nu| \\quad \\delta\\r",
+    "max_new_tokens": 6984,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000266"
+  },
+  {
+    "doc_id": "arxiv_table_000461",
+    "path": "data/supplementary_corpus/images/arxiv_table_000461.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 14083,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "count-or-digit-loop",
+    "loop_unit": " _ 2",
+    "max_new_tokens": 14083,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000461"
+  },
+  {
+    "doc_id": "arxiv_table_000855",
+    "path": "data/supplementary_corpus/images/arxiv_table_000855.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 14322,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-math-cmd",
+    "loop_unit": "}\\mathrm{p}\\ i\\ \\mathrm{d}^{r",
+    "max_new_tokens": 14322,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000855"
+  },
+  {
+    "doc_id": "arxiv_table_000999",
+    "path": "data/supplementary_corpus/images/arxiv_table_000999.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 10575,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-ampersand-cellsep",
+    "loop_unit": " &",
+    "max_new_tokens": 10575,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000999"
+  },
+  {
+    "doc_id": "arxiv_table_000889",
+    "path": "data/supplementary_corpus/images/arxiv_table_000889.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 18000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-backslash-escape",
+    "loop_unit": "~\\textbackslash",
+    "max_new_tokens": 18000,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000889"
+  },
+  {
+    "doc_id": "doclaynet_DocLayNet-v1.1_000059",
+    "path": "data/public_corpus/images/doclaynet_DocLayNet-v1.1_000059.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 6000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "single-punct-loop",
+    "loop_unit": " .",
+    "max_new_tokens": 6000,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "doclaynet_DocLayNet-v1.1_000059"
+  },
+  {
+    "doc_id": "arxiv_table_000371",
+    "path": "data/supplementary_corpus/images/arxiv_table_000371.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 14533,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "other-unclassified",
+    "loop_unit": "quad\\q",
+    "max_new_tokens": 14533,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000371"
+  },
+  {
+    "doc_id": "docvqa_srgb0228_p2",
+    "path": "data/public_corpus/images/docvqa_srgb0228_p2.png",
+    "trigger": "positive",
+    "label": "positive_pattern_empty_rows",
+    "tokens_emitted": 12000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "no-clear-loop",
+    "loop_unit": null,
+    "max_new_tokens": 12000,
+    "source_dir": "p1_cuda_n40",
+    "doc": "docvqa_srgb0228_p2"
+  },
+  {
+    "doc_id": "sec_edgar_000013239_000151",
+    "path": "data/public_corpus/images/sec_edgar_000013239_000151.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 6000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "math-token-or-operator",
+    "loop_unit": " ---",
+    "max_new_tokens": 6000,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "sec_edgar_000013239_000151"
+  },
+  {
+    "doc_id": "arxiv_table_000818",
+    "path": "data/supplementary_corpus/images/arxiv_table_000818.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 12861,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-brace",
+    "loop_unit": " }",
+    "max_new_tokens": 12861,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000818"
+  },
+  {
+    "doc_id": "arxiv_table_000668",
+    "path": "data/supplementary_corpus/images/arxiv_table_000668.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 11894,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-paren-bracket",
+    "loop_unit": " \\right]",
+    "max_new_tokens": 11894,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000668"
+  },
+  {
+    "doc_id": "docvqa_kshm0227_p7",
+    "path": "data/public_corpus/images/docvqa_kshm0227_p7.png",
+    "trigger": "positive",
+    "label": "positive_pattern_empty_rows",
+    "tokens_emitted": 12000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "empty-row-loop",
+    "loop_unit": ">\n      <td></td",
+    "max_new_tokens": 12000,
+    "source_dir": "p1_cuda_n40",
+    "doc": "docvqa_kshm0227_p7"
+  },
+  {
+    "doc_id": "arxiv_table_001579",
+    "path": "data/supplementary_corpus/images/arxiv_table_001579.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 13037,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-greek/bracket",
+    "loop_unit": "ack \\rhoho \\{2\\right\\rangle \\leftlbr",
+    "max_new_tokens": 13037,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_001579"
+  },
+  {
+    "doc_id": "sec_edgar_000814153_000115",
+    "path": "data/public_corpus/images/sec_edgar_000814153_000115.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 6000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "count-or-digit-loop",
+    "loop_unit": "0,551 1",
+    "max_new_tokens": 6000,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "sec_edgar_000814153_000115"
+  },
+  {
+    "doc_id": "arxiv_table_001302",
+    "path": "data/supplementary_corpus/images/arxiv_table_001302.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 6000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-math-cmd",
+    "loop_unit": "mathbf{k}|}{2}\\bigr] \\exp\\bigr[\\frac{|\\",
+    "max_new_tokens": 6000,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_001302"
+  },
+  {
+    "doc_id": "arxiv_table_001070",
+    "path": "data/supplementary_corpus/images/arxiv_table_001070.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 12196,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-ampersand-cellsep",
+    "loop_unit": " &",
+    "max_new_tokens": 12196,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_001070"
+  },
+  {
+    "doc_id": "arxiv_table_000392",
+    "path": "data/supplementary_corpus/images/arxiv_table_000392.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 10211,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "other-unclassified",
+    "loop_unit": "0(t)}u_{u_",
+    "max_new_tokens": 10211,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000392"
+  },
+  {
+    "doc_id": "funsd_105_105",
+    "path": "data/public_corpus/images/funsd_105_105.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 12000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "no-clear-loop",
+    "loop_unit": null,
+    "max_new_tokens": 12000,
+    "source_dir": "p1_cuda_n40",
+    "doc": "funsd_105_105"
+  },
+  {
+    "doc_id": "sec_edgar_000040874_000108",
+    "path": "data/public_corpus/images/sec_edgar_000040874_000108.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 6000,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "math-token-or-operator",
+    "loop_unit": " ----",
+    "max_new_tokens": 6000,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "sec_edgar_000040874_000108"
+  },
+  {
+    "doc_id": "arxiv_table_000948",
+    "path": "data/supplementary_corpus/images/arxiv_table_000948.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 11455,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-brace",
+    "loop_unit": "}\\})\\cap(\\{\\mathscr{c",
+    "max_new_tokens": 11455,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000948"
+  },
+  {
+    "doc_id": "arxiv_table_000690",
+    "path": "data/supplementary_corpus/images/arxiv_table_000690.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 11703,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "latex-paren-bracket",
+    "loop_unit": " \\left(",
+    "max_new_tokens": 11703,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000690"
+  },
+  {
+    "doc_id": "arxiv_table_000609",
+    "path": "data/supplementary_corpus/images/arxiv_table_000609.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 10420,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "other-unclassified",
+    "loop_unit": " \\ &",
+    "max_new_tokens": 10420,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "arxiv_table_000609"
+  },
+  {
+    "doc_id": "funsd_134_134",
+    "path": "data/public_corpus/images/funsd_134_134.png",
+    "trigger": "positive",
+    "label": "positive_pattern_empty_rows",
+    "tokens_emitted": 993,
+    "stop_reason": "eos",
+    "loop_class_heuristic": "no-clear-loop",
+    "loop_unit": null,
+    "max_new_tokens": 12000,
+    "source_dir": "p1_cuda_n40",
+    "doc": "funsd_134_134"
+  },
+  {
+    "doc_id": "sec_edgar_000064803_000230",
+    "path": "data/public_corpus/images/sec_edgar_000064803_000230.png",
+    "trigger": "positive",
+    "label": "positive_pattern_ngram_repeat",
+    "tokens_emitted": 10389,
+    "stop_reason": "max_new_tokens",
+    "loop_class_heuristic": "math-token-or-operator",
+    "loop_unit": "--",
+    "max_new_tokens": 10389,
+    "source_dir": "p1_cuda_supplementary",
+    "doc": "sec_edgar_000064803_000230"
+  },
+  {
+    "doc": "docvqa_fglc0003_p1",
+    "doc_id": "docvqa_fglc0003_p1",
+    "path": "data/public_corpus/images/docvqa_fglc0003_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_fhwc0228_p12",
+    "doc_id": "docvqa_fhwc0228_p12",
+    "path": "data/public_corpus/images/docvqa_fhwc0228_p12.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_fhxn0226_p2",
+    "doc_id": "docvqa_fhxn0226_p2",
+    "path": "data/public_corpus/images/docvqa_fhxn0226_p2.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_fpdp0080_p1",
+    "doc_id": "docvqa_fpdp0080_p1",
+    "path": "data/public_corpus/images/docvqa_fpdp0080_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_frdv0228_p4",
+    "doc_id": "docvqa_frdv0228_p4",
+    "path": "data/public_corpus/images/docvqa_frdv0228_p4.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_fydc0228_p10",
+    "doc_id": "docvqa_fydc0228_p10",
+    "path": "data/public_corpus/images/docvqa_fydc0228_p10.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_gxyd0217_p10",
+    "doc_id": "docvqa_gxyd0217_p10",
+    "path": "data/public_corpus/images/docvqa_gxyd0217_p10.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_gyjf0226_p1",
+    "doc_id": "docvqa_gyjf0226_p1",
+    "path": "data/public_corpus/images/docvqa_gyjf0226_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hfpj0226_p1",
+    "doc_id": "docvqa_hfpj0226_p1",
+    "path": "data/public_corpus/images/docvqa_hfpj0226_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hlxc0081_p1",
+    "doc_id": "docvqa_hlxc0081_p1",
+    "path": "data/public_corpus/images/docvqa_hlxc0081_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hmxn0226_p3",
+    "doc_id": "docvqa_hmxn0226_p3",
+    "path": "data/public_corpus/images/docvqa_hmxn0226_p3.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hpnm0227_p4",
+    "doc_id": "docvqa_hpnm0227_p4",
+    "path": "data/public_corpus/images/docvqa_hpnm0227_p4.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hqgb0228_p1",
+    "doc_id": "docvqa_hqgb0228_p1",
+    "path": "data/public_corpus/images/docvqa_hqgb0228_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hrcy0227_p4",
+    "doc_id": "docvqa_hrcy0227_p4",
+    "path": "data/public_corpus/images/docvqa_hrcy0227_p4.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hrfw0227_p12",
+    "doc_id": "docvqa_hrfw0227_p12",
+    "path": "data/public_corpus/images/docvqa_hrfw0227_p12.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hsgj0223_p96",
+    "doc_id": "docvqa_hsgj0223_p96",
+    "path": "data/public_corpus/images/docvqa_hsgj0223_p96.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hslf0227_p17",
+    "doc_id": "docvqa_hslf0227_p17",
+    "path": "data/public_corpus/images/docvqa_hslf0227_p17.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_hsyn0081_p17",
+    "doc_id": "docvqa_hsyn0081_p17",
+    "path": "data/public_corpus/images/docvqa_hsyn0081_p17.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_jpjf0226_p1",
+    "doc_id": "docvqa_jpjf0226_p1",
+    "path": "data/public_corpus/images/docvqa_jpjf0226_p1.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_jrcy0227_p98",
+    "doc_id": "docvqa_jrcy0227_p98",
+    "path": "data/public_corpus/images/docvqa_jrcy0227_p98.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_kjnw0228_p3",
+    "doc_id": "docvqa_kjnw0228_p3",
+    "path": "data/public_corpus/images/docvqa_kjnw0228_p3.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_kpnf0227_p2",
+    "doc_id": "docvqa_kpnf0227_p2",
+    "path": "data/public_corpus/images/docvqa_kpnf0227_p2.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_kshm0227_p6",
+    "doc_id": "docvqa_kshm0227_p6",
+    "path": "data/public_corpus/images/docvqa_kshm0227_p6.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_kzbn0226_p31",
+    "doc_id": "docvqa_kzbn0226_p31",
+    "path": "data/public_corpus/images/docvqa_kzbn0226_p31.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_lnmm0081_p7",
+    "doc_id": "docvqa_lnmm0081_p7",
+    "path": "data/public_corpus/images/docvqa_lnmm0081_p7.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_lpjm0223_p56",
+    "doc_id": "docvqa_lpjm0223_p56",
+    "path": "data/public_corpus/images/docvqa_lpjm0223_p56.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_lqnn0081_p3",
+    "doc_id": "docvqa_lqnn0081_p3",
+    "path": "data/public_corpus/images/docvqa_lqnn0081_p3.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_lsgj0223_p14",
+    "doc_id": "docvqa_lsgj0223_p14",
+    "path": "data/public_corpus/images/docvqa_lsgj0223_p14.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_lsgj0223_p67",
+    "doc_id": "docvqa_lsgj0223_p67",
+    "path": "data/public_corpus/images/docvqa_lsgj0223_p67.png",
+    "trigger": "control",
+    "label": "control"
+  },
+  {
+    "doc": "docvqa_mldg0227_p6",
+    "doc_id": "docvqa_mldg0227_p6",
+    "path": "data/public_corpus/images/docvqa_mldg0227_p6.png",
+    "trigger": "control",
+    "label": "control"
+  }
+]

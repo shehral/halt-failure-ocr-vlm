@@ -1,0 +1,65 @@
+{
+  "typed_cohort": [
+    {
+      "doc_id": "docvqa_fglc0003_p1",
+      "baseline_tokens_emitted": 711,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_fglc0003_p1.png"
+    },
+    {
+      "doc_id": "docvqa_nlcf0227_p3",
+      "baseline_tokens_emitted": 1390,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_nlcf0227_p3.png"
+    },
+    {
+      "doc_id": "docvqa_srgb0228_p2",
+      "baseline_tokens_emitted": 78,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_srgb0228_p2.png"
+    },
+    {
+      "doc_id": "funsd_003_003",
+      "baseline_tokens_emitted": 2161,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/funsd_003_003.png"
+    },
+    {
+      "doc_id": "funsd_019_019",
+      "baseline_tokens_emitted": 472,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/funsd_019_019.png"
+    },
+    {
+      "doc_id": "invoice_0158",
+      "baseline_tokens_emitted": 503,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/invoice_0158.png"
+    },
+    {
+      "doc_id": "docvqa_gyjf0226_p1",
+      "baseline_tokens_emitted": 607,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_gyjf0226_p1.png"
+    },
+    {
+      "doc_id": "docvqa_hsgj0223_p96",
+      "baseline_tokens_emitted": 1989,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_hsgj0223_p96.png"
+    },
+    {
+      "doc_id": "docvqa_jpjf0226_p1",
+      "baseline_tokens_emitted": 563,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_jpjf0226_p1.png"
+    },
+    {
+      "doc_id": "docvqa_zlkd0079_p3",
+      "baseline_tokens_emitted": 1071,
+      "baseline_stop_reason": "eos",
+      "image_path": "/projects/<group>/<user>/nn-infinite-gen/data/public_corpus/images/docvqa_zlkd0079_p3.png"
+    }
+  ],
+  "skipped": []
+}

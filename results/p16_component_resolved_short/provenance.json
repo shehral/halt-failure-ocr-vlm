@@ -1,0 +1,30 @@
+{
+  "experiment": "P16 component-resolved FCCT H-E patch — CL-19/CL-20 regeneration",
+  "seed": 0,
+  "model_id": "nanonets/Nanonets-OCR2-3B",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72",
+  "dtype": "bfloat16",
+  "attn_impl": "eager",
+  "device": "cuda",
+  "manifest": "data/p16_manifest_labeled.json",
+  "layers": [16, 20, 24],
+  "components": ["mlp_output", "attention_output", "block_output"],
+  "interventions": ["real", "random_matched_norm", "off_layer", "shuffled_values"],
+  "max_new_tokens": 2000,
+  "n_docs": 5,
+  "n_controls": 5,
+  "reverse_patch": false,
+  "slurm_job": "<jobid> (gpu-short, node <node>)",
+  "note_on_completion": "Job hit the 2h gpu-short TIMEOUT after completing the full 45-real + 134-control grid but before write_summary; _summary.json was aggregated CPU-only on the login node from the per-cell records. No model re-run.",
+  "prereg": "docs/p16_he_patch_preregistration.md",
+  "result": {
+    "real_nonzero": "0/45",
+    "control_nonzero": "9/134 (random_matched_norm 2, off_layer 4, shuffled_values 3)",
+    "verdict": "FAIL",
+    "interpretation": "Real-null: real component patches at L16/L20/L24 do not reduce runaway length; controls perturb more (mostly off_layer norm-shock per heuristic #53). Consistent with L24-as-readout, not a causal halt locus."
+  },
+  "regenerated_at": "2026-06-02",
+  "supersedes": "Original 58-real / 174-control grid (SLURM <jobid>) lost from /scratch/<user>/nn-p16. Smaller grid, same finding.",
+  "git_commit": "no-git",
+  "_backfilled": false
+}

@@ -1,0 +1,14 @@
+{
+  "doc_id": "docvqa_kshm0227_p6",
+  "mode": "subtract",
+  "max_new_tokens": 12000,
+  "tokens_emitted": 1249,
+  "stop_reason": "eos",
+  "elapsed_s": 21.220433950424194,
+  "last_token_id": 151645,
+  "tail": "e approving officer must have been authorized in writing by the head of the department or agency to so certify (31 U.S.C. 680a).\n\nSource: https://www.industrydocuments.ucsf.edu/docs/kshm0227<|im_end|>",
+  "device": "cuda",
+  "cuda_dev": "NVIDIA H200",
+  "torch_version": "2.8.0+cu128",
+  "model_revision": "c3886ff00bb037ce7da24988c9eafaf1fe2bed72"
+}

@@ -1,0 +1,364 @@
+{
+  "doc_id": "docvqa_srgb0228_p2",
+  "T_generated": 3000,
+  "hit_max_new_tokens": true,
+  "elapsed_s": 75.86583876609802,
+  "eos_token_ids": [
+    151645,
+    151643
+  ],
+  "eos_logit_first10": [
+    9.642857551574707,
+    7.53125,
+    6.84375,
+    4.625,
+    7.09375,
+    3.71875,
+    3.0,
+    3.515625,
+    2.71875,
+    6.03125
+  ],
+  "eos_logit_last10": [
+    17.875,
+    7.97619104385376,
+    17.625,
+    9.375,
+    15.625,
+    8.9375,
+    19.0,
+    7.2916669845581055,
+    18.375,
+    10.8125
+  ],
+  "eos_logit_min": -1.4453125,
+  "eos_logit_max": 20.5,
+  "eos_logit_mean": 10.761488914489746,
+  "eos_prob_min": 3.9939541050907105e-16,
+  "eos_prob_max": 8.210684609366581e-05,
+  "eos_prob_mean": 7.830664827679357e-08,
+  "first_20_steps_decoded": [
+    {
+      "step": 0,
+      "tok_id": 52,
+      "text": "U",
+      "eos_logit": 9.642857551574707,
+      "eos_prob": 3.056639741316758e-07,
+      "chosen_logit": 24.25
+    },
+    {
+      "step": 1,
+      "tok_id": 808,
+      "text": ".S",
+      "eos_logit": 7.53125,
+      "eos_prob": 1.473547839303535e-09,
+      "chosen_logit": 27.875
+    },
+    {
+      "step": 2,
+      "tok_id": 13,
+      "text": ".",
+      "eos_logit": 6.84375,
+      "eos_prob": 1.2217717504370285e-08,
+      "chosen_logit": 25.119049072265625
+    },
+    {
+      "step": 3,
+      "tok_id": 32791,
+      "text": " ENV",
+      "eos_logit": 4.625,
+      "eos_prob": 1.3349691130315477e-08,
+      "chosen_logit": 22.75
+    },
+    {
+      "step": 4,
+      "tok_id": 59839,
+      "text": "IRONMENT",
+      "eos_logit": 7.09375,
+      "eos_prob": 1.1271932692791253e-10,
+      "chosen_logit": 30.0
+    },
+    {
+      "step": 5,
+      "tok_id": 969,
+      "text": "AL",
+      "eos_logit": 3.71875,
+      "eos_prob": 9.63063184755697e-10,
+      "chosen_logit": 24.5
+    },
+    {
+      "step": 6,
+      "tok_id": 5308,
+      "text": " PRO",
+      "eos_logit": 3.0,
+      "eos_prob": 5.3134730393367136e-08,
+      "chosen_logit": 19.75
+    },
+    {
+      "step": 7,
+      "tok_id": 75703,
+      "text": "TECTION",
+      "eos_logit": 3.515625,
+      "eos_prob": 1.718438308317971e-10,
+      "chosen_logit": 26.0
+    },
+    {
+      "step": 8,
+      "tok_id": 362,
+      "text": " A",
+      "eos_logit": 2.71875,
+      "eos_prob": 9.438128056871165e-10,
+      "chosen_logit": 23.5
+    },
+    {
+      "step": 9,
+      "tok_id": 87674,
+      "text": "GENCY",
+      "eos_logit": 6.03125,
+      "eos_prob": 1.9398764278949487e-12,
+      "chosen_logit": 33.0
+    },
+    {
+      "step": 10,
+      "tok_id": 271,
+      "text": "\n\n",
+      "eos_logit": 14.464286804199219,
+      "eos_prob": 8.599049579061102e-07,
+      "chosen_logit": 28.0
+    },
+    {
+      "step": 11,
+      "tok_id": 2378,
+      "text": "TR",
+      "eos_logit": 7.023809909820557,
+      "eos_prob": 2.6771184380436353e-08,
+      "chosen_logit": 23.625
+    },
+    {
+      "step": 12,
+      "tok_id": 8093,
+      "text": "AV",
+      "eos_logit": 3.6875,
+      "eos_prob": 2.8158178011494783e-09,
+      "chosen_logit": 23.375
+    },
+    {
+      "step": 13,
+      "tok_id": 2749,
+      "text": "EL",
+      "eos_logit": 5.71875,
+      "eos_prob": 4.956267167510742e-12,
+      "chosen_logit": 31.75
+    },
+    {
+      "step": 14,
+      "tok_id": 16777,
+      "text": " AUTH",
+      "eos_logit": 2.0625,
+      "eos_prob": 9.828383440435573e-09,
+      "chosen_logit": 20.5
+    },
+    {
+      "step": 15,
+      "tok_id": 83278,
+      "text": "ORIZATION",
+      "eos_logit": 4.84375,
+      "eos_prob": 6.83912718124624e-11,
+      "chosen_logit": 28.25
+    },
+    {
+      "step": 16,
+      "tok_id": 271,
+      "text": "\n\n",
+      "eos_logit": 13.333333969116211,
+      "eos_prob": 1.7955532030100585e-06,
+      "chosen_logit": 26.428573608398438
+    },
+    {
+      "step": 17,
+      "tok_id": 98201,
+      "text": "ORIGINAL",
+      "eos_logit": 8.273810386657715,
+      "eos_prob": 2.2720318781921378e-07,
+      "chosen_logit": 22.75
+    },
+    {
+      "step": 18,
+      "tok_id": 25125,
+      "text": " \ufffd",
+      "eos_logit": 9.702381134033203,
+      "eos_prob": 2.5391686904185917e-06,
+      "chosen_logit": 22.500001907348633
+    },
+    {
+      "step": 19,
+      "tok_id": 239,
+      "text": "\ufffd",
+      "eos_logit": 0.6026785969734192,
+      "eos_prob": 4.410903933771415e-12,
+      "chosen_logit": 27.02381134033203
+    }
+  ],
+  "last_20_steps_decoded": [
+    {
+      "step": 2980,
+      "tok_id": 262,
+      "text": "   ",
+      "eos_logit": 12.916667938232422,
+      "eos_prob": 4.616527160550277e-09,
+      "chosen_logit": 32.38095474243164
+    },
+    {
+      "step": 2981,
+      "tok_id": 690,
+      "text": " </",
+      "eos_logit": 11.0,
+      "eos_prob": 4.437003282148355e-12,
+      "chosen_logit": 37.142860412597656
+    },
+    {
+      "step": 2982,
+      "tok_id": 376,
+      "text": "tr",
+      "eos_logit": 17.5,
+      "eos_prob": 3.456075980956541e-10,
+      "chosen_logit": 39.28571701049805
+    },
+    {
+      "step": 2983,
+      "tok_id": 397,
+      "text": ">\n",
+      "eos_logit": 9.875,
+      "eos_prob": 1.0584622588127868e-11,
+      "chosen_logit": 35.23809814453125
+    },
+    {
+      "step": 2984,
+      "tok_id": 262,
+      "text": "   ",
+      "eos_logit": 12.625,
+      "eos_prob": 7.012680214302236e-09,
+      "chosen_logit": 31.428573608398438
+    },
+    {
+      "step": 2985,
+      "tok_id": 366,
+      "text": " <",
+      "eos_logit": 11.0625,
+      "eos_prob": 4.085203356152256e-11,
+      "chosen_logit": 35.000003814697266
+    },
+    {
+      "step": 2986,
+      "tok_id": 376,
+      "text": "tr",
+      "eos_logit": 16.5,
+      "eos_prob": 3.2953817452607836e-10,
+      "chosen_logit": 38.333335876464844
+    },
+    {
+      "step": 2987,
+      "tok_id": 397,
+      "text": ">\n",
+      "eos_logit": 9.5625,
+      "eos_prob": 1.8742995003262486e-11,
+      "chosen_logit": 34.28571701049805
+    },
+    {
+      "step": 2988,
+      "tok_id": 414,
+      "text": "     ",
+      "eos_logit": 13.125,
+      "eos_prob": 1.6012678683008374e-10,
+      "chosen_logit": 35.95238494873047
+    },
+    {
+      "step": 2989,
+      "tok_id": 366,
+      "text": " <",
+      "eos_logit": 8.8125,
+      "eos_prob": 3.937838388701209e-10,
+      "chosen_logit": 30.476192474365234
+    },
+    {
+      "step": 2990,
+      "tok_id": 1296,
+      "text": "td",
+      "eos_logit": 17.875,
+      "eos_prob": 8.754241775932314e-09,
+      "chosen_logit": 36.42857360839844
+    },
+    {
+      "step": 2991,
+      "tok_id": 1472,
+      "text": "></",
+      "eos_logit": 7.97619104385376,
+      "eos_prob": 1.4819711013913661e-09,
+      "chosen_logit": 28.452383041381836
+    },
+    {
+      "step": 2992,
+      "tok_id": 1296,
+      "text": "td",
+      "eos_logit": 17.625,
+      "eos_prob": 8.651918292912342e-09,
+      "chosen_logit": 36.19047927856445
+    },
+    {
+      "step": 2993,
+      "tok_id": 397,
+      "text": ">\n",
+      "eos_logit": 9.375,
+      "eos_prob": 2.99406333059693e-12,
+      "chosen_logit": 35.95238494873047
+    },
+    {
+      "step": 2994,
+      "tok_id": 414,
+      "text": "     ",
+      "eos_logit": 15.625,
+      "eos_prob": 3.0437155018603335e-09,
+      "chosen_logit": 35.23809814453125
+    },
+    {
+      "step": 2995,
+      "tok_id": 366,
+      "text": " <",
+      "eos_logit": 8.9375,
+      "eos_prob": 3.508996426759836e-10,
+      "chosen_logit": 30.71428680419922
+    },
+    {
+      "step": 2996,
+      "tok_id": 1296,
+      "text": "td",
+      "eos_logit": 19.0,
+      "eos_prob": 1.6751606324305612e-08,
+      "chosen_logit": 36.90476608276367
+    },
+    {
+      "step": 2997,
+      "tok_id": 1472,
+      "text": "></",
+      "eos_logit": 7.2916669845581055,
+      "eos_prob": 1.3821527256041577e-10,
+      "chosen_logit": 30.357145309448242
+    },
+    {
+      "step": 2998,
+      "tok_id": 1296,
+      "text": "td",
+      "eos_logit": 18.375,
+      "eos_prob": 4.389507424207295e-09,
+      "chosen_logit": 37.619049072265625
+    },
+    {
+      "step": 2999,
+      "tok_id": 397,
+      "text": ">\n",
+      "eos_logit": 10.8125,
+      "eos_prob": 9.75913447276433e-12,
+      "chosen_logit": 36.19047927856445
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "doc_id": "docvqa_fhxn0226_p2",
+  "T_generated": 193,
+  "hit_max_new_tokens": false,
+  "elapsed_s": 4.844063758850098,
+  "eos_token_ids": [
+    151645,
+    151643
+  ],
+  "eos_logit_first10": [
+    12.976191520690918,
+    8.5,
+    7.09375,
+    7.797619342803955,
+    3.984375,
+    6.6875,
+    7.1875,
+    10.9375,
+    6.9375,
+    11.125
+  ],
+  "eos_logit_last10": [
+    11.5,
+    12.8125,
+    13.3125,
+    12.1875,
+    14.75,
+    15.0625,
+    14.8125,
+    14.375,
+    19.166667938232422,
+    29.642858505249023
+  ],
+  "eos_logit_min": 2.921875,
+  "eos_logit_max": 29.642858505249023,
+  "eos_logit_mean": 10.065290451049805,
+  "eos_prob_min": 4.051720891825617e-17,
+  "eos_prob_max": 0.996808648109436,
+  "eos_prob_mean": 0.005189402960240841,
+  "first_20_steps_decoded": [
+    {
+      "step": 0,
+      "tok_id": 17,
+      "text": "2",
+      "eos_logit": 12.976191520690918,
+      "eos_prob": 1.7000940033540246e-07,
+      "chosen_logit": 27.500001907348633
+    },
+    {
+      "step": 1,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 8.5,
+      "eos_prob": 2.501319151804182e-10,
+      "chosen_logit": 31.25
+    },
+    {
+      "step": 2,
+      "tok_id": 16,
+      "text": "1",
+      "eos_logit": 7.09375,
+      "eos_prob": 8.184474764583172e-10,
+      "chosen_logit": 28.095239639282227
+    },
+    {
+      "step": 3,
+      "tok_id": 16,
+      "text": "1",
+      "eos_logit": 7.797619342803955,
+      "eos_prob": 1.4581645890743289e-09,
+      "chosen_logit": 28.452383041381836
+    },
+    {
+      "step": 4,
+      "tok_id": 10294,
+      "text": " Review",
+      "eos_logit": 3.984375,
+      "eos_prob": 6.877982072772681e-10,
+      "chosen_logit": 25.125
+    },
+    {
+      "step": 5,
+      "tok_id": 315,
+      "text": " of",
+      "eos_logit": 6.6875,
+      "eos_prob": 5.3464394023095e-10,
+      "chosen_logit": 28.69047737121582
+    },
+    {
+      "step": 6,
+      "tok_id": 393,
+      "text": " P",
+      "eos_logit": 7.1875,
+      "eos_prob": 6.759167003878019e-09,
+      "chosen_logit": 26.0
+    },
+    {
+      "step": 7,
+      "tok_id": 68953,
+      "text": "innacle",
+      "eos_logit": 10.9375,
+      "eos_prob": 3.4316467889539126e-08,
+      "chosen_logit": 28.125
+    },
+    {
+      "step": 8,
+      "tok_id": 20604,
+      "text": " Ult",
+      "eos_logit": 6.9375,
+      "eos_prob": 1.2624763456869914e-08,
+      "chosen_logit": 25.125
+    },
+    {
+      "step": 9,
+      "tok_id": 309,
+      "text": "am",
+      "eos_logit": 11.125,
+      "eos_prob": 1.7035644077623147e-06,
+      "chosen_logit": 24.375
+    },
+    {
+      "step": 10,
+      "tok_id": 295,
+      "text": "et",
+      "eos_logit": 9.0,
+      "eos_prob": 5.60200641430697e-09,
+      "chosen_logit": 28.0
+    },
+    {
+      "step": 11,
+      "tok_id": 20796,
+      "text": " Experience",
+      "eos_logit": 3.59375,
+      "eos_prob": 3.750264099267042e-09,
+      "chosen_logit": 23.0
+    },
+    {
+      "step": 12,
+      "tok_id": 369,
+      "text": " for",
+      "eos_logit": 8.988096237182617,
+      "eos_prob": 3.795729064393072e-09,
+      "chosen_logit": 28.69047737121582
+    },
+    {
+      "step": 13,
+      "tok_id": 2926,
+      "text": " Dr",
+      "eos_logit": 6.78125,
+      "eos_prob": 1.0579437770275035e-07,
+      "chosen_logit": 22.75
+    },
+    {
+      "step": 14,
+      "tok_id": 82,
+      "text": "s",
+      "eos_logit": 5.96875,
+      "eos_prob": 2.2827564283289803e-09,
+      "chosen_logit": 25.875
+    },
+    {
+      "step": 15,
+      "tok_id": 13,
+      "text": ".",
+      "eos_logit": 8.0625,
+      "eos_prob": 1.2728286868934902e-08,
+      "chosen_logit": 26.309526443481445
+    },
+    {
+      "step": 16,
+      "tok_id": 40396,
+      "text": " Griffin",
+      "eos_logit": 3.09375,
+      "eos_prob": 6.154237564004461e-09,
+      "chosen_logit": 22.0
+    },
+    {
+      "step": 17,
+      "tok_id": 323,
+      "text": " and",
+      "eos_logit": 6.59375,
+      "eos_prob": 2.621821648673972e-09,
+      "chosen_logit": 26.666667938232422
+    },
+    {
+      "step": 18,
+      "tok_id": 28827,
+      "text": " Mason",
+      "eos_logit": 6.0625,
+      "eos_prob": 1.836525065357364e-08,
+      "chosen_logit": 23.875
+    },
+    {
+      "step": 19,
+      "tok_id": 271,
+      "text": "\n\n",
+      "eos_logit": 19.880952835083008,
+      "eos_prob": 5.64695938010118e-07,
+      "chosen_logit": 34.25
+    }
+  ],
+  "last_20_steps_decoded": [
+    {
+      "step": 173,
+      "tok_id": 42967,
+      "text": "xn",
+      "eos_logit": 12.25,
+      "eos_prob": 2.2134939214879523e-08,
+      "chosen_logit": 29.875
+    },
+    {
+      "step": 174,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 10.9375,
+      "eos_prob": 1.2633515567017639e-08,
+      "chosen_logit": 29.166667938232422
+    },
+    {
+      "step": 175,
+      "tok_id": 17,
+      "text": "2",
+      "eos_logit": 12.875,
+      "eos_prob": 1.8153819780764024e-08,
+      "chosen_logit": 30.71428680419922
+    },
+    {
+      "step": 176,
+      "tok_id": 17,
+      "text": "2",
+      "eos_logit": 12.1875,
+      "eos_prob": 3.308366203214064e-08,
+      "chosen_logit": 29.52381134033203
+    },
+    {
+      "step": 177,
+      "tok_id": 21,
+      "text": "6",
+      "eos_logit": 13.69047737121582,
+      "eos_prob": 3.852024121897557e-08,
+      "chosen_logit": 30.875
+    },
+    {
+      "step": 178,
+      "tok_id": 198,
+      "text": "\n",
+      "eos_logit": 22.142858505249023,
+      "eos_prob": 0.004739668220281601,
+      "chosen_logit": 27.142858505249023
+    },
+    {
+      "step": 179,
+      "tok_id": 47,
+      "text": "P",
+      "eos_logit": 12.976191520690918,
+      "eos_prob": 5.238699785081735e-08,
+      "chosen_logit": 29.625
+    },
+    {
+      "step": 180,
+      "tok_id": 12,
+      "text": "-",
+      "eos_logit": 10.3125,
+      "eos_prob": 5.444872330784278e-10,
+      "chosen_logit": 32.0
+    },
+    {
+      "step": 181,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 13.1875,
+      "eos_prob": 4.7847774631293305e-09,
+      "chosen_logit": 32.38095474243164
+    },
+    {
+      "step": 182,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 12.8125,
+      "eos_prob": 8.298028930653345e-09,
+      "chosen_logit": 31.428573608398438
+    },
+    {
+      "step": 183,
+      "tok_id": 20,
+      "text": "5",
+      "eos_logit": 11.5,
+      "eos_prob": 1.6924028400921998e-08,
+      "chosen_logit": 29.40476417541504
+    },
+    {
+      "step": 184,
+      "tok_id": 24,
+      "text": "9",
+      "eos_logit": 12.8125,
+      "eos_prob": 1.7210856739779956e-08,
+      "chosen_logit": 30.71428680419922
+    },
+    {
+      "step": 185,
+      "tok_id": 19,
+      "text": "4",
+      "eos_logit": 13.3125,
+      "eos_prob": 2.2194090121274712e-08,
+      "chosen_logit": 30.952383041381836
+    },
+    {
+      "step": 186,
+      "tok_id": 12,
+      "text": "-",
+      "eos_logit": 12.1875,
+      "eos_prob": 1.2428235329764448e-08,
+      "chosen_logit": 30.952383041381836
+    },
+    {
+      "step": 187,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 14.75,
+      "eos_prob": 3.5733229708512226e-08,
+      "chosen_logit": 31.90476417541504
+    },
+    {
+      "step": 188,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 15.0625,
+      "eos_prob": 4.931387564965917e-08,
+      "chosen_logit": 31.90476417541504
+    },
+    {
+      "step": 189,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 14.8125,
+      "eos_prob": 1.2610766475518176e-07,
+      "chosen_logit": 30.952383041381836
+    },
+    {
+      "step": 190,
+      "tok_id": 15,
+      "text": "0",
+      "eos_logit": 14.375,
+      "eos_prob": 2.7805896252175444e-08,
+      "chosen_logit": 32.142860412597656
+    },
+    {
+      "step": 191,
+      "tok_id": 17,
+      "text": "2",
+      "eos_logit": 19.166667938232422,
+      "eos_prob": 2.3203690489026485e-06,
+      "chosen_logit": 32.142860412597656
+    },
+    {
+      "step": 192,
+      "tok_id": 151645,
+      "text": "<|im_end|>",
+      "eos_logit": 29.642858505249023,
+      "eos_prob": 0.996808648109436,
+      "chosen_logit": 29.642858505249023
+    }
+  ]
+}

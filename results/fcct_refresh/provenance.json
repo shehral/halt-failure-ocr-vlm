@@ -1,0 +1,47 @@
+{
+  "script": "code/fcct_refresh_block_decomp.py",
+  "started_at": "2026-05-19T18:15:31.098867Z",
+  "n_docs_used": 18,
+  "n_docs_skipped_no_cache": 0,
+  "target_layers": [
+    8,
+    20,
+    24
+  ],
+  "sampled_layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    35
+  ],
+  "prev_map": {
+    "8": 4,
+    "20": 16,
+    "24": 20
+  },
+  "tail_window": 512,
+  "classes": [
+    "bare_word_repeat",
+    "latex_math_cmd_loop",
+    "filled_cell_repeat"
+  ],
+  "directions_dir": "<repo_root>/results/q1_combined",
+  "activations_dir": "<repo_root>/results/activations",
+  "label_sources": [
+    "cohort_label = results/q1_combined/_summary.json::per_doc_stats[*].class_breakdown dominant-by-tokens (5/19 docs have a label in CLASSES)",
+    "argmax_proj_label = argmax over {|cos(resid_L_tail, dir_C_at_L)| | bare@L8, latex@L8, filled@L24} (unsupervised, all 19 docs)"
+  ],
+  "caveat_block_is_cumulative_over_gap": true,
+  "caveat_class_label_overlap_5_of_19": true,
+  "heuristics_enforced": [
+    "#75",
+    "#79",
+    "#80"
+  ]
+}
