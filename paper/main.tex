@@ -181,7 +181,8 @@ as directions in the residual stream \citep{park2024linearrep}. Across all (laye
 pairs the per-class AUC ranges from 0.876 to 0.983 (minimum at filled-cell-repeat layer 8
 $= 0.8763$, maximum at filled-cell-repeat layer 24 $= 0.9826$). Critically, the three
 classes peak at \emph{different} layers: LaTeX peaks at layer 8 $= 0.9785$, filled at
-layer 24 $= 0.9826$, and bare-word at layer 20 $= 0.9173$. Distinct peak layers are direct
+layer 24 $= 0.9826$, and bare-word at layer 20 $= 0.9173$ (Figure~\ref{fig:per_class_auc}).
+Distinct peak layers are direct
 evidence that these are class-specific representations rather than one shared halt
 direction, matching the categorical/hierarchical concept-geometry picture in which related
 concepts occupy structured, separable subspaces \citep{park2025hierarchical}.
@@ -190,7 +191,9 @@ The pre-registered structural-content decoupling test returns a joint pass: per-
 distinctness holds at all 10 of 10 sampled layers, global decoupling holds at 3 of 10
 layers (L4, L8, L32, where pairwise cosine $< 0.11$), and the maximum pairwise cosine
 across layers is only 0.2349 (at layer 20). Low cross-class cosine plus high per-class
-AUC is the signature of separable, content-decoupled halt directions.
+AUC is the signature of separable, content-decoupled halt directions, and the halt signal
+remains separable from nuisance-variable baselines in the L20 to L24 band
+(Figure~\ref{fig:null_layer_profile}).
 
 The \emph{single global} halt direction is weaker and peaks elsewhere. Pooled global
 AUC peaks at layer 8 $= 0.8571$ and troughs at layer 32 $= 0.7702$, and at every layer
@@ -229,7 +232,8 @@ largest single layer-class block contribution in the table. The positive value a
 20 indicates the filled-cell halt direction is \emph{built} there, while the negative
 value at layer 24 indicates layer 24 \emph{reads} (consumes) rather than constructs it.
 This refines the class-specificity finding into a build-at-L20 / read-at-L24 offset for
-filled-cell-repeat.
+filled-cell-repeat, and positives ramp into and remain in a sustained high-halt-score
+regime at loop onset while controls stay flat (Figure~\ref{fig:halt_trajectories}).
 
 \begin{figure}[ht]
   \centering
@@ -247,7 +251,8 @@ filled-cell-repeat.
 Logit-lens analysis shows the network \emph{does} compute a should-halt signal, just
 late. The EOS logit gap between positives and controls is most negative at layer 24 $=
 -0.419$, then flips positive to $+0.481$ at layer 32 and stays positive at $+0.336$ at
-layer 35 ($N=4$ positives and 9 controls). The halt signal becomes legible at the
+layer 35 ($N=4$ positives and 9 controls; Figure~\ref{fig:logit_lens}). The halt signal
+becomes legible at the
 unembedding only in the final layers, after the continuation state has been committed
 upstream.
 
@@ -272,7 +277,7 @@ Strikingly, the cap-hit document's mean EOS logit ($+10.76$) is actually \emph{h
 than a clean control's ($+10.07$). EOS is not absolutely suppressed; it is
 out-competed. Continuation tokens simply out-score it by about 20 logits, which is
 enough to crush the EOS probability into the $10^{-8}$ to $10^{-10}$ range while the EOS
-logit itself stays comfortably positive.
+logit itself stays comfortably positive (Figure~\ref{fig:eos_margin}).
 
 \begin{figure}[ht]
   \centering
@@ -333,7 +338,7 @@ controls the projected-out run is unchanged (within 10\%: $+9.1\%$, $0\%$, $0\%$
 the positive document stays pinned at the cap, yielding a readout verdict. Importantly,
 the project-out hook is confirmed to fire: two of the four documents produce materially
 different output under it (one positive flips its table from Markdown to HTML), so this
-is a genuine null and not a silently inert intervention.
+is a genuine null and not a silently inert intervention (Figure~\ref{fig:b3_reverse}).
 
 \begin{figure}[ht]
   \centering
@@ -350,7 +355,7 @@ is a genuine null and not a silently inert intervention.
 A component-resolved patch grid points the same way. It decomposes the patch into MLP,
 attention, and block contributions at layers 16, 20, and 24, across 5 documents and 4
 intervention types: 0 of 45 real-patch cells produce any length reduction (a clean
-real-null), while 9 of 134 control cells do. The honest, pre-registered caveat is that
+real-null), while 9 of 134 control cells do (Figure~\ref{fig:p16_component}). The honest, pre-registered caveat is that
 the nonzero controls are dominated by off-layer norm-shock rather than circuit-finding,
 so they bound protocol sensitivity rather than localize a mechanism. The verified
 positive control above is our best evidence that the protocol has real sensitivity.
@@ -401,7 +406,8 @@ runaway generation, but it sits on a genuine precision-recall trade-off rather t
 free lunch.
 
 At a $+6.91$ EOS boost, the reactive monitor achieves a 37.68\% mean length reduction
-with 0 of 10 control false-positives and 5 of 13 positive cap-hits remaining. This is
+with 0 of 10 control false-positives and 5 of 13 positive cap-hits remaining
+(Figure~\ref{fig:monitor_tradeoff}). This is
 the clean-specificity operating point. At a $+30$ EOS boost, the same monitor achieves a
 99.58\% mean length reduction with 0 remaining cap-hits, but at a catastrophic 10 of 10
 control false-positives. The two operating points bracket the trade-off: you can buy
