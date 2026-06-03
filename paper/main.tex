@@ -53,7 +53,11 @@ halt directions are linearly decodable across the decoder (AUC 0.876 to 0.983) a
 content-decoupled under a pre-registered test.
 (ii) The network computes a should-halt signal only late: the logit-lens EOS gap is
 most negative at layer 24 and flips positive by layer 32, and EOS is suppressed only
-relatively, out-scored by continuation tokens by roughly 20 logits. (iii) Six converging perturbation
+relatively, out-scored by continuation tokens by roughly 20 logits; we also confront an
+opposite-sign EOS bifurcation in which the two dominant surface families have
+opposite-signed in-loop readout dynamics (empty-row docs further suppress EOS, the
+count-manifold doc amplifies it; $N=3$, illustrative), which tightens the per-class story
+but complicates reading the failure as one attractor. (iii) Six converging perturbation
 nulls --- spanning single-direction project-out, component-resolved patching,
 induction-head zeroing, prompt-engineering counterfactuals, SAE-feature ablation, and
 multi-layer coordinated patching --- all return the pre-registered FAIL/null verdict
@@ -347,6 +351,41 @@ logit itself stays comfortably positive (Figure~\ref{fig:eos_margin}).
   powered comparison.}
   \label{fig:eos_margin}
 \end{figure}
+
+\subsection{An opposite-sign EOS bifurcation across surface families}
+\label{sec:bifurcation}
+
+The relative-suppression reading above treats the in-loop state as uniformly hostile to
+EOS. A per-document logit-lens trace at the final layer (L35) complicates that picture,
+and we confront the complication rather than hide it. Comparing each document's mean
+$P(\text{EOS})$ inside its loop against its own pre-loop window, the two dominant surface
+families move in \emph{opposite} directions. The empty-row (HTML phantom-row) documents
+\emph{suppress} EOS further once the loop is entered: \texttt{docvqa\_kshm0227\_p6} drops
+from a pre-loop mean of $1.95\times10^{-7}$ to an in-loop mean of $1.17\times10^{-8}$ (a
+$\sim$16.7$\times$ reduction), and \texttt{docvqa\_srgb0228\_p2} drops from
+$1.70\times10^{-4}$ to $4.09\times10^{-10}$ (a $\sim$$4.2\times10^{5}\times$ reduction).
+The single count-manifold document does the reverse and \emph{amplifies} EOS:
+\texttt{docvqa\_pgjw0227\_p5} rises from a pre-loop mean of $1.50\times10^{-6}$ to an
+in-loop mean of $7.60\times10^{-4}$ (a $\sim$508$\times$ increase). The two families thus
+have opposite-sign EOS readout dynamics: the empty-row family reads as ``never want to
+halt'' (the should-halt signal keeps falling inside the loop), while the count-manifold
+family reads as ``want to halt but stuck'' (the readout rises toward EOS yet the decode
+still never terminates).
+
+We are explicit that this cuts against, rather than supports, reading the failure as
+\emph{one} attractor. A single shared attractor would predict a single-signed in-loop
+shift in the EOS readout across families; an opposite-sign split is the signature of at
+least two distinct halt-relevant configurations, not one. The finding does, however,
+\emph{tighten} the per-class story of Section~\ref{sec:mechanism}: it is consistent with,
+and a behavioral correlate of, the result that the three probed classes carry distinct,
+content-decoupled halt directions peaking at distinct layers rather than one universal
+halt direction. We therefore record the bifurcation as a limitation of any
+\emph{single-mechanism} account of halt-failure (it weakens the one-attractor metaphor
+while strengthening the class-structured reading), not as a refutation of class-specific
+geometry. CAVEAT: this is an $N=3$ observation (2 empty-row plus 1 count-manifold
+document), measured within-document as in-loop versus pre-loop mean $P(\text{EOS})$ at the
+final layer, and we read it as illustrative of a heterogeneity in the readout dynamics
+rather than as a statistically powered split.
 
 \subsection{Calibration is refuted: EOS is genuinely missing at loop onset}
 
