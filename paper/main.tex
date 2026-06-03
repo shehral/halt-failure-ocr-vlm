@@ -71,7 +71,10 @@ positives, none of which escapes the cap at any scale) rules out only the strong
 version of the under-powered objection (the protocol is not inert: it visibly alters
 content), leaves the weaker version open, and is further blunted by a clean-halt control
 in the same run whose own output collapsed under the perturbation (a norm-shock
-signature). We close with an honest
+signature). The halt-failure surface symptom is not unique to the studied fine-tune:
+under a strict stop-reason criterion it reproduces on 10 of 16 doc-model cells across
+four model families, but the matrix is small and the aggregate verdict abstains, so we
+make no strong generality claim. We close with an honest
 production trade-off, a runtime monitor that cuts runaway length 37.68\% at zero control
 false-positives, and show that vision is causally load-bearing via image inpainting.
 \end{abstract}
@@ -487,15 +490,24 @@ the full evidence pattern, not a mechanism we have causally isolated.
 \label{sec:crossfamily}
 % ===========================================================================
 
-The phenomenon reproduces beyond the single fine-tune, which we present qualitatively
-rather than with a headline tally. Across a 4-family, document-by-model matrix spanning
-a wide parameter range and multiple vendors, halt-failure reproduces broadly and is
-jointly document-and-model-conditional, with positive controls present. We do not
-report a precise cap-hit count here: the strict stop-reason tally and a more permissive
-near-cap relabel disagree, and the corresponding directory verdict abstains for
-insufficient data. We therefore make only the qualitative claim that halt-failure
-reproduces across families, and we leave a strict-criterion cross-family count to
-future work.
+The phenomenon reproduces beyond the single fine-tune, but the cross-family evidence is
+deliberately modest and we make no strong generality claim from it. The replication matrix
+is a $4 \times 4$ document-by-model grid spanning four model families
+(SmolDocling-256M-preview, InternVL3-8B, Qwen3-VL-8B-Instruct, and Qwen3-VL-30B-A3B-Instruct,
+a wide parameter range across multiple vendors) crossed with four documents, for sixteen cells
+in total. Under a strict criterion (\texttt{stop\_reason == max\_new\_tokens}, i.e. the decode
+actually ran to the generation cap), halt-failure reproduces on \emph{10 of the 16}
+document-by-model cells, with at least one cap-hit cell in every one of the four families and
+positive controls present. We stress that this is a small matrix: sixteen cells over four
+families is far too thin to support a generality claim, the per-family counts are
+3/4, 1/4, 3/4, and 3/4 (InternVL3-8B reproduces in only one cell), and the
+directory-level aggregate verdict over this run abstains
+(\texttt{INSUFFICIENT\_DATA}) rather than concluding generality. A more permissive near-cap
+relabel (counting a cell that stopped two tokens short of the cap) would raise the tally to
+11/16, so even the count itself is criterion-dependent. We therefore read this only as the
+modest statement that halt-failure \emph{reproduces on 10 of 16 doc-model cells across four
+families} while the aggregate verdict abstains, and we leave a properly powered
+strict-criterion cross-family study to future work.
 
 Within the same vision-language family across checkpoints the picture is consistent:
 halt-failure reproduces across multiple checkpoints. As above, we present this
@@ -776,11 +788,13 @@ We state the walk-backs plainly because they are part of the contribution.
   that the protocol cannot perturb the specific halt direction at the specific
   halt-relevant locus, which is why item~1 above remains open.
 
-  \item \textbf{Cross-family and cross-checkpoint reproduction is qualitative.} We
-  present cross-family and cross-checkpoint reproduction only qualitatively. A precise
-  strict-criterion cap-hit count across families and checkpoints is left to future work,
-  since permissive near-cap relabelling and strict stop-reason counting disagree and the
-  directory verdict abstains.
+  \item \textbf{Cross-family reproduction is small-matrix and the aggregate verdict abstains.}
+  Under the strict \texttt{stop\_reason == max\_new\_tokens} criterion, halt-failure reproduces
+  on 10 of 16 doc-model cells across four families (per-family 3/4, 1/4, 3/4, 3/4), but the
+  matrix is only sixteen cells and the directory-level aggregate verdict over this run is
+  \texttt{INSUFFICIENT\_DATA}. We make no strong generality claim from it. A permissive near-cap
+  relabel would shift the tally to 11/16, so the count is criterion-dependent. A properly
+  powered strict-criterion cross-family (and cross-checkpoint) study is left to future work.
 
   \item \textbf{Fine-tune origin: both halves of the comparison are now verified.} In the
   fine-tuned model the positive-versus-control absolute Cohen's-d crossover ratio at layers
@@ -843,6 +857,10 @@ fine-tune-origin half of the reading: the base model carries no separable halt g
 even on its own cap-hit documents (pos/ctl Cohen's-d ratio 1.12 / 0.78 / 0.92 at L16 / L20
 / L24, all near $1\times$ and below the $2.0\times$ bar) whereas the fine-tune scores
 3.79 / 2.74 / 2.78, so fine-tuning is what introduces and sharply amplifies the structure.
+The surface symptom is not unique to the studied fine-tune: under a strict stop-reason
+criterion halt-failure reproduces on 10 of 16 doc-model cells across four model families,
+but the matrix is small and the directory-level aggregate verdict abstains, so we draw no
+strong generality claim from it.
 We present a deployable production monitor with an explicit precision-recall
 trade-off (37.68\% reduction at zero control false-positives, or 99.58\% at 10 of 10
 false-positives) plus causal evidence that vision is load-bearing. The walk-backs are part

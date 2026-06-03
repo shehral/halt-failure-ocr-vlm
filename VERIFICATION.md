@@ -52,7 +52,7 @@ Verdict key:
 | ~~six converging nulls (and the older “8”)~~ — **RESOLVED → CONFIRMED** | previously 6/8 cited as if all verified, then walked back to 2 on disk | **all 6 now verified on disk** (B3, P16, P10b, P19, P12, P22), each returning its pre-reg FAIL/null verdict, N ranging 2–22 docs | UP-03: the four formerly-on-scratch summaries (P10b, P19v2, P12 v3, P22) were synced into `results/` and verified — see CONFIRMED rows CL-12b/CL-12c/CL-12d/CL-12e above. Paper now states “six converging perturbation nulls, all returning the pre-registered FAIL/null verdict (N ranging 2–22 docs)” and itemizes them. P16 subsumes CL-19/CL-20 (counted once). Caveat retained (CL-35/NR-04): the nulls do **not** resolve distributed-vs-under-powered, especially at N=2 (B3 positive, P10b, P22). The older “8” was prose-only and stays retired. |
 | off-target control % | 96.0-99.99% (norm-shock) | 99.99% has **no local source** (was on cluster scratch); 96.0% is from a *different* walked-back experiment (CL-40) | norm figures also inverted vs prose |
 | CL-27 | base ratio 0.96/0.89/0.95; 10/22 base cap-hit | **superseded by a clean on-disk base run** (CL-25-base, `p18_base_archetype/_summary.json`): the persisted base triple is **1.12/0.78/0.92** (N=10 base cap-hits / 15 controls). The old prose triple (0.96/0.89/0.95) and the earlier superseded P8 v2 file (0.66/0.66/0.80) are both retired; cite 1.12/0.78/0.92. | direction confirmed and now substantiated: all base ratios near 1x and below 2.0x, so fine-tuning introduces the geometry |
-| CL-47 | 11/16 cross-family cap-hits | strict `stop_reason==max_new_tokens` = **10/16**; dir verdict = INSUFFICIENT_DATA | 11th cell = near-cap relabel (InternVL3-8B/funsd_105, stopped 2 tok short) |
+| CL-47 — **RESOLVED (UP-13)** | previously 11/16 cross-family cap-hits | strict `stop_reason==max_new_tokens` = **10/16** across 4 families (per-family 3/4 SmolDocling, 1/4 InternVL3-8B, 3/4 Qwen3-VL-8B, 3/4 Qwen3-VL-30B); dir verdict = **INSUFFICIENT_DATA** | 11th cell = near-cap relabel (InternVL3-8B/funsd_105, stopped 2 tok short). Paper now states the strict 10/16 number plus the abstaining verdict in abstract, body, limitations, and conclusion, and makes **no strong generality claim**. Source: `results/p3_cross_family/{SmolDocling-256M-preview,InternVL3-8B,Qwen3-VL-8B-Instruct,Qwen3-VL-30B-A3B-Instruct}/*.json` + `_summary.json` (verdict). |
 | CL-13 | 4/5 models, 8/20 cells | **3 models cap-hit, 6/16 cells**; only 4 of 5 loaded (InternVL2.5-38B load_failed) | "8" = sum of n_reproduce (counts EOS-pattern hits, not cap-hits) |
 | CL-02b-corpus | 56 pos / 14 classes (45 strict / 49 outline) | 56 pos reproduces; **12** populated classes (not 14); 45/49 nowhere on disk | "14" is a hardcoded title string |
 
@@ -84,8 +84,14 @@ not blockers on the core thesis.
    the six nulls do NOT resolve distributed-vs-under-powered, especially at N=2 (B3's positive,
    P10b, P22), where a uniform null cannot separate a distributed mechanism from an under-powered
    protocol.
-5. Reconcile CL-47 (11/16 vs 10/16) and CL-13 (8/20 vs 6/16) — either restate with strict
-   `stop_reason` counts or document the interpretive relabel rule explicitly.
+5. Done (UP-13) for CL-47 — the cross-family tally is now stated with the strict
+   `stop_reason == max_new_tokens` count: **10/16 doc-model cells across 4 families**
+   (per-family 3/4, 1/4, 3/4, 3/4) with the directory-level aggregate verdict
+   **INSUFFICIENT_DATA**, and the 11/16 figure is documented as a permissive near-cap
+   relabel. The paper makes **no strong generality claim** — abstract, body
+   (Cross-family generality), limitations, and conclusion all carry the modest "reproduces
+   on 10 of 16 cells, aggregate verdict abstains" framing. CL-13 (8/20 vs 6/16) still pending:
+   restate with strict `stop_reason` counts or document the relabel rule explicitly.
 6. Fix the "14 classes" title string in the corpus-funnel plot -> 12 populated, and locate or
    retire the 45/49 figures.
 
