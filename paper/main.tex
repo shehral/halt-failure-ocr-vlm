@@ -55,7 +55,12 @@ content-decoupled under a pre-registered test.
 most negative at layer 24 and flips positive by layer 32, and EOS is suppressed only
 relatively, out-scored by continuation tokens by roughly 20 logits. (iii) A converging
 series of single-direction and single-layer perturbations fails to change the token
-count. We are explicit that these nulls do not settle the mechanism: all single- and
+count. The separable geometry is fine-tune-introduced: a matched base-model comparison on
+the same Qwen2.5-VL-3B backbone shows no such signature even on the base model's own
+cap-hit documents (positive-versus-control absolute Cohen's-d ratio 1.12 / 0.78 / 0.92 at
+layers 16 / 20 / 24, all near $1\times$ and below the pre-registered $2.0\times$ bar),
+whereas the fine-tune's ratios are 3.79 / 2.74 / 2.78, so fine-tuning introduces and
+sharply amplifies the structure. We are explicit that these nulls do not settle the mechanism: all single- and
 multi-site perturbations we ran returned null at this protocol's power, and whether the
 mechanism is genuinely distributed or the protocol is under-powered at the halt-relevant
 locus is \emph{not resolved} by these data. A norm-scaled positive control (3 cap-hit
@@ -599,9 +604,14 @@ ask whether it factors into interpretable sub-features, and we leave this to fut
 the perturbations we do run are implemented as direct PyTorch forward hooks
 following the intervention-API conventions of \citep{pyvene2024,nnsight2024}. To ask whether the signature is introduced by fine-tuning we
 draw on the differential base-versus-fine-tune comparison vocabulary of feature
-crosscoders \citep{dfc2025}; the verified PCA crossover signature (pos/ctl Cohen's-d
-ratio 3.79 / 2.74 / 2.78 at L16 / L20 / L24, all exceeding a pre-registered $2.0\times$
-threshold) is our evidence that the attractor is fine-tune-introduced. The
+crosscoders \citep{dfc2025}, and we run the comparison directly: the verified PCA
+crossover signature in the fine-tune (pos/ctl Cohen's-d ratio 3.79 / 2.74 / 2.78 at L16 /
+L20 / L24, all exceeding a pre-registered $2.0\times$ threshold) is met, on the
+\emph{same} Qwen2.5-VL-3B backbone before fine-tuning, by a flat profile (ratio
+1.12 / 0.78 / 0.92, all near $1\times$ and below the bar) computed over the base model's
+own cap-hit documents. The base backbone carries no separable halt geometry even where it
+runs to the cap, so fine-tuning is what introduces and sharply amplifies the structure
+that the attractor reading rests on. The
 ``readout-versus-locus'' distinction we draw at L24 shares its mechanism vocabulary with
 hallucination-detection work that reads model internals \citep{redeep2024}.
 
@@ -741,13 +751,19 @@ We state the walk-backs plainly because they are part of the contribution.
   since permissive near-cap relabelling and strict stop-reason counting disagree and the
   directory verdict abstains.
 
-  \item \textbf{Fine-tune origin: the fine-tune signature is verified; the base
-  comparison is not.} In the fine-tuned model the positive-versus-control absolute
-  Cohen's-d crossover ratio at layers 16, 20, and 24 is 3.79, 2.74, and 2.78 ($N=22$
-  positives versus $N=52$ controls), all exceeding the pre-registered $2.0\times$
-  threshold, a verified fine-tune-introduced signature. A matching base-model comparison
-  is left as future work: a clean, persisted base-model run is not yet available, so we
-  do not report a base-versus-fine-tune ratio triple as a result.
+  \item \textbf{Fine-tune origin: both halves of the comparison are now verified.} In the
+  fine-tuned model the positive-versus-control absolute Cohen's-d crossover ratio at layers
+  16, 20, and 24 is 3.79, 2.74, and 2.78 ($N=22$ positives versus $N=52$ controls), all
+  exceeding the pre-registered $2.0\times$ threshold. The matching base-model comparison,
+  previously deferred, has now been run on the same Qwen2.5-VL-3B backbone before
+  fine-tuning and is persisted on disk: over the base model's own cap-hit documents
+  ($N=10$ base cap-hits versus $N=15$ controls) the ratio triple is 1.12, 0.78, and 0.92,
+  all near $1\times$ and all below the $2.0\times$ bar. The base backbone therefore shows
+  no separable halt geometry even on the documents where it itself runs to the cap, while
+  the fine-tune exceeds the bar at every layer. We read this as direct evidence that
+  fine-tuning introduces and sharply amplifies the separable geometry, and we no longer
+  treat the base comparison as a missing run. The residual caveat is one of scale: the base
+  comparison rests on a 10-versus-15 archetype split rather than the fine-tune's 22-versus-52.
 
   \item \textbf{The vision-attention-collapse signal is $N=1$-vs-$N=1$.} The
   attention-collapse comparison is a single-positive-versus-single-control measurement,
@@ -787,11 +803,17 @@ cannot perturb the halt-relevant direction at the halt-relevant locus. Our load-
 causal evidence is two on-disk-verified single-site nulls (B3 reverse-direction
 project-out and the P16 component-resolved grid, the latter subsuming CL-19/CL-20), plus
 four further perturbation nulls recorded on the cluster but not yet synced to local data
-files. We present a deployable production monitor with an explicit precision-recall
+files. A matched base-model comparison on the same Qwen2.5-VL-3B backbone substantiates the
+fine-tune-origin half of the reading: the base model carries no separable halt geometry
+even on its own cap-hit documents (pos/ctl Cohen's-d ratio 1.12 / 0.78 / 0.92 at L16 / L20
+/ L24, all near $1\times$ and below the $2.0\times$ bar) whereas the fine-tune scores
+3.79 / 2.74 / 2.78, so fine-tuning is what introduces and sharply amplifies the structure.
+We present a deployable production monitor with an explicit precision-recall
 trade-off (37.68\% reduction at zero control false-positives, or 99.58\% at 10 of 10
 false-positives) plus causal evidence that vision is load-bearing. The walk-backs are part
 of the result: showing where the single-cause story fails is what motivates --- without
-proving --- the distributed, fine-tune-introduced attractor reading, and the experiment
+proving --- the distributed attractor reading, whose fine-tune-introduced geometry is now
+supported by the base comparison, and the experiment
 that would distinguish ``distributed'' from ``under-powered'' is the clearest next step.
 
 % ===========================================================================
