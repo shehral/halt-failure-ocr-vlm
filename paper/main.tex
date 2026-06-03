@@ -53,9 +53,12 @@ halt directions are linearly decodable across the decoder (AUC 0.876 to 0.983) a
 content-decoupled under a pre-registered test.
 (ii) The network computes a should-halt signal only late: the logit-lens EOS gap is
 most negative at layer 24 and flips positive by layer 32, and EOS is suppressed only
-relatively, out-scored by continuation tokens by roughly 20 logits. (iii) A converging
-series of single-direction and single-layer perturbations fails to change the token
-count. The separable geometry is fine-tune-introduced: a matched base-model comparison on
+relatively, out-scored by continuation tokens by roughly 20 logits. (iii) Six converging perturbation
+nulls --- spanning single-direction project-out, component-resolved patching,
+induction-head zeroing, prompt-engineering counterfactuals, SAE-feature ablation, and
+multi-layer coordinated patching --- all return the pre-registered FAIL/null verdict
+($N$ ranging 2 to 22 documents): no single-direction or single-layer perturbation
+changes the token count. The separable geometry is fine-tune-introduced: a matched base-model comparison on
 the same Qwen2.5-VL-3B backbone shows no such signature even on the base model's own
 cap-hit documents (positive-versus-control absolute Cohen's-d ratio 1.12 / 0.78 / 0.92 at
 layers 16 / 20 / 24, all near $1\times$ and below the pre-registered $2.0\times$ bar),
@@ -333,11 +336,15 @@ thousands of tokens deep, so ``at loop onset'' is a late-onset operationalizatio
 
 The mechanism findings in Section~\ref{sec:mechanism} are correlationally rich. The
 natural follow-up is causal: can we \emph{induce} or \emph{abolish} halt-failure by
-perturbing a single direction or layer? Across a converging series of perturbation
-experiments, the answer is no. We read this as \emph{consistent with} a distributed
+perturbing a single direction or layer? Across six converging perturbation
+experiments --- single-direction project-out, component-resolved patching, induction-head
+zeroing, prompt-engineering counterfactuals, SAE-feature ablation, and multi-layer
+coordinated patching, all returning the pre-registered FAIL/null verdict --- the answer is
+no. We read this as \emph{consistent with} a distributed
 attractor rather than a localized cause, but we flag at the outset that a converging set
 of nulls underdetermines the mechanism: it is equally consistent with a protocol that is
-under-powered at the halt-relevant locus. We return to this disambiguation in
+under-powered at the halt-relevant locus, especially since three of the six rest on only
+$N=2$ documents. We return to this disambiguation in
 Section~\ref{sec:limitations}; the present section reports the nulls and the one
 positive control that bounds, but does not eliminate, the under-powered alternative.
 
@@ -422,28 +429,46 @@ positive control above is our best evidence that the protocol has real sensitivi
   \label{fig:p16_component}
 \end{figure}
 
-Accordingly, our load-bearing causal evidence is \emph{two on-disk-verified single-site
-nulls} plus a set of further perturbation nulls recorded on the cluster but not yet synced
-to local data files. The two verified nulls are exactly the ones reproduced above:
+Accordingly, our load-bearing causal evidence is \emph{six converging perturbation nulls},
+all now reproducing from summary files in this repository and all returning the
+pre-registered FAIL/null verdict, with $N$ ranging from 2 to 22 documents:
 
+{\sloppy
 \begin{enumerate}
   \item \textbf{B3, reverse-direction project-out null} (necessity; READOUT verdict; 3/3
-  controls unchanged, positive pinned at the cap, project-out hook confirmed to fire);
+  controls unchanged, positive pinned at the cap, project-out hook confirmed to fire;
+  \texttt{p2\_pilot/b3\_reverse\_direction\_summary.json});
   \item \textbf{P16, component-resolved patch grid} (necessity; FAIL verdict; 0/45
-  real-patch cells reduce length, 9/134 control cells do). P16 subsumes the earlier
-  component claims CL-19 and CL-20 and is counted once here, not as two separate nulls.
+  real-patch cells reduce length, 9/134 control cells do, $N=5$ documents;
+  \texttt{p16\_component\_resolved\_short/\_summary.json}). P16 subsumes the earlier
+  component claims CL-19 and CL-20 and is counted once here, not as two separate nulls;
+  \item \textbf{P10b, induction-head zeroing} (necessity; FAIL verdict; 0/4 induction
+  heads pass the pre-registered 30\% threshold under zeroing, $N=2$ documents;
+  \texttt{p10b\_head\_zero\_patching/\_summary.json});
+  \item \textbf{P19, system-prompt counterfactual} (FAIL verdict; 0/6 stop-instruction
+  prompts pass, median reduction 0\%, $N=5$ documents;
+  \texttt{p19\_system\_prompt\_counterfactual/\_summary.json});
+  \item \textbf{P12, SAE-feature ablation} (FAIL verdict; 0/5 cross-validation folds pass
+  all pre-registered criteria, top-feature AUC 0.54 to 0.63 against a 0.85 bar, $N=22$
+  positives versus 56 controls; \texttt{p12\_sae\_ablation/\_summary.json});
+  \item \textbf{P22, multi-layer coordinated patch} (FAIL verdict; the real coordinated
+  zero-patch of the L16/L20/L24 window reduces length 0\%, $N=2$ documents;
+  \texttt{p22\_multilayer\_coordinated/\_summary.json}).
 \end{enumerate}
+\par}
 
-These two are independent perturbation classes (project-out of a single direction versus
-forward-patching of resolved components), and each carries its own positive or control
-evidence, so they are not a single test reported twice. Four further perturbation nulls in
-the same family --- induction-head zeroing, prompt-engineering counterfactuals, SAE-feature
-ablation, and a multi-layer coordinated zero-patch --- were run and logged on the cluster
-but their summary files live on cluster scratch and were not synced to this repository; we
-therefore do not count them as verified here and treat them only as corroborating, unsynced
-evidence. We previously summarized the full set as ``six converging nulls''; we restate it
-as \emph{two verified plus further unsynced} to keep the on-disk count honest. We carry the
-norm-shock caveat openly (Section~\ref{sec:limitations}): some off-target controls reduce
+These six are independent perturbation classes --- project-out of a single direction,
+forward-patching of resolved components, head-level zeroing, prompt-level counterfactuals,
+SAE-feature ablation, and a multi-layer coordinated patch --- and each carries its own
+positive or control evidence, so they are not a single test reported six times. We
+previously had only the first two reproducing from local data files and the other four
+recorded on cluster scratch; all six summary files are now synced and verified here, so we
+restate the count as \emph{six converging perturbation nulls, all verified on disk}. We
+keep the count honest in the other direction too: three of the six rest on small samples
+($N=2$ for B3's positive, P10b, and P22), and a uniform null at small $N$ does not by
+itself separate a genuinely distributed mechanism from an under-powered protocol
+(Section~\ref{sec:limitations}). We also carry the
+norm-shock caveat openly: some off-target controls reduce
 length by large amounts under norm-shock, which makes ``the controls themselves are
 suspect'' a live alternative to ``the protocol is under-powered.''
 
@@ -722,17 +747,23 @@ We state the walk-backs plainly because they are part of the contribution.
   at a non-loop position --- is left to future work. We make this hedge load-bearing
   throughout the title, abstract, and conclusion.
 
-  \item \textbf{Necessity evidence is two verified nulls plus unsynced corroboration.}
-  Two single-site nulls reproduce from data files in this repository: the
-  reverse-direction project-out null (readout verdict, controls unchanged, positive
-  pinned at the cap, project-out hook confirmed to fire) and the component-resolved patch
-  grid (0 of 45 real-patch reductions; subsumes CL-19/CL-20). Four further perturbation
-  nulls in the same family --- induction-head zeroing, prompt-engineering counterfactuals,
-  SAE-feature ablation, and multi-layer coordinated zero-patch --- were run and logged on
-  the cluster, but their summary files were not synced here, so we treat them as
-  corroborating rather than verified and do not count them as load-bearing. The residual
-  caveat on the two verified nulls is sensitivity, not verification: the nonzero control
-  patches are mostly off-layer norm-shock, so they establish ``single-site perturbation
+  \item \textbf{Necessity evidence is six converging nulls, all now verified on disk but
+  several at small $N$.} Six perturbation nulls now reproduce from summary files in this
+  repository, all returning the pre-registered FAIL/null verdict: the reverse-direction
+  project-out null (B3, readout verdict, controls unchanged, positive pinned at the cap,
+  project-out hook confirmed to fire), the component-resolved patch grid (P16, 0 of 45
+  real-patch reductions; subsumes CL-19/CL-20, $N=5$), induction-head zeroing (P10b, 0 of 4
+  induction heads pass under zeroing, $N=2$), the system-prompt counterfactual (P19, 0 of 6
+  stop-instruction prompts pass, $N=5$), SAE-feature ablation (P12, 0 of 5 folds pass all
+  criteria, top-feature AUC 0.54 to 0.63 versus a 0.85 bar, $N=22$ positives versus 56
+  controls), and a multi-layer coordinated zero-patch (P22, real coordinated patch reduces
+  length 0\%, $N=2$). These were previously only partly synced; all six summary files are now
+  on disk. We do not, however, let ``six converging nulls'' overstate the case. Three of the
+  six rest on small samples (B3's positive document, P10b, and P22 each at $N=2$), and a
+  uniform null at $N=2$ does not on its own discriminate a genuinely distributed mechanism
+  from an under-powered protocol; that disambiguation (item~1 above) remains open. The
+  residual caveat is sensitivity, not verification: the nonzero control patches are mostly
+  off-layer norm-shock, so the six nulls establish ``single- and multi-site perturbation
   does not move halting at this protocol's power,'' not a fully exhaustive causal search.
 
   \item \textbf{Norm-shock makes some off-target controls suspect, and the positive
@@ -789,8 +820,8 @@ should-halt signal that arrives too late to override an upstream continuation st
 (logit-lens EOS gap $-0.419$ at layer 24 flipping to $+0.481$ by layer 32), and that
 suppression is relative not absolute (chosen-vs-EOS margin about 20 logits; cap-hit EOS
 logit $+10.76$ exceeding a control's $+10.07$); EOS is genuinely missing at loop onset
-(median rank roughly 10{,}502); and a converging series of single-direction and
-single-layer perturbations fail to move token count. We are deliberately careful with the
+(median rank roughly 10{,}502); and six converging single-direction, single-layer, and
+multi-layer perturbations fail to move token count. We are deliberately careful with the
 last point: all single- and multi-site perturbations we ran returned null at this
 protocol's power, and whether the mechanism is genuinely distributed or the protocol is
 under-powered at the halt-relevant locus is \emph{not resolved} by these data --- the
@@ -800,10 +831,14 @@ the run instead collapsed under the same patch, a norm-shock signature that blun
 than strengthens the rebuttal) rebuts only the strongest, protocol-is-inert form
 of the under-powered objection; it does not rebut the weaker form, that the protocol
 cannot perturb the halt-relevant direction at the halt-relevant locus. Our load-bearing
-causal evidence is two on-disk-verified single-site nulls (B3 reverse-direction
-project-out and the P16 component-resolved grid, the latter subsuming CL-19/CL-20), plus
-four further perturbation nulls recorded on the cluster but not yet synced to local data
-files. A matched base-model comparison on the same Qwen2.5-VL-3B backbone substantiates the
+causal evidence is six converging perturbation nulls, all now reproducing from summary files
+in this repository and all returning the pre-registered FAIL/null verdict ($N$ ranging 2 to
+22 documents): the B3 reverse-direction project-out, the P16 component-resolved grid (which
+subsumes CL-19/CL-20), P10b induction-head zeroing, the P19 system-prompt counterfactual,
+P12 SAE-feature ablation, and the P22 multi-layer coordinated patch. We are careful not to
+let the count overstate the case: three of the six rest on $N=2$ (B3's positive, P10b, P22),
+and a uniform null at small $N$ does not by itself separate ``distributed'' from
+``under-powered.'' A matched base-model comparison on the same Qwen2.5-VL-3B backbone substantiates the
 fine-tune-origin half of the reading: the base model carries no separable halt geometry
 even on its own cap-hit documents (pos/ctl Cohen's-d ratio 1.12 / 0.78 / 0.92 at L16 / L20
 / L24, all near $1\times$ and below the $2.0\times$ bar) whereas the fine-tune scores

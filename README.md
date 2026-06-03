@@ -45,7 +45,7 @@ load-bearing.
 | Component-resolved FCCT patch (CL-19/20) | verified on disk |
 | Runtime monitor trade-off (CL-39 / CL-48) | verified on disk |
 | Vision sufficiency / inpaint (CL-11) | verified on disk |
-| Causal nulls: B3 + P16 verified on disk; P10b/P19v2/P12v3/P22 recorded on cluster, not synced | 2 verified + 4 unsynced; see VERIFICATION.md |
+| Six converging perturbation nulls — B3, P16, P10b (CL-12b), P19 (CL-12c), P12 (CL-12d), P22 (CL-12e); all FAIL/null, N ranging 2-22 docs | all 6 verified on disk; nulls do not resolve distributed-vs-under-powered (esp. N=2); see VERIFICATION.md |
 | Cross-family counts (CL-47 / CL-13) | pending re-run; see VERIFICATION.md |
 
 See [VERIFICATION.md](VERIFICATION.md) for the full claim-to-number-to-result-file ledger,

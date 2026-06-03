@@ -21,11 +21,16 @@ checkpoint itself cap-hits on the positive docs (7 base cap-hits / 15 base clean
 substantiating both that the *continuation bias is inherited from the base* and that the
 *sharp PCA separation is fine-tune-introduced*, not pre-existing.
 
-**Four converging causal-perturbation nulls (the "no single-/multi-layer halt circuit;
-detection is distributed" claim).** Each of these is a pre-registered causal perturbation
-whose pre-registered criterion was NOT met (`PRE_REG_VERDICT: FAIL`), which is the *intended*
-evidential role — converging nulls refute a single-locus causal reading and support the
-distributed-detection framing:
+**Four further converging causal-perturbation nulls (the "no single-/multi-layer halt circuit;
+detection is distributed" claim).** These four join the B3 reverse-direction project-out
+(`p2_pilot/b3_reverse_direction_summary.json`, READOUT) and the P16 component-resolved patch
+grid (`p16_component_resolved_short/_summary.json`, FAIL, N=5) to make **six converging
+perturbation nulls, all now on disk**, N ranging 2-22 docs. Each of these four is a
+pre-registered causal perturbation whose pre-registered criterion was NOT met
+(`PRE_REG_VERDICT: FAIL`), which is the *intended* evidential role — converging nulls refute a
+single-locus causal reading and support the distributed-detection framing. Note the caveat
+(CL-35): the nulls do not resolve distributed-vs-under-powered, sharpest at the N=2 nulls
+(P10b and P22 below, and B3's positive):
 
 - `p10b_head_zero_patching/_summary.json` — zeroing the top induction heads (and norm-matched
   head controls) does not reduce runaway generation beyond the noninduction control floor

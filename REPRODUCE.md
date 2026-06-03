@@ -407,16 +407,50 @@ characterization claims first (they build the corpus everything else indexes).
   nonzero (controls perturb more); verdict **FAIL** — reproduces the original
   0/58-real, 13/174-control finding.
 
-> **Honest count:** only **two** of the causal nulls reproduce from local `results/`:
-> **B3** (`p2_pilot/b3_reverse_direction_summary.json`) and **P16**
-> (`p16_component_resolved_short/_summary.json`). The other four perturbation nulls
-> (**P10b** induction-head zero, **P19v2** prompt-engineering, **P12-v3** SAE features,
-> **P22** multi-layer coordinated zero) were run and logged on the cluster but their
-> `_summary.json` files live on `/scratch/...` and were never synced here, so we report
-> them as corroborating-but-unsynced, not as verified. The paper states this as "two
-> on-disk-verified single-site nulls plus four further perturbation nulls recorded but
-> not synced." P16 subsumes CL-19/CL-20 (counted once, not double-counted). The older
-> "8 converging nulls" figure was prose-only. The nonzero controls are dominated by
+#### CL-12b — P10b induction-head zeroing null
+- **Shows:** zeroing the top induction heads does not move token count.
+- **Output:** `results/p10b_head_zero_patching/_summary.json`
+- **Check:** `PRE_REG_VERDICT` = **FAIL**; `induction_zero_passes_n` = **0** (0/4
+  induction heads pass the pre-reg 30% threshold under zeroing); **N=2** docs. One control
+  head (L19h7, 45.76% mean) and one induction head (L17h10, 46.45% mean) move length on a
+  single doc each — neither passes the rule.
+
+#### CL-12c — P19 system-prompt counterfactual null
+- **Shows:** stop-instruction prompts do not reliably stop the runaway.
+- **Output:** `results/p19_system_prompt_counterfactual/_summary.json`
+- **Check:** `PRE_REG_VERDICT` = **FAIL**; `passing_prompts` = **[]** (0/6 prompts pass);
+  all six aggregate `median_reduction_pct` = **0.0**; **N=5** docs.
+
+#### CL-12d — P12 SAE-feature ablation null
+- **Shows:** no single SAE feature carries the halt decision under cross-validation.
+- **Output:** `results/p12_sae_ablation/_summary.json`
+- **Check:** `PRE_REG_VERDICT` = **FAIL**; `folds_passing_all_criteria` = **0** (0/5 CV
+  folds); per-fold top-feature AUC **0.562 / 0.566 / 0.543 / 0.585 / 0.629** (all below the
+  0.85 bar); `n_positives` = **22**, `n_controls` = **56**; `saelens_version` = 6.0.0.
+
+#### CL-12e — P22 multi-layer coordinated patch null
+- **Shows:** zeroing a coordinated L16/L20/L24 window does not move token count.
+- **Output:** `results/p22_multilayer_coordinated/_summary.json`
+- **Check:** `PRE_REG_VERDICT` = **FAIL**; the `real_coord_zero_target_window` aggregate
+  `mean` = **0.0** (0/2 pass 30%); **N=2** docs. Only the off-target control
+  (`ctl_off_target_zero_window`) moves length (99.99%), a degenerate off-target collapse,
+  not a circuit hit.
+
+> **Honest count:** all **six** converging perturbation nulls now reproduce from local
+> `results/`, each returning its pre-registered FAIL/null verdict, with **N ranging 2-22
+> documents**: **B3** (`p2_pilot/b3_reverse_direction_summary.json`, READOUT), **P16**
+> (`p16_component_resolved_short/_summary.json`, FAIL, N=5), **P10b**
+> (`p10b_head_zero_patching/_summary.json`, FAIL, N=2), **P19**
+> (`p19_system_prompt_counterfactual/_summary.json`, FAIL, N=5), **P12**
+> (`p12_sae_ablation/_summary.json`, FAIL, N=22), and **P22**
+> (`p22_multilayer_coordinated/_summary.json`, FAIL, N=2). The four formerly-on-`/scratch/`
+> summaries (P10b, P19v2, P12-v3, P22) were synced here and verified; the paper now states
+> the count as "six converging perturbation nulls, all returning the pre-registered
+> FAIL/null verdict (N ranging 2-22 docs)." P16 subsumes CL-19/CL-20 (counted once, not
+> double-counted). The older "8 converging nulls" figure was prose-only and stays retired.
+> The caveat is kept: three of the six rest on **N=2** (B3's positive, P10b, P22), so a
+> uniform null at that sample size does **not** by itself separate "distributed mechanism"
+> from "under-powered protocol." The nonzero controls are dominated by
 > `off_layer` norm-shock, so they bound protocol sensitivity rather than localize a
 > mechanism — which is exactly why CL-36's matched-norm positive control is load-bearing.
 >

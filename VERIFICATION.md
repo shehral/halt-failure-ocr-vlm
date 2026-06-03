@@ -40,12 +40,16 @@ Verdict key:
 | EOS-margin | Relative-not-absolute EOS | chosen-EOS margin ~20.6; P(EOS) 1e-8...1e-10; cap-hit EOS logit +10.76 > control +10.07 | `<repo-root>/demo_eos_failure/03_eos_trajectories/docvqa_srgb0228_p2_eos_trace.json` |
 | CL-12 | B3 reverse-direction necessity null (READOUT) | 3/3 controls unchanged (<10%: +9.1%/0%/0%); positive 12000->12000; verdict READOUT; hook-fired confirmed (2/4 docs changed output) | `p2_pilot/b3_reverse_direction_summary.json` (pinned `c3886ff`, device=cuda) |
 | CL-19/20 | Component-resolved FCCT patch (real-null) | 0/45 real-patch nonzero (real-null); 9/134 controls nonzero (controls perturb more); verdict FAIL. Reproduces original 0/58-real, 13/174-ctrl finding | `p16_component_resolved_short/_summary.json` (regenerated, pinned `c3886ff`; pre-reg under `<repo>/docs/`) |
+| CL-12b | P10b induction-head zeroing null | `PRE_REG_VERDICT: FAIL`; `induction_zero_passes_n: 0` (0/4 induction heads pass the 30% threshold under zeroing); `N=2` docs (`docvqa_jqbg0227_p1`, `docvqa_srgb0228_p2`). One control head (L19h7) hits 45.76% mean and one induction head (L17h10) hits 46.45% mean, each on a single doc — neither passes the pre-reg rule | `p10b_head_zero_patching/_summary.json` |
+| CL-12c | P19 system-prompt counterfactual null | `PRE_REG_VERDICT: FAIL`; `passing_prompts: []` (0/6 stop-instruction prompts pass); all six aggregate `median_reduction_pct: 0.0`; `N=5` docs | `p19_system_prompt_counterfactual/_summary.json` |
+| CL-12d | P12 SAE-feature ablation null | `PRE_REG_VERDICT: FAIL`; `folds_passing_all_criteria: 0` (0/5 CV folds); top-feature AUC per fold 0.562/0.566/0.543/0.585/0.629 (all below the 0.85 bar); `n_positives: 22`, `n_controls: 56`, `k_folds: 5`; `saelens_version: 6.0.0` | `p12_sae_ablation/_summary.json` |
+| CL-12e | P22 multi-layer coordinated patch null | `PRE_REG_VERDICT: FAIL`; the `real_coord_zero_target_window` aggregate `mean: 0.0` (0/2 pass 30%); `N=2` docs; only the `ctl_off_target_zero_window` moves length (99.99% — a degenerate off-target collapse, not a circuit hit) | `p22_multilayer_coordinated/_summary.json` |
 
 ## STALE (cited value wrong — corrected value on disk; do NOT cite the old number)
 
 | Claim | Cited (prose) | On disk (correct) | Note |
 |---|---|---|---|
-| "six converging nulls" (and the older "8") | 6 / 8 nulls cited as if all verified | **2 verified on disk** (B3, P16) **+ 4 recorded on cluster scratch, not synced** (P10b, P19v2, P12 v3, P22) | Only B3 (`p2_pilot/b3_reverse_direction_summary.json`) and P16 (`p16_component_resolved_short/_summary.json`) reproduce from local `results/`. The other four point to `/scratch/...` proof pointers (SLURM 6884388/6885334/6883131/6885516) with no synced summary. Paper/guide now state "two on-disk-verified single-site nulls plus four further perturbation nulls recorded but not synced"; P16 subsumes CL-19/CL-20 (counted once). "8" was prose-only. |
+| ~~six converging nulls (and the older “8”)~~ — **RESOLVED → CONFIRMED** | previously 6/8 cited as if all verified, then walked back to 2 on disk | **all 6 now verified on disk** (B3, P16, P10b, P19, P12, P22), each returning its pre-reg FAIL/null verdict, N ranging 2–22 docs | UP-03: the four formerly-on-scratch summaries (P10b, P19v2, P12 v3, P22) were synced into `results/` and verified — see CONFIRMED rows CL-12b/CL-12c/CL-12d/CL-12e above. Paper now states “six converging perturbation nulls, all returning the pre-registered FAIL/null verdict (N ranging 2–22 docs)” and itemizes them. P16 subsumes CL-19/CL-20 (counted once). Caveat retained (CL-35/NR-04): the nulls do **not** resolve distributed-vs-under-powered, especially at N=2 (B3 positive, P10b, P22). The older “8” was prose-only and stays retired. |
 | off-target control % | 96.0-99.99% (norm-shock) | 99.99% has **no local source** (was on cluster scratch); 96.0% is from a *different* walked-back experiment (CL-40) | norm figures also inverted vs prose |
 | CL-27 | base ratio 0.96/0.89/0.95; 10/22 base cap-hit | **superseded by a clean on-disk base run** (CL-25-base, `p18_base_archetype/_summary.json`): the persisted base triple is **1.12/0.78/0.92** (N=10 base cap-hits / 15 controls). The old prose triple (0.96/0.89/0.95) and the earlier superseded P8 v2 file (0.66/0.66/0.80) are both retired; cite 1.12/0.78/0.92. | direction confirmed and now substantiated: all base ratios near 1x and below 2.0x, so fine-tuning introduces the geometry |
 | CL-47 | 11/16 cross-family cap-hits | strict `stop_reason==max_new_tokens` = **10/16**; dir verdict = INSUFFICIENT_DATA | 11th cell = near-cap relabel (InternVL3-8B/funsd_105, stopped 2 tok short) |
@@ -70,12 +74,16 @@ not blockers on the core thesis.
    0/58-real, 13/174-control real-null.
 3. Sync the P18 base-archetype output (CL-27) so the canonical 0.96/0.89/0.95 base triple has
    an on-disk home — or restate CL-27 with the on-disk 0.66/0.66/0.80 numbers.
-4. Done — the converging-null count is stated honestly as **two on-disk-verified single-site
-   nulls (B3, P16) plus four further perturbation nulls (P10b, P19v2, P12 v3, P22) recorded on
-   the cluster but not synced**. The paper, README, REPRODUCE, and UNDERSTANDING_GUIDE no longer
-   present a flat "six" as if all six reproduce locally. P16 subsumes CL-19/CL-20 (counted once).
-   To upgrade any of the four to verified, sync its `/scratch/...` `_summary.json` into `results/`
-   and add a CONFIRMED row above before recounting it.
+4. Done (UP-03) — the converging-null count is now stated as **six converging perturbation
+   nulls, all on disk and all returning the pre-registered FAIL/null verdict (N ranging 2-22
+   docs)**: B3 (READOUT), P16 (FAIL, N=5), P10b (FAIL, N=2), P19 (FAIL, N=5), P12 (FAIL, N=22),
+   P22 (FAIL, N=2). The four formerly-on-scratch summaries (P10b, P19v2, P12 v3, P22) were synced
+   into `results/` and each verified against its `_summary.json` — see CONFIRMED rows
+   CL-12b/CL-12c/CL-12d/CL-12e. P16 subsumes CL-19/CL-20 (counted once). The paper (abstract,
+   body, conclusion) and UNDERSTANDING_GUIDE now itemize all six. **Caveat kept (CL-35/NR-04):**
+   the six nulls do NOT resolve distributed-vs-under-powered, especially at N=2 (B3's positive,
+   P10b, P22), where a uniform null cannot separate a distributed mechanism from an under-powered
+   protocol.
 5. Reconcile CL-47 (11/16 vs 10/16) and CL-13 (8/20 vs 6/16) — either restate with strict
    `stop_reason` counts or document the interpretive relabel rule explicitly.
 6. Fix the "14 classes" title string in the corpus-funnel plot -> 12 populated, and locate or
@@ -85,11 +93,14 @@ not blockers on the core thesis.
 
 The "class-structured residual-stream attractor" reading is a **labeled hypothesis and
 metaphor for the evidence pattern, not a causally-isolated mechanism**. The on-disk causal
-evidence is a converging series of perturbation nulls (CL-12 B3, CL-19/20 P16, CL-49 L0
-sufficiency). Per the project's own CL-35, those nulls are **equally consistent with (i) a
+evidence is six converging perturbation nulls, all returning the pre-registered FAIL/null
+verdict (CL-12 B3 READOUT; CL-19/20 P16 FAIL N=5; CL-12b P10b FAIL N=2; CL-12c P19 FAIL N=5;
+CL-12d P12 FAIL N=22; CL-12e P22 FAIL N=2), alongside the separate CL-49 L0 sufficiency null.
+Per the project's own CL-35, those nulls are **equally consistent with (i) a
 genuinely distributed mechanism and (ii) a perturbation protocol that is under-powered at the
 halt-relevant locus**; the data do not distinguish the two, and the mechanism remains
-**unidentified**. The CL-36 norm-scaled positive control (N=3 cap-hit positives, none of
+**unidentified**. This is especially true at the small-sample nulls (B3's positive, P10b, and
+P22 are each N=2), where a uniform null cannot by itself separate (i) from (ii). The CL-36 norm-scaled positive control (N=3 cap-hit positives, none of
 which escapes the cap; its 4th doc is a clean-halt control that itself collapsed under the
 patch — a norm-shock signature that blunts the rebuttal) rebuts only the strongest
 (protocol-is-inert) form of (ii), not the weaker, more relevant form. The discriminating
@@ -102,8 +113,8 @@ README / REPRODUCE / UNDERSTANDING_GUIDE, all state this hedge consistently: hal
 
 **Recommended: attractor / representational-geometry.** Rationale: it is the only spine whose
 load-bearing skeleton is overwhelmingly *confirmed on disk* (~10 confirmed claims), and whose
-two weak legs (CL-12, CL-19/20) are exactly the honest walk-backs that strengthen rather than
-break the thesis. Attention-collapse rests on only 2 confirmed claims (one N=1). The fused
+causal legs (the six on-disk perturbation nulls CL-12/CL-19-20/CL-12b/CL-12c/CL-12d/CL-12e)
+are exactly the honest walk-backs that strengthen rather than break the thesis. Attention-collapse rests on only 2 confirmed claims (one N=1). The fused
 spine requires the now-resolved causal-bridge plus an N=1 result and is undercut by the
 verified single-site nulls. **Note (NR-04):** this score reflects which framing the
 *confirmed correlational* evidence best supports — it is not a resolution of the
