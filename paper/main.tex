@@ -125,7 +125,9 @@ The two payoff results that set up the rest of the paper are (i) that per-class 
 directions are linearly decodable and content-decoupled across the decoder
 (Section~\ref{sec:mechanism}), and (ii) that the network computes a should-halt signal
 late in the stack that arrives too late to override an already-committed continuation
-state (Section~\ref{sec:mechanism}). Everything else either characterizes the
+state (Section~\ref{sec:mechanism}) --- a commitment that a pre-registered early-detection
+probe localizes to the first $\sim$50 generated tokens, so the much later visible regime
+change is its downstream consequence (Section~\ref{sec:early_commitment}). Everything else either characterizes the
 phenomenon (Section~\ref{sec:phenomenon}), establishes the method
 (Section~\ref{sec:method}), or stress-tests the attractor reading causally
 (Section~\ref{sec:causal}).
@@ -319,6 +321,36 @@ upstream.
   committed upstream ($N=4$ positives, 9 controls).}
   \label{fig:logit_lens}
 \end{figure}
+
+\subsection{The runaway is committed early in generation, not at the visible transition}
+\label{sec:early_commitment}
+
+The depth story above (a should-halt signal that arrives late in the stack) is paired with
+a complementary story in \emph{generation position}: how far into the decode the cap-hit
+outcome becomes predictable. A natural reading of the per-position halt-direction
+trajectories (Figure~\ref{fig:halt_trajectories}) is that the failure ``begins'' at the
+visible regime change, which for these documents sits around generation position $\sim$600.
+A pre-registered early-detection probe says that reading is too late: the cap-hit decision
+is already \emph{linearly detectable in the first tens of generated tokens}. Fitting the
+halt-vs-control probe on the residual stream at a fixed early generation position and
+sweeping all ten cached layers, the cap-hit-versus-control separation is decodable as early
+as generation position $\sim$50, with a best leave-one-out AUC of $0.857$ at layer 24
+(pre-registered verdict PASS, ``sequence-initiation detectable''; $N=16$, 7 positives and 9
+controls). The same probe degrades as generation position grows past the early window (at
+layer 24 the AUC falls from $0.857$ at position 50 to $0.735$ at position 600), so the early
+positions, not the late visible transition, carry the cleanest commitment signal.
+
+We read this as a refinement of the temporal story rather than a new mechanism: the
+$\sim$600 regime change that the halt-direction trajectories make visible is the
+\emph{consequence} of a commitment that has already been made in the first $\sim$50 generated
+tokens, not the causal moment itself. This tempers any claim anchored on the $\sim$600
+transition as the onset of failure, and it sharpens the production implication: a runtime
+monitor that waits for the visible transition reads too late, whereas a monitor reading the
+layer-24 halt direction over the first tens of tokens has a decodable early signal to act on.
+CAVEAT: this is a single best-layer AUC at a modest sample ($N=16$ at the early position),
+so we report the early-commitment timing as detectable-and-pre-registered rather than as a
+precisely localized commitment point, and the layer-24 readout shares the
+repetition-density confound disclosed for the halt direction elsewhere.
 
 \subsection{EOS suppression is relative, not absolute}
 
