@@ -67,8 +67,8 @@ autonomous loop can't run away.
 code/        experiment + analysis scripts (one concern per file; phase-prefixed)
 results/     all outputs — generations, metrics, cached activations, plots (never hand-edited)
 data/        eval-set images, ground-truth labels, manifests
-fix/         the production module (halt_monitor*.py, halt_direction_*.pt)
-demo_eos_failure/   per-step EOS-logit capture + plots
+code/fix/    the production module (halt_monitor.py, halt_direction_L24.pt)
+code/demo_eos_failure/   per-step EOS-logit capture + plot scripts (05_scripts/)
 review_corpus/      cap-hit docs sorted by failure mode + viewer.html
 environment/        pinned deps + env build log (this dir already exists)
 ```
