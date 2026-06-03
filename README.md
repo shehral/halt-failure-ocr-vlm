@@ -51,14 +51,14 @@ REPRODUCE.md              # step-by-step reproduction instructions (added with p
 UNDERSTANDING_GUIDE.md    # narrator / educational companion (added with paper/)
 environment/
   requirements.txt        # pinned dependencies + model revision + lm_head tie-fix note
-paper/                    # compiled PDF + LaTeX source (added once reference verification completes)
+paper/                    # compiled PDF + LaTeX source
 code/                     # extraction, probing, patching, and monitor scripts
 results/                  # numerical result files referenced by VERIFICATION.md
 data/                     # public dataset manifests (DocVQA and others)
 ```
 
-> Note: `paper/` (the compiled PDF and LaTeX source) will be added once reference
-> verification completes. The `results/` paths in VERIFICATION.md are the source of truth
+> Note: `paper/` contains the compiled PDF, LaTeX source (main.tex), and references (references.bib).
+> The `results/` paths in VERIFICATION.md are the source of truth
 > for every load-bearing number in the paper.
 
 ## Model
