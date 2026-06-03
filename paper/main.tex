@@ -265,14 +265,24 @@ three class-conditioned directions.
 \subsection{Build versus read: the representation is assembled before it is consumed}
 
 Block-contribution decomposition separates where a halt representation is built from
-where it is read. For filled-cell-repeat (all documents, $N=18$), the block-direction
+where it is read. We present this as a \emph{preliminary candidate} rather than a settled
+result, and state its scope and caveats explicitly. Under the \texttt{all\_docs}
+aggregation (all 18 cached documents pooled), the filled-cell block-direction
 cosine is $+0.042$ at layer 20 versus $-0.010$ at layer 24; $+0.042$ at layer 20 is the
 largest single layer-class block contribution in the table. The positive value at layer
-20 indicates the filled-cell halt direction is \emph{built} there, while the negative
-value at layer 24 indicates layer 24 \emph{reads} (consumes) rather than constructs it.
-This refines the class-specificity finding into a build-at-L20 / read-at-L24 offset for
-filled-cell-repeat, and positives ramp into and remain in a sustained high-halt-score
-regime at loop onset while controls stay flat (Figure~\ref{fig:halt_trajectories}).
+20 would indicate the filled-cell halt direction is \emph{built} there, while the negative
+value at layer 24 would indicate layer 24 \emph{reads} (consumes) rather than constructs it.
+Four caveats keep this preliminary. (a) Only 3 of the 18 documents carry a
+filled-cell label; under the alternative \texttt{doc\_argmax\_only} scope ($N=3$ labeled
+documents) the cosine signs persist but the alignment ratio flips sign ($-2.32$ versus
+$+1.30$ at layer 20), so the effect is scope-sensitive. (b) The block contribution is
+cumulative over the sampled-layer gap (a four-layer span, e.g.\ the layer-20 figure
+aggregates the L16-to-L20 update), not a single-layer read. (c) The magnitudes are small
+(cosines near $0.04$). (d) The decomposition does not separate MHSA from FFN contributions.
+We therefore read this as a build-at-L20 / read-at-L24 offset \emph{candidate} for
+filled-cell-repeat. Separately, positives ramp into and remain in a sustained
+high-halt-score regime at loop onset while controls stay flat
+(Figure~\ref{fig:halt_trajectories}).
 
 \begin{figure}[ht]
   \centering
@@ -309,13 +319,17 @@ upstream.
 \subsection{EOS suppression is relative, not absolute}
 
 A naive reading would be that the model \emph{crushes} EOS to a near-zero logit. The
-data say otherwise. Per-step analysis of a representative cap-hit document shows the
+data say otherwise. Per-step analysis of a single representative cap-hit document
+(\texttt{docvqa\_srgb0228\_p2}, traced to a 3000-token cap rather than the paper-wide
+12{,}000-token cap) shows the
 chosen-token-minus-EOS raw logit margin has mean roughly 20.61 and median roughly 20.63
 over the logged steps, with $P(\text{EOS})$ held to a mean of roughly $10^{-7}$, ranging
 from about $10^{-5}$ at its highest down to $10^{-16}$ at its lowest.
 Strikingly, the cap-hit document's mean EOS logit ($+10.76$) is actually \emph{higher}
-than a clean control's ($+10.07$). EOS is not absolutely suppressed; it is
-out-competed. Continuation tokens simply out-score it by about 20 logits, which is
+than a single clean control's ($+10.07$, \texttt{docvqa\_fhxn0226\_p2}, which halts on
+its own at 193 tokens). EOS is not absolutely suppressed; it is
+out-competed. As with the attention signal below, this is an $N=1$-vs-$N=1$ trace and
+we read it as illustrative rather than statistically established. Continuation tokens simply out-score it by about 20 logits, which is
 enough to crush the EOS probability to a mean of roughly $10^{-7}$ (ranging from about
 $10^{-5}$ down to $10^{-16}$ over the logged steps) while the EOS
 logit itself stays comfortably positive (Figure~\ref{fig:eos_margin}).
@@ -323,20 +337,28 @@ logit itself stays comfortably positive (Figure~\ref{fig:eos_margin}).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.85\linewidth]{fig_eos_relative_margin.pdf}
-  \caption{EOS suppression is relative, not absolute (cap-hit document). The EOS logit
-  stays positive throughout (mean $+10.76$, which actually exceeds a clean control's
+  \caption{EOS suppression is relative, not absolute (single cap-hit document
+  \texttt{docvqa\_srgb0228\_p2}, 3000-token cap). The EOS logit
+  stays positive throughout (mean $+10.76$, which actually exceeds a single clean control's
   $+10.07$), while continuation tokens out-score it by a mean margin of roughly 20.6
   logits, crushing $\mathrm{softmax}(\text{EOS})$ to a mean of roughly $10^{-7}$
-  (ranging from about $10^{-5}$ down to $10^{-16}$).}
+  (ranging from about $10^{-5}$ down to $10^{-16}$). This is an $N=1$-vs-$N=1$ trace,
+  shown as an illustration of the relative-suppression mechanism rather than as a
+  powered comparison.}
   \label{fig:eos_margin}
 \end{figure}
 
 \subsection{Calibration is refuted: EOS is genuinely missing at loop onset}
 
 If the failure were a near-miss in calibration, EOS would sit just below the argmax at
-loop onset. It does not. At loop-onset positions ($N=110$ records over 22 documents),
-the EOS token sits at median rank roughly 10{,}502, and only 0.9\% of records have EOS
-in the top 5. EOS is genuinely buried, not narrowly under-promoted. We note a framing
+loop onset. It does not. The pooled record-level pool is $N=110$ loop-onset records,
+but these are five contiguous records per document and are therefore pseudoreplicated;
+we report the statistic at the document level (effective $N=22$ documents). Per document
+the EOS token sits at a median rank of roughly 12{,}234, no document has its per-document
+median rank inside the top 5, and only 1 of the 22 documents puts EOS in the top 5 at
+\emph{any} logged onset position (the pooled record-level figures are a median rank of
+roughly 10{,}502 and 0.9\% of records in the top 5). EOS is genuinely buried, not
+narrowly under-promoted. We note a framing
 caveat: programmatic n-gram loop-onset detection biases late, since records sit
 thousands of tokens deep, so ``at loop onset'' is a late-onset operationalization.
 
@@ -582,7 +604,10 @@ text-side penalty: the halt-failure state is conditioned on the visual input.
 A correlational vision signal points the same way. In a single-positive-versus-single-control
 comparison, the positive document's text-to-image attention mass collapses in the L20 to
 L24 halt band: the positive-to-control ratio is 0.070 at layer 20 ($14.2\times$ lower),
-0.216 at layer 24 ($4.6\times$ lower), and only a modest 0.695 at layer 16. We flag this
+0.216 at layer 24 ($4.6\times$ lower), and only a modest 0.695 at layer 16. The collapse
+is band-localized rather than monotone: the \emph{same} document pair shows the positive
+with \emph{higher} image attention than the control at layer 8 ($1.10\times$) and again at
+layer 35 ($1.37\times$), so the L20-to-L24 dip is suggestive only. We flag this
 as $N=1$-vs-$N=1$ and reserve it for future larger-sample work.
 
 % ===========================================================================
@@ -721,8 +746,10 @@ manifold and uses it to make a stop-or-continue decision, with the count compare
 between two manifolds by rotation \citep{gurnee2026countmfd}. We take two things from it:
 the diagnostic prior to look for a manifold rather than a scalar register, and the
 warning that a single scalar threshold on a count-derived signal can be unstable. Our
-build-at-L20 / read-at-L24 offset for the filled-cell class (block-direction cosine
-$+0.042$ at L20 versus $-0.010$ at L24) is consistent with a representation that is
+candidate build-at-L20 / read-at-L24 offset for the filled-cell class (block-direction
+cosine $+0.042$ at L20 versus $-0.010$ at L24 under the all-documents aggregation, on a
+small-magnitude, scope-sensitive, cumulative-over-gap signal) is consistent with a
+representation that is
 assembled before it is consumed, in the spirit of that comparison-of-quantities picture,
 though we do not claim to have recovered a counting manifold specifically.
 
@@ -737,9 +764,11 @@ traced to attention-sink structure \citep{repeatedtoken2025}. This is the most a
 competing mechanism for our setting
 and a natural baseline. Our evidence is only partly aligned with it: we find that EOS
 suppression is \emph{relative, not absolute}, with continuation tokens out-scoring EOS by
-roughly 20 logits while the EOS logit itself stays positive (a cap-hit document's mean
-EOS logit of $+10.76$ actually exceeds a clean control's $+10.07$), and that at loop
-onset EOS is genuinely buried (median rank near 10{,}500), rather than narrowly
+roughly 20 logits while the EOS logit itself stays positive (in a single $N=1$-vs-$N=1$
+trace a cap-hit document's mean
+EOS logit of $+10.76$ exceeds a clean control's $+10.07$), and that at loop
+onset EOS is genuinely buried (per-document median rank near 12{,}000 over 22 documents,
+only 1 of which ever puts EOS in the top 5), rather than narrowly
 under-promoted by a single mis-set sink. A sink-anchoring intervention is therefore a
 complement to, not a substitute for, the distributed-attractor reading.
 
@@ -844,14 +873,20 @@ We state the walk-backs plainly because they are part of the contribution.
   treat the base comparison as a missing run. The residual caveat is one of scale: the base
   comparison rests on a 10-versus-15 archetype split rather than the fine-tune's 22-versus-52.
 
-  \item \textbf{The vision-attention-collapse signal is $N=1$-vs-$N=1$.} The
+  \item \textbf{The vision-attention-collapse signal is $N=1$-vs-$N=1$ and non-monotone.} The
   attention-collapse comparison is a single-positive-versus-single-control measurement,
-  not yet statistically meaningful, and is reserved for future larger-sample work.
+  not yet statistically meaningful, and the band-localized L20-to-L24 dip is suggestive
+  only: the same document pair shows the positive with \emph{higher} image attention than
+  the control at L8 ($1.10\times$) and L35 ($1.37\times$). It is reserved for future
+  larger-sample work.
 
-  \item \textbf{Loop-onset framing biases late.} The calibration result is computed at
-  programmatically detected onset positions that sit thousands of tokens deep; this
-  overstates ``onset'' and is a framing concern, though it does not change the numeric
-  finding that EOS is genuinely missing.
+  \item \textbf{Loop-onset framing biases late, and the calibration pool is clustered.} The
+  calibration result is computed at programmatically detected onset positions that sit
+  thousands of tokens deep; this overstates ``onset'' and is a framing concern, though it
+  does not change the numeric finding that EOS is genuinely missing. The 110 onset records
+  are five contiguous records per document and so are pseudoreplicated; we therefore report
+  the statistic at the document level (effective $N=22$), where no document has a median
+  EOS rank inside the top 5 and only 1 of 22 puts EOS in the top 5 at any logged position.
 \end{enumerate}
 
 % ===========================================================================
@@ -867,8 +902,10 @@ content-decoupled (max pairwise cosine 0.2349); the network computes a downstrea
 should-halt signal that arrives too late to override an upstream continuation state
 (logit-lens EOS gap $-0.419$ at layer 24 flipping to $+0.481$ by layer 32), and that
 suppression is relative not absolute (chosen-vs-EOS margin about 20 logits; cap-hit EOS
-logit $+10.76$ exceeding a control's $+10.07$); EOS is genuinely missing at loop onset
-(median rank roughly 10{,}502); and six converging single-direction, single-layer, and
+logit $+10.76$ exceeding a control's $+10.07$, a single $N=1$-vs-$N=1$ trace); EOS is
+genuinely missing at loop onset (per-document median rank roughly 12{,}234 over 22
+documents, only 1 of which ever puts EOS in the top 5); and six converging
+single-direction, single-layer, and
 multi-layer perturbations fail to move token count. We are deliberately careful with the
 last point: all single- and multi-site perturbations we ran returned null at this
 protocol's power, and whether the mechanism is genuinely distributed or the protocol is

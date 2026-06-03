@@ -105,11 +105,11 @@ The **logit lens** decodes an *intermediate* layer's residual stream as if it we
 
 ### Block-contribution decomposition (build vs read)
 
-This decomposes a layer's residual update into block contributions and measures the cosine alignment between a layer's block output and the per-class halt direction. A positive alignment means the layer is *building* the halt representation; a negative or near-zero alignment at a later layer means that layer *reads* (consumes) rather than constructs it. For filled-cell-repeat, the halt direction is built at layer 20 and read at layer 24 (claim **CL-50**).
+This decomposes a layer's residual update into block contributions and measures the cosine alignment between a layer's block output and the per-class halt direction. A positive alignment means the layer is *building* the halt representation; a negative or near-zero alignment at a later layer means that layer *reads* (consumes) rather than constructs it. For filled-cell-repeat, the halt direction looks built at layer 20 and read at layer 24 (claim **CL-50**) — but treat this as a **preliminary candidate**. It holds under the `all_docs` aggregation (all 18 cached docs pooled), only 3 of which carry a filled-cell label; under the `doc_argmax_only` scope (N=3) the cosine signs persist but the alignment ratio flips sign (-2.32 vs +1.30 at L20). The block contribution is also cumulative over a four-layer sampled-layer gap (e.g. L16->L20), the magnitudes are tiny (~0.04), and MHSA is not separated from FFN.
 
 ### Cross-modal attention mass
 
-A VLM attends across two modalities: text tokens and image tokens. **Cross-modal attention mass** measures how much of the model's attention, at a given layer, points from generated text back to the image. If the model stops looking at the image, it has nothing new to transcribe and may fall into a content-free loop. The project has a *correlational* signal here, but it is **N=1 versus N=1** (claim **CL-09e**) and explicitly reserved for larger-N work.
+A VLM attends across two modalities: text tokens and image tokens. **Cross-modal attention mass** measures how much of the model's attention, at a given layer, points from generated text back to the image. If the model stops looking at the image, it has nothing new to transcribe and may fall into a content-free loop. The project has a *correlational* signal here, but it is **N=1 versus N=1** (claim **CL-09e**) and explicitly reserved for larger-N work. The collapse is also **band-localized rather than monotone**: the same document pair shows the positive with *higher* image attention than the control at layer 8 (1.10x) and layer 35 (1.37x), so the L20-to-L24 dip is suggestive only.
 
 ### Image inpainting (grey-noise replacement)
 
@@ -121,7 +121,7 @@ A **fine-tune signature** is a measurable property present in the fine-tuned mod
 
 ### EOS suppression: relative, not absolute
 
-A subtle but central reframe. EOS is **not** suppressed in an absolute sense. The runaway document's raw EOS logit (+10.76) is actually *higher* than a clean control's (+10.07). What kills EOS is that continuation tokens out-score it by roughly 20 logits, crushing P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16 over the logged steps). So it is a *relative-margin* failure, not an "EOS logit went to negative infinity" failure. And calibration is genuinely refuted, not a near-miss: at loop onset EOS sits at median rank around 10,500, truly absent from the top of the distribution (claims **EOS-margin** and **CL-22**).
+A subtle but central reframe. EOS is **not** suppressed in an absolute sense. The runaway document's raw EOS logit (+10.76) is actually *higher* than a clean control's (+10.07). This is a single illustrative **N=1-vs-N=1** trace (positive `docvqa_srgb0228_p2`, traced to a 3000-token cap rather than the paper-wide 12,000-token cap; control `docvqa_fhxn0226_p2`, which halts on its own at 193 tokens). What kills EOS is that continuation tokens out-score it by roughly 20 logits, crushing P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16 over the logged steps). So it is a *relative-margin* failure, not an "EOS logit went to negative infinity" failure. And calibration is genuinely refuted, not a near-miss. Here we report at the **document level** rather than pseudoreplicating: the 110 onset records are five contiguous records per document, so the effective N is 22 documents. Per document the median EOS rank is roughly 12,234, no document has its median rank inside the top 5, and only 1 of 22 documents ever puts EOS in the top 5 at any logged onset position (the pooled record-level figure is a median rank around 10,500). EOS is truly absent from the top of the distribution (claims **EOS-margin** and **CL-22**).
 
 ### Pre-registration and block-shuffle null
 
@@ -205,7 +205,7 @@ A reading guide so the paper's evidence chain makes sense.
 
 **Distinguish per-class from global.** Whenever you see a halt-direction number, ask "is this the per-class direction or the single global one?" Per-class directions are stronger and peak at different layers; the global one is weaker. The class structure is part of the thesis.
 
-**Distinguish relative from absolute EOS suppression.** EOS is not suppressed in an absolute sense (its raw logit +10.76 exceeds a control's +10.07). It is out-competed by about 20 logits, crushing P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16). It is a relative-margin failure.
+**Distinguish relative from absolute EOS suppression.** EOS is not suppressed in an absolute sense (its raw logit +10.76 exceeds a control's +10.07; a single N=1-vs-N=1 trace at a 3000-token cap). It is out-competed by about 20 logits, crushing P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16). It is a relative-margin failure.
 
 **Read cross-family reproduction as modest and not a generality claim; fine-tune-origin is now substantiated.** Under the strict `stop_reason == max_new_tokens` criterion the bug reproduces on 10 of 16 doc-model cells across 4 families (per-family 3/4, 1/4, 3/4, 3/4), but sixteen cells over four families is a thin matrix and the directory-level aggregate verdict abstains (`INSUFFICIENT_DATA`), so read this as "reproduces on 10 of 16 cells" with no strong generality claim, not as proof the bug is universal. The fine-tune signature, by contrast, is no longer merely directional: a matched base-model run on the same Qwen2.5-VL-3B backbone (CL-25-base) shows no separable halt geometry (ratio 1.12 / 0.78 / 0.92, all below 2.0x) even on the base model's own cap-hit docs, so fine-tuning is shown to introduce and sharply amplify the geometry.
 
@@ -226,13 +226,13 @@ A quick reference tying the headline claims to their verification status. "Confi
 | CL-36 | Norm-scaled positive control: 0 of 3 cap-hit positives escape cap at any scale; content visibly changes. (Run's 4th doc is a clean-halt control, not a positive; it collapsed under the patch — a norm-shock signature that weakens the rebuttal.) | confirmed |
 | CL-16 | Logit-lens EOS gap most negative at L24 (-0.419), flips positive by L32 (+0.481) | confirmed |
 | CL-05e | L24 cross-doc AUC 0.894; B=20 null p<=0.0033 (=1/301 floor at N_perm=300, exceedance count 0, not a measured separation); only L20+L24 clear Bonferroni 0.005 | confirmed |
-| CL-22 | EOS median rank ~10,502 at loop onset (genuinely missing) | confirmed |
-| CL-50 | Filled-cell halt direction built at L20, read at L24 | confirmed |
+| CL-22 | EOS genuinely missing at loop onset: document-level (effective N=22) per-doc median rank ~12,234, 0/22 with median rank in top-5, only 1/22 ever in top-5 (pooled record-level median ~10,502) | confirmed |
+| CL-50 | Filled-cell halt direction looks built at L20, read at L24 (all_docs N=18) | preliminary candidate (3/18 labeled; alignment ratio sign-flips under doc_argmax_only N=3; cumulative-over-4-layer-gap; MHSA/FFN not separated) |
 | CL-11 | Grey-noise inpaint collapses all 5/5 named runaways to 13 to 18 token EOS halts (image content sufficient to sustain loop; grey noise confounds vision-removal with content-removal) | confirmed |
 | CL-25 | Fine-tune pos/ctl Cohen's-d ratio 3.79 / 2.74 / 2.78 at L16/L20/L24 (all > 2.0x) | confirmed |
 | CL-48 / CL-39 | Monitor: 99.58% reduction at +30 (10/10 FP) vs 37.68% at +6.91 (0/10 FP) | confirmed |
 | CL-02 | CUDA re-screen 6/123 = 4.88%; 8 MPS-pos flip to control; 0 new positives | confirmed |
-| EOS-margin | Chosen-EOS margin ~20.6; cap-hit EOS logit +10.76 > control +10.07 | confirmed |
+| EOS-margin | Chosen-EOS margin ~20.6; cap-hit EOS logit +10.76 > control +10.07 (single N=1-vs-N=1 trace, 3000-tok cap) | confirmed (illustrative) |
 | CL-12 | B3 reverse-direction necessity null (READOUT; hook confirmed to fire) | confirmed (recovered by sync) |
 | CL-19/20 | Component-resolved patch: 0/45 real-patch reductions (FAIL) | confirmed (regenerated) |
 | CL-12b | P10b induction-head zeroing: 0/4 induction heads pass (FAIL, N=2) | confirmed (`p10b_head_zero_patching/_summary.json`) |
@@ -265,7 +265,7 @@ First, the count, honestly: the run held four documents but only three were cap-
 
 **Q4. Is the EOS token "suppressed" in an absolute sense at loop onset? Explain the relative-margin reframe.**
 
-No. The runaway document's raw EOS logit (+10.76) is actually higher than a clean control's (+10.07). The failure is *relative*: continuation tokens out-score EOS by about 20 logits, which crushes P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16). EOS is not pushed down in absolute terms; it is out-competed, and ends up at median rank around 10,502, genuinely missing from the top of the distribution.
+No. The runaway document's raw EOS logit (+10.76) is actually higher than a clean control's (+10.07) — a single N=1-vs-N=1 trace at a 3000-token cap, shown as illustration. The failure is *relative*: continuation tokens out-score EOS by about 20 logits, which crushes P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16). EOS is not pushed down in absolute terms; it is out-competed. Reported at the document level (effective N=22, since the 110 onset records are 5 contiguous records per document), no document has its median EOS rank in the top 5 and only 1 of 22 documents ever puts EOS in the top 5, genuinely missing from the top of the distribution.
 
 **Q5. What is the fine-tune signature, and does the base-model comparison support a fine-tune origin?**
 
@@ -277,7 +277,7 @@ The B3 reverse-direction necessity null was *recovered by syncing*: the genuine 
 
 **Q7. What does the grey-noise image-inpaint experiment establish, and how does it differ in strength from the cross-modal attention finding?**
 
-Replacing the image with grey noise collapses every tested runaway document — all 5 of 5 named positives — to a short clean EOS halt (about 13 to 18 tokens), showing that the image *content* is sufficient to sustain the loop (CL-11, confirmed; reported qualitatively at N=5 with no Wilson interval). We deliberately say "sufficient" rather than "vision is causally load-bearing" because grey noise confounds removing visual evidence with destroying readable content; the discriminating run (a different *readable* document) is future work. The cross-modal attention-mass finding (about 14x lower text-to-image attention at layer 20 in the runaway case) is only *correlational* and only **N=1 versus N=1** (CL-09e), so it is a suggestive signal reserved for larger-N future work, not an established result.
+Replacing the image with grey noise collapses every tested runaway document — all 5 of 5 named positives — to a short clean EOS halt (about 13 to 18 tokens), showing that the image *content* is sufficient to sustain the loop (CL-11, confirmed; reported qualitatively at N=5 with no Wilson interval). We deliberately say "sufficient" rather than "vision is causally load-bearing" because grey noise confounds removing visual evidence with destroying readable content; the discriminating run (a different *readable* document) is future work. The cross-modal attention-mass finding (about 14x lower text-to-image attention at layer 20 in the runaway case) is only *correlational* and only **N=1 versus N=1** (CL-09e), and it is band-localized rather than monotone — the same document pair shows the positive with *higher* image attention than the control at layer 8 (1.10x) and layer 35 (1.37x) — so it is a suggestive signal reserved for larger-N future work, not an established result.
 
 **Q8. The mitigation once claimed "83.1% reduction with zero false positives." Why was that walked back, and what replaced it?**
 
