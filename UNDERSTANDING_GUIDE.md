@@ -61,7 +61,7 @@ Before the details, here is the shape of the whole project. Each stage is expand
 4. **Converging causal nulls.** Try repeatedly to flip the behavior by editing one direction or one layer. Each attempt fails. A norm-scaled positive control shows the protocol was not *inert* (it visibly moved content), but it does **not** prove the protocol could have perturbed the halt-relevant direction at the halt-relevant locus, so the nulls remain ambiguous between "distributed mechanism" and "under-powered protocol."
 5. **The attractor *hypothesis*.** The framing that fits the full evidence pattern: halt-failure *behaves like* a *distributed, fine-tune-introduced residual-stream attractor*, not a single-layer bug. This is a labeled hypothesis and metaphor, not a causally-isolated mechanism. The nulls are *consistent with* "distributed" but are equally consistent with an under-powered protocol; the data do not distinguish the two, and the mechanism remains unidentified.
 6. **Cross-family reproduction (modest, no generality claim).** Under a strict `stop_reason == max_new_tokens` criterion the bug reproduces on **10 of 16 doc-model cells across 4 families** (per-family 3/4, 1/4, 3/4, 3/4), but the matrix is small and the directory-level aggregate verdict is `INSUFFICIENT_DATA`, so the paper draws **no strong generality claim** from it; a permissive near-cap relabel would shift the count to 11/16.
-7. **Production fix trade-off.** Characterize a runtime EOS-boosting monitor as an honest precision-recall curve, and show via image inpainting that vision is causally load-bearing, motivating a vision-aware guardrail.
+7. **Production fix trade-off.** Characterize a runtime EOS-boosting monitor as an honest precision-recall curve, and show via grey-noise image inpainting that image content is sufficient to sustain the loop (all 5/5 named positives collapse to short EOS halts), motivating a vision-aware guardrail.
 
 The thesis is unusual in that **its strongest evidence is negative**: a series of causal perturbations that *fail*. In an attractor framing, a converging set of nulls is what you would expect — but it is equally what you would expect from a perturbation protocol too weak to reach the halt mechanism. The guide is careful never to read the nulls as *proof* of distribution; they motivate the attractor hypothesis without settling it.
 
@@ -113,7 +113,7 @@ A VLM attends across two modalities: text tokens and image tokens. **Cross-modal
 
 ### Image inpainting (grey-noise replacement)
 
-Replace the input image with grey noise and re-decode. If runaway documents collapse to short clean EOS halts, vision is *causally* load-bearing for the halt decision. They do: every tested cap-hit positive collapses to a 13- to 18-token EOS-terminated halt (claim **CL-11**). This is the strong vision result; the attention-mass finding above is the weak one.
+Replace the input image with grey noise and re-decode. If runaway documents collapse to short clean EOS halts, the image *content* is sufficient to sustain the loop. They do: all 5 of 5 named cap-hit positives (`arxiv_table_000266`, `docvqa_jqbg0227_p1`, `docvqa_kshm0227_p7`, `docvqa_srgb0228_p2`, `funsd_105_105`) collapse to a 13- to 18-token EOS-terminated halt (claim **CL-11**, `results/p3_image_inpaint/_summary.json`, `n_vision_load_bearing=5`). With N=5 we report this qualitatively, with no Wilson interval. We say "image content is sufficient to sustain the loop" rather than "vision is causally load-bearing" because grey noise confounds two things — removing visual evidence and destroying readable content — and the discriminating run (swapping in a *different readable* document) is left to future work. This is still the stronger vision-side result; the attention-mass finding above is the weaker one.
 
 ### Fine-tune signature
 
@@ -209,7 +209,7 @@ A reading guide so the paper's evidence chain makes sense.
 
 **Read cross-family reproduction as modest and not a generality claim; fine-tune-origin is now substantiated.** Under the strict `stop_reason == max_new_tokens` criterion the bug reproduces on 10 of 16 doc-model cells across 4 families (per-family 3/4, 1/4, 3/4, 3/4), but sixteen cells over four families is a thin matrix and the directory-level aggregate verdict abstains (`INSUFFICIENT_DATA`), so read this as "reproduces on 10 of 16 cells" with no strong generality claim, not as proof the bug is universal. The fine-tune signature, by contrast, is no longer merely directional: a matched base-model run on the same Qwen2.5-VL-3B backbone (CL-25-base) shows no separable halt geometry (ratio 1.12 / 0.78 / 0.92, all below 2.0x) even on the base model's own cap-hit docs, so fine-tuning is shown to introduce and sharply amplify the geometry.
 
-**Read the fix as an honest trade-off, not a silver bullet.** The runtime monitor has an operating curve. At a +6.91 logit boost it gives a 37.68% length reduction with 0 of 10 control false positives (clean specificity). At a +30 boost it gives a 99.58% reduction but 10 of 10 control false positives (catastrophic). There is no free lunch; the contribution is characterizing the curve and motivating a vision-aware guardrail (because the grey-noise inpaint result shows vision is causally load-bearing).
+**Read the fix as an honest trade-off, not a silver bullet.** The runtime monitor has an operating curve. At a +6.91 logit boost it gives a 37.68% length reduction with 0 of 10 control false positives (clean specificity). At a +30 boost it gives a 99.58% reduction but 10 of 10 control false positives (catastrophic). There is no free lunch; the contribution is characterizing the curve and motivating a vision-aware guardrail (because the grey-noise inpaint result shows image content is sufficient to sustain the loop).
 
 **Stay alert to the two preliminary spots.** The attention-mass collapse (CL-09e) is **N=1 vs N=1** and is the single weakest leg. The corpus is **selection-biased** (built from known-positive documents), so it supports mechanism claims but not base-rate claims.
 
@@ -228,7 +228,7 @@ A quick reference tying the headline claims to their verification status. "Confi
 | CL-05e | L24 cross-doc AUC 0.894; B=20 null p<=0.0033 (=1/301 floor at N_perm=300, exceedance count 0, not a measured separation); only L20+L24 clear Bonferroni 0.005 | confirmed |
 | CL-22 | EOS median rank ~10,502 at loop onset (genuinely missing) | confirmed |
 | CL-50 | Filled-cell halt direction built at L20, read at L24 | confirmed |
-| CL-11 | Grey-noise inpaint collapses runaways to 13 to 18 token EOS halts (vision causal) | confirmed |
+| CL-11 | Grey-noise inpaint collapses all 5/5 named runaways to 13 to 18 token EOS halts (image content sufficient to sustain loop; grey noise confounds vision-removal with content-removal) | confirmed |
 | CL-25 | Fine-tune pos/ctl Cohen's-d ratio 3.79 / 2.74 / 2.78 at L16/L20/L24 (all > 2.0x) | confirmed |
 | CL-48 / CL-39 | Monitor: 99.58% reduction at +30 (10/10 FP) vs 37.68% at +6.91 (0/10 FP) | confirmed |
 | CL-02 | CUDA re-screen 6/123 = 4.88%; 8 MPS-pos flip to control; 0 new positives | confirmed |
@@ -277,7 +277,7 @@ The B3 reverse-direction necessity null was *recovered by syncing*: the genuine 
 
 **Q7. What does the grey-noise image-inpaint experiment establish, and how does it differ in strength from the cross-modal attention finding?**
 
-Replacing the image with grey noise collapses every tested runaway document to a short clean EOS halt (about 13 to 18 tokens), a *causal* demonstration that vision is load-bearing for the halt decision (CL-11, confirmed). The cross-modal attention-mass finding (about 14x lower text-to-image attention at layer 20 in the runaway case) is only *correlational* and only **N=1 versus N=1** (CL-09e), so it is a suggestive signal reserved for larger-N future work, not an established result.
+Replacing the image with grey noise collapses every tested runaway document — all 5 of 5 named positives — to a short clean EOS halt (about 13 to 18 tokens), showing that the image *content* is sufficient to sustain the loop (CL-11, confirmed; reported qualitatively at N=5 with no Wilson interval). We deliberately say "sufficient" rather than "vision is causally load-bearing" because grey noise confounds removing visual evidence with destroying readable content; the discriminating run (a different *readable* document) is future work. The cross-modal attention-mass finding (about 14x lower text-to-image attention at layer 20 in the runaway case) is only *correlational* and only **N=1 versus N=1** (CL-09e), so it is a suggestive signal reserved for larger-N future work, not an established result.
 
 **Q8. The mitigation once claimed "83.1% reduction with zero false positives." Why was that walked back, and what replaced it?**
 

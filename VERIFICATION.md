@@ -32,7 +32,7 @@ Verdict key:
 | CL-21 | Per-layer LODO AUC (N=22) | >=0.84 every layer; L16=0.929 edges L24=0.914 | `p4_mirror/H7_cross_layer/_summary.json` |
 | CL-22 | EOS rank at loop onset | median ~10,502; 0.9% rank <=5 (N=110/22 docs) | `p6_mirror/B_calib_onset/_summary.json` |
 | CL-50 | Build-vs-read (filled) | cos_block +0.042@L20 vs -0.010@L24 (N=18) | `fcct_refresh/per_class_block_contribution_aggregate.csv` |
-| CL-11 | Grey-noise inpaint (vision sufficiency) | cap-hit 12000 -> 13-18 tok, stop=eos (file: 5/5; claim names 4/4) | `p3_image_inpaint/_summary.json` |
+| CL-11 | Grey-noise inpaint (image-content sufficiency) | cap-hit 12000 -> 13-18 tok, stop=eos; 5/5 named positives collapse (n_vision_load_bearing=5: arxiv_table_000266, docvqa_jqbg0227_p1, docvqa_kshm0227_p7, docvqa_srgb0228_p2, funsd_105_105); reported qualitatively (N=5, no Wilson CI); claim softened to "image content is sufficient to sustain the loop" (grey noise confounds vision-removal with content-removal) | `p3_image_inpaint/_summary.json` |
 | CL-09e | Attention-mass collapse (N=1v1) | pos/ctl 0.070@L20 (14.2x), 0.216@L24 (4.6x), 0.695@L16 | `p2_pilot/hc_baseline_results.json` |
 | CL-48 | Monitor @+30 boost | 99.58% reduction, 0 cap-hits, 10/10 control FP (N=13) | `p97_rebakeoff_boost_magnitudes/boost_30/_comparison_table.json` |
 | CL-39 | Monitor @+6.91 boost | 37.68% reduction, 0/10 control FP, 5/13 cap-hits | `p97_rebakeoff_boost_magnitudes/boost_6p91/_comparison_table.json` |

@@ -76,7 +76,8 @@ under a strict stop-reason criterion it reproduces on 10 of 16 doc-model cells a
 four model families, but the matrix is small and the aggregate verdict abstains, so we
 make no strong generality claim. We close with an honest
 production trade-off, a runtime monitor that cuts runaway length 37.68\% at zero control
-false-positives, and show that vision is causally load-bearing via image inpainting.
+false-positives, and show via grey-noise image inpainting that image content is
+sufficient to sustain the loop (all 5 of 5 named positives collapse to short EOS halts).
 \end{abstract}
 
 \paragraph{AI assistance disclosure.}
@@ -557,13 +558,19 @@ deployable point is the conservative $+6.91$ boost.
   \label{fig:monitor_tradeoff}
 \end{figure}
 
-\paragraph{Vision is causally load-bearing.}
+\paragraph{Image content is sufficient to sustain the loop.}
 Replacing the input image with grey noise collapses every tested cap-hit positive from a
 full-cap runaway to a short clean-EOS halt: across the tested positives, baseline
-cap-length stops become 13- to 18-token, EOS-terminated halts under grey-noise inpaint
-(named subset reported at 4 of 4; Wilson 95\% CI $[51\%, 100\%]$). This motivates a
-vision-aware guardrail rather than a purely text-side penalty: the halt-failure state is
-conditioned on the visual input.
+cap-length stops become 13- to 18-token, EOS-terminated halts under grey-noise inpaint.
+All 5 of 5 explicitly named positives collapse this way (\texttt{arxiv\_table\_000266},
+\texttt{docvqa\_jqbg0227\_p1}, \texttt{docvqa\_kshm0227\_p7}, \texttt{docvqa\_srgb0228\_p2},
+\texttt{funsd\_105\_105}); with $N=5$ we report the count qualitatively rather than
+attaching a Wilson interval. We state the claim as image \emph{content} being sufficient
+to sustain the loop rather than as a clean vision-causality demonstration, because
+grey-noise replacement confounds removing visual evidence with destroying readable
+content; the discriminating experiment (swapping in a different readable document) is left
+to future work. This still motivates a vision-aware guardrail rather than a purely
+text-side penalty: the halt-failure state is conditioned on the visual input.
 
 A correlational vision signal points the same way. In a single-positive-versus-single-control
 comparison, the positive document's text-to-image attention mass collapses in the L20 to
@@ -627,10 +634,12 @@ substrate for OCR-specific behavior has begun to be mapped: text-inpaint causal
 protocols localize where OCR information enters the residual stream
 \citep{steinberggal2026}, and path-patching studies isolate vision-to-text ``OCR heads''
 that route visual evidence into the language stream \citep{baek2025}. We borrow the
-text-inpaint logic for our vision-causality test, where replacing the input image with
-grey noise collapses tested cap-hit positives from 12{,}000-token runaways into short
-\texttt{stop\_reason=eos} halts of 13 to 18 tokens, establishing that vision is causally
-load-bearing for the halt-failure state. Where these works localize \emph{where OCR
+text-inpaint logic for our image-content test, where replacing the input image with
+grey noise collapses tested cap-hit positives (all 5 of 5 named documents) from
+12{,}000-token runaways into short \texttt{stop\_reason=eos} halts of 13 to 18 tokens,
+establishing that image content is sufficient to sustain the halt-failure state (we say
+``sufficient'' rather than ``causally load-bearing'' because grey noise confounds removing
+visual evidence with destroying readable content). Where these works localize \emph{where OCR
 content arrives}, we localize \emph{where the decision to terminate is represented} and
 show it forms a class-structured attractor rather than residing at a single routing
 site.
@@ -881,7 +890,8 @@ but the matrix is small and the directory-level aggregate verdict abstains, so w
 strong generality claim from it.
 We present a deployable production monitor with an explicit precision-recall
 trade-off (37.68\% reduction at zero control false-positives, or 99.58\% at 10 of 10
-false-positives) plus causal evidence that vision is load-bearing. The walk-backs are part
+false-positives) plus an image-inpaint result showing that image content is sufficient to
+sustain the loop (all 5 of 5 named positives collapse to short EOS halts under grey noise). The walk-backs are part
 of the result: showing where the single-cause story fails is what motivates --- without
 proving --- the distributed attractor reading, whose fine-tune-introduced geometry is now
 supported by the base comparison, and the experiment
