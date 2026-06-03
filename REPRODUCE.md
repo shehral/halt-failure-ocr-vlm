@@ -1,7 +1,7 @@
-# REPRODUCE.md — Halt-Failure as a Class-Structured Residual-Stream Attractor in Fine-Tuned OCR-VLMs
+# REPRODUCE.md — Halt-Failure Behaves Like a Class-Structured Residual-Stream Attractor in Fine-Tuned OCR-VLMs
 
 This guide lets a stranger reproduce every confirmed result in the paper
-*"Halt-Failure as a Class-Structured Residual-Stream Attractor in Fine-Tuned OCR
+*"Halt-Failure Behaves Like a Class-Structured Residual-Stream Attractor in Fine-Tuned OCR
 Vision-Language Models"* from scratch, driving an Explorer-style SLURM cluster
 (SLURM + H200 GPUs) autonomously from a Claude Code session.
 
@@ -24,16 +24,19 @@ don't paper over it.
 
 Fine-tuned OCR-VLMs sometimes fail to emit EOS and run to `max_new_tokens`
 (phantom table rows, repetition loops, hallucinated structural tags). The paper
-argues this is a **distributed, class-structured attractor in the residual
-stream**, not a single broken layer. The reproduction splits into four buckets:
+advances the **hypothesis** that this *behaves like* a **distributed,
+class-structured attractor in the residual stream**, not a single broken layer —
+while being explicit that the causal nulls do not settle "distributed" against
+"under-powered protocol" (the mechanism remains unidentified). The reproduction
+splits into four buckets:
 
 1. **Characterization** — build the cap-hit corpus, measure the device-induced
    positive-set shrink, capture per-step EOS logits.
 2. **Mechanism (correlational)** — per-class halt-direction probes, logit-lens
    triangulation, FCCT build-vs-read decomposition, calibration rank.
 3. **Mechanism (causal)** — a converging series of single-direction / single-layer
-   perturbation **nulls**, plus a norm-scaled positive control proving the protocol
-   has real sensitivity.
+   perturbation **nulls**, plus a norm-scaled positive control that bounds (but does
+   not eliminate) the "protocol under-powered" objection.
 4. **Production + vision** — runtime EOS-boost monitor (precision-recall trade-off)
    and grey-noise image inpainting (vision is causally load-bearing).
 
@@ -344,7 +347,9 @@ characterization claims first (they build the corpus everything else indexes).
 
 > These are first-class results. The point is that single-direction / single-layer
 > perturbations **fail** to move token count. Reproduce the nulls *and* the positive
-> control that proves the protocol has real sensitivity.
+> control that shows the protocol was not inert (it visibly alters content) — but note
+> the nulls do not, by themselves, settle "distributed mechanism" against "under-powered
+> protocol." The mechanism remains unidentified at this protocol's power (CL-35).
 
 #### CL-49 — Sufficiency null at L0
 - **Shows:** injecting the bare-word-repeat direction at L0 does not induce
@@ -354,7 +359,7 @@ characterization claims first (they build the corpus everything else indexes).
 - **Output:** `results/p6_l0_sufficiency/_summary.json`
 - **Check:** ΔC1 = **0.0 pp** @ α=10 → **FAIL** vs pre-reg ≥ 40 pp. L0 is a readout.
 
-#### CL-36 — Norm-scaled positive control (rebuts "protocol under-powered")
+#### CL-36 — Norm-scaled positive control (bounds, but does not eliminate, "protocol under-powered")
 - **Shows:** scaling a single-direction L24 patch to 0.1× / 10× / 100× residual norm
   changes content visibly but never escapes the cap.
 - **Output:** `results/p_poscontrol/_summary.json`
@@ -362,6 +367,13 @@ characterization claims first (they build the corpus everything else indexes).
   visibly changes (e.g. a prepended Chinese token, `**` formatting noise). The
   protocol delivers content-altering perturbations but cannot dislodge the halt
   state.
+- **What this does and does not establish:** it rebuts only the *strongest* form of the
+  "protocol under-powered" objection — that the protocol is inert. It does **not** rebut
+  the weaker, more relevant form: that the protocol cannot perturb the *specific*
+  halt-relevant direction at the *specific* halt-relevant locus. A random-direction
+  patch that visibly reorders surface tokens is not evidence that a targeted halt-mechanism
+  patch would have been detectable. Treat it as a sensitivity floor, not a clean
+  refutation of under-power. The mechanism remains unidentified at this protocol's power.
 
 #### CL-12 — B3 reverse-direction necessity null (READOUT)
 - **Shows:** projecting the halt direction *out* of every position does not lengthen
@@ -396,6 +408,15 @@ characterization claims first (they build the corpus everything else indexes).
 > "8 converging nulls" figure was prose-only. The nonzero controls are dominated by
 > `off_layer` norm-shock, so they bound protocol sensitivity rather than localize a
 > mechanism — which is exactly why CL-36's matched-norm positive control is load-bearing.
+>
+> **The honest bottom line (per the project's own CL-35).** All single- and multi-site
+> perturbations returned null at this protocol's power. Whether the mechanism is genuinely
+> distributed or the protocol is under-powered at the halt-relevant locus is **not
+> resolved** by these data; the mechanism remains unidentified. CL-36 bounds, but does not
+> eliminate, the under-powered alternative. The "distributed attractor" reading is a
+> labeled hypothesis that fits the full evidence pattern, not a causally-isolated
+> mechanism. The discriminating experiment (patching the *same* halt direction at a
+> *non-loop* position) is left to future work.
 
 ### 4.4 Production fix + vision
 

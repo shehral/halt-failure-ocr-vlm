@@ -2,7 +2,7 @@
 
 % ---------------------------------------------------------------------------
 % Clean article-class arXiv preprint (no venue template).
-%   "Halt-Failure as a Class-Structured Residual-Stream Attractor in
+%   "Halt-Failure Behaves Like a Class-Structured Residual-Stream Attractor in
 %    Fine-Tuned OCR Vision-Language Models"
 %   Ali Shehral, Khoury College of Computer Sciences,
 %   Northeastern University, San Jose.
@@ -26,7 +26,7 @@
 \setlength{\parskip}{0.4em}
 \setlength{\parindent}{0pt}
 
-\title{\textbf{Halt-Failure as a Class-Structured Residual-Stream Attractor\\
+\title{\textbf{Halt-Failure Behaves Like a Class-Structured Residual-Stream Attractor\\
 in Fine-Tuned OCR Vision-Language Models}}
 
 \author{
@@ -46,18 +46,23 @@ in Fine-Tuned OCR Vision-Language Models}}
 Fine-tuned OCR vision-language models (OCR-VLMs) sometimes fail to stop: instead of
 emitting end-of-sequence (EOS), decoding runs to the generation cap and surfaces as
 phantom table rows, runaway loops, and hallucinated structural markers. Studying this
-\emph{halt-failure} in a 3B-parameter OCR fine-tune, we argue it is not a single
-broken layer but a stable, class-structured attractor in the residual stream. Three
-findings support this. (i) Per-class halt directions are linearly decodable across the
-decoder (AUC 0.876 to 0.983) and content-decoupled under a pre-registered test.
+\emph{halt-failure} in a 3B-parameter OCR fine-tune, we advance the \emph{hypothesis}
+that it is not a single broken layer but behaves like a stable, class-structured
+attractor in the residual stream. Three findings motivate this reading. (i) Per-class
+halt directions are linearly decodable across the decoder (AUC 0.876 to 0.983) and
+content-decoupled under a pre-registered test.
 (ii) The network computes a should-halt signal only late: the logit-lens EOS gap is
 most negative at layer 24 and flips positive by layer 32, and EOS is suppressed only
 relatively, out-scored by continuation tokens by roughly 20 logits. (iii) A converging
 series of single-direction and single-layer perturbations fails to change the token
-count, localizing the failure to a distributed, fine-tune-introduced attractor rather
-than any one layer. We close with an honest production trade-off, a runtime monitor
-that cuts runaway length 37.68\% at zero control false-positives, and show that vision
-is causally load-bearing via image inpainting.
+count. We are explicit that these nulls do not settle the mechanism: all single- and
+multi-site perturbations we ran returned null at this protocol's power, and whether the
+mechanism is genuinely distributed or the protocol is under-powered at the halt-relevant
+locus is \emph{not resolved} by these data. A norm-scaled positive control rules out
+only the strongest version of the under-powered objection (the protocol is not inert:
+it visibly alters content) and leaves the weaker version open. We close with an honest
+production trade-off, a runtime monitor that cuts runaway length 37.68\% at zero control
+false-positives, and show that vision is causally load-bearing via image inpainting.
 \end{abstract}
 
 \paragraph{AI assistance disclosure.}
@@ -83,12 +88,19 @@ this is a reliability bug. From a mechanistic standpoint it is an unusually clea
 window into how a fine-tuned model represents the \emph{decision to terminate} and why
 that decision can be silently overridden.
 
-This paper stakes a single thesis: in fine-tuned OCR-VLMs, halt-failure is a
-distributed residual-stream attractor, not a single-layer bug. We do not claim to have
-found ``the halt circuit.'' On the contrary, the strongest part of our evidence is a
-series of causal-perturbation experiments that \emph{fail} to move behavior when we
-intervene at any single direction or layer. We treat those nulls as first-class
-results.
+This paper stakes a single, deliberately-hedged thesis: in fine-tuned OCR-VLMs,
+halt-failure \emph{behaves like} a distributed residual-stream attractor rather than a
+single-layer bug. We label this an attractor \emph{hypothesis}, not a settled
+mechanism. We do not claim to have found ``the halt circuit.'' On the contrary, the
+core of our causal evidence is a series of perturbation experiments that \emph{fail} to
+move behavior when we intervene at any single direction or layer. We treat those nulls
+as first-class results, but we are equally explicit about what they cannot show: a
+converging set of nulls at a fixed protocol power is consistent with a genuinely
+distributed mechanism \emph{and} with an under-powered protocol that cannot perturb the
+halt-relevant direction at the halt-relevant locus. The present data do not distinguish
+these, so we report the attractor reading as the framing that fits the full evidence
+pattern, not as a mechanism we have isolated (Section~\ref{sec:causal},
+Section~\ref{sec:limitations}).
 
 The two payoff results that set up the rest of the paper are (i) that per-class halt
 directions are linearly decodable and content-decoupled across the decoder
@@ -314,8 +326,12 @@ thousands of tokens deep, so ``at loop onset'' is a late-onset operationalizatio
 The mechanism findings in Section~\ref{sec:mechanism} are correlationally rich. The
 natural follow-up is causal: can we \emph{induce} or \emph{abolish} halt-failure by
 perturbing a single direction or layer? Across a converging series of perturbation
-experiments, the answer is no, and we read this as evidence for a distributed attractor
-rather than a localized cause.
+experiments, the answer is no. We read this as \emph{consistent with} a distributed
+attractor rather than a localized cause, but we flag at the outset that a converging set
+of nulls underdetermines the mechanism: it is equally consistent with a protocol that is
+under-powered at the halt-relevant locus. We return to this disambiguation in
+Section~\ref{sec:limitations}; the present section reports the nulls and the one
+positive control that bounds, but does not eliminate, the under-powered alternative.
 
 \subsection{Sufficiency null at L0}
 
@@ -325,16 +341,23 @@ rate versus the vanilla run is 0.0 percentage points, against a pre-registered P
 threshold of $\geq 40$ pp, a clear failure of the sufficiency hypothesis. Layer 0 is a
 readout, not a generator.
 
-\subsection{Norm-scaled positive control rebuts ``protocol under-powered''}
+\subsection{Norm-scaled positive control bounds, but does not eliminate, ``protocol under-powered''}
 
 A reviewer might object that the perturbation protocol is simply too weak to move
-anything. The norm-scaled positive control addresses this directly. Scaling a
+anything. The norm-scaled positive control speaks to this, but only partially. Scaling a
 single-direction layer-24 patch to $0.1\times$, $10\times$, and $100\times$ the
 residual norm, 0 of 4 documents escape the cap at any scale. The perturbations
 nonetheless \emph{do} land visibly in the output (one document gets a foreign-language
 token prepended, another gets stray Markdown emphasis inserted), so the protocol is
-demonstrably delivering content-altering perturbations; it just cannot dislodge the
-halt-failure state. Content moves while token count does not.
+demonstrably not inert: it delivers content-altering perturbations; it just cannot
+dislodge the halt-failure state. Content moves while token count does not. We are
+careful about what this rules out. It rebuts the \emph{strongest} form of the
+under-powered objection --- that the protocol delivers no perturbation at all --- but it
+does not rebut the weaker, more relevant form: that the protocol cannot perturb the
+\emph{specific} halt-relevant direction at the \emph{specific} halt-relevant locus.
+A random-direction patch that visibly reorders surface tokens is not evidence that a
+targeted patch of the halt mechanism would have been detectable. We therefore treat the
+positive control as a sensitivity floor, not as a clean refutation of under-power.
 
 \subsection{The on-record null count, stated honestly}
 
@@ -402,6 +425,16 @@ as \emph{two verified plus further unsynced} to keep the on-disk count honest. W
 norm-shock caveat openly (Section~\ref{sec:limitations}): some off-target controls reduce
 length by large amounts under norm-shock, which makes ``the controls themselves are
 suspect'' a live alternative to ``the protocol is under-powered.''
+
+We state the bottom line for this section plainly, because it is the load-bearing hedge
+of the paper. All single- and multi-site perturbations we ran returned null at this
+protocol's power. Whether the mechanism is genuinely distributed or the protocol is
+under-powered at the halt-relevant locus is \emph{not resolved} by these data; the
+mechanism remains unidentified. The discriminating experiment --- a positive-control
+patch of the \emph{same} halt direction at a \emph{non-loop} position, which would
+separate ``distributed'' from ``under-powered'' --- is left to future work. The
+attractor reading in the rest of the paper is therefore a labeled hypothesis that fits
+the full evidence pattern, not a mechanism we have causally isolated.
 
 % ===========================================================================
 \section{Cross-family generality}
@@ -580,7 +613,10 @@ $0.1\times$, $10\times$, or $100\times$ the residual norm (0 of 4 documents esca
 cap at any scale) even though the perturbations visibly alter output content. This is the
 inverse of the steering-success narrative in the single-direction literature: the
 direction is \emph{decodable} (per-class AUC 0.876 to 0.983) without being
-\emph{steerable}, which is the signature we attribute to a distributed attractor.
+\emph{steerable}. We read this decodable-but-not-steerable gap as \emph{consistent with}
+a distributed attractor, while noting it is equally consistent with a perturbation
+protocol that is under-powered at the halt-relevant locus; we do not adjudicate between
+the two (Section~\ref{sec:limitations}).
 
 \paragraph{The counting-manifold account of halt decisions.}
 The decision to stop is, in part, a decision about \emph{how much} has been emitted,
@@ -627,13 +663,16 @@ collapse of text-to-image attention mass in the L20 to L24 band.
 
 \paragraph{Positioning.}
 Against all of these, our contribution is to read OCR-VLM halt-failure not as a single
-broken layer, sink, head, or steerable direction, but as a stable, class-structured
-attractor in the residual stream: decodable per class and content-decoupled, computed
-downstream too late to override an upstream continuation commitment, robust to
-single-site perturbation in both the necessity and sufficiency directions,
-fine-tune-introduced in its geometry, and conditioned on the visual input. We treat the
-converging nulls as first-class evidence and report an honest production trade-off rather
-than a clean single-direction fix.
+broken layer, sink, head, or steerable direction, but \emph{as if} it were a stable,
+class-structured attractor in the residual stream: decodable per class and
+content-decoupled, computed downstream too late to override an upstream continuation
+commitment, robust to single-site perturbation in both the necessity and sufficiency
+directions, fine-tune-introduced in its geometry, and conditioned on the visual input.
+We are explicit that ``attractor'' is a hypothesis we use to organize the evidence,
+not a mechanism we have causally localized: the converging nulls are equally consistent
+with an under-powered protocol, and we do not resolve that ambiguity here
+(Section~\ref{sec:limitations}). We treat the converging nulls as first-class evidence and
+report an honest production trade-off rather than a clean single-direction fix.
 
 % ===========================================================================
 \section{Limitations and walk-back}
@@ -643,6 +682,18 @@ than a clean single-direction fix.
 We state the walk-backs plainly because they are part of the contribution.
 
 \begin{enumerate}
+  \item \textbf{The attractor reading is a hypothesis; ``distributed'' is not resolved
+  against ``under-powered.''} This is the central walk-back. All single- and multi-site
+  perturbations we ran returned null at this protocol's power, and whether the mechanism
+  is genuinely distributed across many directions or the protocol is simply under-powered
+  at the halt-relevant locus is not resolved by these data: the mechanism remains
+  unidentified. The two readings are observationally equivalent at this protocol power, so
+  we present ``class-structured residual-stream attractor'' as a labeled hypothesis and
+  metaphor for the full evidence pattern, not as a causally-isolated mechanism. The
+  experiment that would settle it --- a positive-control patch of the same halt direction
+  at a non-loop position --- is left to future work. We make this hedge load-bearing
+  throughout the title, abstract, and conclusion.
+
   \item \textbf{Necessity evidence is two verified nulls plus unsynced corroboration.}
   Two single-site nulls reproduce from data files in this repository: the
   reverse-direction project-out null (readout verdict, controls unchanged, positive
@@ -656,10 +707,15 @@ We state the walk-backs plainly because they are part of the contribution.
   patches are mostly off-layer norm-shock, so they establish ``single-site perturbation
   does not move halting at this protocol's power,'' not a fully exhaustive causal search.
 
-  \item \textbf{Norm-shock makes some off-target controls suspect.} Off-target controls
+  \item \textbf{Norm-shock makes some off-target controls suspect, and the positive
+  control only bounds under-power.} Off-target controls
   that reduce length by large amounts under norm-shock mean ``the controls are suspect''
   is a real alternative to ``the protocol is under-powered.'' Our verified positive
-  control (Section~\ref{sec:causal}) is the load-bearing sensitivity evidence.
+  control (Section~\ref{sec:causal}) is the load-bearing sensitivity evidence, but it
+  rebuts only the strongest form of the under-powered objection (the protocol is not
+  inert; it visibly alters content). It does not rebut the weaker, more relevant form,
+  that the protocol cannot perturb the specific halt direction at the specific
+  halt-relevant locus, which is why item~1 above remains open.
 
   \item \textbf{Cross-family and cross-checkpoint reproduction is qualitative.} We
   present cross-family and cross-checkpoint reproduction only qualitatively. A precise
@@ -690,8 +746,9 @@ We state the walk-backs plainly because they are part of the contribution.
 \label{sec:conclusion}
 % ===========================================================================
 
-Halt-failure in a fine-tuned OCR-VLM behaves like a stable, class-structured attractor in
-the residual stream rather than a single broken layer. The evidence is pre-registered and
+Halt-failure in a fine-tuned OCR-VLM \emph{behaves like} a stable, class-structured
+attractor in the residual stream rather than a single broken layer. We advance this as a
+labeled hypothesis, not a settled mechanism. The evidence is pre-registered and
 converging: per-class halt directions are linearly decodable (AUC 0.876 to 0.983) and
 content-decoupled (max pairwise cosine 0.2349); the network computes a downstream
 should-halt signal that arrives too late to override an upstream continuation state
@@ -699,17 +756,23 @@ should-halt signal that arrives too late to override an upstream continuation st
 suppression is relative not absolute (chosen-vs-EOS margin about 20 logits; cap-hit EOS
 logit $+10.76$ exceeding a control's $+10.07$); EOS is genuinely missing at loop onset
 (median rank roughly 10{,}502); and a converging series of single-direction and
-single-layer perturbations fail to move token count, with the verified norm-scaled
-positive control (0 of 4 escape at any scale, content visibly changing) rebutting the
-under-powered-protocol objection. Our load-bearing causal evidence is two on-disk-verified
-single-site nulls (B3 reverse-direction project-out and the P16 component-resolved grid, the
-latter subsuming CL-19/CL-20), plus four further perturbation nulls recorded on the cluster
-but not yet synced to local data files. We present a
-deployable production monitor with an explicit precision-recall trade-off (37.68\%
-reduction at zero control false-positives, or 99.58\% at 10 of 10 false-positives) plus
-causal evidence that vision is load-bearing. The walk-backs are part of the result:
-showing where the single-cause story fails is exactly what localizes the failure to a
-distributed, fine-tune-introduced attractor.
+single-layer perturbations fail to move token count. We are deliberately careful with the
+last point: all single- and multi-site perturbations we ran returned null at this
+protocol's power, and whether the mechanism is genuinely distributed or the protocol is
+under-powered at the halt-relevant locus is \emph{not resolved} by these data --- the
+mechanism remains unidentified. The verified norm-scaled positive control (0 of 4 escape
+at any scale, content visibly changing) rebuts only the strongest, protocol-is-inert form
+of the under-powered objection; it does not rebut the weaker form, that the protocol
+cannot perturb the halt-relevant direction at the halt-relevant locus. Our load-bearing
+causal evidence is two on-disk-verified single-site nulls (B3 reverse-direction
+project-out and the P16 component-resolved grid, the latter subsuming CL-19/CL-20), plus
+four further perturbation nulls recorded on the cluster but not yet synced to local data
+files. We present a deployable production monitor with an explicit precision-recall
+trade-off (37.68\% reduction at zero control false-positives, or 99.58\% at 10 of 10
+false-positives) plus causal evidence that vision is load-bearing. The walk-backs are part
+of the result: showing where the single-cause story fails is what motivates --- without
+proving --- the distributed, fine-tune-introduced attractor reading, and the experiment
+that would distinguish ``distributed'' from ``under-powered'' is the clearest next step.
 
 % ===========================================================================
 \bibliographystyle{plainnat}

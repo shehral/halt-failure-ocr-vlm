@@ -24,7 +24,7 @@ Verdict key:
 | CL-42 | Decoupling verdict | PASS_BOTH; 10/10 distinct, 3/10 global (L4/L8/L32); max pairwise cos 0.2349 @ L20 | `q1_combined/_summary.json` |
 | CL-42-global | Global AUC | peak L8=0.8571, trough L32=0.7702 (below per-class everywhere) | `q1_combined/per_layer_extracted.csv` |
 | CL-49 | L0 sufficiency null | dC1 = 0.0 pp @ alpha=10 -> FAIL (pre-reg >=40 pp) | `p6_l0_sufficiency/_summary.json` |
-| CL-36 | Norm-scaled positive control | 0/4 escape 12000 cap at 0.1x/10x/100x; content visibly changes | `p_poscontrol/_summary.json` |
+| CL-36 | Norm-scaled positive control | 0/4 escape 12000 cap at 0.1x/10x/100x; content visibly changes (`高峰` prepended at C2_100x). **Bounds only the strongest "protocol-inert" form of the under-powered objection; does NOT rule out that the protocol cannot perturb the halt direction at the halt-relevant locus.** Mechanism remains unidentified (CL-35). | `p_poscontrol/_summary.json` |
 | CL-25 | Fine-tune PCA pos/ctl \|d\| ratio | L16=3.79, L20=2.74, L24=2.78 (N=22 pos / 52 ctl) | `p7b_mirror/PCA_control/_summary.json` |
 | CL-16 | Logit-lens EOS gap | L24=-0.419 (most neg) -> L32=+0.481, L35=+0.336 (N=4+9) | `p3_logit_lens/_summary.json` |
 | CL-05e | L24 LODO AUC + null | AUC 0.894; B=20 p=0.0033 = resolution floor 1/(N_perm+1)=1/301 at N_perm=300 (observed AUC beat all 300 perms, exceedance count 0), not a measured separation; report as p<=0.0033; also B=5,B=10 hit the same 1/301 floor; only L20+L24 clear Bonferroni 0.005 | `p3_full_probe/full_probe_results.json`; nulls in `p2_pilot/round2_block_shuffle_null_B{5,10,20}.json` |
@@ -80,6 +80,21 @@ not blockers on the core thesis.
 6. Fix the "14 classes" title string in the corpus-funnel plot -> 12 populated, and locate or
    retire the 45/49 figures.
 
+## Framing note: "attractor" is a hypothesis, not a settled mechanism (per CL-35 / audit NR-04)
+
+The "class-structured residual-stream attractor" reading is a **labeled hypothesis and
+metaphor for the evidence pattern, not a causally-isolated mechanism**. The on-disk causal
+evidence is a converging series of perturbation nulls (CL-12 B3, CL-19/20 P16, CL-49 L0
+sufficiency). Per the project's own CL-35, those nulls are **equally consistent with (i) a
+genuinely distributed mechanism and (ii) a perturbation protocol that is under-powered at the
+halt-relevant locus**; the data do not distinguish the two, and the mechanism remains
+**unidentified**. The CL-36 norm-scaled positive control rebuts only the strongest
+(protocol-is-inert) form of (ii), not the weaker, more relevant form. The discriminating
+experiment that would settle (i) vs (ii) — patching the same halt direction at a non-loop
+position — is left to future work. The title/abstract/body/conclusion of the paper, and the
+README / REPRODUCE / UNDERSTANDING_GUIDE, all state this hedge consistently: halt-failure
+*behaves like* an attractor; "distributed" is not proven over "under-powered."
+
 ## Spine recommendation
 
 **Recommended: attractor / representational-geometry.** Rationale: it is the only spine whose
@@ -87,4 +102,6 @@ load-bearing skeleton is overwhelmingly *confirmed on disk* (~10 confirmed claim
 two weak legs (CL-12, CL-19/20) are exactly the honest walk-backs that strengthen rather than
 break the thesis. Attention-collapse rests on only 2 confirmed claims (one N=1). The fused
 spine requires the now-resolved causal-bridge plus an N=1 result and is undercut by the
-verified single-site nulls.
+verified single-site nulls. **Note (NR-04):** this score reflects which framing the
+*confirmed correlational* evidence best supports — it is not a resolution of the
+distributed-vs-under-powered causal question, which remains open per the framing note above.
