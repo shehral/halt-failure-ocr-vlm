@@ -73,7 +73,7 @@ An **attractor** is a stable state that a dynamical system gets pulled into and 
 
 Why reach for "attractor" rather than "broken layer"? Because every attempt to push the model out by editing one place fails. If the failure lived in one site, surgically editing that site *might* fix it; it does not. That is **consistent with** a failure that is distributed across the network — but, crucially, it is **equally consistent with** a perturbation protocol that is simply too weak to reach the halt mechanism. A converging set of nulls cannot, on its own, tell those two apart. So the honest statement is: all single- and multi-site perturbations returned null at this protocol's power, and whether the mechanism is genuinely distributed or the protocol is under-powered is **not resolved** by these data — the mechanism remains unidentified. The project is also careful about which of these nulls are fully verified versus recovered late versus preliminary (Sections 5 and 6).
 
-Why "class-structured"? Because the readable halt signal is not one monolithic direction. It is a *family* of class-conditioned directions: the direction for a filled-cell loop is not the direction for a bare-word loop, and they peak at different depths.
+Why "class-structured"? Because the readable halt signal is not one monolithic direction. Of the 12 populated surface classes, only three (LaTeX command loops, filled-cell repetition, bare-word repetition) accumulated the >=50 halt-state tokens (`min_tokens_per_class = 50`) needed to fit reliable per-class probes, so the mechanism analysis is restricted to these three (`n_classes_with_probe = 3`). Across those three it is **three class-conditioned directions**, not one: the direction for a filled-cell loop is not the direction for a bare-word loop, and they peak at different depths.
 
 ---
 
@@ -89,7 +89,7 @@ In a transformer, every layer reads from and writes to a shared running vector, 
 
 A **linear probe** is a logistic-regression classifier trained on residual-stream activations. If it separates two conditions with high accuracy, the distinguishing feature is *linearly decodable* at that layer. The probe's weight vector is a **direction** in the residual stream.
 
-A **halt direction** is the probe vector separating *positive* documents (the model ran away) from *control* documents (the model halted cleanly). The project finds these are **per-class**: a separate direction per surface class, each linearly decodable with high accuracy, each peaking at a *different* layer. A single "global" direction that ignores class is measurably weaker. The takeaway: halt-failure has *class structure*; it is not one signal (claim **CL-42**).
+A **halt direction** is the probe vector separating *positive* documents (the model ran away) from *control* documents (the model halted cleanly). The project finds these are **per-class**: a separate direction per surface class, each linearly decodable with high accuracy, each peaking at a *different* layer. Only the three classes that cleared the >=50-halt-token floor (LaTeX command loops, filled-cell repetition, bare-word repetition; `n_classes_with_probe = 3`) were probed, so this is a three-direction finding, not all 12 populated classes. A single "global" direction that ignores class is measurably weaker. The takeaway: halt-failure has *class structure*; it is not one signal (claim **CL-42**).
 
 ### Activation patching and path patching
 

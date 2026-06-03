@@ -19,6 +19,7 @@ Verdict key:
 
 | Claim | Metric | Value (on disk) | Source file (under `results/`) |
 |---|---|---|---|
+| CL-42 | Classes probed (of 12 populated) | **3 of 12**: only latex_math_cmd_loop, filled_cell_repeat, bare_word_repeat cleared the `min_tokens_per_class=50` floor (`args.min_tokens_per_class`), so `per_layer_results[*].n_classes_with_probe = 3`. Mechanism analysis restricted to these three; the per-class direction finding is n=3, not 12 | `q1_combined/_summary.json` (`args.min_tokens_per_class`, `per_layer_results[*].n_classes_with_probe`, `per_class_aucs` keys) |
 | CL-42 | Per-class halt-direction AUC range | 0.876-0.983 (filled@L8=0.8763 ... filled@L24=0.9826) | `q1_combined/per_layer_extracted.csv` |
 | CL-42 | Per-class peak layers | latex@L8=0.9785, filled@L24=0.9826, bare@L20=0.9173 | `q1_combined/per_layer_extracted.csv` |
 | CL-42 | Decoupling verdict | PASS_BOTH; 10/10 distinct, 3/10 global (L4/L8/L32); max pairwise cos 0.2349 @ L20 | `q1_combined/_summary.json` |

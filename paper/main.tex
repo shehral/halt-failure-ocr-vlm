@@ -209,6 +209,11 @@ the Bonferroni threshold of $0.005$ across the ten probed layers.
 
 \subsection{Halt representations are class-specific and content-decoupled}
 
+Of the 12 populated surface classes, only three (LaTeX command loops, filled-cell
+repetition, bare-word repetition) accumulated the $\geq 50$ halt-state tokens
+(\texttt{min\_tokens\_per\_class} $= 50$) required to fit reliable per-class probes, so the
+mechanism analysis here is restricted to these three (\texttt{n\_classes\_with\_probe} $= 3$).
+
 Per-class halt directions are strongly linearly decodable across the whole decoder,
 consistent with the linear representation hypothesis that high-level concepts are encoded
 as directions in the residual stream \citep{park2024linearrep}. Across all (layer, class)
@@ -232,8 +237,8 @@ remains separable from nuisance-variable baselines in the L20 to L24 band
 The \emph{single global} halt direction is weaker and peaks elsewhere. Pooled global
 AUC peaks at layer 8 $= 0.8571$ and troughs at layer 32 $= 0.7702$, and at every layer
 the per-class AUCs (0.85 to 0.98) sit above the global AUC (0.77 to 0.86). The model
-does not carry one universal halt direction; it carries a family of class-conditioned
-ones.
+does not carry one universal halt direction; across the three probed classes it carries
+three class-conditioned directions.
 
 \begin{figure}[ht]
   \centering
