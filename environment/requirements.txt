@@ -5,10 +5,19 @@
 #   pinned revision : c3886ff00bb037ce7da24988c9eafaf1fe2bed72
 #   architecture    : 36 decoder layers, hidden 2048, 16 attention heads, 2 KV heads
 #
-# Loader (mandatory lm_head tie-fix):
+# Captured environment (authoritative, from results/*/provenance.json):
+#   python              : 3.12.13   (results/p_poscontrol, results/p3_cross_family)
+#   torch               : 2.8.0+cu128 / CUDA 12.8
+#                         (results/p1_cuda_n40, results/p2_pilot, results/p3_cross_family)
+#   transformers        : 4.57.6    (results/p3_cross_family/_provenance.json)
+#   This is the single stack that produced every on-disk result in this repo.
+#
+# Loader (mandatory lm_head tie-fix — transformers-version-sensitive, applied unconditionally):
 #   The public checkpoint omits `lm_head.weight` and relies on `tie_word_embeddings`.
-#   transformers 5.x reads that flag off the OUTER config (False) instead of `text_config`
-#   (True), so `tie_weights()` becomes a no-op, `lm_head` stays at meta-init zeros, and
+#   The tie is read off the OUTER config (False) instead of `text_config` (True) on the
+#   transformers lines we touched (this is a known no-op on transformers 5.x and is
+#   defended against here on the pinned 4.57.6 by setting the flag explicitly), so without
+#   the fix `tie_weights()` becomes a no-op, `lm_head` stays at meta-init zeros, and
 #   greedy generation collapses to "!" forever. Every loader MUST do, before `.to(device)`:
 #
 #       from transformers import AutoModelForImageTextToText, AutoProcessor
@@ -22,7 +31,10 @@
 #       model = model.to(device)
 #
 # Install:  pip install -r environment/requirements.txt
-# Python pinned to the 3.13 line (matches the captured environment).
+# Python pinned to the 3.12 line (3.12.13, matches the captured environment in
+# results/*/provenance.json). torch and transformers are pinned to the exact
+# versions recorded there; the companion libs below are the versions resolved
+# alongside the torch 2.8.0 / transformers 4.57.6 line.
 
 # --- core numerics ---
 numpy==2.4.4
@@ -32,10 +44,11 @@ joblib==1.5.3
 threadpoolctl==3.6.0
 
 # --- deep learning ---
-torch==2.12.0
-torchvision==0.27.0
+# torch / transformers pinned to the exact versions in results/*/provenance.json.
+torch==2.8.0          # +cu128 build (CUDA 12.8); provenance: torch_version 2.8.0+cu128
+torchvision==0.23.0   # torchvision release paired with torch 2.8.0
 accelerate==1.13.0
-transformers==5.8.1
+transformers==4.57.6  # provenance: results/p3_cross_family/_provenance.json
 tokenizers==0.22.2
 safetensors==0.7.0
 huggingface-hub==1.14.0

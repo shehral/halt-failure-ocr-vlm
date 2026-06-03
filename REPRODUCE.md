@@ -87,11 +87,12 @@ habit (≈ 5000:1 cost asymmetry). A 24 GB Apple-Silicon laptop runs the model f
 context lengths up to ~2500 tokens with `attn_implementation="eager"`.
 
 ```bash
-# Python 3.11 in an isolated venv (3.11 avoids an expat ABI mismatch seen on macOS 25.x)
-uv venv --python 3.11 .venv
+# Python 3.12 in an isolated venv (matches the captured environment: python 3.12.13
+# in results/*/provenance.json). Pin torch and transformers to the recorded versions.
+uv venv --python 3.12 .venv
 source .venv/bin/activate
 uv pip install \
-  torch transformers accelerate pillow numpy scipy scikit-learn \
+  torch==2.8.0 transformers==4.57.6 accelerate pillow numpy scipy scikit-learn \
   matplotlib datasets nnsight
 ```
 
@@ -112,12 +113,15 @@ env. Substitute your own allocation and env-name placeholders:
 ALLOC=/projects/<group>/<user>
 ENV=$ALLOC/conda_envs/<conda-env>
 
-module load miniconda3/24.11.1 cuda/12.3.0   # pin CUDA 12.3.0 — 12.8 is too new for torch 2.4.1
-conda create -p "$ENV" python=3.11 -y
+module load miniconda3/24.11.1 cuda/12.8.0   # CUDA 12.8 — matches the torch 2.8.0+cu128 build on disk
+conda create -p "$ENV" python=3.12 -y
 export PATH="$ENV/bin:$PATH"
 
+# torch and transformers pinned to the exact versions in results/*/provenance.json
+# (torch 2.8.0+cu128, transformers 4.57.6). This is the single stack that produced
+# every on-disk result; see environment/requirements.txt for the full pinned list.
 pip install \
-  torch==2.4.1 transformers accelerate pillow numpy scipy \
+  torch==2.8.0 transformers==4.57.6 accelerate pillow numpy scipy \
   scikit-learn matplotlib datasets nnsight
 
 pip freeze > results/env.txt   # record the exact env on every build
@@ -160,10 +164,14 @@ cap and will OOM-kill you. Pre-cache (download) on login; load only on compute.
 ### 2.4 The MANDATORY `lm_head` tie-fix for this checkpoint
 
 `Nanonets-OCR2-3B` omits `lm_head.weight` and relies on `tie_word_embeddings`.
-But transformers 5.x reads that flag off the **outer** config (`False`) instead of
-`text_config` (`True`), so `tie_weights()` becomes a no-op, `lm_head` stays at
-meta-init zeros, and **generation collapses to `"!"` forever**. Every loader in this
-repo must do, immediately after `from_pretrained`:
+This tie is **transformers-version-sensitive**: the flag is read off the **outer**
+config (`False`) instead of `text_config` (`True`), so without intervention
+`tie_weights()` becomes a no-op, `lm_head` stays at meta-init zeros, and
+**generation collapses to `"!"` forever** (a known no-op on transformers 5.x). The
+runs in this repo were produced on the pinned **transformers 4.57.6** (see
+`environment/requirements.txt`), where every loader applies the fix unconditionally —
+immediately after `from_pretrained` — so the result does not depend on the
+transformers minor version:
 
 ```python
 model.config.tie_word_embeddings = True
@@ -188,7 +196,7 @@ load-bearing fragments:
 #SBATCH --time=08:00:00
 #SBATCH --export=ALL                 # propagate proxy vars (login-set) but proxy itself is unreachable on compute
 
-module load miniconda3/24.11.1 cuda/12.3.0
+module load miniconda3/24.11.1 cuda/12.8.0
 ENV=/projects/<group>/<user>/conda_envs/<conda-env>
 export PATH="$ENV/bin:$PATH"
 PYTHON="$ENV/bin/python"             # always explicit $PYTHON, never plain `python`
