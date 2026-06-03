@@ -75,8 +75,8 @@ signature). The halt-failure surface symptom is not unique to the studied fine-t
 under a strict stop-reason criterion it reproduces on 10 of 16 doc-model cells across
 four model families, but the matrix is small and the aggregate verdict abstains, so we
 make no strong generality claim. We close with an honest
-production trade-off, a runtime monitor that cuts runaway length 37.68\% at zero control
-false-positives, and show via grey-noise image inpainting that image content is
+production trade-off, a runtime monitor that cuts mean runaway length 37.68\% with 0 of 10
+control false-positives but still leaves 5 of 13 positives at the cap, and show via grey-noise image inpainting that image content is
 sufficient to sustain the loop (all 5 of 5 named positives collapse to short EOS halts).
 \end{abstract}
 
@@ -891,7 +891,7 @@ criterion halt-failure reproduces on 10 of 16 doc-model cells across four model 
 but the matrix is small and the directory-level aggregate verdict abstains, so we draw no
 strong generality claim from it.
 We present a deployable production monitor with an explicit precision-recall
-trade-off (37.68\% reduction at zero control false-positives, or 99.58\% at 10 of 10
+trade-off (37.68\% mean reduction with 0 of 10 control false-positives but still leaving 5 of 13 positives at the cap, or 99.58\% at 10 of 10
 false-positives) plus an image-inpaint result showing that image content is sufficient to
 sustain the loop (all 5 of 5 named positives collapse to short EOS halts under grey noise). The walk-backs are part
 of the result: showing where the single-cause story fails is what motivates --- without
