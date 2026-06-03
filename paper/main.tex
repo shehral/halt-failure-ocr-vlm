@@ -416,19 +416,29 @@ is a genuine null and not a silently inert intervention (Figure~\ref{fig:b3_reve
 A component-resolved patch grid points the same way. It decomposes the patch into MLP,
 attention, and block contributions at layers 16, 20, and 24, across 5 documents and 4
 intervention types: 0 of 45 real-patch cells produce any length reduction (a clean
-real-null), while 9 of 134 control cells do (Figure~\ref{fig:p16_component}). The honest, pre-registered caveat is that
-the nonzero controls are dominated by off-layer norm-shock rather than circuit-finding,
-so they bound protocol sensitivity rather than localize a mechanism. The verified
-positive control above is our best evidence that the protocol has real sensitivity.
+real-null), while 9 of 134 control cells do (Figure~\ref{fig:p16_component}). The honest,
+pre-registered caveat is sharper than off-layer norm-shock alone: only 4 of the 9 nonzero
+controls are off-layer perturbations, while the remaining 5 fire \emph{at the same layer
+and component as the real patch} (2 random-matched-norm, 3 shuffled-values). The clearest
+warning sign is at L16/block\_output, where a random vector matched to the real patch's
+norm ($\approx 47.4$) reduced one document's length by $99.95\%$ while the real
+halt-direction patch at exactly that site reduced it by $0\%$. This makes ``the controls
+themselves are suspect'' --- the protocol's own perturbations can collapse generation in
+ways unrelated to any halt direction --- a live alternative reading, not merely off-layer
+norm-shock, so the grid bounds protocol sensitivity rather than localizing a mechanism. The
+verified positive control above is our best evidence that the protocol has real sensitivity.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.85\linewidth]{fig_p16_component_grid.pdf}
   \caption{Component-resolved patch grid by intervention type. The real patch never
   moves length (0/45 cells, a clean real-null), while 9/134 control cells show a nonzero
-  reduction, dominated by off-layer norm-shock (4) over random-matched-norm (2) and
-  shuffled-values (3). Verdict FAIL. The nonzero controls bound protocol sensitivity
-  rather than localize a mechanism.}
+  reduction: 4 off-layer, 2 random-matched-norm, and 3 shuffled-values. Only 4 are
+  off-layer; the other 5 fire at the same layer and component as the real patch. Most
+  starkly, at L16/block\_output a random vector matched to the real patch's norm
+  ($\approx 47.4$) cuts one document's length by $99.95\%$ while the real patch there
+  cuts $0\%$. Verdict FAIL. These nonzero controls make ``the controls are suspect'' a
+  live reading and bound protocol sensitivity rather than localizing a mechanism.}
   \label{fig:p16_component}
 \end{figure}
 
@@ -471,9 +481,13 @@ keep the count honest in the other direction too: three of the six rest on small
 ($N=2$ for B3's positive, P10b, and P22), and a uniform null at small $N$ does not by
 itself separate a genuinely distributed mechanism from an under-powered protocol
 (Section~\ref{sec:limitations}). We also carry the
-norm-shock caveat openly: some off-target controls reduce
-length by large amounts under norm-shock, which makes ``the controls themselves are
-suspect'' a live alternative to ``the protocol is under-powered.''
+controls-are-suspect caveat openly: in the component grid, 5 of the 9 nonzero controls
+fire at the same layer and component as the real patch (not merely off-layer), and a
+norm-matched random vector ($\approx 47.4$, the real patch's norm) reduced one document's
+length by $99.95\%$ at L16/block\_output where the real halt-direction patch reduced $0\%$.
+That a matched-norm random perturbation collapses generation where the real patch does
+nothing makes ``the controls themselves are suspect'' a live alternative to ``the protocol
+is under-powered,'' rather than a simple off-layer norm-shock artifact.
 
 We state the bottom line for this section plainly, because it is the load-bearing hedge
 of the paper. All single- and multi-site perturbations we ran returned null at this
@@ -774,13 +788,17 @@ We state the walk-backs plainly because they are part of the contribution.
   six rest on small samples (B3's positive document, P10b, and P22 each at $N=2$), and a
   uniform null at $N=2$ does not on its own discriminate a genuinely distributed mechanism
   from an under-powered protocol; that disambiguation (item~1 above) remains open. The
-  residual caveat is sensitivity, not verification: the nonzero control patches are mostly
-  off-layer norm-shock, so the six nulls establish ``single- and multi-site perturbation
+  residual caveat is sensitivity, not verification: in the P16 grid 5 of the 9 nonzero
+  control patches fire at the same layer and component as the real patch (only 4 are
+  off-layer), so the six nulls establish ``single- and multi-site perturbation
   does not move halting at this protocol's power,'' not a fully exhaustive causal search.
 
-  \item \textbf{Norm-shock makes some off-target controls suspect, and the positive
-  control only bounds under-power.} Off-target controls
-  that reduce length by large amounts under norm-shock mean ``the controls are suspect''
+  \item \textbf{The controls are suspect, and the positive
+  control only bounds under-power.} In the component grid, a norm-matched random vector
+  ($\approx 47.4$) cut one document's length by $99.95\%$ at L16/block\_output where the
+  real halt-direction patch cut $0\%$, and 5 of the 9 nonzero controls are not off-layer.
+  That matched-norm random perturbations can collapse generation where the real patch does
+  nothing means ``the controls are suspect''
   is a real alternative to ``the protocol is under-powered.'' Our verified positive
   control (Section~\ref{sec:causal}) is the load-bearing sensitivity evidence, but it
   rebuts only the strongest form of the under-powered objection (the protocol is not
