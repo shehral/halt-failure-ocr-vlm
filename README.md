@@ -65,6 +65,7 @@ paper/                    # compiled PDF + LaTeX source
 code/                     # extraction, probing, patching, and monitor scripts
 results/                  # numerical result files referenced by VERIFICATION.md
 data/                     # public dataset manifests (DocVQA and others)
+review_corpus/            # browsable cap-hit failure corpus + self-contained viewer.html
 ```
 
 > Note: `paper/` contains the compiled PDF, LaTeX source (main.tex), and references (references.bib).
@@ -84,6 +85,11 @@ data/                     # public dataset manifests (DocVQA and others)
 
 The review corpus is drawn from public documents, including the public **DocVQA** dataset
 (UCSF industry documents). Dataset manifests live under `data/`.
+
+The cap-hit failures themselves are browsable by surface class under
+[`review_corpus/`](review_corpus/README.md): open the self-contained
+`review_corpus/viewer.html` in a browser to step through every cap-hit `doc_id`, its
+runaway model output, and run metadata, filtered by failure-mode class.
 
 ## Autonomous reproduction on HPC
 
