@@ -516,10 +516,11 @@ which a ``should-halt'' signal becomes legible at the unembedding using the logi
 \citep{belrose2023tunedlens}; this is what surfaces our finding that the EOS logit gap is
 most negative at L24 and only flips positive by L32, i.e., the halt signal arrives too
 late to override an already-committed continuation state. Where a single probe direction
-is implicated we use sparse-autoencoder decomposition
-\citep{bricken2023monosemanticity,saelens2024,park2025save} to ask whether it factors
-into interpretable sub-features, and intervention tooling \citep{pyvene2024,nnsight2024}
-to run the perturbations. To ask whether the signature is introduced by fine-tuning we
+is implicated, sparse-autoencoder decomposition
+\citep{bricken2023monosemanticity,saelens2024,park2025save} is the natural next step to
+ask whether it factors into interpretable sub-features, and we leave this to future work;
+the perturbations we do run rely on standard intervention tooling
+\citep{pyvene2024,nnsight2024}. To ask whether the signature is introduced by fine-tuning we
 draw on the differential base-versus-fine-tune comparison vocabulary of feature
 crosscoders \citep{dfc2025}; the verified PCA crossover signature (pos/ctl Cohen's-d
 ratio 3.79 / 2.74 / 2.78 at L16 / L20 / L24, all exceeding a pre-registered $2.0\times$
