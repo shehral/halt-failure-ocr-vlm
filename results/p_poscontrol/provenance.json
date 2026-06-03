@@ -21,7 +21,7 @@
     "cuda"
   ],
   "python_version": "3.12.13",
-  "results_dir": "/projects/<group>/<user>/nn-infinite-gen/results/p_poscontrol",
+  "results_dir": "/projects/<group>/<user>/halt-failure-ocr-vlm/results/p_poscontrol",
   "experiment": "positive_control_random_l24",
   "layer": 24,
   "conditions": [

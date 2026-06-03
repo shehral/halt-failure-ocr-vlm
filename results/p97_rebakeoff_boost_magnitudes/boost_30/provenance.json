@@ -9,5 +9,5 @@
   "intervention_active": true,
   "boost_magnitude_override": 30.0,
   "smoke": false,
-  "script": "/projects/<group>/<user>/nn-infinite-gen/code/p97_run_bakeoff.py"
+  "script": "/projects/<group>/<user>/halt-failure-ocr-vlm/code/p97_run_bakeoff.py"
 }

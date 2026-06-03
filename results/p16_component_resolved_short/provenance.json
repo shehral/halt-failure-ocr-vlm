@@ -24,7 +24,7 @@
     "interpretation": "Real-null: real component patches at L16/L20/L24 do not reduce runaway length; controls perturb more (mostly off_layer norm-shock per heuristic #53). Consistent with L24-as-readout, not a causal halt locus."
   },
   "regenerated_at": "2026-06-02",
-  "supersedes": "Original 58-real / 174-control grid (SLURM <jobid>) lost from /scratch/<user>/nn-p16. Smaller grid, same finding.",
+  "supersedes": "Original 58-real / 174-control grid (SLURM <jobid>) lost from /scratch/<user>/halt-failure-ocr-vlm. Smaller grid, same finding.",
   "git_commit": "no-git",
   "_backfilled": false
 }
