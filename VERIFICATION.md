@@ -27,7 +27,7 @@ Verdict key:
 | CL-36 | Norm-scaled positive control | 0/4 escape 12000 cap at 0.1x/10x/100x; content visibly changes | `p_poscontrol/_summary.json` |
 | CL-25 | Fine-tune PCA pos/ctl \|d\| ratio | L16=3.79, L20=2.74, L24=2.78 (N=22 pos / 52 ctl) | `p7b_mirror/PCA_control/_summary.json` |
 | CL-16 | Logit-lens EOS gap | L24=-0.419 (most neg) -> L32=+0.481, L35=+0.336 (N=4+9) | `p3_logit_lens/_summary.json` |
-| CL-05e | L24 LODO AUC + null | AUC 0.894; B=20 p=0.0033; only L20+L24 Bonferroni-sig | `p3_full_probe/full_probe_results.json` |
+| CL-05e | L24 LODO AUC + null | AUC 0.894; B=20 p=0.0033 (also B=5, B=10 p=0.0033); only L20+L24 Bonferroni-sig | `p3_full_probe/full_probe_results.json`; nulls in `p2_pilot/round2_block_shuffle_null_B{5,10,20}.json` |
 | CL-21 | Per-layer LODO AUC (N=22) | >=0.84 every layer; L16=0.929 edges L24=0.914 | `p4_mirror/H7_cross_layer/_summary.json` |
 | CL-22 | EOS rank at loop onset | median ~10,502; 0.9% rank <=5 (N=110/22 docs) | `p6_mirror/B_calib_onset/_summary.json` |
 | CL-50 | Build-vs-read (filled) | cos_block +0.042@L20 vs -0.010@L24 (N=18) | `fcct_refresh/per_class_block_contribution_aggregate.csv` |

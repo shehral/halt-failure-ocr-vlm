@@ -457,7 +457,9 @@ This is the part that makes the paper reproducible rather than merely runnable.
    test carries a numeric PASS threshold fixed in advance (e.g. CL-49's ≥ 40 pp).
    Significance for the cross-doc probe uses a block-shuffle null at B = 5, 10, 20
    with Bonferroni correction; B=20 is the autocorrelation-conservative,
-   load-bearing block size.
+   load-bearing block size. The three nulls are persisted at
+   `results/p2_pilot/round2_block_shuffle_null_B{5,10,20}.json` (each gives
+   layers 20 and 24 p=0.0033).
 
 ---
 

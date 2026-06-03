@@ -125,7 +125,7 @@ A subtle but central reframe. EOS is **not** suppressed in an absolute sense. Th
 
 ### Pre-registration and block-shuffle null
 
-**Pre-registration** means the numeric PASS threshold for a test is fixed *before* the validating run (e.g., the L0 sufficiency test pre-registers "PASS = at least a 40 percentage-point cap-hit increase"). This prevents post-hoc goalpost-moving. The **block-shuffle null** is a significance test for autocorrelated sequence data: you shuffle in blocks of size B (here B = 5, 10, 20) to build a null distribution. The conservative B=20 block is the load-bearing one because it respects the longest autocorrelation. Only layers 20 and 24 survive Bonferroni correction for the cross-document probe (claim **CL-05e**).
+**Pre-registration** means the numeric PASS threshold for a test is fixed *before* the validating run (e.g., the L0 sufficiency test pre-registers "PASS = at least a 40 percentage-point cap-hit increase"). This prevents post-hoc goalpost-moving. The **block-shuffle null** is a significance test for autocorrelated sequence data: you shuffle in blocks of size B (here B = 5, 10, 20) to build a null distribution. The conservative B=20 block is the load-bearing one because it respects the longest autocorrelation. All three block sizes are persisted on disk (`results/p2_pilot/round2_block_shuffle_null_B{5,10,20}.json`); each puts layers 20 and 24 at p=0.0033. Only layers 20 and 24 survive Bonferroni correction for the cross-document probe (claim **CL-05e**).
 
 ---
 
