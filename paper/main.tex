@@ -306,11 +306,13 @@ upstream.
 A naive reading would be that the model \emph{crushes} EOS to a near-zero logit. The
 data say otherwise. Per-step analysis of a representative cap-hit document shows the
 chosen-token-minus-EOS raw logit margin has mean roughly 20.61 and median roughly 20.63
-over the logged steps, with $P(\text{EOS})$ spanning roughly $10^{-8}$ to $10^{-10}$.
+over the logged steps, with $P(\text{EOS})$ held to a mean of roughly $10^{-7}$, ranging
+from about $10^{-5}$ at its highest down to $10^{-16}$ at its lowest.
 Strikingly, the cap-hit document's mean EOS logit ($+10.76$) is actually \emph{higher}
 than a clean control's ($+10.07$). EOS is not absolutely suppressed; it is
 out-competed. Continuation tokens simply out-score it by about 20 logits, which is
-enough to crush the EOS probability into the $10^{-8}$ to $10^{-10}$ range while the EOS
+enough to crush the EOS probability to a mean of roughly $10^{-7}$ (ranging from about
+$10^{-5}$ down to $10^{-16}$ over the logged steps) while the EOS
 logit itself stays comfortably positive (Figure~\ref{fig:eos_margin}).
 
 \begin{figure}[ht]
@@ -319,8 +321,8 @@ logit itself stays comfortably positive (Figure~\ref{fig:eos_margin}).
   \caption{EOS suppression is relative, not absolute (cap-hit document). The EOS logit
   stays positive throughout (mean $+10.76$, which actually exceeds a clean control's
   $+10.07$), while continuation tokens out-score it by a mean margin of roughly 20.6
-  logits, crushing $\mathrm{softmax}(\text{EOS})$ into the $10^{-8}$ to $10^{-10}$
-  range.}
+  logits, crushing $\mathrm{softmax}(\text{EOS})$ to a mean of roughly $10^{-7}$
+  (ranging from about $10^{-5}$ down to $10^{-16}$).}
   \label{fig:eos_margin}
 \end{figure}
 

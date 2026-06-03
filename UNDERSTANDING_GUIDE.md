@@ -121,7 +121,7 @@ A **fine-tune signature** is a measurable property present in the fine-tuned mod
 
 ### EOS suppression: relative, not absolute
 
-A subtle but central reframe. EOS is **not** suppressed in an absolute sense. The runaway document's raw EOS logit (+10.76) is actually *higher* than a clean control's (+10.07). What kills EOS is that continuation tokens out-score it by roughly 20 logits, crushing P(EOS) to between 1e-8 and 1e-10. So it is a *relative-margin* failure, not an "EOS logit went to negative infinity" failure. And calibration is genuinely refuted, not a near-miss: at loop onset EOS sits at median rank around 10,500, truly absent from the top of the distribution (claims **EOS-margin** and **CL-22**).
+A subtle but central reframe. EOS is **not** suppressed in an absolute sense. The runaway document's raw EOS logit (+10.76) is actually *higher* than a clean control's (+10.07). What kills EOS is that continuation tokens out-score it by roughly 20 logits, crushing P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16 over the logged steps). So it is a *relative-margin* failure, not an "EOS logit went to negative infinity" failure. And calibration is genuinely refuted, not a near-miss: at loop onset EOS sits at median rank around 10,500, truly absent from the top of the distribution (claims **EOS-margin** and **CL-22**).
 
 ### Pre-registration and block-shuffle null
 
@@ -205,7 +205,7 @@ A reading guide so the paper's evidence chain makes sense.
 
 **Distinguish per-class from global.** Whenever you see a halt-direction number, ask "is this the per-class direction or the single global one?" Per-class directions are stronger and peak at different layers; the global one is weaker. The class structure is part of the thesis.
 
-**Distinguish relative from absolute EOS suppression.** EOS is not suppressed in an absolute sense (its raw logit +10.76 exceeds a control's +10.07). It is out-competed by about 20 logits, crushing P(EOS) to 1e-8 to 1e-10. It is a relative-margin failure.
+**Distinguish relative from absolute EOS suppression.** EOS is not suppressed in an absolute sense (its raw logit +10.76 exceeds a control's +10.07). It is out-competed by about 20 logits, crushing P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16). It is a relative-margin failure.
 
 **Read cross-family reproduction as modest and not a generality claim; fine-tune-origin is now substantiated.** Under the strict `stop_reason == max_new_tokens` criterion the bug reproduces on 10 of 16 doc-model cells across 4 families (per-family 3/4, 1/4, 3/4, 3/4), but sixteen cells over four families is a thin matrix and the directory-level aggregate verdict abstains (`INSUFFICIENT_DATA`), so read this as "reproduces on 10 of 16 cells" with no strong generality claim, not as proof the bug is universal. The fine-tune signature, by contrast, is no longer merely directional: a matched base-model run on the same Qwen2.5-VL-3B backbone (CL-25-base) shows no separable halt geometry (ratio 1.12 / 0.78 / 0.92, all below 2.0x) even on the base model's own cap-hit docs, so fine-tuning is shown to introduce and sharply amplify the geometry.
 
@@ -265,7 +265,7 @@ First, the count, honestly: the run held four documents but only three were cap-
 
 **Q4. Is the EOS token "suppressed" in an absolute sense at loop onset? Explain the relative-margin reframe.**
 
-No. The runaway document's raw EOS logit (+10.76) is actually higher than a clean control's (+10.07). The failure is *relative*: continuation tokens out-score EOS by about 20 logits, which crushes P(EOS) to roughly 1e-8 to 1e-10. EOS is not pushed down in absolute terms; it is out-competed, and ends up at median rank around 10,502, genuinely missing from the top of the distribution.
+No. The runaway document's raw EOS logit (+10.76) is actually higher than a clean control's (+10.07). The failure is *relative*: continuation tokens out-score EOS by about 20 logits, which crushes P(EOS) to a mean of roughly 1e-7 (ranging from about 1e-5 down to 1e-16). EOS is not pushed down in absolute terms; it is out-competed, and ends up at median rank around 10,502, genuinely missing from the top of the distribution.
 
 **Q5. What is the fine-tune signature, and does the base-model comparison support a fine-tune origin?**
 
