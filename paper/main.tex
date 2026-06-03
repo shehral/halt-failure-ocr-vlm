@@ -58,9 +58,12 @@ series of single-direction and single-layer perturbations fails to change the to
 count. We are explicit that these nulls do not settle the mechanism: all single- and
 multi-site perturbations we ran returned null at this protocol's power, and whether the
 mechanism is genuinely distributed or the protocol is under-powered at the halt-relevant
-locus is \emph{not resolved} by these data. A norm-scaled positive control rules out
-only the strongest version of the under-powered objection (the protocol is not inert:
-it visibly alters content) and leaves the weaker version open. We close with an honest
+locus is \emph{not resolved} by these data. A norm-scaled positive control (3 cap-hit
+positives, none of which escapes the cap at any scale) rules out only the strongest
+version of the under-powered objection (the protocol is not inert: it visibly alters
+content), leaves the weaker version open, and is further blunted by a clean-halt control
+in the same run whose own output collapsed under the perturbation (a norm-shock
+signature). We close with an honest
 production trade-off, a runtime monitor that cuts runaway length 37.68\% at zero control
 false-positives, and show that vision is causally load-bearing via image inpainting.
 \end{abstract}
@@ -344,20 +347,33 @@ readout, not a generator.
 \subsection{Norm-scaled positive control bounds, but does not eliminate, ``protocol under-powered''}
 
 A reviewer might object that the perturbation protocol is simply too weak to move
-anything. The norm-scaled positive control speaks to this, but only partially. Scaling a
+anything. The norm-scaled positive control speaks to this, but only partially, and we
+state its composition precisely because it is load-bearing. The run scaled a
 single-direction layer-24 patch to $0.1\times$, $10\times$, and $100\times$ the
-residual norm, 0 of 4 documents escape the cap at any scale. The perturbations
-nonetheless \emph{do} land visibly in the output (one document gets a foreign-language
-token prepended, another gets stray Markdown emphasis inserted), so the protocol is
-demonstrably not inert: it delivers content-altering perturbations; it just cannot
-dislodge the halt-failure state. Content moves while token count does not. We are
-careful about what this rules out. It rebuts the \emph{strongest} form of the
-under-powered objection --- that the protocol delivers no perturbation at all --- but it
-does not rebut the weaker, more relevant form: that the protocol cannot perturb the
-\emph{specific} halt-relevant direction at the \emph{specific} halt-relevant locus.
-A random-direction patch that visibly reorders surface tokens is not evidence that a
-targeted patch of the halt mechanism would have been detectable. We therefore treat the
-positive control as a sensitivity floor, not as a clean refutation of under-power.
+residual norm over four documents, but only \emph{three} of those were cap-hit
+positives (manifest label \texttt{positive}: vanilla runs of $12{,}000$ tokens). On
+those three positives, none escapes the cap at any scale --- all stay pinned at
+$12{,}000$. The perturbations nonetheless \emph{do} land visibly in the output (one
+document gets a foreign-language token prepended, another gets stray Markdown emphasis
+inserted), so the protocol is demonstrably not inert: it delivers content-altering
+perturbations; it just cannot dislodge the halt-failure state. Content moves while
+token count does not. The fourth document
+(\texttt{table\_N005\_C04\_s05000}, manifest label \texttt{control}) was \emph{not} a
+cap-hit positive --- it halts cleanly on its own at 477 tokens with an EOS stop --- and
+so it cannot ``escape'' a cap it never hit. We flag it explicitly rather than fold it
+into the positive tally, because under the same perturbation its output \emph{collapsed}:
+to 3 tokens at $10\times$, to 1 token at $0.1\times$, and to $12{,}000$ tokens of
+degenerate single-character repetition at $100\times$. That collapse is a norm-shock
+signature; if anything it \emph{weakens} the protocol-sensitivity rebuttal, by showing
+that this matched-norm patch can shatter a clean halt rather than cleanly perturb it, so
+we do not count it as a positive. We are careful about what the three positives rule out.
+They rebut the \emph{strongest} form of the under-powered objection --- that the protocol
+delivers no perturbation at all --- but they do not rebut the weaker, more relevant form:
+that the protocol cannot perturb the \emph{specific} halt-relevant direction at the
+\emph{specific} halt-relevant locus. A random-direction patch that visibly reorders
+surface tokens (or shatters an unrelated clean halt) is not evidence that a targeted
+patch of the halt mechanism would have been detectable. We therefore treat the positive
+control as a sensitivity floor, not as a clean refutation of under-power.
 
 \subsection{The on-record null count, stated honestly}
 
@@ -609,8 +625,10 @@ directions are class-specific, not universal. Crucially, our single-direction te
 back null. Injecting a class-matched halt direction at L0
 changes the cap-hit rate by 0.0 percentage points against a pre-registered 40-point PASS
 threshold, and a norm-scaled positive control fails to dislodge the halt state at
-$0.1\times$, $10\times$, or $100\times$ the residual norm (0 of 4 documents escape the
-cap at any scale) even though the perturbations visibly alter output content. This is the
+$0.1\times$, $10\times$, or $100\times$ the residual norm (0 of 3 cap-hit positives
+escape the cap at any scale; a fourth, clean-halt control in the same run instead
+collapsed under the patch) even though the perturbations visibly alter output content.
+This is the
 inverse of the steering-success narrative in the single-direction literature: the
 direction is \emph{decodable} (per-class AUC 0.876 to 0.983) without being
 \emph{steerable}. We read this decodable-but-not-steerable gap as \emph{consistent with}
@@ -760,8 +778,10 @@ single-layer perturbations fail to move token count. We are deliberately careful
 last point: all single- and multi-site perturbations we ran returned null at this
 protocol's power, and whether the mechanism is genuinely distributed or the protocol is
 under-powered at the halt-relevant locus is \emph{not resolved} by these data --- the
-mechanism remains unidentified. The verified norm-scaled positive control (0 of 4 escape
-at any scale, content visibly changing) rebuts only the strongest, protocol-is-inert form
+mechanism remains unidentified. The verified norm-scaled positive control (0 of 3 cap-hit
+positives escape at any scale, content visibly changing; a fourth clean-halt control in
+the run instead collapsed under the same patch, a norm-shock signature that blunts rather
+than strengthens the rebuttal) rebuts only the strongest, protocol-is-inert form
 of the under-powered objection; it does not rebut the weaker form, that the protocol
 cannot perturb the halt-relevant direction at the halt-relevant locus. Our load-bearing
 causal evidence is two on-disk-verified single-site nulls (B3 reverse-direction

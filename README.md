@@ -24,7 +24,9 @@ count. We are explicit that this last line is a **null that does not settle the
 mechanism**: all single- and multi-site perturbations we ran returned null at this
 protocol's power, and whether the mechanism is genuinely distributed or the protocol is
 under-powered at the halt-relevant locus is **not resolved** by these data — the mechanism
-remains unidentified. The norm-scaled positive control rebuts only the strongest
+remains unidentified. The norm-scaled positive control (0 of 3 cap-hit positives escape
+the cap; its 4th doc is a clean-halt control that itself collapsed under the patch, a
+norm-shock signature that blunts the rebuttal) rebuts only the strongest
 (protocol-is-inert) form of the under-powered objection, not the weaker form that the
 protocol cannot perturb the halt-relevant direction at the halt-relevant locus. We close
 with an honest production trade-off (a runtime monitor) and causal evidence that vision is

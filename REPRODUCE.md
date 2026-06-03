@@ -362,18 +362,29 @@ characterization claims first (they build the corpus everything else indexes).
 #### CL-36 — Norm-scaled positive control (bounds, but does not eliminate, "protocol under-powered")
 - **Shows:** scaling a single-direction L24 patch to 0.1× / 10× / 100× residual norm
   changes content visibly but never escapes the cap.
-- **Output:** `results/p_poscontrol/_summary.json`
-- **Check:** **0/4** documents escape the 12000-token cap at any scale; content
-  visibly changes (e.g. a prepended Chinese token, `**` formatting noise). The
-  protocol delivers content-altering perturbations but cannot dislodge the halt
-  state.
+- **Output:** `results/p_poscontrol/_summary.json` (labels in `provenance.json` →
+  `manifest_docs`)
+- **Check:** the run held **4 documents but only 3 are cap-hit positives**
+  (`manifest_docs` label `positive`: `docvqa_gjhp0000_p1`, `docvqa_jqbg0227_p1`,
+  `docvqa_srgb0228_p2`, each vanilla = 12000 tokens). **0/3** of those escape the
+  12000-token cap at any scale; content visibly changes (e.g. a prepended Chinese token,
+  `**` formatting noise). The protocol delivers content-altering perturbations but cannot
+  dislodge the halt state. The 4th doc, `table_N005_C04_s05000`, is labeled `control`
+  and is **not** a cap-hit positive — it halts cleanly on its own (vanilla = **477
+  tokens, stop_reason = eos**), so it can never "escape" a cap it never hit and is
+  excluded from the positive tally. Note it as a caution, not support: under the same
+  patch its output **collapsed** (C1_random_10x → **3 tokens**, C3_random_0.1x → **1
+  token**, C2_random_100x → **12000 tokens** of degenerate single-character repetition).
+  That collapse is a norm-shock signature that *weakens* rather than strengthens the
+  protocol-sensitivity rebuttal.
 - **What this does and does not establish:** it rebuts only the *strongest* form of the
   "protocol under-powered" objection — that the protocol is inert. It does **not** rebut
   the weaker, more relevant form: that the protocol cannot perturb the *specific*
   halt-relevant direction at the *specific* halt-relevant locus. A random-direction
-  patch that visibly reorders surface tokens is not evidence that a targeted halt-mechanism
-  patch would have been detectable. Treat it as a sensitivity floor, not a clean
-  refutation of under-power. The mechanism remains unidentified at this protocol's power.
+  patch that visibly reorders surface tokens (or shatters an unrelated clean halt) is not
+  evidence that a targeted halt-mechanism patch would have been detectable. Treat it as a
+  sensitivity floor, not a clean refutation of under-power. The mechanism remains
+  unidentified at this protocol's power.
 
 #### CL-12 — B3 reverse-direction necessity null (READOUT)
 - **Shows:** projecting the halt direction *out* of every position does not lengthen
@@ -514,7 +525,7 @@ This is the part that makes the paper reproducible rather than merely runnable.
 | CL-21 | `results/p4_mirror/H7_cross_layer/_summary.json` | ≥ 0.84 every layer; L16=0.929 |
 | CL-25 | `results/p7b_mirror/PCA_control/_summary.json` | |d| ratio 3.79 / 2.74 / 2.78 |
 | CL-49 | `results/p6_l0_sufficiency/_summary.json` | ΔC1 = 0.0 pp → FAIL |
-| CL-36 | `results/p_poscontrol/_summary.json` | 0/4 escape; content changes |
+| CL-36 | `results/p_poscontrol/_summary.json` | 0/3 cap-hit positives escape; content changes (4th doc is clean-halt control, collapsed under patch) |
 | CL-12 | `results/p2_pilot/b3_reverse_direction_summary.json` | 3/3 ctrl unchanged; READOUT |
 | CL-19/20 | `results/p16_component_resolved_short/_summary.json` | 0/45 real nonzero; FAIL |
 | CL-39 | `results/p97_rebakeoff_boost_magnitudes/boost_6p91/_comparison_table.json` | 37.68%; 0/10 control FP |
