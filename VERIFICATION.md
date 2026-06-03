@@ -44,7 +44,7 @@ Verdict key:
 
 | Claim | Cited (prose) | On disk (correct) | Note |
 |---|---|---|---|
-| "8 converging nulls" | 8 nulls | **6** ({B3,P16,P10b,P19v2,P12 v3,P22}) | "8" only appeared in working prose; claims and manifest say 6 |
+| "six converging nulls" (and the older "8") | 6 / 8 nulls cited as if all verified | **2 verified on disk** (B3, P16) **+ 4 recorded on cluster scratch, not synced** (P10b, P19v2, P12 v3, P22) | Only B3 (`p2_pilot/b3_reverse_direction_summary.json`) and P16 (`p16_component_resolved_short/_summary.json`) reproduce from local `results/`. The other four point to `/scratch/...` proof pointers (SLURM 6884388/6885334/6883131/6885516) with no synced summary. Paper/guide now state "two on-disk-verified single-site nulls plus four further perturbation nulls recorded but not synced"; P16 subsumes CL-19/CL-20 (counted once). "8" was prose-only. |
 | off-target control % | 96.0-99.99% (norm-shock) | 99.99% has **no local source** (was on cluster scratch); 96.0% is from a *different* walked-back experiment (CL-40) | norm figures also inverted vs prose |
 | CL-27 | base ratio 0.96/0.89/0.95; 10/22 base cap-hit | only on-disk base file shows **0.66/0.66/0.80** (superseded P8 v2); 0.96-triple & 10/22 nowhere on disk | *direction* still holds (base < 2.0x) |
 | CL-47 | 11/16 cross-family cap-hits | strict `stop_reason==max_new_tokens` = **10/16**; dir verdict = INSUFFICIENT_DATA | 11th cell = near-cap relabel (InternVL3-8B/funsd_105, stopped 2 tok short) |
@@ -69,8 +69,12 @@ not blockers on the core thesis.
    0/58-real, 13/174-control real-null.
 3. Sync the P18 base-archetype output (CL-27) so the canonical 0.96/0.89/0.95 base triple has
    an on-disk home — or restate CL-27 with the on-disk 0.66/0.66/0.80 numbers.
-4. Decide the converging-null count canonically (6 vs 8) and fix any stray prose to match the
-   claims register (6).
+4. Done — the converging-null count is stated honestly as **two on-disk-verified single-site
+   nulls (B3, P16) plus four further perturbation nulls (P10b, P19v2, P12 v3, P22) recorded on
+   the cluster but not synced**. The paper, README, REPRODUCE, and UNDERSTANDING_GUIDE no longer
+   present a flat "six" as if all six reproduce locally. P16 subsumes CL-19/CL-20 (counted once).
+   To upgrade any of the four to verified, sync its `/scratch/...` `_summary.json` into `results/`
+   and add a CONFIRMED row above before recounting it.
 5. Reconcile CL-47 (11/16 vs 10/16) and CL-13 (8/20 vs 6/16) — either restate with strict
    `stop_reason` counts or document the interpretive relabel rule explicitly.
 6. Fix the "14 classes" title string in the corpus-funnel plot -> 12 populated, and locate or

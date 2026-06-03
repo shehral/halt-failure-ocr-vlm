@@ -384,11 +384,18 @@ characterization claims first (they build the corpus everything else indexes).
   nonzero (controls perturb more); verdict **FAIL** — reproduces the original
   0/58-real, 13/174-control finding.
 
-> **Honest count:** the on-record converging-null count is **six**
-> ({B3, P16, P10b, P19v2, P12-v3, P22}), not eight. The "8 converging nulls" figure
-> is prose-only and unverifiable. The nonzero controls are dominated by `off_layer`
-> norm-shock, so they bound protocol sensitivity rather than localize a mechanism —
-> which is exactly why CL-36's matched-norm positive control is load-bearing.
+> **Honest count:** only **two** of the causal nulls reproduce from local `results/`:
+> **B3** (`p2_pilot/b3_reverse_direction_summary.json`) and **P16**
+> (`p16_component_resolved_short/_summary.json`). The other four perturbation nulls
+> (**P10b** induction-head zero, **P19v2** prompt-engineering, **P12-v3** SAE features,
+> **P22** multi-layer coordinated zero) were run and logged on the cluster but their
+> `_summary.json` files live on `/scratch/...` and were never synced here, so we report
+> them as corroborating-but-unsynced, not as verified. The paper states this as "two
+> on-disk-verified single-site nulls plus four further perturbation nulls recorded but
+> not synced." P16 subsumes CL-19/CL-20 (counted once, not double-counted). The older
+> "8 converging nulls" figure was prose-only. The nonzero controls are dominated by
+> `off_layer` norm-shock, so they bound protocol sensitivity rather than localize a
+> mechanism — which is exactly why CL-36's matched-norm positive control is load-bearing.
 
 ### 4.4 Production fix + vision
 

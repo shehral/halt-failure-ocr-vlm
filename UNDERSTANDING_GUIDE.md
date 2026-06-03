@@ -182,7 +182,7 @@ The lesson: a missing file does **not** become a cited number. It becomes either
 
 Equally important is what was *removed*. The ledger caught several plausible-sounding figures that did not survive a disk check, and the paper either corrected or dropped each:
 
-- **"8 converging nulls" -> 6.** The figure "8" appeared only in prose; the canonical claims record says **six** ({B3, P16, P10b, P19v2, P12 v3, P22}). The paper cites six and flags eight as unverified.
+- **"six converging nulls" -> two verified on disk, four recorded but unsynced.** The earlier "8" was prose-only, and even "six" overstated the on-disk record: only **two** of the causal nulls reproduce from local `results/` — **B3** (`p2_pilot/b3_reverse_direction_summary.json`) and **P16** (`p16_component_resolved_short/_summary.json`). The other four ({P10b, P19v2, P12 v3, P22}) point to `/scratch/...` cluster paths whose summary files were never synced. The paper now states the count as "two on-disk-verified single-site nulls plus four further perturbation nulls recorded on the cluster but not synced," and counts P16 once (it subsumes CL-19/CL-20). This is the honest, disk-accurate restatement of the load-bearing count.
 - **"83.1% reduction, zero false positives."** Did not reproduce on the workshop-sized re-bake-off; walked back entirely and replaced by the operating curve.
 - **The base-model effect-size triple (0.96 / 0.89 / 0.95) and "10/22 base also cap-hit" (CL-27).** Prose-only; the cited cluster path was unsynced, and the only on-disk base file shows a different, superseded triple (0.66 / 0.66 / 0.80). The *direction* still holds (base ratios fall below 2.0x and far below the fine-tune's 2.7 to 3.8x), so the paper keeps the directional claim but refuses to cite the specific triple as fact.
 - **Off-target control reductions of "96.0 to 99.99%" under norm-shock.** The 99.99% figure has no local source; the 96.0% figure comes from a *different*, separately walked-back confounded experiment. Both are excluded from the load-bearing narrative.
@@ -236,7 +236,7 @@ A quick reference tying the headline claims to their verification status. "Confi
 | CL-19/20 | Component-resolved patch: 0/45 real-patch reductions (FAIL) | confirmed (regenerated) |
 | CL-09e | Attention-mass collapse in halt band | preliminary (N=1 vs N=1) |
 | CL-27 | Base-model effect-size triple | directional only (specific triple not on disk) |
-| "8 nulls" | Converging-null count | stale: correct value is 6 |
+| "six nulls" | Causal-null count | restated: 2 verified on disk (B3, P16), 4 recorded on cluster but unsynced (P10b, P19v2, P12 v3, P22) |
 | 56 / 12 corpus | Positive set size and populated classes | confirmed (the older 14 / 45 / 49 figures are stale) |
 
 ---
@@ -277,9 +277,9 @@ Replacing the image with grey noise collapses every tested runaway document to a
 
 It did not reproduce on the workshop-sized re-bake-off, so claiming it would have been dishonest. It was replaced by an explicit precision-recall trade-off: at a +6.91 boost the monitor gives 37.68% reduction with 0 of 10 control false positives (clean specificity), while at a +30 boost it gives 99.58% reduction but 10 of 10 control false positives (catastrophic). The honest contribution is the operating curve, not a single magic number.
 
-**Q9. Why does the project report "six converging nulls" rather than "eight," and what does this tell you about how it handles its own prose?**
+**Q9. Why does the project report "two verified causal nulls plus four unsynced" rather than a flat "six," and what does this tell you about how it handles its own prose?**
 
-Because the figure "eight" appeared only in informal prose, while the canonical claims record lists exactly six nulls ({B3, P16, P10b, P19v2, P12 v3, P22}). The verification pass caught the discrepancy and the paper cites six, flagging eight as unverified. It tells you the project treats its own narrative as something to audit against data, not as a source of truth, which is the same discipline applied to every headline number.
+Because only two of the causal nulls actually reproduce from local data files — B3 reverse-direction project-out (`p2_pilot/b3_reverse_direction_summary.json`, READOUT) and the P16 component-resolved grid (`p16_component_resolved_short/_summary.json`, FAIL, 0/45 real-patch). The other four ({P10b, P19v2, P12 v3, P22}) were run and logged on the cluster, but their `_summary.json` files live on `/scratch/...` and were never synced to this repository, so the project cannot verify them here. An earlier draft said "eight," a later one said "six"; the disk-accurate statement is "two on-disk-verified single-site nulls plus four further perturbation nulls recorded but not synced," with P16 counted once (it subsumes CL-19/CL-20). It tells you the project treats its own narrative as something to audit against data — and downgrades even a load-bearing count when the files behind it are not on disk — rather than as a source of truth.
 
 **Q10. The corpus is 56 positives across 12 classes and is selection-biased. Why is the selection bias acceptable for the mechanism claims but not for base-rate claims?**
 

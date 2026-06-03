@@ -378,10 +378,30 @@ positive control above is our best evidence that the protocol has real sensitivi
   \label{fig:p16_component}
 \end{figure}
 
-Accordingly we state the on-record count as six converging nulls. We carry the
-norm-shock caveat openly (Section~\ref{sec:limitations}): some off-target controls
-reduce length by large amounts under norm-shock, which makes ``the controls themselves
-are suspect'' a live alternative to ``the protocol is under-powered.''
+Accordingly, our load-bearing causal evidence is \emph{two on-disk-verified single-site
+nulls} plus a set of further perturbation nulls recorded on the cluster but not yet synced
+to local data files. The two verified nulls are exactly the ones reproduced above:
+
+\begin{enumerate}
+  \item \textbf{B3, reverse-direction project-out null} (necessity; READOUT verdict; 3/3
+  controls unchanged, positive pinned at the cap, project-out hook confirmed to fire);
+  \item \textbf{P16, component-resolved patch grid} (necessity; FAIL verdict; 0/45
+  real-patch cells reduce length, 9/134 control cells do). P16 subsumes the earlier
+  component claims CL-19 and CL-20 and is counted once here, not as two separate nulls.
+\end{enumerate}
+
+These two are independent perturbation classes (project-out of a single direction versus
+forward-patching of resolved components), and each carries its own positive or control
+evidence, so they are not a single test reported twice. Four further perturbation nulls in
+the same family --- induction-head zeroing, prompt-engineering counterfactuals, SAE-feature
+ablation, and a multi-layer coordinated zero-patch --- were run and logged on the cluster
+but their summary files live on cluster scratch and were not synced to this repository; we
+therefore do not count them as verified here and treat them only as corroborating, unsynced
+evidence. We previously summarized the full set as ``six converging nulls''; we restate it
+as \emph{two verified plus further unsynced} to keep the on-disk count honest. We carry the
+norm-shock caveat openly (Section~\ref{sec:limitations}): some off-target controls reduce
+length by large amounts under norm-shock, which makes ``the controls themselves are
+suspect'' a live alternative to ``the protocol is under-powered.''
 
 % ===========================================================================
 \section{Cross-family generality}
@@ -623,13 +643,18 @@ than a clean single-direction fix.
 We state the walk-backs plainly because they are part of the contribution.
 
 \begin{enumerate}
-  \item \textbf{Necessity evidence is verified but bounded by sensitivity.} Both the
+  \item \textbf{Necessity evidence is two verified nulls plus unsynced corroboration.}
+  Two single-site nulls reproduce from data files in this repository: the
   reverse-direction project-out null (readout verdict, controls unchanged, positive
   pinned at the cap, project-out hook confirmed to fire) and the component-resolved patch
-  grid (0 of 45 real-patch reductions) reproduce from data files. The residual caveat is
-  sensitivity, not verification: the nonzero control patches are mostly off-layer
-  norm-shock, so the converging nulls establish ``single-site perturbation does not move
-  halting at this protocol's power,'' not a fully exhaustive causal search.
+  grid (0 of 45 real-patch reductions; subsumes CL-19/CL-20). Four further perturbation
+  nulls in the same family --- induction-head zeroing, prompt-engineering counterfactuals,
+  SAE-feature ablation, and multi-layer coordinated zero-patch --- were run and logged on
+  the cluster, but their summary files were not synced here, so we treat them as
+  corroborating rather than verified and do not count them as load-bearing. The residual
+  caveat on the two verified nulls is sensitivity, not verification: the nonzero control
+  patches are mostly off-layer norm-shock, so they establish ``single-site perturbation
+  does not move halting at this protocol's power,'' not a fully exhaustive causal search.
 
   \item \textbf{Norm-shock makes some off-target controls suspect.} Off-target controls
   that reduce length by large amounts under norm-shock mean ``the controls are suspect''
@@ -676,7 +701,10 @@ logit $+10.76$ exceeding a control's $+10.07$); EOS is genuinely missing at loop
 (median rank roughly 10{,}502); and a converging series of single-direction and
 single-layer perturbations fail to move token count, with the verified norm-scaled
 positive control (0 of 4 escape at any scale, content visibly changing) rebutting the
-under-powered-protocol objection. We report the on-record null count as six and present a
+under-powered-protocol objection. Our load-bearing causal evidence is two on-disk-verified
+single-site nulls (B3 reverse-direction project-out and the P16 component-resolved grid, the
+latter subsuming CL-19/CL-20), plus four further perturbation nulls recorded on the cluster
+but not yet synced to local data files. We present a
 deployable production monitor with an explicit precision-recall trade-off (37.68\%
 reduction at zero control false-positives, or 99.58\% at 10 of 10 false-positives) plus
 causal evidence that vision is load-bearing. The walk-backs are part of the result:

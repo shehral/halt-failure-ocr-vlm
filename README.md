@@ -35,7 +35,7 @@ causal evidence that vision is load-bearing.
 | Component-resolved FCCT patch (CL-19/20) | verified on disk |
 | Runtime monitor trade-off (CL-39 / CL-48) | verified on disk |
 | Vision sufficiency / inpaint (CL-11) | verified on disk |
-| Converging-null count (canonical = 6) | corrected; see VERIFICATION.md |
+| Causal nulls: B3 + P16 verified on disk; P10b/P19v2/P12v3/P22 recorded on cluster, not synced | 2 verified + 4 unsynced; see VERIFICATION.md |
 | Cross-family counts (CL-47 / CL-13) | pending re-run; see VERIFICATION.md |
 
 See [VERIFICATION.md](VERIFICATION.md) for the full claim-to-number-to-result-file ledger,
