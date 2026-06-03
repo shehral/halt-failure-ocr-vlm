@@ -125,7 +125,7 @@ A subtle but central reframe. EOS is **not** suppressed in an absolute sense. Th
 
 ### Pre-registration and block-shuffle null
 
-**Pre-registration** means the numeric PASS threshold for a test is fixed *before* the validating run (e.g., the L0 sufficiency test pre-registers "PASS = at least a 40 percentage-point cap-hit increase"). This prevents post-hoc goalpost-moving. The **block-shuffle null** is a significance test for autocorrelated sequence data: you shuffle in blocks of size B (here B = 5, 10, 20) to build a null distribution. The conservative B=20 block is the load-bearing one because it respects the longest autocorrelation. All three block sizes are persisted on disk (`results/p2_pilot/round2_block_shuffle_null_B{5,10,20}.json`); each puts layers 20 and 24 at p=0.0033. Only layers 20 and 24 survive Bonferroni correction for the cross-document probe (claim **CL-05e**).
+**Pre-registration** means the numeric PASS threshold for a test is fixed *before* the validating run (e.g., the L0 sufficiency test pre-registers "PASS = at least a 40 percentage-point cap-hit increase"). This prevents post-hoc goalpost-moving. The **block-shuffle null** is a significance test for autocorrelated sequence data: you shuffle in blocks of size B (here B = 5, 10, 20) to build a null distribution. The conservative B=20 block is the load-bearing one because it respects the longest autocorrelation. All three block sizes are persisted on disk (`results/p2_pilot/round2_block_shuffle_null_B{5,10,20}.json`); each puts layers 20 and 24 at p=0.0033. That p=0.0033 is **not a measured separation** — it is the **resolution floor** of the test, `1/(N_perm+1) = 1/301` at N_perm=300. It means the observed AUC beat *all* 300 block-shuffled permutations (an exceedance count of 0), so the honest reading is **p <= 0.0033**; resolving a tighter value below the 0.005 Bonferroni threshold would need a re-run at larger N_perm. Only layers 20 and 24 clear the Bonferroni threshold of 0.005 for the cross-document probe at B=20 (claim **CL-05e**).
 
 ---
 
@@ -141,7 +141,7 @@ The stable confirmed corpus, per the on-disk index, is **56 positives spanning 1
 
 ### Localize: probe, then triangulate
 
-With a confirmed set, *localize* the signal. Linear probes showed halt-failure is linearly decodable at every layer (leave-one-document-out AUC at or above 0.84 at every layer; cross-doc AUC of 0.894 at layer 24, B=20 block-shuffle null p=0.0033, only layers 20 and 24 surviving Bonferroni). Logit-lens triangulation located the late "should-halt" signal at layer 24. The block-contribution decomposition showed the filled-cell halt feature is *built* at layer 20 and *read* at layer 24. So far, correlational localization: where the signal is strongest, where it is built and read.
+With a confirmed set, *localize* the signal. Linear probes showed halt-failure is linearly decodable at every layer (leave-one-document-out AUC at or above 0.84 at every layer; cross-doc AUC of 0.894 at layer 24, B=20 block-shuffle null p<=0.0033 — the 1/301 resolution floor at N_perm=300, i.e. the observed AUC beat all 300 permutations, not a finer measured separation — only layers 20 and 24 clearing the 0.005 Bonferroni threshold). Logit-lens triangulation located the late "should-halt" signal at layer 24. The block-contribution decomposition showed the filled-cell halt feature is *built* at layer 20 and *read* at layer 24. So far, correlational localization: where the signal is strongest, where it is built and read.
 
 ### Walk-backs: the causal tests that failed
 
@@ -224,7 +224,7 @@ A quick reference tying the headline claims to their verification status. "Confi
 | CL-49 | L0 sufficiency injection = 0.0 pp change (FAIL vs 40 pp pre-reg) | confirmed |
 | CL-36 | Norm-scaled positive control: 0/4 escape cap at any scale; content visibly changes | confirmed |
 | CL-16 | Logit-lens EOS gap most negative at L24 (-0.419), flips positive by L32 (+0.481) | confirmed |
-| CL-05e | L24 cross-doc AUC 0.894; B=20 null p=0.0033; only L20+L24 Bonferroni-significant | confirmed |
+| CL-05e | L24 cross-doc AUC 0.894; B=20 null p<=0.0033 (=1/301 floor at N_perm=300, exceedance count 0, not a measured separation); only L20+L24 clear Bonferroni 0.005 | confirmed |
 | CL-22 | EOS median rank ~10,502 at loop onset (genuinely missing) | confirmed |
 | CL-50 | Filled-cell halt direction built at L20, read at L24 | confirmed |
 | CL-11 | Grey-noise inpaint collapses runaways to 13 to 18 token EOS halts (vision causal) | confirmed |

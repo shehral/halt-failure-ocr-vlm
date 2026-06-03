@@ -320,8 +320,12 @@ characterization claims first (they build the corpus everything else indexes).
 - **Shows:** halt detection is distributed across L12–L24, not localized.
 - **Output:** `results/p3_full_probe/full_probe_results.json` (CL-05e),
   `results/p4_mirror/H7_cross_layer/_summary.json` (CL-21)
-- **Check (CL-05e):** L24 LODO AUC **0.894**; B=20 block-shuffle **p = 0.0033**;
-  only L20 + L24 Bonferroni-significant.
+- **Check (CL-05e):** L24 LODO AUC **0.894**; B=20 block-shuffle **p = 0.0033**,
+  which is the **resolution floor** `1/(N_perm+1) = 1/301` at **N_perm = 300** (the
+  observed AUC beat all 300 block-shuffled permutations, exceedance count 0) — read it
+  as **p <= 0.0033**, not a finer measured separation; a tighter floor below the 0.005
+  Bonferroni threshold needs a re-run at larger N_perm. Only **L20 + L24** clear the
+  Bonferroni threshold of 0.005 at B=20.
 - **Check (CL-21):** per-layer LODO AUC **≥ 0.84 every layer**; L16 = 0.929 edges
   L24 = 0.914 (N=22).
 
@@ -459,7 +463,10 @@ This is the part that makes the paper reproducible rather than merely runnable.
    with Bonferroni correction; B=20 is the autocorrelation-conservative,
    load-bearing block size. The three nulls are persisted at
    `results/p2_pilot/round2_block_shuffle_null_B{5,10,20}.json` (each gives
-   layers 20 and 24 p=0.0033).
+   layers 20 and 24 p=0.0033). That p=0.0033 is the resolution floor
+   `1/(N_perm+1) = 1/301` at N_perm=300 — the observed AUC beat all 300
+   permutations (exceedance count 0) — so read it as p<=0.0033, not a measured
+   separation; only L20 and L24 clear the Bonferroni threshold of 0.005 at B=20.
 
 ---
 
@@ -475,7 +482,7 @@ This is the part that makes the paper reproducible rather than merely runnable.
 | CL-50 | `results/fcct_refresh/per_class_block_contribution_aggregate.csv` | +0.042 @ L20 vs −0.010 @ L24 |
 | CL-16 | `results/p3_logit_lens/_summary.json` | L24=−0.419 → L32=+0.481, L35=+0.336 |
 | CL-22 | `results/p6_mirror/B_calib_onset/_summary.json` | median rank ≈ 10,502; 0.9% top-5 |
-| CL-05e | `results/p3_full_probe/full_probe_results.json` | AUC 0.894; B=20 p=0.0033 |
+| CL-05e | `results/p3_full_probe/full_probe_results.json` | AUC 0.894; B=20 p<=0.0033 (=1/301 floor at N_perm=300); only L20+L24 clear Bonferroni 0.005 |
 | CL-21 | `results/p4_mirror/H7_cross_layer/_summary.json` | ≥ 0.84 every layer; L16=0.929 |
 | CL-25 | `results/p7b_mirror/PCA_control/_summary.json` | |d| ratio 3.79 / 2.74 / 2.78 |
 | CL-49 | `results/p6_l0_sufficiency/_summary.json` | ΔC1 = 0.0 pp → FAIL |

@@ -166,7 +166,14 @@ before the run (for example, the L0 sufficiency test pre-registers a $\geq 40$
 percentage-point cap-hit increase as the PASS criterion). Significance for the
 cross-document probe uses a block-shuffle null at multiple block sizes ($B = 5, 10,
 20$) with Bonferroni correction, the conservative $B = 20$ block size being the
-load-bearing one for autocorrelation.
+load-bearing one for autocorrelation. We ran $N_{\mathrm{perm}} = 300$ permutations,
+so the reported $p = 0.0033$ is the resolution floor $1/(N_{\mathrm{perm}} + 1) =
+1/301$: it records that the observed AUC exceeded every one of the 300 block-shuffled
+permutations, an exceedance count of 0, not a finer measured separation. We therefore
+read it as ``$p \le 0.0033$'' rather than an exact value, and note that a tighter
+floor below the $0.005$ Bonferroni threshold would require a re-run at larger
+$N_{\mathrm{perm}}$. Under this conservative $B = 20$ null only layers 20 and 24 clear
+the Bonferroni threshold of $0.005$ across the ten probed layers.
 
 % ===========================================================================
 \section{Mechanism findings}
