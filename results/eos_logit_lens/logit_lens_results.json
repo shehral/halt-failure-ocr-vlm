@@ -1,0 +1,239 @@
+{
+  "summaries_by_doc": {
+    "docvqa_kshm0227_p6": {
+      "16": {
+        "n_positions": 1000,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 74793.633,
+        "mean_eos_prob": 1.341479247685129e-07,
+        "loop_start_in_gen": 512,
+        "pre_loop_eos_top10": [
+          0,
+          512
+        ],
+        "loop_eos_top10": [
+          0,
+          488
+        ],
+        "pre_loop_eos_prob": 1.6173584072021185e-07,
+        "loop_eos_prob": 1.0520322035745266e-07
+      },
+      "24": {
+        "n_positions": 1000,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 73859.842,
+        "mean_eos_prob": 1.5962601196406467e-07,
+        "loop_start_in_gen": 512,
+        "pre_loop_eos_top10": [
+          0,
+          512
+        ],
+        "loop_eos_top10": [
+          0,
+          488
+        ],
+        "pre_loop_eos_prob": 1.9975162501850718e-07,
+        "loop_eos_prob": 1.1752700146416828e-07
+      },
+      "28": {
+        "n_positions": 1000,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 67454.533,
+        "mean_eos_prob": 1.3656961073138518e-07,
+        "loop_start_in_gen": 512,
+        "pre_loop_eos_top10": [
+          0,
+          512
+        ],
+        "loop_eos_top10": [
+          0,
+          488
+        ],
+        "pre_loop_eos_prob": 1.763351349381992e-07,
+        "loop_eos_prob": 9.484838159323772e-08
+      },
+      "35": {
+        "n_positions": 1000,
+        "eos_in_top1": 0,
+        "eos_in_top10": 1,
+        "eos_in_top100": 8,
+        "mean_eos_rank": 25875.668,
+        "mean_eos_prob": 1.0571745434617696e-07,
+        "loop_start_in_gen": 512,
+        "pre_loop_eos_top10": [
+          1,
+          512
+        ],
+        "loop_eos_top10": [
+          0,
+          488
+        ],
+        "pre_loop_eos_prob": 1.953280559519044e-07,
+        "loop_eos_prob": 1.1699800239739488e-08
+      }
+    },
+    "docvqa_srgb0228_p2": {
+      "16": {
+        "n_positions": 1999,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 78515.48174087044,
+        "mean_eos_prob": 1.0513944204149084e-07,
+        "loop_start_in_gen": 1065,
+        "pre_loop_eos_top10": [
+          0,
+          1065
+        ],
+        "loop_eos_top10": [
+          0,
+          934
+        ],
+        "pre_loop_eos_prob": 1.3906476681313507e-07,
+        "loop_eos_prob": 6.645584704756402e-08
+      },
+      "24": {
+        "n_positions": 1999,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 89032.18409204602,
+        "mean_eos_prob": 7.719032169006823e-08,
+        "loop_start_in_gen": 1065,
+        "pre_loop_eos_top10": [
+          0,
+          1065
+        ],
+        "loop_eos_top10": [
+          0,
+          934
+        ],
+        "pre_loop_eos_prob": 1.2396453996643686e-07,
+        "loop_eos_prob": 2.3855694308849706e-08
+      },
+      "28": {
+        "n_positions": 1999,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 79871.12856428215,
+        "mean_eos_prob": 6.699806931464991e-08,
+        "loop_start_in_gen": 1065,
+        "pre_loop_eos_top10": [
+          0,
+          1065
+        ],
+        "loop_eos_top10": [
+          0,
+          934
+        ],
+        "pre_loop_eos_prob": 8.760812164609888e-08,
+        "loop_eos_prob": 4.3497287549598695e-08
+      },
+      "35": {
+        "n_positions": 1999,
+        "eos_in_top1": 0,
+        "eos_in_top10": 5,
+        "eos_in_top100": 19,
+        "mean_eos_rank": 16409.09404702351,
+        "mean_eos_prob": 9.074705303646624e-05,
+        "loop_start_in_gen": 1065,
+        "pre_loop_eos_top10": [
+          5,
+          1065
+        ],
+        "loop_eos_top10": [
+          0,
+          934
+        ],
+        "pre_loop_eos_prob": 0.00017033143376465887,
+        "loop_eos_prob": 4.090044691817951e-10
+      }
+    },
+    "docvqa_pgjw0227_p5": {
+      "16": {
+        "n_positions": 1681,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 80609.10707911957,
+        "mean_eos_prob": 8.41716740751508e-08,
+        "loop_start_in_gen": 367,
+        "pre_loop_eos_top10": [
+          0,
+          367
+        ],
+        "loop_eos_top10": [
+          0,
+          1314
+        ],
+        "pre_loop_eos_prob": 1.6453675755201402e-07,
+        "loop_eos_prob": 6.172571431761753e-08
+      },
+      "24": {
+        "n_positions": 1681,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 79982.89351576443,
+        "mean_eos_prob": 1.0166771602371227e-07,
+        "loop_start_in_gen": 367,
+        "pre_loop_eos_top10": [
+          0,
+          367
+        ],
+        "loop_eos_top10": [
+          0,
+          1314
+        ],
+        "pre_loop_eos_prob": 2.441283299958741e-07,
+        "loop_eos_prob": 6.18784739003786e-08
+      },
+      "28": {
+        "n_positions": 1681,
+        "eos_in_top1": 0,
+        "eos_in_top10": 0,
+        "eos_in_top100": 0,
+        "mean_eos_rank": 81040.9720404521,
+        "mean_eos_prob": 1.0534189698319096e-07,
+        "loop_start_in_gen": 367,
+        "pre_loop_eos_top10": [
+          0,
+          367
+        ],
+        "loop_eos_top10": [
+          0,
+          1314
+        ],
+        "pre_loop_eos_prob": 1.7885849956655875e-07,
+        "loop_eos_prob": 8.480872537575124e-08
+      },
+      "35": {
+        "n_positions": 1681,
+        "eos_in_top1": 1,
+        "eos_in_top10": 2,
+        "eos_in_top100": 459,
+        "mean_eos_rank": 9107.75490779298,
+        "mean_eos_prob": 0.0005944898002780974,
+        "loop_start_in_gen": 367,
+        "pre_loop_eos_top10": [
+          0,
+          367
+        ],
+        "loop_eos_top10": [
+          2,
+          1314
+        ],
+        "pre_loop_eos_prob": 1.4956106042518513e-06,
+        "loop_eos_prob": 0.0007601129473187029
+      }
+    }
+  },
+  "figure": "docs/figures/logit_lens_eos_prob.png"
+}

@@ -86,3 +86,46 @@ not just the Nanonets fine-tune.
 
 All numbers here were re-checked against disk during the verification pass; see the project
 `VERIFICATION.md` for the full ledger.
+
+## Addendum batch — bifurcation, residual-norm null, early-commitment
+
+Three further artifacts were shipped to back the layer-35 EOS bifurcation, the residual-norm
+null, and the early-commitment finding. Each was sanitized for public release (the one absolute
+cluster path in `norm_vs_projection/_summary.json::_meta.halt_direction_path` was replaced with a
+`<placeholder>` token; the other two files contained no cluster identifiers). The public model id,
+dataset names, layer indices, and claim IDs are preserved.
+
+**L35 P(EOS) bifurcation (the "EOS is suppressed late, and the gap opens at the final layer"
+claim).** `eos_logit_lens/logit_lens_results.json` holds the per-doc logit-lens EOS readout at
+layers 16/24/28/35 over three cap-hit docs. It shows the EOS rank/probability stays in the
+1e-7 to 1e-8 floor through L16-L28 and only at **L35** does EOS climb into the top-10/top-100 with
+mean EOS-prob jumping by 3-4 orders of magnitude on some docs (e.g. `pgjw0227_p5` L35
+mean_eos_prob 5.9e-4 and 459/1681 positions with EOS in top-100, vs ~1e-7 at L16-L28). The
+bifurcation is **between pre-loop and in-loop** positions: at L35, `srgb0228_p2` carries
+pre_loop_eos_prob 1.7e-4 but loop_eos_prob 4.1e-10 — the EOS signal that exists pre-loop is
+crushed once the loop engages. This is the source for the L35 P(EOS) bifurcation claim.
+
+**Residual-norm null (the "runaway is repetition-driven, not residual-norm-driven" claim).**
+`norm_vs_projection/_summary.json` decomposes, per doc, the correlation of the halt direction
+against (a) residual-stream norm and (b) a repetition-density (rd) feature, pre-loop vs in-loop.
+Residual norm does **not** grow into the loop (norm_growth_factor 0.90-0.97, i.e. norm slightly
+*shrinks*) and norm-vs-halt correlations are weak/negative (corr_norm_halt_full -0.24 to -0.54),
+while repetition-density-vs-halt correlations are strong and positive (corr_rd_halt_full
+0.74-0.90). Per-doc verdicts are REPETITION-DRIVEN ×2 / MIXED ×1 (modal REPETITION-DRIVEN). This
+is the residual-norm null: the halt signal tracks repetition density, not a growing residual norm.
+
+**Early commitment (the "cap-hit decision is detectable within the first ~50 generated tokens"
+claim).** `seq_init_probe/_summary.json` is the multi-layer sequence-initiation probe: leave-one-out
+AUC for a cap-hit-vs-control probe at 10 layers × 6 generation positions (gen-pos 50-800, N=12-16).
+The pre-registered verdict is **PASS** — cap-hit is detectable as early as **gen-pos 50 at L24
+(AUC 0.857)**, well before the gen-pos ~600 PCA transition, which is the visible *consequence* not
+the cause. This substantiates the early-commitment claim and the "first-50-tokens monitor at L24"
+production implication.
+
+### Addendum file index
+
+| Claim backed | Subdir / file | Role |
+|---|---|---|
+| L35 P(EOS) bifurcation | `eos_logit_lens/logit_lens_results.json` | per-doc logit-lens EOS rank/prob at L16/24/28/35 |
+| Residual-norm null (repetition-driven) | `norm_vs_projection/_summary.json` | per-doc norm-vs-rep correlation decomposition |
+| Early commitment (detectable by gen-pos 50) | `seq_init_probe/_summary.json` | multi-layer × multi-gen-pos LOO-AUC probe (verdict PASS) |
