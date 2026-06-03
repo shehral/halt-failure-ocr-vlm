@@ -519,8 +519,8 @@ late to override an already-committed continuation state. Where a single probe d
 is implicated, sparse-autoencoder decomposition
 \citep{bricken2023monosemanticity,saelens2024,park2025save} is the natural next step to
 ask whether it factors into interpretable sub-features, and we leave this to future work;
-the perturbations we do run rely on standard intervention tooling
-\citep{pyvene2024,nnsight2024}. To ask whether the signature is introduced by fine-tuning we
+the perturbations we do run are implemented as direct PyTorch forward hooks
+following the intervention-API conventions of \citep{pyvene2024,nnsight2024}. To ask whether the signature is introduced by fine-tuning we
 draw on the differential base-versus-fine-tune comparison vocabulary of feature
 crosscoders \citep{dfc2025}; the verified PCA crossover signature (pos/ctl Cohen's-d
 ratio 3.79 / 2.74 / 2.78 at L16 / L20 / L24, all exceeding a pre-registered $2.0\times$
